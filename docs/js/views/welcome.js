@@ -1,9 +1,16 @@
 DM.renderers.welcome = function (el) {
   const { card, wl } = DM.data;
 
+  const problems = [
+    ['🔍', 'Too many companies, too little time.', '1,065 listed companies file every quarter — no realistic way to read every balance sheet by hand.'],
+    ['📉', 'Distress hides across ratios, not in one.', 'Deterioration usually shows up as a pattern across several indicators and their year-on-year change, not a single red flag.'],
+    ['⚖️', 'Classical tools miss cases too.', "The Altman Z''-Score, the standard benchmark, is useful but far from complete — it misses genuine distress cases of its own."],
+    ['🎯', 'Attention is the scarce resource.', "Every false alarm chased down is time not spent on a company that's actually at risk."],
+  ];
+
   const who = [
     ['📈', 'Investors & analysts.', 'A triage aid for deciding which of 1,065 companies to look at first — not a buy/sell signal, and not a substitute for reading the actual financials.'],
-    ['🏦', 'Credit & risk teams.', "A second opinion alongside the Altman Z''-Score, with every flag traceable to the specific indicators that drove it (SHAP), so it can be argued for or against in a credit file."],
+    ['🏦', 'Credit & risk teams.', "A second opinion alongside the classical <span style=\"white-space:nowrap;\">Altman Z''-Score</span>, with every flag traceable to the specific indicators that drove it (SHAP), so it can be argued for or against in a credit file."],
     ['🎓', 'Students & RL enthusiasts.', "A worked, honestly-reported example of applying reinforcement learning to a real, small, severely imbalanced dataset — including what didn't work and why."],
   ];
 
@@ -22,10 +29,10 @@ DM.renderers.welcome = function (el) {
   el.innerHTML = `
     <div class="dm-hero">
       <div class="dm-eyebrow">Bursa Distress Monitor</div>
-      <h1>Know which Bursa Malaysia companies deserve a second look.</h1>
+      <h1>Know which <span class="accent">Bursa Malaysia</span> companies deserve a <span class="accent">second look</span>.</h1>
       <p>A reinforcement-learning early-warning system for corporate financial distress (PN17/GN3
-      classification), benchmarked against the classical Altman&nbsp;Z''-Score — built as a research
-      artefact, not a trading or lending tool.</p>
+      classification), benchmarked against the classical <span style="white-space:nowrap;">Altman
+      Z''-Score</span> — built as a research artefact, not a trading or lending tool.</p>
       <div class="dm-pillrow" id="hero-pills"></div>
     </div>
 
@@ -34,6 +41,18 @@ DM.renderers.welcome = function (el) {
       <div class="dm-stat-big"><b>${sectors}</b><div class="lbl">Sectors</div><div class="cap">Full coverage</div></div>
       <div class="dm-stat-big"><b>${card.watchlist_flagged}</b><div class="lbl">Flagged</div><div class="cap">${card.watchlist_flagged_true} genuine · ${card.watchlist_flagged_false} false alarm</div></div>
       <div class="dm-stat-big"><b>${DM.fmtPct(card.test_recall, 0)}</b><div class="lbl">Recall</div><div class="cap">at calibrated threshold</div></div>
+    </div>
+
+    <h3 class="dm-section-gap">Why this matters</h3>
+    <p class="dm-caption">The problem a single Altman Z-Score or a spreadsheet full of ratios doesn't solve on its own.</p>
+    <div class="dm-card-grid cols-4">
+      ${problems.map(([icon, title, desc]) => `
+        <div class="dm-card" style="margin-bottom:0;">
+          <div style="font-size:1.5rem; margin-bottom:.6rem;">${icon}</div>
+          <div style="font-weight:700; margin-bottom:.4rem;">${title}</div>
+          <div style="font-size:.88rem; color:var(--ink-soft); line-height:1.5;">${desc}</div>
+        </div>
+      `).join('')}
     </div>
 
     <div style="max-width:820px;margin:0 auto;">

@@ -30,7 +30,7 @@ img{ max-width:100%; }
   padding:1rem 2.4rem; border-bottom:1px solid var(--line); background:var(--bg);
 }
 .dm-brand{ display:flex; align-items:center; gap:.4rem; font-size:1.2rem; font-weight:700; letter-spacing:-0.01em; white-space:nowrap; }
-.dm-brand .accent{ color:var(--blue); }
+.accent{ color:var(--blue); }
 
 .dm-nav{ display:flex; align-items:center; gap:1.7rem; flex-wrap:wrap; }
 .dm-nav button{
