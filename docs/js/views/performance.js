@@ -1,6 +1,7 @@
 DM.renderers.performance = function (el) {
   const { metrics, card } = DM.data;
   const cm = metrics.confusion;
+  const positiveRate = card.test_positives / card.test_rows;
 
   el.innerHTML = `
     <div class="dm-eyebrow">Model evaluation</div>
@@ -23,8 +24,9 @@ DM.renderers.performance = function (el) {
 
     <div class="dm-banner dm-banner-warning">
       <b>Accuracy is misleading here — don't lean on it.</b> Only ${card.test_positives} of
-      ${card.test_rows.toLocaleString()} held-out rows are genuinely distressed (0.5%), so a model that flags
-      nothing at all would already score 99.5% accuracy. ROC-AUC and PR-AUC are the numbers that actually
+      ${card.test_rows.toLocaleString()} held-out rows are genuinely distressed (${DM.fmtPct(positiveRate, 2)}),
+      so a model that flags nothing at all would already score ${DM.fmtPct(1 - positiveRate, 2)} accuracy.
+      ROC-AUC and PR-AUC are the numbers that actually
       measure ranking quality on this imbalanced problem — and <b>PR-AUC (${DM.fmtNum(metrics.pr_auc, 3)}) is
       the honest one</b>: it stays low precisely because true positives are so rare, which is the correct
       picture for this task, not a modelling failure to hide.
