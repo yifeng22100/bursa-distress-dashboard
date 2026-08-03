@@ -25,38 +25,42 @@ TEAM = sorted(["Tan Yi Feng", "Jeremy Choong Ming", "Tan Yan Sheng"])
 st.set_page_config(page_title="Bursa Distress Monitor", page_icon="⚠️", layout="wide",
                     initial_sidebar_state="collapsed")
 
-# ---------------------------------------------------------------- Apple-style design system
+# ---------------------------------------------------------------- design system
+# Font: Google Sans isn't distributable as a web font (proprietary to Google products), so it's
+# listed first for the rare viewer who has it installed system-wide (ChromeOS/Android), then
+# falls back to Roboto — Google's actual open-source sister typeface, loaded from Google Fonts,
+# which is what almost every viewer will actually see.
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 :root{
-  --bg:#F5F5F7; --card:#FFFFFF; --ink:#1D1D1F; --ink-soft:#6E6E73;
+  --bg:#FFFFFF; --card:#FFFFFF; --ink:#1D1D1F; --ink-soft:#6E6E73;
   --line:#E5E5EA; --blue:#0071E3; --red:#FF3B30; --orange:#FF9500;
   --green:#34C759; --gold:#B8860B;
   --primary-color:#0071E3;
 }
 html, body, [class*="css"]{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",
+  font-family:"Google Sans","Google Sans Text",Roboto,-apple-system,BlinkMacSystemFont,
               "Helvetica Neue",Arial,sans-serif !important;
   color:var(--ink);
 }
 .stApp{ background:var(--bg); }
-.block-container{ max-width:1200px; }
+.block-container{ max-width:1200px; padding-top:0 !important; }
 
-/* ---- masthead + stat band ---- */
-/* Deliberately NOT sticky / no negative top margin: an earlier version fought Streamlit's own
-   header/toolbar chrome for the same vertical slot and got hidden underneath it. Only bleeds
-   left/right (safe), never up, so it can never slide under host chrome again. */
+/* ---- masthead + nav: one continuous flat bar, plain-text underline nav — matches the
+   author's other dashboards (hospital-intelligence-my, malaysia-election-sentiment) rather
+   than the boxed-pill segmented control used in the first draft ---- */
 .dm-masthead{
-  background:var(--card); border:1px solid var(--line); border-radius:16px 16px 0 0;
-  border-bottom:none; margin:0 0 0 0; padding:1rem 1.5rem .85rem 1.5rem;
+  background:var(--card); border-bottom:1px solid var(--line);
+  margin:0 -1rem 0 -1rem; padding:1.1rem 1.6rem .7rem 1.6rem;
 }
 .dm-header-row{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.9rem 1.6rem;}
-.dm-brand{ font-size:1.32rem; font-weight:700; letter-spacing:-0.01em; color:var(--ink); }
+.dm-brand{ font-size:1.4rem; font-weight:900; letter-spacing:-0.01em; color:var(--ink); }
 .dm-brand span{ color:var(--blue); }
-.dm-tagline{ font-size:.82rem; color:var(--ink-soft); margin-top:.15rem; }
+.dm-tagline{ font-size:.8rem; color:var(--ink-soft); margin-top:.1rem; }
 .dm-statband{
-  background:#F0F0F2; border:1px solid var(--line); border-top:none; border-radius:0 0 16px 16px;
-  margin:0 0 1.2rem 0; padding:.9rem 1.5rem; display:flex; align-items:center;
+  background:#F7F7F8; border-bottom:1px solid var(--line);
+  margin:0 -1rem 1.4rem -1rem; padding:.85rem 1.6rem; display:flex; align-items:center;
   justify-content:space-between; flex-wrap:wrap; gap:.7rem 1.6rem;
 }
 .dm-header-stats{ display:flex; align-items:center; gap:1.4rem; }
@@ -121,12 +125,22 @@ html, body, [class*="css"]{
 /* ---- dataframe / table corners ---- */
 [data-testid="stDataFrame"]{ border-radius:14px; overflow:hidden; border:1px solid var(--line); }
 
-/* ---- segmented nav (radio, horizontal) ---- */
-div[role="radiogroup"]{ gap:.35rem; }
-div[role="radiogroup"] label{
-  background:#EDEDF2; border-radius:10px; padding:.35rem .85rem; transition:background .15s ease;
+/* ---- top nav: plain-text underline links, not boxed pills — matches the author's other
+   dashboards, whose nav bars are flat text menus with an underline on the active item ---- */
+div[data-testid="stRadio"]{
+  margin:0 -1rem 0 -1rem; padding:0 1.6rem; border-bottom:1px solid var(--line); background:var(--card);
 }
-div[role="radiogroup"] label:hover{ background:#E2E2E8; }
+div[role="radiogroup"]{ gap:0; flex-wrap:wrap; }
+div[role="radiogroup"] label{
+  background:none; border-radius:0; padding:.75rem .1rem; margin:0 1.3rem 0 0;
+  border-bottom:2px solid transparent; transition:color .15s ease, border-color .15s ease;
+  color:var(--ink-soft); font-weight:500;
+}
+div[role="radiogroup"] label:hover{ background:none; color:var(--ink); }
+div[role="radiogroup"] label:has(input:checked){
+  color:var(--blue); font-weight:700; border-bottom-color:var(--blue);
+}
+div[role="radiogroup"] label > div:first-child{ display:none; }
 
 /* ---- buttons ---- */
 .stButton>button, .stDownloadButton>button{
