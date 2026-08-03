@@ -1,7 +1,11 @@
 # Bursa Distress Monitor — Chapter 4.8 artefact (RQ4)
 
-Interactive monitoring dashboard presenting the calibrated DQN's distress risk scores for
-1,065 Bursa Malaysia companies. This is the artefact deliverable answering RQ4.
+Interactive, Apple-styled monitoring dashboard presenting the calibrated DQN's distress risk
+scores for 1,065 Bursa Malaysia companies. This is the artefact deliverable answering RQ4.
+
+**A Reinforcement Learning Approach to Corporate Financial Distress Prediction — Feature
+Importance Analysis of Bursa Malaysia Listed Companies** (PRJ5158, MsBA Capstone II, Sunway
+Business School). Team: Tan Yi Feng, Jeremy Choong Ming, Tan Yan Sheng.
 
 ## Run it
 
@@ -33,22 +37,38 @@ That writes:
 | `risk_history.csv` | Risk score over time per company, with train/val/test split membership |
 | `model_card.json` | Model config, threshold, and headline test performance — restated so the app cannot drift from the report |
 | `global_shap.json` | Global feature-importance ranking |
+| `model_metrics.json` | ROC/PR curves, ROC-AUC, PR-AUC, F1, confusion matrix, cross-agent comparison table |
 
-## The five views
+## The six views
 
 1. **Sector risk overview** — aggregates risk to sector level. Defaults to **median** and applies a
    minimum sector size (default 5), because an early version ranked by mean and was dominated by a
    four-company bucket. Companies with no sector (the delisted-firm supplement, 3 of 4 genuinely
    distressed) get their own labelled bucket rather than being dropped.
-2. **At-risk company ranking** — the working watchlist, filterable by sector and known status.
-   Shows a plain-language risk band next to the raw score, and a "Known status" column so the
-   model's genuine hits and false alarms are visible side by side.
+2. **At-risk company ranking** — the working watchlist, filterable by sector, known status, and a
+   free-text name search, with a CSV download of the current view. Shows a plain-language risk band
+   next to the raw score, and a "Known status" column so the model's genuine hits and false alarms
+   are visible side by side.
 3. **Company drill-down** — rank, score, flag decision, a local SHAP explanation (red = pushed risk
    up, green = down), risk score over time against the flag threshold, and the underlying indicators.
 4. **Indicator trends** — compare any indicator across companies over time, with actual PN17/GN3
    periods marked.
-5. **About this model** — benchmark comparison **and** an equally prominent statement of what the
-   model cannot do.
+5. **Model performance** — ROC-AUC, PR-AUC, F1, accuracy, recall, precision; full ROC and
+   precision–recall curves plotted against the Altman benchmark's single operating point; a
+   confusion matrix; and a cross-agent comparison table (both RL agents, one-step and multi-step,
+   against Altman) — all read from `model_metrics.json`, never recomputed in the app.
+6. **About & methodology** — project title, team, methodology summary, benchmark comparison, an
+   equally prominent statement of what the model cannot do, ideas for future features, and the
+   full disclaimer text.
+
+## Design
+
+Apple-inspired visual system: SF Pro / system-font stack, `#F5F5F7` background with white
+card surfaces, rounded corners and soft shadows, a sticky translucent header with a segmented
+pill navigation bar, and Apple's system accent colours (`#FF3B30` red, `#0071E3` blue, `#34C759`
+green, `#FF9500` orange) used consistently across charts and risk bands. A persistent disclaimer
+banner sits under the header on every page, and a footer on every page cites the project title,
+team, data sources, and disclaimer.
 
 ## Design principles
 
@@ -58,8 +78,8 @@ Three choices follow directly from this project's measured results rather than f
   nothing to the intended audience; "highest-risk of 1,065" does.
 - **Every flag is explainable per company**, not just in aggregate — required for a flag to be
   defensible in a credit file.
-- **The false-alarm rate is on the same screen as the results.** The sidebar and the "About this
-  model" table state, live, how many of the currently-flagged companies are genuine vs false alarms,
+- **The false-alarm rate is on the same screen as the results.** The sidebar and the "About &
+  methodology" table state, live, how many of the currently-flagged companies are genuine vs false alarms,
   and whether the model's recall-matched operating point beats or loses to the Altman benchmark —
   neither of these is hardcoded, both are computed fresh by `RL_Model_v1/10_build_dashboard_data.py`
   each time it runs, after an earlier version's hardcoded copies were found to have silently drifted
@@ -72,10 +92,10 @@ the live figure) is the strongest claim it supports.
 
 ## Regenerating the report screenshots
 
-`dashboard/screenshots/` holds Figures 4.5–4.9. They were captured headless at 2× scale:
+`dashboard/screenshots/` holds the six view captures (4_8a–4_8f). Captured headless at 2× scale:
 
 ```bash
-python3 /tmp/shot.py   # selenium + headless Chrome, 1500x1150 @ 2x
+python3 dashboard/capture_screenshots.py   # selenium + headless Chrome, 1500x1150 @ 2x
 ```
 
 Note: overwriting these PNGs does **not** update the images already embedded in the .docx — the

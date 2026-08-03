@@ -17,7 +17,90 @@ import plotly.graph_objects as go
 
 DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
+PROJECT_TITLE = ("A Reinforcement Learning Approach to Corporate Financial Distress Prediction — "
+                  "Feature Importance Analysis of Bursa Malaysia Listed Companies")
+PROJECT_CODE = "PRJ5158 · MsBA Capstone II · Sunway Business School"
+TEAM = ["Tan Yi Feng", "Jeremy Choong Ming", "Tan Yan Sheng"]
+
 st.set_page_config(page_title="Bursa Distress Monitor", page_icon="⚠️", layout="wide")
+
+# ---------------------------------------------------------------- Apple-style design system
+st.markdown("""
+<style>
+:root{
+  --bg:#F5F5F7; --card:#FFFFFF; --ink:#1D1D1F; --ink-soft:#6E6E73;
+  --line:#E5E5EA; --blue:#0071E3; --red:#FF3B30; --orange:#FF9500;
+  --green:#34C759; --gold:#B8860B;
+}
+html, body, [class*="css"]{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",
+              "Helvetica Neue",Arial,sans-serif !important;
+  color:var(--ink);
+}
+.stApp{ background:var(--bg); }
+[data-testid="stAppViewContainer"] > .main{ padding-top:0 !important; }
+.block-container{ padding-top:1rem !important; max-width:1200px; }
+
+/* ---- header ---- */
+.dm-header{
+  background:rgba(255,255,255,0.82); backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line); margin:-1rem -1rem 1.4rem -1rem; padding:.85rem 1.6rem;
+  position:sticky; top:0; z-index:999;
+}
+.dm-header-row{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.4rem 1.2rem;}
+.dm-brand{ font-size:1.28rem; font-weight:700; letter-spacing:-0.01em; color:var(--ink); }
+.dm-brand span{ color:var(--red); }
+.dm-tagline{ font-size:.82rem; color:var(--ink-soft); margin-top:.1rem; }
+
+/* ---- cards / callouts ---- */
+.dm-card{
+  background:var(--card); border-radius:16px; border:1px solid var(--line);
+  box-shadow:0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  padding:1.1rem 1.3rem; margin-bottom:1rem;
+}
+.dm-banner{
+  border-radius:14px; padding:.75rem 1.1rem; font-size:.9rem; line-height:1.45;
+  margin-bottom:1.1rem; border:1px solid;
+}
+.dm-banner-disclaimer{ background:#FFF7ED; border-color:#FFE0B2; color:#7A4A00; }
+.dm-pill{
+  display:inline-block; padding:.15rem .65rem; border-radius:999px; font-size:.76rem;
+  font-weight:600; margin-right:.35rem;
+}
+
+/* ---- footer ---- */
+.dm-footer{
+  margin-top:2.5rem; padding-top:1.4rem; border-top:1px solid var(--line);
+  color:var(--ink-soft); font-size:.82rem; line-height:1.6;
+}
+.dm-footer b{ color:var(--ink); }
+
+/* ---- metrics polish ---- */
+[data-testid="stMetric"]{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:.7rem .9rem; box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+[data-testid="stMetricLabel"]{ color:var(--ink-soft); }
+
+/* ---- dataframe / table corners ---- */
+[data-testid="stDataFrame"]{ border-radius:14px; overflow:hidden; border:1px solid var(--line); }
+
+/* ---- segmented nav (radio, horizontal) ---- */
+div[role="radiogroup"]{ gap:.35rem; }
+div[role="radiogroup"] label{
+  background:#EDEDF2; border-radius:10px; padding:.35rem .85rem; transition:background .15s ease;
+}
+div[role="radiogroup"] label:hover{ background:#E2E2E8; }
+
+/* ---- buttons ---- */
+.stButton>button, .stDownloadButton>button{
+  border-radius:10px; border:1px solid var(--line); background:var(--card);
+}
+.stButton>button:hover, .stDownloadButton>button:hover{ border-color:var(--blue); color:var(--blue); }
+
+h1,h2,h3{ letter-spacing:-0.01em; }
+</style>
+""", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------- data
 @st.cache_data
@@ -29,9 +112,10 @@ def load():
     shap_df = pd.read_csv(f"{DATA}/company_shap.csv")
     card = json.load(open(f"{DATA}/model_card.json"))
     gshap = json.load(open(f"{DATA}/global_shap.json"))
-    return wl, sec, hist, rh, shap_df, card, gshap
+    metrics = json.load(open(f"{DATA}/model_metrics.json"))
+    return wl, sec, hist, rh, shap_df, card, gshap, metrics
 
-wl, sec, hist, rh, shap_df, card, gshap = load()
+wl, sec, hist, rh, shap_df, card, gshap, metrics = load()
 
 PRETTY = {
     'current_ratio': 'Current Ratio', 'quick_ratio': 'Quick Ratio', 'cash_ratio': 'Cash Ratio',
@@ -46,19 +130,42 @@ def pretty(f):
 
 def band(pct):
     """Translate a percentile into words. The raw Q-value means nothing to a non-technical user."""
-    if pct >= 99.0: return "Elevated", "#B00020"
-    if pct >= 95.0: return "Watch", "#E37400"
+    if pct >= 99.0: return "Elevated", "#FF3B30"
+    if pct >= 95.0: return "Watch", "#FF9500"
     if pct >= 80.0: return "Moderate", "#B8860B"
-    return "Low", "#2E7D32"
+    return "Low", "#34C759"
 
-# ---------------------------------------------------------------- sidebar
+# ---------------------------------------------------------------- header
+st.markdown(f"""
+<div class="dm-header">
+  <div class="dm-header-row">
+    <div>
+      <div class="dm-brand">⚠️ Bursa <span>Distress</span> Monitor</div>
+      <div class="dm-tagline">RL early-warning prototype for PN17/GN3 classification · Chapter 4.8 artefact (RQ4)</div>
+    </div>
+    <div style="text-align:right;font-size:.78rem;color:var(--ink-soft);">
+      {PROJECT_CODE}<br>{len(wl):,} companies monitored · {card['watchlist_flagged']} currently flagged
+    </div>
+  </div>
+</div>
+""", unsafe_allow_html=True)
+
+NAV = ["Sector risk overview", "At-risk company ranking", "Company drill-down",
+       "Indicator trends", "Model performance", "About & methodology"]
+view = st.radio("Navigate", NAV, horizontal=True, label_visibility="collapsed")
+
+st.markdown(f"""
+<div class="dm-banner dm-banner-disclaimer">
+  ⚠️ <b>Disclaimer.</b> This is a student research prototype, not financial or investment advice.
+  It flags companies for further human review and misses most distressed companies at its default
+  threshold (recall {card['test_recall']:.0%} on held-out test data). Do not use it, alone or in
+  combination with other information, to make investment, lending, or credit decisions.
+</div>
+""", unsafe_allow_html=True)
+
+# sidebar kept for quick stats only — nav now lives in the header above
 st.sidebar.title("⚠️ Distress Monitor")
 st.sidebar.caption("Bursa Malaysia · PN17/GN3 early-warning prototype")
-view = st.sidebar.radio(
-    "View",
-    ["Sector risk overview", "At-risk company ranking", "Company drill-down", "Indicator trends", "About this model"],
-)
-st.sidebar.markdown("---")
 st.sidebar.metric("Companies monitored", f"{card['watchlist_companies']:,}")
 st.sidebar.metric("Currently flagged", card['watchlist_flagged'])
 st.sidebar.caption(
@@ -66,6 +173,10 @@ st.sidebar.caption(
     f"PN17/GN3-classified and {card['watchlist_flagged_false']} are not. **This model produces false alarms — "
     "flags are a prompt to look, not a conclusion.**"
 )
+st.sidebar.markdown("---")
+st.sidebar.caption(f"**{PROJECT_TITLE}**")
+st.sidebar.caption(PROJECT_CODE)
+st.sidebar.caption(" · ".join(TEAM))
 
 # ================================================================ 1. SECTOR
 if view == "Sector risk overview":
@@ -99,11 +210,12 @@ if view == "Sector risk overview":
                'flagged_pct': '% of companies flagged'}[metric]
         fig = px.bar(
             top, x=metric, y='sector', orientation='h',
-            color=metric, color_continuous_scale=['#2E7D32', '#B8860B', '#E37400', '#B00020'],
+            color=metric, color_continuous_scale=['#34C759', '#B8860B', '#FF9500', '#FF3B30'],
             labels={metric: lbl, 'sector': ''},
             hover_data={'companies': True, 'flagged': True, 'currently_distressed': True, metric: ':.2f'},
         )
-        fig.update_layout(height=520, coloraxis_showscale=False, margin=dict(l=0, r=0, t=10, b=0))
+        fig.update_layout(height=520, coloraxis_showscale=False, margin=dict(l=0, r=0, t=10, b=0),
+                           plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
         st.plotly_chart(fig, use_container_width=True)
     with c2:
         st.subheader("Highest-risk sectors")
@@ -134,17 +246,20 @@ elif view == "At-risk company ranking":
     st.title("At-risk company ranking")
     st.caption("Every monitored company, ranked by model risk score on its most recent reported period.")
 
-    c1, c2, c3 = st.columns([2, 2, 1])
+    c1, c2, c3, c4 = st.columns([2, 2, 1.4, 1])
     with c1:
         secs = st.multiselect("Filter by sector", sorted(wl['sector'].unique()))
     with c2:
         stat = st.multiselect("Filter by known status", sorted(wl['known_status'].unique()))
     with c3:
+        search = st.text_input("Search company name", placeholder="e.g. Sentoria")
+    with c4:
         only_flagged = st.checkbox("Flagged only", value=False)
 
     v = wl.copy()
     if secs: v = v[v['sector'].isin(secs)]
     if stat: v = v[v['known_status'].isin(stat)]
+    if search: v = v[v['company_name'].str.contains(search, case=False, na=False)]
     if only_flagged: v = v[v['flagged']]
 
     n = st.slider("Show top N", 10, 200, 25, step=5)
@@ -158,6 +273,10 @@ elif view == "At-risk company ranking":
     st.dataframe(
         disp.style.format({'Risk score': '{:.2f}'}),
         hide_index=True, use_container_width=True, height=min(620, 40 + 35 * len(disp)),
+    )
+    st.download_button(
+        "⬇ Download this view as CSV", disp.to_csv(index=False).encode(),
+        file_name="bursa_distress_watchlist.csv", mime="text/csv",
     )
 
     st.markdown(
@@ -183,7 +302,7 @@ elif view == "Company drill-down":
     c.metric("Percentile", f"{row['risk_percentile']:.1f}")
     d.metric("Model action", "FLAG" if row['flagged'] else "No flag")
     st.markdown(
-        f"<div style='padding:.6rem 1rem;border-left:5px solid {colr};background:#00000008;'>"
+        f"<div class='dm-card' style='border-left:5px solid {colr};'>"
         f"<b>{name}</b> ({row['ticker'] if pd.notna(row['ticker']) else '—'}) · {row['sector']} · "
         f"period ending {row['period_end']}<br><b style='color:{colr}'>{lab} risk</b> · "
         f"Known status: {row['known_status']}</div>", unsafe_allow_html=True)
@@ -200,9 +319,10 @@ elif view == "Company drill-down":
             if len(s):
                 f = go.Figure(go.Bar(
                     x=s.values, y=[pretty(i) for i in s.index], orientation='h',
-                    marker_color=['#B00020' if v > 0 else '#2E7D32' for v in s.values]))
+                    marker_color=['#FF3B30' if v > 0 else '#34C759' for v in s.values]))
                 f.update_layout(height=380, margin=dict(l=0, r=0, t=10, b=0),
-                                xaxis_title="Contribution to this company's risk score")
+                                xaxis_title="Contribution to this company's risk score",
+                                plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
                 st.plotly_chart(f, use_container_width=True)
                 st.caption("Red pushes risk **up**, green pushes it **down** (SHAP contributions, this company only).")
             else:
@@ -213,16 +333,17 @@ elif view == "Company drill-down":
         if len(h):
             f = go.Figure()
             f.add_trace(go.Scatter(x=h['period_end'], y=h['risk_score'], mode='lines+markers', name='Risk score',
-                                   line=dict(color='#1f3b73', width=2)))
-            f.add_hline(y=card['threshold'], line_dash='dash', line_color='#B00020',
+                                   line=dict(color='#0071E3', width=2)))
+            f.add_hline(y=card['threshold'], line_dash='dash', line_color='#FF3B30',
                         annotation_text='Flag threshold', annotation_position='top left')
             dd = h[h['pn17_gn3_label'] == 1]
             if len(dd):
                 f.add_trace(go.Scatter(x=dd['period_end'], y=dd['risk_score'], mode='markers',
-                                       name='Actually PN17/GN3', marker=dict(color='#B00020', size=12, symbol='x')))
+                                       name='Actually PN17/GN3', marker=dict(color='#FF3B30', size=12, symbol='x')))
             f.update_layout(height=380, margin=dict(l=0, r=0, t=10, b=0),
                             xaxis_title="", yaxis_title="Risk score",
-                            legend=dict(orientation='h', y=1.12))
+                            legend=dict(orientation='h', y=1.12),
+                            plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
             st.plotly_chart(f, use_container_width=True)
             st.caption("Periods before 2025 were used in training; 2025 onward is held-out test data.")
 
@@ -256,8 +377,9 @@ elif view == "Indicator trends":
         dd = sub[sub['pn17_gn3_label'] == 1]
         if len(dd):
             f.add_trace(go.Scatter(x=dd['period_end'], y=dd[ind], mode='markers', name='PN17/GN3 period',
-                                   marker=dict(color='#B00020', size=13, symbol='x')))
-        f.update_layout(height=520, legend=dict(orientation='h', y=-0.18), margin=dict(l=0, r=0, t=10, b=0))
+                                   marker=dict(color='#FF3B30', size=13, symbol='x')))
+        f.update_layout(height=520, legend=dict(orientation='h', y=-0.18), margin=dict(l=0, r=0, t=10, b=0),
+                         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
         st.plotly_chart(f, use_container_width=True)
         st.caption("Red ✕ marks a period in which the company was officially PN17/GN3-classified. Gaps are missing data.")
 
@@ -265,14 +387,150 @@ elif view == "Indicator trends":
             st.info("The Altman Z''-Score distress threshold is 1.1. This project's own benchmark analysis "
                     "(Chapter 4.3) found it flags 13% of all Bursa company-periods — high recall, low precision.")
 
-# ================================================================ 5. ABOUT
-else:
-    st.title("About this model")
-    st.markdown(
-        "This dashboard is the artefact deliverable for **RQ4** of a Master of Business Analytics capstone "
-        "(PRJ5158, Sunway Business School). It presents the output of a reinforcement learning agent trained to "
-        "flag Bursa Malaysia companies at risk of PN17/GN3 classification, benchmarked against the Altman Z''-Score."
+# ================================================================ 5. MODEL PERFORMANCE
+elif view == "Model performance":
+    st.title("Model performance")
+    st.caption(
+        "Full evaluation of the calibrated one-step DQN on held-out 2025+ test data — the same numbers "
+        "reported in Chapter 4 of the write-up, computed live by the same script that builds this dashboard."
     )
+
+    m1, m2, m3 = st.columns(3)
+    m1.metric("ROC-AUC", f"{metrics['roc_auc']:.3f}")
+    m2.metric("PR-AUC", f"{metrics['pr_auc']:.3f}")
+    m3.metric("F1", f"{metrics['f1_at_threshold']:.3f}")
+    m4, m5, m6 = st.columns(3)
+    m4.metric("Accuracy", f"{metrics['accuracy_at_threshold']:.1%}")
+    m5.metric("Recall", f"{card['test_recall']:.1%}")
+    m6.metric("Precision", f"{card['test_precision']:.1%}")
+
+    st.warning(
+        f"**Accuracy is misleading here — don't lean on it.** Only {card['test_positives']} of "
+        f"{card['test_rows']:,} held-out rows are genuinely distressed (0.5%), so a model that flags "
+        "nothing at all would already score 99.5% accuracy. ROC-AUC and PR-AUC are the numbers that "
+        "actually measure ranking quality on this imbalanced problem — and **PR-AUC "
+        f"({metrics['pr_auc']:.3f}) is the honest one**: it stays low precisely because true positives "
+        "are so rare, which is the correct picture for this task, not a modelling failure to hide."
+    )
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.subheader("ROC curve")
+        f = go.Figure()
+        f.add_trace(go.Scatter(x=metrics['roc_fpr'], y=metrics['roc_tpr'], mode='lines',
+                                name=f"DQN (AUC={metrics['roc_auc']:.3f})", line=dict(color='#0071E3', width=2.5)))
+        f.add_trace(go.Scatter(x=[0, 1], y=[0, 1], mode='lines', name='Chance',
+                                line=dict(color='#C7C7CC', dash='dash')))
+        f.add_trace(go.Scatter(x=[metrics['altman_point']['fpr']], y=[metrics['altman_point']['tpr']],
+                                mode='markers', name="Altman Z''-Score",
+                                marker=dict(color='#FF9500', size=12, symbol='diamond')))
+        f.add_trace(go.Scatter(x=[metrics['own_point']['fpr']], y=[metrics['own_point']['tpr']],
+                                mode='markers', name='DQN @ calibrated threshold',
+                                marker=dict(color='#FF3B30', size=12, symbol='star')))
+        f.update_layout(height=420, xaxis_title="False positive rate", yaxis_title="True positive rate",
+                         legend=dict(orientation='h', y=-0.2), margin=dict(l=0, r=0, t=10, b=0),
+                         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+        st.plotly_chart(f, use_container_width=True)
+    with c2:
+        st.subheader("Precision–recall curve")
+        f = go.Figure()
+        f.add_trace(go.Scatter(x=metrics['pr_recall'], y=metrics['pr_precision'], mode='lines',
+                                name=f"DQN (AP={metrics['pr_auc']:.3f})", line=dict(color='#0071E3', width=2.5)))
+        f.add_trace(go.Scatter(x=[metrics['altman_point']['recall']], y=[metrics['altman_point']['precision']],
+                                mode='markers', name="Altman Z''-Score",
+                                marker=dict(color='#FF9500', size=12, symbol='diamond')))
+        f.update_layout(height=420, xaxis_title="Recall", yaxis_title="Precision",
+                         legend=dict(orientation='h', y=-0.2), margin=dict(l=0, r=0, t=10, b=0),
+                         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+        st.plotly_chart(f, use_container_width=True)
+
+    st.subheader("Confusion matrix — DQN at calibrated threshold")
+    cm = metrics['confusion']
+    c1, c2 = st.columns([1, 2])
+    with c1:
+        z = [[cm['TN'], cm['FP']], [cm['FN'], cm['TP']]]
+        f = go.Figure(go.Heatmap(
+            z=z, x=['Pred: Healthy', 'Pred: Distressed'], y=['Actual: Healthy', 'Actual: Distressed'],
+            colorscale=[[0, '#F5F5F7'], [1, '#0071E3']], showscale=False,
+            text=z, texttemplate="%{text:,}", textfont=dict(size=18)))
+        f.update_layout(height=320, margin=dict(l=0, r=0, t=10, b=0),
+                         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+        st.plotly_chart(f, use_container_width=True)
+    with c2:
+        st.markdown(f"""
+<div class="dm-card">
+<b>True positives:</b> {cm['TP']} — genuinely distressed companies correctly flagged<br>
+<b>False positives:</b> {cm['FP']} — healthy companies incorrectly flagged<br>
+<b>False negatives:</b> {cm['FN']} — genuinely distressed companies missed<br>
+<b>True negatives:</b> {cm['TN']:,} — healthy companies correctly left unflagged
+</div>
+""", unsafe_allow_html=True)
+        st.caption(
+            "The class imbalance is visible directly in these counts: even a well-ranking model produces "
+            "few true positives in absolute terms, because so few company-periods are genuinely distressed."
+        )
+
+    st.subheader("Cross-agent comparison")
+    ac = pd.DataFrame(metrics['agent_comparison'])
+    ac_disp = ac.rename(columns={'agent': 'Agent', 'TP': 'TP', 'FP': 'FP', 'FN': 'FN',
+                                  'recall': 'Recall', 'precision': 'Precision', 'cost': 'Cost'})
+    ac_disp['Recall'] = ac_disp['Recall'].map('{:.1%}'.format)
+    ac_disp['Precision'] = ac_disp['Precision'].map('{:.1%}'.format)
+    st.dataframe(ac_disp, hide_index=True, use_container_width=True)
+    st.caption(
+        "Cost = 10×(missed distress) + 3×(false alarm) on the same held-out test rows for every agent. "
+        "Lower is better. Figures are read directly from each agent's own results file, never recomputed here."
+    )
+
+# ================================================================ 6. ABOUT & METHODOLOGY
+else:
+    st.title("About & methodology")
+
+    st.markdown(f"""
+<div class="dm-card">
+<h4 style="margin-top:0;">{PROJECT_TITLE}</h4>
+<p style="color:var(--ink-soft);margin-bottom:.3rem;">{PROJECT_CODE}</p>
+<p style="margin-bottom:0;">Team: {' · '.join(TEAM)}</p>
+</div>
+""", unsafe_allow_html=True)
+
+    st.markdown(
+        "This dashboard is the artefact deliverable for **RQ4** of the capstone. It presents the output "
+        "of reinforcement learning agents trained to flag Bursa Malaysia companies at risk of PN17/GN3 "
+        "classification, benchmarked against the classical Altman Z''-Score model."
+    )
+
+    st.subheader("What this dashboard does")
+    f1, f2, f3 = st.columns(3)
+    with f1:
+        st.markdown("""**🔎 Monitor**
+Every listed company is scored on its most recent reported financials and ranked by model risk score,
+sector-by-sector or company-by-company.""")
+    with f2:
+        st.markdown("""**🧠 Explain**
+Each flag is backed by a per-company SHAP breakdown showing exactly which indicators — and which
+year-on-year changes — pushed the score up or down.""")
+    with f3:
+        st.markdown("""**📊 Evaluate**
+The Model Performance page reports ROC-AUC, PR-AUC, F1, confusion matrix, and a like-for-like comparison
+against every RL variant trained in this project and the Altman benchmark.""")
+
+    st.subheader("Methodology, briefly")
+    st.markdown(
+        "- **Data**: quarterly/annual financial ratios for Bursa Malaysia listed companies, plus a historical "
+        "record of PN17/GN3 classification dates (Chapter 3).\n"
+        "- **State**: 16 features — 8 financial ratios (current ratio, quick ratio, cash ratio, ROA, ROE, "
+        "net debt/total capital, asset turnover, Altman Z''-Score) plus their year-on-year deltas, robust "
+        "median/IQR-scaled on the training split.\n"
+        "- **Agents**: a one-step Deep Q-Network and a policy-gradient agent, each also trained as a "
+        "multi-step MDP variant, using a reward function that front-loads credit for early, ahead-of-time "
+        "detection of distress.\n"
+        "- **Calibration**: decision thresholds are chosen on a held-out **validation** split to minimise "
+        "misclassification cost, then evaluated once on a separate **test** split — never the reverse.\n"
+        "- **Benchmark**: the classical Altman Z''-Score (threshold 1.1), computed directly from the same "
+        "panel, with no RL involved — the yardstick the RL agents are measured against."
+    )
+
     st.subheader("Performance on held-out test data")
     perf = pd.DataFrame([
         {"Method": "This model (calibrated DQN)", "Cost": card['test_cost'],
@@ -294,6 +552,8 @@ else:
          "— pushed to match that recall, this model currently raises more false alarms than the classical rule does. "
          "This is disclosed rather than hidden: which operating point to trust is a real, current limitation, not settled.")
     )
+    st.caption("See the **Model performance** page in the header nav for the full ROC/PR curves, confusion matrix, "
+               "and cross-agent comparison.")
 
     st.subheader("What this model cannot do")
     st.error(
@@ -313,10 +573,47 @@ else:
     g = pd.DataFrame(gshap, columns=['feature', 'importance']).head(10).sort_values('importance')
     f = px.bar(g, x='importance', y=[pretty(x) for x in g['feature']], orientation='h',
                labels={'importance': 'Mean |SHAP| across test companies', 'y': ''})
-    f.update_layout(height=380, margin=dict(l=0, r=0, t=10, b=0))
+    f.update_layout(height=380, margin=dict(l=0, r=0, t=10, b=0),
+                     plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
     st.plotly_chart(f, use_container_width=True)
     st.caption("Year-on-year **changes** in liquidity outrank absolute levels — how fast a company is deteriorating "
                "carries more signal than where it currently stands.")
 
-    with st.expander("Technical specification"):
+    st.subheader("Ideas for future value-added features")
+    st.markdown(
+        "- **Side-by-side company comparison** — pick two or more companies and overlay their indicator "
+        "trajectories and SHAP breakdowns on one screen.\n"
+        "- **Alert subscriptions** — email or webhook notification when a company newly crosses the flag threshold.\n"
+        "- **Scenario/what-if slider** — let a user nudge one ratio (e.g. current ratio) and see the risk score "
+        "recompute live, to build intuition for which indicators matter most.\n"
+        "- **PDF one-pager export** — a printable company risk brief combining the drill-down panel and SHAP chart, "
+        "for inclusion in a credit file.\n"
+        "- **Live data refresh** — connect to a quarterly filings feed so the watchlist updates automatically "
+        "instead of via manual pipeline reruns."
+    )
+
+    with st.expander("Full disclaimer"):
+        st.markdown(
+            "This dashboard is a research prototype produced for an academic capstone project and is **not** "
+            "financial, investment, credit, or legal advice. It has not been validated on live, forward-looking "
+            "data, is trained on a small number of historical distress examples, and both its recall and precision "
+            "are limited (see Model Performance). Model outputs should be treated as a prompt for further human "
+            "investigation, never as a standalone basis for any investment, lending, trading, or business decision. "
+            "The authors and Sunway Business School accept no liability for decisions made using this tool."
+        )
+
+    with st.expander("Technical specification (model_card.json)"):
         st.json(card)
+
+# ---------------------------------------------------------------- footer
+st.markdown(f"""
+<div class="dm-footer">
+  <b>{PROJECT_TITLE}</b><br>
+  {PROJECT_CODE}<br>
+  Team: {' · '.join(TEAM)}<br><br>
+  <b>Data sources:</b> Bursa Malaysia listed-company financials (LSEG/Refinitiv), PN17/GN3 historical
+  classification records, Altman Z''-Score computed from the same panel.<br>
+  <b>Disclaimer:</b> research prototype only — not financial, investment, or credit advice. See the
+  About & methodology page for the full text.
+</div>
+""", unsafe_allow_html=True)
