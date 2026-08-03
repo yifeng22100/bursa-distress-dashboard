@@ -9,9 +9,9 @@ DM.renderers.welcome = function (el) {
   ];
 
   const who = [
-    ['📈', 'Investors & analysts.', 'A triage aid for deciding which of 1,065 companies to look at first — not a buy/sell signal, and not a substitute for reading the actual financials.'],
-    ['🏦', 'Credit & risk teams.', "A second opinion alongside the classical <span style=\"white-space:nowrap;\">Altman Z''-Score</span>, with every flag traceable to the specific indicators that drove it (SHAP), so it can be argued for or against in a credit file."],
-    ['🎓', 'Students & RL enthusiasts.', "A worked, honestly-reported example of applying reinforcement learning to a real, small, severely imbalanced dataset — including what didn't work and why."],
+    ['📈', 'blue', 'Investors & analysts.', 'A triage aid for deciding which of 1,065 companies to look at first — not a buy/sell signal, and not a substitute for reading the actual financials.'],
+    ['🏦', 'green', 'Credit & risk teams.', "A second opinion alongside the classical <span style=\"white-space:nowrap;\">Altman Z''-Score</span>, with every flag traceable to the specific indicators that drove it (SHAP), so it can be argued for or against in a credit file."],
+    ['🎓', 'purple', 'Students & RL enthusiasts.', "A worked, honestly-reported example of applying reinforcement learning to a real, small, severely imbalanced dataset — including what didn't work and why."],
   ];
 
   const guide = [
@@ -56,14 +56,16 @@ DM.renderers.welcome = function (el) {
     </div>
 
     <h3 class="dm-section-gap">Who this is for</h3>
-    <div class="dm-carousel">
-      <button class="dm-carousel-arrow left" id="who-prev" aria-label="Previous">‹</button>
-      <div class="dm-carousel-track" id="who-track">
-        ${who.map(([icon, title, desc]) => `
-          <div class="dm-card">${icon} <b>${title}</b> ${desc}</div>
-        `).join('')}
-      </div>
-      <button class="dm-carousel-arrow right" id="who-next" aria-label="Next">›</button>
+    <div class="dm-card-grid cols-3">
+      ${who.map(([icon, hue, title, desc]) => `
+        <div class="dm-guide-card dm-guide-${hue}" style="cursor:default;">
+          <div class="dm-guide-icon">${icon}</div>
+          <div class="dm-guide-body">
+            <div class="dm-guide-title">${title}</div>
+            <div style="font-size:.9rem; color:var(--ink); line-height:1.55;">${desc}</div>
+          </div>
+        </div>
+      `).join('')}
     </div>
 
     <div style="max-width:820px;margin:0 auto;">
@@ -111,9 +113,4 @@ DM.renderers.welcome = function (el) {
   });
 
   el.querySelector('.dm-cta-btn').addEventListener('click', (e) => DM.goto(e.currentTarget.dataset.goto));
-
-  const whoTrack = el.querySelector('#who-track');
-  const cardWidth = () => whoTrack.firstElementChild.getBoundingClientRect().width + 20;
-  el.querySelector('#who-prev').addEventListener('click', () => whoTrack.scrollBy({ left: -cardWidth(), behavior: 'smooth' }));
-  el.querySelector('#who-next').addEventListener('click', () => whoTrack.scrollBy({ left: cardWidth(), behavior: 'smooth' }));
 };

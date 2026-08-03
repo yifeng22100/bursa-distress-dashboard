@@ -7,12 +7,14 @@ DM.renderers.about = function (el) {
 
   el.innerHTML = `
     <div class="dm-eyebrow">Project overview</div>
-    <div class="dm-pagetitle">About & methodology</div>
+    <div class="dm-pagetitle">About & Methodology</div>
 
-    <div class="dm-card" style="padding:1.8rem 2rem;">
-      <h4 style="margin-top:0; font-size:1.2rem;">${PROJECT_TITLE}</h4>
-      <p style="color:var(--ink-soft);margin-bottom:.5rem;">${PROJECT_CODE}</p>
-      <p style="margin-bottom:0;">Team: ${TEAM.join(' · ')}</p>
+    <div class="dm-card" style="padding:2.2rem 2.4rem; background:linear-gradient(135deg, #EAF2FE, #FFFFFF); border-color:#C7DFFB;">
+      <div class="dm-eyebrow" style="margin-bottom:.9rem;">${PROJECT_CODE}</div>
+      <h4 style="margin:0 0 1.1rem 0; font-size:1.4rem; line-height:1.35;">${PROJECT_TITLE}</h4>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        ${TEAM.map(t => `<span class="dm-tag" style="background:#fff;border-color:#C7DFFB;color:#0058C6;">${t}</span>`).join('')}
+      </div>
     </div>
 
     <p>This dashboard is the artefact deliverable for <b>RQ4</b> of the capstone. It presents the output of
