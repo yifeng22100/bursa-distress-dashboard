@@ -1,10 +1,7 @@
 """
 Captures the report screenshots (Figures 4.8a-h) from the static site in dashboard/docs/.
 
-Serve it first: python3 -m http.server 8123, run from inside dashboard/docs/. This replaced the
-old Streamlit-based capture script when the dashboard migrated from Streamlit to a plain
-HTML/CSS/JS static site (deployed via GitHub Pages) -- Streamlit's iframe/theme/layout
-limitations kept fighting the intended Apple-HIG / hospital-intelligence-my-style design.
+Serve it first: python3 -m http.server 8123, run from inside dashboard/docs/.
 """
 import time, os
 from selenium import webdriver

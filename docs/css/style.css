@@ -1,8 +1,7 @@
 /* Bursa Distress Monitor — static site design system.
-   Modelled directly on hospital-intelligence-my (measured live via getComputedStyle, not
-   approximated): #0071E3 accent blue, nav links at 16px/400 weight/no letter-spacing, hero H1
-   at 56px/700/-1.4px tracking, eyebrow at 12px/600/+1.44px tracking uppercase, search/card
-   radius 16px, stat-band bg #F5F5F7, filter pills fully round with a #D2D2D7 border. */
+   #0071E3 accent blue, nav links at 16px/400 weight/no letter-spacing, hero H1 at
+   56px/700/-1.4px tracking, eyebrow at 12px/600/+1.44px tracking uppercase, search/card radius
+   16px, stat-band bg #F5F5F7, filter pills fully round with a #D2D2D7 border. */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
@@ -87,7 +86,7 @@ img{ max-width:100%; }
 .dm-page-caption{ color:var(--ink-soft); font-size:.95rem; margin-bottom:1.2rem; }
 
 /* ---------------------------------------------------------------- cards / callouts */
-/* Thin border only, no shadow -- matches hospital-intelligence-my's actual card treatment. */
+/* Thin border only, no shadow. */
 .dm-card{
   background:var(--card); border-radius:16px; border:1px solid var(--line-solid);
   padding:1.1rem 1.3rem; margin-bottom:1rem;
@@ -189,11 +188,36 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
 .dm-chart{ width:100%; }
 .dm-loading{ padding:3rem; text-align:center; color:var(--ink-soft); }
 
+/* Column footer: brand + a few link/info columns, then a bottom bar with copyright and quick
+   stats -- full-bleed relative to .dm-main's own edges (same technique as .dm-statband). */
 .dm-footer{
-  margin-top:2.5rem; padding-top:1.4rem; border-top:1px solid var(--line);
-  color:var(--ink-soft); font-size:.82rem; line-height:1.6;
+  margin:3rem -2.4rem 0 -2.4rem; padding:2.6rem 2.4rem 0 2.4rem;
+  background:var(--stat-bg); border-top:1px solid var(--line-solid);
 }
-.dm-footer b{ color:var(--ink); }
+.dm-footer-top{
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem; padding-bottom:2rem;
+}
+.dm-footer-brand > div{ font-weight:800; font-size:1.05rem; margin-bottom:.4rem; }
+.dm-footer-brand span{ color:var(--blue); }
+.dm-footer-brand p{ color:var(--ink-soft); font-size:.85rem; line-height:1.5; max-width:280px; margin:0; }
+.dm-footer-col h4{
+  font-size:.7rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-soft); margin:0 0 .8rem 0;
+}
+.dm-footer-col a, .dm-footer-col button{
+  all:unset; display:block; cursor:pointer; font-size:.82rem; color:var(--ink-soft);
+  margin-bottom:.55rem;
+}
+.dm-footer-col a:hover, .dm-footer-col button:hover{ color:var(--blue); }
+.dm-footer-col p{ font-size:.82rem; color:var(--ink-soft); line-height:1.5; margin:0 0 .55rem 0; }
+.dm-footer-bottom{
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem 1rem;
+  border-top:1px solid var(--line-solid); padding:1.1rem 0; font-size:.75rem; color:#AEAEB2;
+}
+@media (max-width:800px){
+  .dm-footer{ margin-left:-1.2rem; margin-right:-1.2rem; padding:2rem 1.2rem 0 1.2rem; }
+  .dm-footer-top{ grid-template-columns:1fr 1fr; }
+}
 
 .dm-view{ display:none; }
 .dm-view.active{ display:block; }

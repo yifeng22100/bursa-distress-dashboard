@@ -1,6 +1,5 @@
 /* Loads every CSV/JSON the app needs, once, on page load. No backend -- everything here reads
-   directly from docs/data/, the same files RL_Model_v1/10_build_dashboard_data.py writes for the
-   Streamlit app (mirrored, not duplicated logic -- see that script's final section). */
+   directly from docs/data/, written by RL_Model_v1/10_build_dashboard_data.py. */
 
 const DM = window.DM = window.DM || {};
 

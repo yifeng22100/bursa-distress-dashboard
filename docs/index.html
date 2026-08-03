@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚠️</text></svg>">
 <!-- ?v=N is a manual cache-buster: bump it whenever css/style.css or any js/ file changes, so a
      returning visitor's browser doesn't keep serving a stale cached copy after an update. -->
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=2">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
 </head>
@@ -25,19 +25,19 @@
   <div id="banners" style="display:none;"></div>
 </main>
 
-<script src="js/data.js?v=1"></script>
-<script src="js/whatif.js?v=1"></script>
-<script src="js/charts.js?v=1"></script>
-<script src="js/components.js?v=1"></script>
-<script src="js/nav.js?v=1"></script>
-<script src="js/views/welcome.js?v=1"></script>
-<script src="js/views/sector.js?v=1"></script>
-<script src="js/views/ranking.js?v=1"></script>
-<script src="js/views/drilldown.js?v=1"></script>
-<script src="js/views/comparison.js?v=1"></script>
-<script src="js/views/trends.js?v=1"></script>
-<script src="js/views/performance.js?v=1"></script>
-<script src="js/views/about.js?v=1"></script>
+<script src="js/data.js?v=2"></script>
+<script src="js/whatif.js?v=2"></script>
+<script src="js/charts.js?v=2"></script>
+<script src="js/components.js?v=2"></script>
+<script src="js/nav.js?v=2"></script>
+<script src="js/views/welcome.js?v=2"></script>
+<script src="js/views/sector.js?v=2"></script>
+<script src="js/views/ranking.js?v=2"></script>
+<script src="js/views/drilldown.js?v=2"></script>
+<script src="js/views/comparison.js?v=2"></script>
+<script src="js/views/trends.js?v=2"></script>
+<script src="js/views/performance.js?v=2"></script>
+<script src="js/views/about.js?v=2"></script>
 <script>
 const PROJECT_TITLE = "A Reinforcement Learning Approach to Corporate Financial Distress Prediction — Feature Importance Analysis of Bursa Malaysia Listed Companies";
 const PROJECT_CODE = "PRJ5158 · MsBA Capstone II · Sunway Business School";
@@ -71,16 +71,49 @@ async function boot() {
   DM.whatifSelfTest();
 
   // footer, appended after nav builds the view sections
-  const footer = document.createElement('div');
+  const footer = document.createElement('footer');
   footer.className = 'dm-footer';
+  const navLinks = DM.VIEWS.map(([id, label]) => `<button data-goto="${id}">${label}</button>`).join('');
   footer.innerHTML = `
-    <b>${PROJECT_TITLE}</b><br>
-    ${PROJECT_CODE}<br>
-    Team: ${TEAM.join(' · ')}<br><br>
-    <b>Data sources:</b> Bursa Malaysia listed-company financials (LSEG/Refinitiv), PN17/GN3 historical
-    classification records, Altman Z''-Score computed from the same panel.<br>
-    <b>Disclaimer:</b> research prototype only — not financial, investment, or credit advice. See the
-    About &amp; methodology page for the full text.`;
+    <div class="dm-footer-top">
+      <div class="dm-footer-brand">
+        <div>⚠️ Bursa <span>Distress</span> Monitor</div>
+        <p>An early-warning research prototype for corporate financial distress in Bursa Malaysia,
+        benchmarked against the classical Altman Z''-Score.</p>
+      </div>
+      <div class="dm-footer-col">
+        <h4>Navigate</h4>
+        ${navLinks}
+      </div>
+      <div class="dm-footer-col">
+        <h4>Project</h4>
+        <button data-goto="about">About &amp; methodology</button>
+        <button data-goto="performance">Model performance</button>
+        <button data-goto="about" data-open-disclaimer="1">Full disclaimer</button>
+      </div>
+      <div class="dm-footer-col">
+        <h4>Data</h4>
+        <p>Verified against Bursa Malaysia listed-company financials and PN17/GN3 historical
+        classification records.</p>
+        <p>Rebuilt after every model retrain.</p>
+      </div>
+    </div>
+    <div class="dm-footer-bottom">
+      <span>© 2026 ${PROJECT_CODE} · Team: ${TEAM.join(' · ')}</span>
+      <span>Research prototype only — not financial, investment, or credit advice.</span>
+    </div>
+  `;
+  footer.querySelectorAll('button[data-goto]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      DM.goto(btn.dataset.goto);
+      if (btn.dataset.openDisclaimer) {
+        setTimeout(() => {
+          const details = document.querySelector('#view-about details');
+          if (details) { details.open = true; details.scrollIntoView({ behavior: 'smooth' }); }
+        }, 50);
+      }
+    });
+  });
   document.querySelector('.dm-main').appendChild(footer);
 }
 

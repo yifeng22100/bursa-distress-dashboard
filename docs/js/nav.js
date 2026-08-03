@@ -1,10 +1,9 @@
-/* View switching: shows/hides <section class="dm-view"> elements, updates sidebar active state
-   and the URL hash (so a view is shareable/bookmarkable -- no server-side routing needed for a
-   static site). Each view is rendered lazily, once, the first time it's shown. */
+/* View switching: shows/hides <section class="dm-view"> elements, updates the top nav's active
+   state and the URL hash (so a view is shareable/bookmarkable -- no server-side routing needed
+   for a static site). Each view is rendered lazily, once, the first time it's shown. */
 
-/* Short, single/double-word labels for the top nav (hospital-intelligence-my's own nav is all
-   1-2 words: "Find Care", "Compare", "Intelligence"...) -- the full descriptive names still
-   appear as each page's own <h1>. */
+/* Short, single/double-word nav labels -- the full descriptive names still appear as each page's
+   own <h1>. */
 DM.VIEWS = [
   ['welcome', 'Home'],
   ['sector', 'Sectors'],
