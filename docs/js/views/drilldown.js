@@ -8,11 +8,16 @@ DM.renderers.drilldown = function (el) {
   el.innerHTML = `
     <div class="dm-eyebrow">Explainability</div>
     <div class="dm-pagetitle">Company drill-down</div>
-    <div class="dm-field">
-      <label class="dm-label">Select a company</label>
-      <select class="dm-select" id="dd-company">
-        ${sorted.map(r => `<option value="${r.company_name}">${r.company_name}</option>`).join('')}
-      </select>
+    <p class="dm-page-caption">Pick any monitored company to see exactly why the model scored it the way
+    it did, how that score has moved over time, and what happens if its ratios change.</p>
+
+    <div class="dm-toolbar">
+      <div class="dm-field" style="max-width:420px;">
+        <label class="dm-label">Select a company</label>
+        <select class="dm-select" id="dd-company">
+          ${sorted.map(r => `<option value="${r.company_name}">${r.company_name}</option>`).join('')}
+        </select>
+      </div>
     </div>
     <div id="dd-body"></div>
   `;
@@ -26,45 +31,50 @@ DM.renderers.drilldown = function (el) {
 
     const body = document.getElementById('dd-body');
     body.innerHTML = `
-      <div class="dm-card-grid cols-2">
-        <div class="dm-metric"><div class="dm-metric-label">Risk rank</div>
-          <div class="dm-metric-value">#${row.rank}</div><div class="dm-metric-delta">of ${wl.length.toLocaleString()}</div></div>
-        <div class="dm-metric"><div class="dm-metric-label">Risk score</div>
-          <div class="dm-metric-value">${DM.fmtNum(row.risk_score)}</div><div class="dm-metric-delta">flag threshold ${DM.fmtNum(card.threshold)}</div></div>
-      </div>
-      <div class="dm-card-grid cols-2">
-        <div class="dm-metric"><div class="dm-metric-label">Percentile</div><div class="dm-metric-value">${DM.fmtNum(row.risk_percentile, 1)}</div></div>
-        <div class="dm-metric"><div class="dm-metric-label">Model action</div><div class="dm-metric-value">${row.flagged ? 'FLAG' : 'No flag'}</div></div>
-      </div>
-      <div class="dm-card" style="border-left:5px solid ${colr};">
-        <b>${row.company_name}</b> (${row.ticker || '—'}) · ${row.sector} · period ending ${row.period_end}<br><br>
-        ${DM.tag(lab + ' risk', bandColor)}${DM.tag(row.known_status, statusColor)}
+      <div class="dm-panel">
+        <div class="dm-card" style="border-left:5px solid ${colr}; margin-bottom:1.6rem;">
+          <b>${row.company_name}</b> (${row.ticker || '—'}) · ${row.sector} · period ending ${row.period_end}<br><br>
+          ${DM.tag(lab + ' risk', bandColor)}${DM.tag(row.known_status, statusColor)}
+        </div>
+        <div class="dm-card-grid cols-4">
+          <div class="dm-metric"><div class="dm-metric-label">Risk rank</div>
+            <div class="dm-metric-value">#${row.rank}</div><div class="dm-metric-delta">of ${wl.length.toLocaleString()}</div></div>
+          <div class="dm-metric"><div class="dm-metric-label">Risk score</div>
+            <div class="dm-metric-value">${DM.fmtNum(row.risk_score)}</div><div class="dm-metric-delta">flag threshold ${DM.fmtNum(card.threshold)}</div></div>
+          <div class="dm-metric"><div class="dm-metric-label">Percentile</div><div class="dm-metric-value">${DM.fmtNum(row.risk_percentile, 1)}</div></div>
+          <div class="dm-metric"><div class="dm-metric-label">Model action</div><div class="dm-metric-value">${row.flagged ? 'FLAG' : 'No flag'}</div></div>
+        </div>
       </div>
 
-      <div class="dm-card-grid cols-2 dm-section-gap">
-        <div>
-          <h3>Why the model scored this company</h3>
+      <div class="dm-card-grid cols-2">
+        <div class="dm-panel">
+          <div class="dm-panel-title">Why the model scored this company</div>
           <div id="dd-shap" class="dm-chart" style="height:380px;"></div>
           <p class="dm-caption">Red pushes risk <b>up</b>, green pushes it <b>down</b> (SHAP contributions, this company only).</p>
         </div>
-        <div>
-          <h3>Risk score over time</h3>
+        <div class="dm-panel">
+          <div class="dm-panel-title">Risk score over time</div>
           <div id="dd-history" class="dm-chart" style="height:380px;"></div>
           <p class="dm-caption">Periods before 2025 were used in training; 2025 onward is held-out test data.</p>
         </div>
       </div>
 
-      <h3 class="dm-section-gap">Financial indicators</h3>
-      <div class="dm-table-scroll"><table class="dm-table" id="dd-indicators"></table></div>
-      <p class="dm-caption">Blank cells are genuinely missing in the source data, not zero. The model imputes
-      these with the training-set median, which is itself a limitation (Chapter 5.4).</p>
+      <div class="dm-panel">
+        <div class="dm-panel-title">Financial indicators</div>
+        <div class="dm-table-scroll"><table class="dm-table" id="dd-indicators"></table></div>
+        <p class="dm-caption" style="margin-top:1.1rem;">Blank cells are genuinely missing in the source data,
+        not zero. The model imputes these with the training-set median, which is itself a limitation
+        (Chapter 5.4).</p>
+      </div>
 
-      <h3 class="dm-section-gap">What-if: explore this company's risk score</h3>
-      <p class="dm-caption">Nudge this company's most recent indicators and see how the model's risk score
-      reacts. Runs the same frozen network used everywhere else in this dashboard, entirely in your browser
-      — nothing is retrained, and nothing you enter here is saved.</p>
-      <div class="dm-card-grid cols-4" id="dd-whatif-sliders"></div>
-      <div class="dm-card-grid cols-3" id="dd-whatif-result"></div>
+      <div class="dm-panel" style="background:#EAF2FE; border-color:#C7DFFB;">
+        <div class="dm-panel-title">🎛️ What-if: explore this company's risk score</div>
+        <p class="dm-caption">Nudge this company's most recent indicators and see how the model's risk score
+        reacts. Runs the same frozen network used everywhere else in this dashboard, entirely in your browser
+        — nothing is retrained, and nothing you enter here is saved.</p>
+        <div class="dm-card-grid cols-4" id="dd-whatif-sliders" style="margin-top:1.5rem;"></div>
+        <div class="dm-card-grid cols-3" id="dd-whatif-result"></div>
+      </div>
     `;
 
     // SHAP chart

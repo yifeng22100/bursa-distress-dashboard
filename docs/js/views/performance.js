@@ -9,15 +9,16 @@ DM.renderers.performance = function (el) {
     the same numbers reported in Chapter 4 of the write-up, computed live by the same script that builds
     this dashboard.</p>
 
-    <div class="dm-card-grid cols-3">
-      <div class="dm-metric"><div class="dm-metric-label">ROC-AUC</div><div class="dm-metric-value">${DM.fmtNum(metrics.roc_auc, 3)}</div></div>
-      <div class="dm-metric"><div class="dm-metric-label">PR-AUC</div><div class="dm-metric-value">${DM.fmtNum(metrics.pr_auc, 3)}</div></div>
-      <div class="dm-metric"><div class="dm-metric-label">F1</div><div class="dm-metric-value">${DM.fmtNum(metrics.f1_at_threshold, 3)}</div></div>
-    </div>
-    <div class="dm-card-grid cols-3">
-      <div class="dm-metric"><div class="dm-metric-label">Accuracy</div><div class="dm-metric-value">${DM.fmtPct(metrics.accuracy_at_threshold, 1)}</div></div>
-      <div class="dm-metric"><div class="dm-metric-label">Recall</div><div class="dm-metric-value">${DM.fmtPct(card.test_recall, 1)}</div></div>
-      <div class="dm-metric"><div class="dm-metric-label">Precision</div><div class="dm-metric-value">${DM.fmtPct(card.test_precision, 1)}</div></div>
+    <div class="dm-panel">
+      <div class="dm-panel-title">Headline metrics</div>
+      <div class="dm-card-grid cols-3">
+        <div class="dm-metric"><div class="dm-metric-label">ROC-AUC</div><div class="dm-metric-value">${DM.fmtNum(metrics.roc_auc, 3)}</div></div>
+        <div class="dm-metric"><div class="dm-metric-label">PR-AUC</div><div class="dm-metric-value">${DM.fmtNum(metrics.pr_auc, 3)}</div></div>
+        <div class="dm-metric"><div class="dm-metric-label">F1</div><div class="dm-metric-value">${DM.fmtNum(metrics.f1_at_threshold, 3)}</div></div>
+        <div class="dm-metric"><div class="dm-metric-label">Accuracy</div><div class="dm-metric-value">${DM.fmtPct(metrics.accuracy_at_threshold, 1)}</div></div>
+        <div class="dm-metric"><div class="dm-metric-label">Recall</div><div class="dm-metric-value">${DM.fmtPct(card.test_recall, 1)}</div></div>
+        <div class="dm-metric"><div class="dm-metric-label">Precision</div><div class="dm-metric-value">${DM.fmtPct(card.test_precision, 1)}</div></div>
+      </div>
     </div>
 
     <div class="dm-banner dm-banner-warning">
@@ -30,31 +31,35 @@ DM.renderers.performance = function (el) {
     </div>
 
     <div class="dm-card-grid cols-2">
-      <div><h3>ROC curve</h3><div id="perf-roc" class="dm-chart" style="height:420px;"></div></div>
-      <div><h3>Precision–recall curve</h3><div id="perf-pr" class="dm-chart" style="height:420px;"></div></div>
+      <div class="dm-panel" style="margin:0;"><div class="dm-panel-title">ROC curve</div><div id="perf-roc" class="dm-chart" style="height:420px;"></div></div>
+      <div class="dm-panel" style="margin:0;"><div class="dm-panel-title">Precision–recall curve</div><div id="perf-pr" class="dm-chart" style="height:420px;"></div></div>
     </div>
 
-    <h3 class="dm-section-gap">Confusion matrix — DQN at calibrated threshold</h3>
-    <div class="dm-card-grid" style="grid-template-columns:1fr 2fr;">
-      <div id="perf-cm" class="dm-chart" style="height:320px;"></div>
-      <div>
-        <div class="dm-card">
-          <b>True positives:</b> ${cm.TP} — genuinely distressed companies correctly flagged<br>
-          <b>False positives:</b> ${cm.FP} — healthy companies incorrectly flagged<br>
-          <b>False negatives:</b> ${cm.FN} — genuinely distressed companies missed<br>
-          <b>True negatives:</b> ${cm.TN.toLocaleString()} — healthy companies correctly left unflagged
+    <div class="dm-panel">
+      <div class="dm-panel-title">Confusion matrix — DQN at calibrated threshold</div>
+      <div class="dm-card-grid" style="grid-template-columns:1fr 2fr;">
+        <div id="perf-cm" class="dm-chart" style="height:320px;"></div>
+        <div>
+          <div class="dm-card">
+            <b>True positives:</b> ${cm.TP} — genuinely distressed companies correctly flagged<br>
+            <b>False positives:</b> ${cm.FP} — healthy companies incorrectly flagged<br>
+            <b>False negatives:</b> ${cm.FN} — genuinely distressed companies missed<br>
+            <b>True negatives:</b> ${cm.TN.toLocaleString()} — healthy companies correctly left unflagged
+          </div>
+          <p class="dm-caption">The class imbalance is visible directly in these counts: even a well-ranking
+          model produces few true positives in absolute terms, because so few company-periods are genuinely
+          distressed.</p>
         </div>
-        <p class="dm-caption">The class imbalance is visible directly in these counts: even a well-ranking
-        model produces few true positives in absolute terms, because so few company-periods are genuinely
-        distressed.</p>
       </div>
     </div>
 
-    <h3 class="dm-section-gap">Cross-agent comparison</h3>
-    <div class="dm-table-scroll"><table class="dm-table" id="perf-agents"></table></div>
-    <p class="dm-caption">Cost = 10×(missed distress) + 3×(false alarm) on the same held-out test rows for
-    every agent. Lower is better. Figures are read directly from each agent's own results file, never
-    recomputed here.</p>
+    <div class="dm-panel">
+      <div class="dm-panel-title">Cross-agent comparison</div>
+      <div class="dm-table-scroll"><table class="dm-table" id="perf-agents"></table></div>
+      <p class="dm-caption" style="margin-top:1.1rem;">Cost = 10×(missed distress) + 3×(false alarm) on the
+      same held-out test rows for every agent. Lower is better. Figures are read directly from each agent's
+      own results file, never recomputed here.</p>
+    </div>
   `;
 
   DM.plot(document.getElementById('perf-roc'), [

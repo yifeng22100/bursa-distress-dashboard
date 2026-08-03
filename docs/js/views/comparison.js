@@ -11,9 +11,11 @@ DM.renderers.comparison = function (el) {
     <p class="dm-page-caption">Put two to four companies next to each other — risk trajectory, current
     standing, and what's driving each score.</p>
 
-    <div class="dm-field">
-      <label class="dm-label">Companies to compare (2–4)</label>
-      <div id="cmp-picker"></div>
+    <div class="dm-toolbar">
+      <div class="dm-field" style="margin-bottom:0;">
+        <label class="dm-label">Companies to compare (2–4)</label>
+        <div id="cmp-picker"></div>
+      </div>
     </div>
 
     <div id="cmp-body"></div>
@@ -33,17 +35,26 @@ DM.renderers.comparison = function (el) {
 
     body.innerHTML = `
       <div class="dm-card-grid" style="grid-template-columns:repeat(${picks.length},1fr);" id="cmp-cards"></div>
-      <h3 class="dm-section-gap">Risk score over time</h3>
-      <div id="cmp-history" class="dm-chart" style="height:420px;"></div>
-      <h3 class="dm-section-gap">Indicator comparison</h3>
-      <div class="dm-field" style="max-width:320px;">
-        <select class="dm-select" id="cmp-indicator">
-          ${Object.keys(DM.PRETTY).map(k => `<option value="${k}" ${k === indicator ? 'selected' : ''}>${DM.PRETTY[k]}</option>`).join('')}
-        </select>
+
+      <div class="dm-panel">
+        <div class="dm-panel-title">Risk score over time</div>
+        <div id="cmp-history" class="dm-chart" style="height:420px;"></div>
       </div>
-      <div id="cmp-indchart" class="dm-chart" style="height:380px;"></div>
-      <h3 class="dm-section-gap">What's driving each score</h3>
-      <div class="dm-card-grid" style="grid-template-columns:repeat(${picks.length},1fr);" id="cmp-shap"></div>
+
+      <div class="dm-panel">
+        <div class="dm-panel-title">Indicator comparison</div>
+        <div class="dm-field" style="max-width:320px;">
+          <select class="dm-select" id="cmp-indicator">
+            ${Object.keys(DM.PRETTY).map(k => `<option value="${k}" ${k === indicator ? 'selected' : ''}>${DM.PRETTY[k]}</option>`).join('')}
+          </select>
+        </div>
+        <div id="cmp-indchart" class="dm-chart" style="height:380px;"></div>
+      </div>
+
+      <div class="dm-panel">
+        <div class="dm-panel-title">What's driving each score</div>
+        <div class="dm-card-grid" style="grid-template-columns:repeat(${picks.length},1fr);" id="cmp-shap"></div>
+      </div>
     `;
 
     document.getElementById('cmp-cards').innerHTML = picks.map((name, i) => {

@@ -13,26 +13,33 @@ DM.renderers.sector = function (el) {
     <p class="dm-page-caption">Model risk score aggregated by sector, across each company's most recent
     reported period. Use this to decide where to look first — not as a verdict on any sector.</p>
 
-    <div class="dm-field-row">
-      <div class="dm-field">
-        <label class="dm-label">Rank sectors by</label>
-        <select class="dm-select" id="sec-metric">
-          ${Object.entries(METRIC_LABELS).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}
-        </select>
-      </div>
-      <div class="dm-field" style="flex:2;">
-        <label class="dm-label">Minimum companies in sector</label>
-        <input type="range" class="dm-range" id="sec-minn" min="1" max="20" value="5">
-        <div class="dm-range-labels"><span id="sec-minn-val">5</span><span>1–20</span></div>
+    <div class="dm-toolbar">
+      <div class="dm-field-row">
+        <div class="dm-field">
+          <label class="dm-label">Rank sectors by</label>
+          <select class="dm-select" id="sec-metric">
+            ${Object.entries(METRIC_LABELS).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}
+          </select>
+        </div>
+        <div class="dm-field" style="flex:2;">
+          <label class="dm-label">Minimum companies in sector</label>
+          <input type="range" class="dm-range" id="sec-minn" min="1" max="20" value="5">
+          <div class="dm-range-labels"><span id="sec-minn-val">5</span><span>1–20</span></div>
+        </div>
       </div>
     </div>
 
-    <div id="sec-chart" class="dm-chart" style="height:520px;"></div>
+    <div class="dm-panel">
+      <div class="dm-panel-title">Risk by sector</div>
+      <div id="sec-chart" class="dm-chart" style="height:520px;"></div>
+    </div>
 
-    <h3 class="dm-section-gap">Highest-risk sectors</h3>
-    <div class="dm-table-scroll"><table class="dm-table" id="sec-table"></table></div>
+    <div class="dm-panel">
+      <div class="dm-panel-title">Highest-risk sectors</div>
+      <div class="dm-table-scroll"><table class="dm-table" id="sec-table"></table></div>
+    </div>
 
-    <div class="dm-banner dm-banner-info dm-section-gap" id="sec-info"></div>
+    <div class="dm-banner dm-banner-info" id="sec-info"></div>
     <div class="dm-banner dm-banner-warning" id="sec-warn" style="display:none;"></div>
   `;
 

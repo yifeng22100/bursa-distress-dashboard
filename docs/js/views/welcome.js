@@ -52,6 +52,12 @@ DM.renderers.welcome = function (el) {
     <h3 class="dm-section-gap">How to use this dashboard</h3>
     <p class="dm-caption">Seven views, each answering a different question. Click through, or use the nav above.</p>
     <div class="dm-guide-grid" id="guide-grid"></div>
+
+    <div class="dm-cta">
+      <h3>Have a specific company in mind?</h3>
+      <p>Skip straight to its risk score, its SHAP explanation, and a live what-if slider.</p>
+      <button class="dm-cta-btn" data-goto="drilldown">Open Drill-down →</button>
+    </div>
   `;
 
   el.querySelector('#hero-pills').innerHTML = guide.map(([id, , , name]) =>
@@ -78,4 +84,6 @@ DM.renderers.welcome = function (el) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); DM.goto(c.dataset.goto); }
     });
   });
+
+  el.querySelector('.dm-cta-btn').addEventListener('click', (e) => DM.goto(e.currentTarget.dataset.goto));
 };

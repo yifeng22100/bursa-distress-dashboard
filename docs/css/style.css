@@ -80,18 +80,67 @@ img{ max-width:100%; }
 /* ---------------------------------------------------------------- eyebrow + page title (data pages) */
 .dm-eyebrow{
   font-size:.75rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--blue); margin-bottom:.3rem; display:flex; align-items:center;
+  color:var(--blue); margin-bottom:.5rem; display:flex; align-items:center;
 }
-.dm-pagetitle{ font-size:2.05rem; font-weight:700; letter-spacing:-0.02em; margin:0 0 .3rem 0; line-height:1.15; }
-.dm-page-caption{ color:var(--ink-soft); font-size:.95rem; margin-bottom:1.2rem; }
+.dm-pagetitle{ font-size:2.05rem; font-weight:700; letter-spacing:-0.02em; margin:0 0 .6rem 0; line-height:1.15; }
+.dm-page-caption{ color:var(--ink-soft); font-size:1rem; line-height:1.6; max-width:760px; margin:0 0 2.5rem 0; }
+
+/* Every top-level paragraph in a view is a direct child of <section class="dm-view"> (each view's
+   template is assigned straight to its innerHTML) -- capping width and line-height here, once,
+   keeps prose readable everywhere instead of letting text stretch the full 1360px main column. */
+.dm-view > p{ max-width:760px; line-height:1.6; margin:0 0 1.75rem 0; }
+.dm-view ul, .dm-view ol{ max-width:800px; line-height:1.6; padding-left:1.3rem; }
+.dm-view ul li, .dm-view ol li{ margin-bottom:.75rem; }
+.dm-view h3{ margin-bottom:1rem; }
+
+/* ---------------------------------------------------------------- section rhythm */
+/* Generous, consistent gap between major blocks on a page -- replaces the cramped, stacked-widget
+   feel (label/control/chart/table/paragraph all touching) inherited from the dashboard's earlier
+   Streamlit-era layout. */
+.dm-section-gap{ margin-top:3.25rem; }
+h3.dm-section-gap{ margin-bottom:1.25rem; }
+
+/* ---------------------------------------------------------------- surfaces (toolbar / panel) */
+/* .dm-toolbar groups a page's filter controls into one visually distinct, breathing-room-rich
+   block instead of bare label+input rows sitting straight on the page background. */
+.dm-toolbar{
+  background:var(--fill-5); border:1px solid var(--line); border-radius:20px;
+  padding:1.75rem 2rem; margin-bottom:2.5rem;
+}
+.dm-toolbar .dm-field-row:last-child, .dm-toolbar .dm-field:last-child{ margin-bottom:0; }
+
+/* .dm-panel wraps a chart/table + its caption as one card so each becomes a distinct section of
+   the page rather than a chart floating directly on white followed immediately by a table. */
+.dm-panel{
+  background:var(--card); border:1px solid var(--line-solid); border-radius:20px;
+  padding:1.9rem 2.1rem; margin:2rem 0 2.5rem 0;
+}
+.dm-panel > h3:first-child{ margin-top:0; }
+.dm-panel-title{ font-size:1.15rem; font-weight:700; margin:0 0 1.1rem 0; }
+
+/* ---------------------------------------------------------------- dark CTA band */
+/* A full-bleed dark band used as a deliberate visual break between sections -- not a Streamlit
+   pattern at all, borrowed instead from editorial marketing pages to give the page a punctuation
+   mark instead of one long uninterrupted scroll of cards. */
+.dm-cta{
+  background:#1D1D1F; color:#fff; text-align:center;
+  margin:4rem -2.4rem 0 -2.4rem; padding:3.5rem 2.4rem; border-radius:0;
+}
+.dm-cta h3{ font-size:1.7rem; font-weight:700; margin:0 0 .6rem 0; }
+.dm-cta p{ color:#AEAEB2; font-size:1rem; margin:0 0 1.6rem 0; }
+button.dm-cta-btn{
+  all:unset; cursor:pointer; background:#fff; color:#1D1D1F; font-weight:600; font-size:.92rem;
+  padding:.75rem 1.5rem; border-radius:9999px; display:inline-flex; align-items:center; gap:.5rem;
+}
+button.dm-cta-btn:hover{ background:#F0F0F2; }
 
 /* ---------------------------------------------------------------- cards / callouts */
 /* Thin border only, no shadow. */
 .dm-card{
   background:var(--card); border-radius:16px; border:1px solid var(--line-solid);
-  padding:1.1rem 1.3rem; margin-bottom:1rem;
+  padding:1.4rem 1.6rem; margin-bottom:1.25rem;
 }
-.dm-card-grid{ display:grid; gap:1rem; }
+.dm-card-grid{ display:grid; gap:1.25rem; }
 .dm-card-grid.cols-2{ grid-template-columns:1fr 1fr; }
 .dm-card-grid.cols-3{ grid-template-columns:repeat(3,1fr); }
 .dm-card-grid.cols-4{ grid-template-columns:repeat(4,1fr); }
@@ -132,7 +181,7 @@ img{ max-width:100%; }
 .dm-guide-teal .dm-guide-icon{ background:#E3F7F5; }
 .dm-guide-red .dm-guide-icon{ background:#FDEBEA; }
 
-.dm-banner{ border-radius:14px; padding:.75rem 1.1rem; font-size:.9rem; line-height:1.45; margin-bottom:1.1rem; border:1px solid; }
+.dm-banner{ border-radius:16px; padding:1.1rem 1.4rem; font-size:.9rem; line-height:1.6; margin-bottom:1.5rem; border:1px solid; }
 .dm-banner-disclaimer{ background:#FFF7ED; border-color:#FFE0B2; color:#7A4A00; }
 .dm-banner-info{ background:#EAF2FE; border-color:#C7DFFB; color:#0058C6; }
 .dm-banner-warning{ background:#FFF9E6; border-color:#FFE58A; color:#8A6D00; }
@@ -153,26 +202,26 @@ img{ max-width:100%; }
 
 /* ---------------------------------------------------------------- metrics */
 .dm-metric{
-  background:var(--card); border:1px solid var(--line-solid); border-radius:14px;
-  padding:.7rem .9rem;
+  background:var(--card); border:1px solid var(--line-solid); border-radius:16px;
+  padding:1.1rem 1.3rem;
 }
-.dm-metric-label{ font-size:.8rem; color:var(--ink-soft); margin-bottom:.2rem; }
-.dm-metric-value{ font-size:1.65rem; font-weight:700; line-height:1.2; }
-.dm-metric-delta{ font-size:.78rem; color:var(--ink-soft); margin-top:.15rem; }
+.dm-metric-label{ font-size:.82rem; color:var(--ink-soft); margin-bottom:.35rem; }
+.dm-metric-value{ font-size:1.75rem; font-weight:700; line-height:1.2; }
+.dm-metric-delta{ font-size:.8rem; color:var(--ink-soft); margin-top:.3rem; }
 
 /* ---------------------------------------------------------------- form controls */
-label.dm-label{ display:block; font-size:.85rem; color:var(--ink); margin-bottom:.35rem; font-weight:500; }
+label.dm-label{ display:block; font-size:.85rem; color:var(--ink); margin-bottom:.5rem; font-weight:500; }
 select.dm-select, input.dm-text, input[type=range].dm-range{
-  font-family:inherit; font-size:.92rem; padding:.5rem .65rem; border-radius:10px;
-  border:1px solid var(--line); background:var(--fill-5); color:var(--ink); width:100%;
+  font-family:inherit; font-size:.92rem; padding:.65rem .8rem; border-radius:10px;
+  border:1px solid var(--line); background:var(--card); color:var(--ink); width:100%;
 }
 select.dm-select:focus, input.dm-text:focus{ outline:2px solid var(--blue); outline-offset:1px; }
-input[type=range].dm-range{ padding:0; accent-color:var(--blue); }
+input[type=range].dm-range{ padding:0; accent-color:var(--blue); background:none; }
 input[type=checkbox]{ accent-color:var(--blue); width:16px; height:16px; }
-.dm-field{ margin-bottom:1rem; }
-.dm-field-row{ display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end; margin-bottom:1rem; }
-.dm-field-row > .dm-field{ flex:1; min-width:180px; margin-bottom:0; }
-.dm-range-labels{ display:flex; justify-content:space-between; font-size:.78rem; color:var(--ink-soft); margin-top:.2rem; }
+.dm-field{ margin-bottom:1.5rem; }
+.dm-field-row{ display:flex; gap:1.75rem; flex-wrap:wrap; align-items:flex-end; margin-bottom:1.5rem; }
+.dm-field-row > .dm-field{ flex:1; min-width:200px; margin-bottom:0; }
+.dm-range-labels{ display:flex; justify-content:space-between; font-size:.78rem; color:var(--ink-soft); margin-top:.35rem; }
 
 button.dm-btn{
   font-family:inherit; font-size:.88rem; font-weight:500; cursor:pointer;
@@ -205,19 +254,18 @@ button.dm-btn:hover{ border-color:var(--blue); color:var(--blue); }
 .dm-chip-option:hover, .dm-chip-option.hl{ background:var(--fill-3); }
 
 /* ---------------------------------------------------------------- tables */
-table.dm-table{ width:100%; border-collapse:collapse; font-size:.88rem; }
+table.dm-table{ width:100%; border-collapse:collapse; font-size:.9rem; }
 table.dm-table th{
-  text-align:left; padding:.55rem .7rem; background:var(--fill-5); color:var(--ink-soft);
+  text-align:left; padding:.85rem 1rem; background:var(--fill-5); color:var(--ink-soft);
   font-weight:600; border-bottom:1px solid var(--line); position:sticky; top:0;
 }
-table.dm-table td{ padding:.5rem .7rem; border-bottom:1px solid var(--line); }
+table.dm-table td{ padding:.8rem 1rem; border-bottom:1px solid var(--line); line-height:1.5; }
 table.dm-table tr:hover td{ background:var(--fill-5); }
-.dm-table-scroll{ max-height:520px; overflow-y:auto; border:1px solid var(--line); border-radius:14px; }
+.dm-table-scroll{ max-height:520px; overflow-y:auto; border:1px solid var(--line-solid); border-radius:16px; }
 .dm-table-scroll table.dm-table th{ top:0; }
 
 /* ---------------------------------------------------------------- misc */
-.dm-caption{ color:var(--ink-soft); font-size:.85rem; }
-.dm-section-gap{ margin-top:1.6rem; }
+.dm-caption{ color:var(--ink-soft); font-size:.87rem; line-height:1.6; }
 .dm-chart{ width:100%; }
 .dm-loading{ padding:3rem; text-align:center; color:var(--ink-soft); }
 
@@ -261,4 +309,6 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
   .dm-main{ padding:1.2rem; }
   .dm-statband{ margin-left:-1.2rem; margin-right:-1.2rem; padding:1.6rem 1.2rem; gap:1.8rem; }
   .dm-hero h1{ font-size:2.2rem; }
+  .dm-toolbar, .dm-panel{ padding:1.3rem 1.2rem; }
+  .dm-cta{ margin-left:-1.2rem; margin-right:-1.2rem; padding:2.4rem 1.2rem; }
 }

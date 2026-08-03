@@ -9,21 +9,25 @@ DM.renderers.trends = function (el) {
     <div class="dm-pagetitle">Indicator trends</div>
     <p class="dm-page-caption">Compare a financial indicator over time across companies.</p>
 
-    <div class="dm-field-row">
-      <div class="dm-field">
-        <label class="dm-label">Indicator</label>
-        <select class="dm-select" id="tr-indicator">
-          ${Object.keys(DM.PRETTY).map(k => `<option value="${k}">${DM.PRETTY[k]}</option>`).join('')}
-        </select>
-      </div>
-      <div class="dm-field" style="flex:2;">
-        <label class="dm-label">Companies (default: current top 5 by risk)</label>
-        <div id="tr-picker"></div>
+    <div class="dm-toolbar">
+      <div class="dm-field-row" style="margin-bottom:0;">
+        <div class="dm-field" style="margin-bottom:0;">
+          <label class="dm-label">Indicator</label>
+          <select class="dm-select" id="tr-indicator">
+            ${Object.keys(DM.PRETTY).map(k => `<option value="${k}">${DM.PRETTY[k]}</option>`).join('')}
+          </select>
+        </div>
+        <div class="dm-field" style="flex:2; margin-bottom:0;">
+          <label class="dm-label">Companies (default: current top 5 by risk)</label>
+          <div id="tr-picker"></div>
+        </div>
       </div>
     </div>
 
-    <div id="tr-chart" class="dm-chart" style="height:520px;"></div>
-    <p class="dm-caption" id="tr-caption"></p>
+    <div class="dm-panel">
+      <div id="tr-chart" class="dm-chart" style="height:520px;"></div>
+      <p class="dm-caption" id="tr-caption" style="margin-top:1.1rem;"></p>
+    </div>
     <div class="dm-banner dm-banner-info" id="tr-zscore-note" style="display:none;">
       The Altman Z''-Score distress threshold is 1.1. This project's own benchmark analysis (Chapter 4.3)
       found it flags 13% of all Bursa company-periods — high recall, low precision.

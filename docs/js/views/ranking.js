@@ -11,27 +11,34 @@ DM.renderers.ranking = function (el) {
     <p class="dm-page-caption">Every monitored company, ranked by model risk score on its most recent
     reported period.</p>
 
-    <div class="dm-field-row">
-      <div class="dm-field"><label class="dm-label">Filter by sector</label><div id="rk-sector-filter"></div></div>
-      <div class="dm-field"><label class="dm-label">Filter by known status</label><div id="rk-status-filter"></div></div>
-    </div>
-    <div class="dm-field-row">
-      <div class="dm-field" style="flex:2;">
-        <label class="dm-label">Search company name</label>
-        <input type="text" class="dm-text" id="rk-search" placeholder="e.g. Sentoria">
+    <div class="dm-toolbar">
+      <div class="dm-field-row">
+        <div class="dm-field"><label class="dm-label">Filter by sector</label><div id="rk-sector-filter"></div></div>
+        <div class="dm-field"><label class="dm-label">Filter by known status</label><div id="rk-status-filter"></div></div>
       </div>
-      <div class="dm-field" style="flex:0 0 auto;display:flex;align-items:center;gap:.4rem;padding-bottom:.5rem;">
-        <input type="checkbox" id="rk-flagged"><label for="rk-flagged" style="font-size:.88rem;">Flagged only</label>
+      <div class="dm-field-row">
+        <div class="dm-field" style="flex:2;">
+          <label class="dm-label">Search company name</label>
+          <input type="text" class="dm-text" id="rk-search" placeholder="e.g. Sentoria">
+        </div>
+        <div class="dm-field" style="flex:0 0 auto;display:flex;align-items:center;gap:.5rem;padding-bottom:.65rem;">
+          <input type="checkbox" id="rk-flagged"><label for="rk-flagged" style="font-size:.88rem;">Flagged only</label>
+        </div>
       </div>
-    </div>
-    <div class="dm-field">
-      <label class="dm-label">Show top N</label>
-      <input type="range" class="dm-range" id="rk-topn" min="10" max="200" step="5" value="25">
-      <div class="dm-range-labels"><span id="rk-topn-val">25</span><span>10–200</span></div>
+      <div class="dm-field">
+        <label class="dm-label">Show top N</label>
+        <input type="range" class="dm-range" id="rk-topn" min="10" max="200" step="5" value="25">
+        <div class="dm-range-labels"><span id="rk-topn-val">25</span><span>10–200</span></div>
+      </div>
     </div>
 
-    <div class="dm-table-scroll" style="max-height:620px;"><table class="dm-table" id="rk-table"></table></div>
-    <div style="margin:.8rem 0;"><button class="dm-btn" id="rk-download">⬇ Download this view as CSV</button></div>
+    <div class="dm-panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.1rem; gap:1rem; flex-wrap:wrap;">
+        <div class="dm-panel-title" style="margin:0;">Watchlist</div>
+        <button class="dm-btn" id="rk-download">⬇ Download this view as CSV</button>
+      </div>
+      <div class="dm-table-scroll" style="max-height:620px;"><table class="dm-table" id="rk-table"></table></div>
+    </div>
 
     <p>
       <b>How to read the 'Flagged' column.</b> A company is flagged when its risk score exceeds the model's
