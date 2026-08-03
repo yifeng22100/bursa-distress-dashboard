@@ -14,7 +14,7 @@
 }
 
 *{ box-sizing:border-box; }
-html, body{ margin:0; padding:0; }
+html, body{ margin:0; padding:0; overflow-x:hidden; }
 body{
   font-family:-apple-system,BlinkMacSystemFont,"system-ui","SF Pro Display","SF Pro Text",Inter,
               "Helvetica Neue",Arial,sans-serif;
@@ -53,17 +53,15 @@ img{ max-width:100%; }
 }
 .dm-hero p{ color:var(--ink-soft); font-size:1.15rem; max-width:640px; margin:0 auto; line-height:1.5; }
 
-/* Bleeds to the edges of .dm-main's own content box (cancels its padding), not the true viewport
-   edge. An earlier version used the 100vw/-50vw "break out of a centered container" trick for a
-   true edge-to-edge bleed, but that measurably broke under this environment's viewport/DPR
-   handling (100vw resolved against a different width than window.innerWidth on a narrow/mobile
-   viewport, leaving the band non-full-width and off-center) -- confirmed via
-   getBoundingClientRect, not assumed. This version gives up bleeding past .dm-main's own
-   max-width on very wide monitors in exchange for being reliably correct everywhere. */
+/* True edge-to-edge bleed to the actual browser viewport (not just .dm-main's own content box) --
+   width:100vw + margin:calc(50%-50vw) breaks the element out of the centered/max-width column.
+   `overflow-x:hidden` on html/body (above) absorbs the sub-pixel scrollbar-width rounding this
+   trick can introduce, so it can't cause a horizontal scrollbar. Verified via
+   getBoundingClientRect against window.innerWidth at multiple viewport sizes before shipping. */
 .dm-statband{
   background:var(--stat-bg); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  margin:5.5rem -2.4rem 0 -2.4rem; padding:2.2rem 2.4rem; display:flex; justify-content:center;
-  gap:3.5rem; flex-wrap:wrap; text-align:center;
+  width:100vw; margin:5.5rem calc(50% - 50vw) 0 calc(50% - 50vw); padding:2.2rem 2.4rem;
+  display:flex; justify-content:center; gap:3.5rem; flex-wrap:wrap; text-align:center;
 }
 .dm-stat-big b{ font-size:2.25rem; font-weight:700; display:block; line-height:1.05; }
 .dm-stat-big .lbl{ font-weight:700; font-size:.95rem; margin-top:.2rem; }
@@ -124,7 +122,7 @@ h3.dm-section-gap{ margin-bottom:1.25rem; }
    mark instead of one long uninterrupted scroll of cards. */
 .dm-cta{
   background:#1D1D1F; color:#fff; text-align:center;
-  margin:4rem -2.4rem 0 -2.4rem; padding:3.5rem 2.4rem; border-radius:0;
+  width:100vw; margin:4rem calc(50% - 50vw) 0 calc(50% - 50vw); padding:3.5rem 2.4rem; border-radius:0;
 }
 .dm-cta h3{ font-size:1.7rem; font-weight:700; margin:0 0 .6rem 0; }
 .dm-cta p{ color:#AEAEB2; font-size:1rem; margin:0 0 1.6rem 0; }
@@ -331,11 +329,13 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
 .dm-loading{ padding:3rem; text-align:center; color:var(--ink-soft); }
 
 /* Column footer: brand + a few link/info columns, then a bottom bar with copyright and quick
-   stats -- full-bleed relative to .dm-main's own edges (same technique as .dm-statband). */
+   stats. The background bleeds to the true viewport edge (same technique as .dm-statband/.dm-cta)
+   while .dm-footer-inner keeps the actual content aligned with the rest of the page. */
 .dm-footer{
-  margin:3rem -2.4rem 0 -2.4rem; padding:2.6rem 2.4rem 0 2.4rem;
+  width:100vw; margin:3rem calc(50% - 50vw) 0 calc(50% - 50vw); padding-top:2.6rem;
   background:var(--stat-bg); border-top:1px solid var(--line-solid);
 }
+.dm-footer-inner{ max-width:1360px; margin:0 auto; padding:0 2.4rem; }
 .dm-footer-top{
   display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:3rem; padding-bottom:2rem;
 }
@@ -357,7 +357,8 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
   border-top:1px solid var(--line-solid); padding:1.1rem 0; font-size:.75rem; color:#AEAEB2;
 }
 @media (max-width:800px){
-  .dm-footer{ margin-left:-1.2rem; margin-right:-1.2rem; padding:2rem 1.2rem 0 1.2rem; }
+  .dm-footer{ padding-top:2rem; }
+  .dm-footer-inner{ padding:0 1.2rem; }
   .dm-footer-top{ grid-template-columns:1fr 1fr; }
 }
 
@@ -368,8 +369,8 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
   .dm-header{ padding:1rem 1.2rem; flex-wrap:wrap; }
   .dm-nav{ gap:.9rem; order:3; width:100%; }
   .dm-main{ padding:1.2rem; }
-  .dm-statband{ margin-left:-1.2rem; margin-right:-1.2rem; padding:1.6rem 1.2rem; gap:1.8rem; }
+  .dm-statband{ padding:1.6rem 1.2rem; gap:1.8rem; }
   .dm-hero h1{ font-size:2.2rem; }
   .dm-toolbar, .dm-panel{ padding:1.3rem 1.2rem; }
-  .dm-cta{ margin-left:-1.2rem; margin-right:-1.2rem; padding:2.4rem 1.2rem; }
+  .dm-cta{ padding:2.4rem 1.2rem; }
 }
