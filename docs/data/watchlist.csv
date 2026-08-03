@@ -1,0 +1,1066 @@
+company_name,ticker,sector,period_end,risk_score,rank,risk_percentile,flagged,known_status,pn17_gn3_label,data_source
+Can-One Bhd,CANONE,Containers & Packaging,2025-12-31,12.104739,1,100.0,True,No classification on record,0,lseg
+Sentoria Group Bhd,SNTORIA,(not classified — delisted-firm supplement),2025-12-31,11.857327,2,99.9,True,Currently PN17/GN3,1,public_secondary
+KNM Group Bhd,KNM,(not classified — delisted-firm supplement),2025-12-31,11.714034,3,99.8,True,Previously classified,0,public_secondary
+Ireka Corporation Bhd,IREKA,(not classified — delisted-firm supplement),2025-12-31,10.505999,4,99.7,True,Currently PN17/GN3,1,public_secondary
+Reneuco Bhd,RENEUCO,(not classified — delisted-firm supplement),2025-03-31,9.233244,5,99.6,True,Currently PN17/GN3,1,public_secondary
+Nuenergy Holdings Bhd,NHB,Electric Utilities & IPPs,2025-12-31,8.793347,6,99.5,False,No classification on record,0,lseg
+Key Alliance Group Bhd,KGROUP,Software & IT Services,2026-03-31,8.53023,7,99.4,False,No classification on record,0,lseg
+GPP Resources Bhd,GPP,Electric Utilities & IPPs,2025-06-30,8.374649,8,99.3,False,No classification on record,0,lseg
+Empire Premium Food Bhd,EMPIRE,Hotels & Entertainment Services,2027-03-31,7.965108,9,99.2,False,No classification on record,0,lseg
+Sentral REIT,SENTRAL,Residential & Commercial REITs,2026-12-31,7.3766055,10,99.2,False,No classification on record,0,lseg
+DRB-HICOM Bhd,DRBHCOM,Automobiles & Auto Parts,2026-12-31,7.2831345,11,99.1,False,No classification on record,0,lseg
+Sersol Bhd,SERSOL,Chemicals,2025-06-30,6.946815,12,99.0,False,No classification on record,0,lseg
+Kumpulan Jetson Bhd,JETSON,Chemicals,2026-03-31,6.5577836,13,98.9,False,No classification on record,0,lseg
+Green Packet Bhd,GPACKET,Communications & Networking,2025-06-30,6.3832464,14,98.8,False,No classification on record,0,lseg
+Nestle (Malaysia) Bhd,NESTLE,Food & Tobacco,2026-12-31,6.3483686,15,98.7,False,No classification on record,0,lseg
+Malakoff Corp Bhd,MALAKOF,Electric Utilities & IPPs,2026-12-31,6.3154964,16,98.6,False,No classification on record,0,lseg
+CI Holdings Bhd,CIHLDG,Food & Tobacco,2026-06-30,6.011872,17,98.5,False,No classification on record,0,lseg
+Techna-X Bhd,TECHNAX,Hotels & Entertainment Services,2025-12-31,5.4921994,18,98.4,False,No classification on record,0,lseg
+Landmarks Bhd,LANDMRK,Hotels & Entertainment Services,2025-12-31,5.304589,19,98.3,False,No classification on record,0,lseg
+Knusford Bhd,KNUSFOR,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-03-31,4.8511086,20,98.2,False,No classification on record,0,lseg
+Tan Chong Motor Holdings Bhd,TCHONG,Automobiles & Auto Parts,2026-12-31,4.800587,21,98.1,False,No classification on record,0,lseg
+CapitaLand Malaysia Trust,CLMT,Residential & Commercial REITs,2026-12-31,4.786146,22,98.0,False,No classification on record,0,lseg
+Media Prima Bhd,MEDIA,Media & Publishing,2026-06-30,4.782926,23,97.9,False,No classification on record,0,lseg
+Hua Yang Bhd,HUAYANG,Real Estate Operations,2027-03-31,4.7613397,24,97.8,False,No classification on record,0,lseg
+EWI Capital Bhd,EWICAP,Real Estate Operations,2026-10-31,4.7532744,25,97.7,False,No classification on record,0,lseg
+Melewar Industrial Group Bhd,MELEWAR,Metals & Mining,2025-06-30,4.497048,26,97.7,False,No classification on record,0,lseg
+M K Land Holdings Bhd,MKLAND,Real Estate Operations,2025-06-30,4.423381,27,97.6,False,No classification on record,0,lseg
+AmFIRST Real Estate Investment Trust,AMFIRST,Residential & Commercial REITs,2027-03-31,4.3691216,28,97.5,False,No classification on record,0,lseg
+Bursa Malaysia Bhd,BURSA,Investment Banking & Investment Services,2026-12-31,4.3034043,29,97.4,False,No classification on record,0,lseg
+Cypark Resources Bhd,CYPARK,Electric Utilities & IPPs,2027-04-30,3.9327087,30,97.3,False,No classification on record,0,lseg
+UOA Real Estate Investment Trust,UOAREIT,Residential & Commercial REITs,2026-12-31,3.7818859,31,97.2,False,No classification on record,0,lseg
+Talam Transform Bhd,TALAMT,Real Estate Operations,2026-03-31,3.7183475,32,97.1,False,No classification on record,0,lseg
+Ann Joo Resources Bhd,ANNJOO,Metals & Mining,2026-12-31,3.5903168,33,97.0,False,No classification on record,0,lseg
+OCK Group Bhd,OCK,Telecommunications Services,2025-12-31,3.5788183,34,96.9,False,No classification on record,0,lseg
+DGB Asia Bhd,DGB,Hotels & Entertainment Services,2025-12-31,3.5484939,35,96.8,False,No classification on record,0,lseg
+Sunway Real Estate Investment Trust,SUNREIT,Residential & Commercial REITs,2026-12-31,3.5062191,36,96.7,False,No classification on record,0,lseg
+Axis Real Estate Investment Trust,AXREIT,Residential & Commercial REITs,2026-12-31,3.438801,37,96.6,False,No classification on record,0,lseg
+TXCD Bhd,TXCD,Construction & Engineering,2025-06-30,3.3566704,38,96.5,False,Currently PN17/GN3,1,lseg
+Pintaras Jaya Bhd,PTARAS,Construction & Engineering,2026-06-30,3.354229,39,96.4,False,No classification on record,0,lseg
+Hektar Real Estate Investment Trust,HEKTAR,Residential & Commercial REITs,2026-12-31,3.3372002,40,96.3,False,No classification on record,0,lseg
+Encorp Bhd,ENCORP,Construction & Engineering,2025-12-31,2.949871,41,96.2,False,No classification on record,0,lseg
+G Capital Bhd,GCAP,Passenger Transportation Services,2025-12-31,2.8367972,42,96.2,False,No classification on record,0,lseg
+Glomac Bhd,GLOMAC,Real Estate Operations,2027-04-30,2.752525,43,96.1,False,No classification on record,0,lseg
+WCE Holdings Bhd,WCEHB,Transport Infrastructure,2026-03-31,2.6914842,44,96.0,False,No classification on record,0,lseg
+Malayan United Industries Bhd,MUIIND,Hotels & Entertainment Services,2025-06-30,2.6466744,45,95.9,False,No classification on record,0,lseg
+Boustead Heavy Industries Corporation Bhd,BHIC,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,2.6157117,46,95.8,False,No classification on record,0,lseg
+Global Oriental Bhd,GOB,Real Estate Operations,2027-03-31,2.5719123,47,95.7,False,No classification on record,0,lseg
+TASCO Bhd,TASCO,Freight & Logistics Services,2027-03-31,2.514107,48,95.6,False,No classification on record,0,lseg
+Eurospan Holdings Bhd,EUROSP,Household Goods,2027-05-31,2.5041082,49,95.5,False,No classification on record,0,lseg
+Brite-Tech Bhd,BTECH,Professional & Commercial Services,2025-12-31,2.4528246,50,95.4,False,No classification on record,0,lseg
+N2n Connect Bhd,N2N,Software & IT Services,2026-12-31,2.3850746,51,95.3,False,No classification on record,0,lseg
+PRG Holdings Bhd,PRG,Textiles & Apparel,2025-12-31,2.2564747,52,95.2,False,No classification on record,0,lseg
+Titijaya Land Bhd,TITIJYA,Real Estate Operations,2026-06-30,2.2436938,53,95.1,False,No classification on record,0,lseg
+JAKS Resources Bhd,JAKS,Construction & Engineering,2026-12-31,2.209714,54,95.0,False,No classification on record,0,lseg
+Analabs Resources Bhd,ANALABS,Chemicals,2026-04-30,2.062325,55,94.9,False,No classification on record,0,lseg
+Perak Corporation Bhd,PRKCORP,Transport Infrastructure,2025-12-31,2.0018146,56,94.8,False,Currently PN17/GN3,1,lseg
+Mudajaya Group Bhd,MUDAJYA,Construction & Engineering,2025-12-31,1.9890975,57,94.7,False,No classification on record,0,lseg
+Bertam Alliance Bhd,BERTAM,Real Estate Operations,2025-12-31,1.9854742,58,94.6,False,Previously classified,0,lseg
+PLS Plantations Bhd,PLS,Food & Tobacco,2025-06-30,1.984785,59,94.6,False,No classification on record,0,lseg
+KLCCP Stapled Group,KLCC,Residential & Commercial REITs,2026-12-31,1.8984481,60,94.5,False,No classification on record,0,lseg
+Atrium Real Estate Investment Trust,ATRIUM,Residential & Commercial REITs,2025-12-31,1.8652111,61,94.4,False,No classification on record,0,lseg
+MQ Technology Bhd,MQTECH,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-02-28,1.8575064,62,94.3,False,No classification on record,0,lseg
+Seacera Group Bhd,SEACERA,Homebuilding & Construction Supplies,2025-06-30,1.8128343,63,94.2,False,Previously classified,0,lseg
+Al-Salam Real Estate Investment Trust,ALSREIT,Residential & Commercial REITs,2026-12-31,1.7473464,64,94.1,False,No classification on record,0,lseg
+AE Multi Holdings Bhd,AEM,Semiconductors & Semiconductor Equipment,2026-03-31,1.6623162,65,94.0,False,No classification on record,0,lseg
+YTL Hospitality REIT,YTLREIT,Residential & Commercial REITs,2026-06-30,1.6304408,66,93.9,False,No classification on record,0,lseg
+Straits Energy Resources Bhd,STRAITS,Oil & Gas,2025-06-30,1.5769572,67,93.8,False,No classification on record,0,lseg
+NI Hsin Group Bhd,NIHSIN,Household Goods,2025-12-31,1.5299816,68,93.7,False,No classification on record,0,lseg
+Maxis Bhd,MAXIS,Telecommunications Services,2026-12-31,1.5297023,69,93.6,False,No classification on record,0,lseg
+Subur Tiasa Holdings Bhd,SUBUR,Food & Tobacco,2025-12-31,1.5170887,70,93.5,False,No classification on record,0,lseg
+Affin Bank Bhd,AFFIN,Banking Services,2026-12-31,1.5093387,71,93.4,False,No classification on record,0,lseg
+Hap Seng Consolidated Bhd,HAPSENG,Consumer Goods Conglomerates,2026-12-31,1.5074335,72,93.3,False,No classification on record,0,lseg
+Thriven Global Bhd,THRIVEN,Real Estate Operations,2025-12-31,1.4761683,73,93.2,False,No classification on record,0,lseg
+Cyberjaya Education Group Bhd,CYBERE,Miscellaneous Educational Service Providers,2025-06-30,1.4684402,74,93.1,False,No classification on record,0,lseg
+Gold LI Holdings Bhd,GOLDLI,Real Estate Operations,2026-01-31,1.4678993,75,93.1,False,No classification on record,0,lseg
+Zecon Bhd,ZECON,Construction & Engineering,2025-12-31,1.4554261,76,93.0,False,No classification on record,0,lseg
+AEON Credit Service (M) Bhd,AEONCR,Banking Services,2027-02-28,1.4139999,77,92.9,False,No classification on record,0,lseg
+K-One Technology Bhd,K1,Electronic Equipment & Parts,2025-12-31,1.3950939,78,92.8,False,No classification on record,0,lseg
+Axiata Group Bhd,AXIATA,Telecommunications Services,2026-12-31,1.3637081,79,92.7,False,No classification on record,0,lseg
+Sycal Ventures Bhd,SYCAL,Construction & Engineering,2025-06-30,1.3201376,80,92.6,False,No classification on record,0,lseg
+Bank Islam Malaysia Bhd,BIMB,Banking Services,2026-12-31,1.2924777,81,92.5,False,No classification on record,0,lseg
+Ranhill Utilities Bhd,RANHILL,Water & Related Utilities,2026-06-30,1.2902261,82,92.4,False,No classification on record,0,lseg
+Infraharta Holdings Bhd,IHB,Construction & Engineering,2025-06-30,1.2795703,83,92.3,False,No classification on record,0,lseg
+Hexza Corp Bhd,HEXZA,Chemicals,2025-06-30,1.2421702,84,92.2,False,No classification on record,0,lseg
+ELK-Desa Resources Bhd,ELKDESA,Banking Services,2027-03-31,1.2317874,85,92.1,False,No classification on record,0,lseg
+Iskandar Waterfront City Bhd,IWCITY,Real Estate Operations,2025-12-31,1.1742429,86,92.0,False,No classification on record,0,lseg
+Digistar Corporation Bhd,DIGISTA,Construction & Engineering,2025-09-30,1.1734873,87,91.9,False,No classification on record,0,lseg
+Bintulu Port Holdings Bhd,BIPORT,Transport Infrastructure,2026-12-31,1.1032085,88,91.8,False,No classification on record,0,lseg
+Lion Industries Corporation Bhd,LIONIND,Metals & Mining,2026-06-30,1.0722018,89,91.7,False,No classification on record,0,lseg
+MBSB Bhd,MBSB,Banking Services,2026-12-31,1.047605,90,91.6,False,No classification on record,0,lseg
+Olympia Industries Bhd,OLYMPIA,Hotels & Entertainment Services,2025-12-31,1.0352762,91,91.5,False,No classification on record,0,lseg
+Kenanga Investment Bank Bhd,KENANGA,Investment Banking & Investment Services,2025-12-31,0.9988432,92,91.5,False,No classification on record,0,lseg
+Asian Pac Holdings Bhd,ASIAPAC,Real Estate Operations,2026-03-31,0.97847664,93,91.4,False,No classification on record,0,lseg
+Oriental Holdings Bhd,ORIENT,Specialty Retailers,2025-12-31,0.95410156,94,91.3,False,No classification on record,0,lseg
+Rce Capital Bhd,RCECAP,Banking Services,2027-03-31,0.9101441,95,91.2,False,No classification on record,0,lseg
+Cahya Mata Sarawak Bhd,CMSB,Construction Materials,2026-12-31,0.8417994,96,91.1,False,No classification on record,0,lseg
+Vizione Holdings Bhd,VIZIONE,Real Estate Operations,2025-05-31,0.8406322,97,91.0,False,No classification on record,0,lseg
+Bumi Armada Bhd,ARMADA,Oil & Gas Related Equipment and Services,2026-12-31,0.75674915,98,90.9,False,No classification on record,0,lseg
+Malton Bhd,MALTON,Real Estate Operations,2026-06-30,0.75064933,99,90.8,False,No classification on record,0,lseg
+Computer Forms Malaysia Bhd,CFM,Professional & Commercial Services,2026-02-28,0.71726,100,90.7,False,No classification on record,0,lseg
+YTL Corporation Bhd,YTL,Multiline Utilities,2026-06-30,0.7114148,101,90.6,False,No classification on record,0,lseg
+OSK Holdings Bhd,OSK,Real Estate Operations,2026-12-31,0.67167544,102,90.5,False,No classification on record,0,lseg
+Lotte Chemical Titan Holding Bhd,LCTITAN,Chemicals,2026-12-31,0.6502974,103,90.4,False,No classification on record,0,lseg
+Puncak Niaga Holdings Bhd,PUNCAK,Professional & Commercial Services,2025-12-31,0.6176311,104,90.3,False,No classification on record,0,lseg
+Tropicana Corporation Bhd,TROP,Real Estate Operations,2025-12-31,0.6155611,105,90.2,False,No classification on record,0,lseg
+Ekovest Bhd,EKOVEST,Construction & Engineering,2026-06-30,0.61314046,106,90.1,False,No classification on record,0,lseg
+Sin-Kung Logistics Bhd,SINKUNG,Freight & Logistics Services,2025-12-31,0.59414256,107,90.0,False,No classification on record,0,lseg
+Greenyield Bhd,GREENYB,Paper & Forest Products,2025-12-31,0.5836344,108,90.0,False,No classification on record,0,lseg
+Berjaya Food Bhd,BJFOOD,Hotels & Entertainment Services,2026-06-30,0.5690787,109,89.9,False,No classification on record,0,lseg
+IHH Healthcare Bhd,IHH,Healthcare Providers & Services,2026-12-31,0.5651926,110,89.8,False,No classification on record,0,lseg
+Sunsuria Bhd,SUNSURIA,Real Estate Operations,2026-09-30,0.5644685,111,89.7,False,No classification on record,0,lseg
+OpenMove AI Bhd,OMAI,Software & IT Services,2026-12-31,0.47486463,112,89.6,False,No classification on record,0,lseg
+BCB Bhd,BCB,Real Estate Operations,2025-06-30,0.42354742,113,89.5,False,No classification on record,0,lseg
+Sbc Corporation Bhd,SBCCORP,Real Estate Operations,2027-03-31,0.41920772,114,89.4,False,No classification on record,0,lseg
+MMAG Holdings Bhd,MMAG,Software & IT Services,2025-03-31,0.32675895,115,89.3,False,No classification on record,0,lseg
+MKH Bhd,MKH,Real Estate Operations,2026-09-30,0.25927433,116,89.2,False,No classification on record,0,lseg
+Avillion Bhd,AVI,Hotels & Entertainment Services,2026-03-31,0.23867291,117,89.1,False,No classification on record,0,lseg
+IGB Commercial Real Estate Investment Trust,IGBCR,Residential & Commercial REITs,2026-12-31,0.20493892,118,89.0,False,No classification on record,0,lseg
+NetX Holdings Bhd,NETX,Software & IT Services,2025-11-30,0.17346182,119,88.9,False,No classification on record,0,lseg
+Berjaya Property Bhd,,Hotels & Entertainment Services,2025-06-30,0.16211846,120,88.8,False,No classification on record,0,lseg
+See Hup Consolidated Bhd,SEEHUP,Freight & Logistics Services,2026-03-31,0.12185022,121,88.7,False,No classification on record,0,lseg
+Mah Sing Group Bhd,MAHSING,Real Estate Operations,2026-12-31,0.052065656,122,88.6,False,No classification on record,0,lseg
+Evergreen Fibreboard Bhd,EVERGRN,Paper & Forest Products,2026-12-31,0.035593405,123,88.5,False,No classification on record,0,lseg
+Selangor Dredging Bhd,SDRED,Real Estate Operations,2027-03-31,0.022164345,124,88.5,False,No classification on record,0,lseg
+LYC Healthcare Bhd,LYC,Healthcare Providers & Services,2026-03-31,0.012415737,125,88.4,False,Currently PN17/GN3,1,lseg
+Berjaya Assets Bhd,BJASSET,Real Estate Operations,2025-06-30,-0.00050762296,126,88.3,False,No classification on record,0,lseg
+Bina Darulaman Bhd,BDB,Construction & Engineering,2025-12-31,-0.020263597,127,88.2,False,No classification on record,0,lseg
+ABM Fujiya Bhd,AFUJIYA,Automobiles & Auto Parts,2025-12-31,-0.04429087,128,88.1,False,No classification on record,0,lseg
+S P Setia Bhd,SPSETIA,Real Estate Operations,2026-12-31,-0.049492314,129,88.0,False,No classification on record,0,lseg
+Hiap Huat Holdings Bhd,HHHCORP,Professional & Commercial Services,2025-12-31,-0.0732335,130,87.9,False,No classification on record,0,lseg
+Swift Haulage Bhd,SWIFT,Freight & Logistics Services,2026-12-31,-0.08785531,131,87.8,False,No classification on record,0,lseg
+Fast Energy Holdings Bhd,FAST,Oil & Gas,2025-12-31,-0.11033118,132,87.7,False,No classification on record,0,lseg
+BSL Corporation Bhd,BSLCORP,Metals & Mining,2025-06-30,-0.11106285,133,87.6,False,No classification on record,0,lseg
+UEM Sunrise Bhd,UEMS,Real Estate Operations,2026-12-31,-0.117905736,134,87.5,False,No classification on record,0,lseg
+TH Plantations Bhd,THPLANT,Food & Tobacco,2026-12-31,-0.15970552,135,87.4,False,No classification on record,0,lseg
+Reservoir Link Energy Bhd,RL,Oil & Gas Related Equipment and Services,2026-06-30,-0.19608948,136,87.3,False,No classification on record,0,lseg
+Pacific and Orient Bhd,P&O,Insurance,2025-09-30,-0.20201445,137,87.2,False,No classification on record,0,lseg
+Hartanah Kenyalang Bhd,HKB,Construction & Engineering,2026-01-31,-0.242915,138,87.1,False,No classification on record,0,lseg
+Jiankun International Bhd,JIANKUN,Real Estate Operations,2025-12-31,-0.24484318,139,87.0,False,No classification on record,0,lseg
+Permaju Industries Berhad,PERMAJU,Automobiles & Auto Parts,2025-09-30,-0.2515694,140,86.9,False,No classification on record,0,lseg
+YTL Power International Bhd,YTLPOWR,Multiline Utilities,2026-06-30,-0.27211475,141,86.9,False,No classification on record,0,lseg
+Mercury Industries Bhd,MERCURY,Construction & Engineering,2025-06-30,-0.2939125,142,86.8,False,No classification on record,0,lseg
+Tiong Nam Logistics Holdings Bhd,TNLOGIS,Freight & Logistics Services,2027-03-31,-0.296155,143,86.7,False,No classification on record,0,lseg
+Volcano Bhd,VOLCANO,Metals & Mining,2025-06-30,-0.31522515,144,86.6,False,No classification on record,0,lseg
+Berjaya Corporation Bhd,BJCORP,Consumer Goods Conglomerates,2025-06-30,-0.3258863,145,86.5,False,No classification on record,0,lseg
+Taliworks Corporation Bhd,TALIWRK,Water & Related Utilities,2026-12-31,-0.3274677,146,86.4,False,No classification on record,0,lseg
+OKA Corporation Bhd,OKA,Construction Materials,2027-03-31,-0.34251505,147,86.3,False,No classification on record,0,lseg
+Eden Inc Bhd,EDEN,Electric Utilities & IPPs,2025-06-30,-0.34409857,148,86.2,False,No classification on record,0,lseg
+Yong Tai Bhd,YONGTAI,Real Estate Operations,2026-06-30,-0.3462815,149,86.1,False,No classification on record,0,lseg
+Shangri-La Hotels (Malaysia) Bhd,SHANG,Hotels & Entertainment Services,2025-12-31,-0.39027184,150,86.0,False,No classification on record,0,lseg
+Lambo Group Bhd,LAMBO,Textiles & Apparel,2025-09-30,-0.42730522,151,85.9,False,Currently PN17/GN3,1,lseg
+RHB Bank Bhd,RHBBANK,Banking Services,2026-12-31,-0.4718823,152,85.8,False,No classification on record,0,lseg
+CelcomDigi Bhd,CDB,Telecommunications Services,2026-12-31,-0.47511253,153,85.7,False,No classification on record,0,lseg
+Omesti Bhd,OMESTI,Software & IT Services,2025-10-31,-0.5080236,154,85.6,False,No classification on record,0,lseg
+Khee San Bhd,KHEESAN,Food & Tobacco,2025-06-30,-0.5298275,155,85.5,False,Currently PN17/GN3,1,lseg
+Parkson Holdings Bhd,PARKSON,Diversified Retail,2026-06-30,-0.5378156,156,85.4,False,No classification on record,0,lseg
+CME Group Bhd,CME,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-09-30,-0.54195964,157,85.4,False,No classification on record,0,lseg
+MCOM Holdings Bhd,MCOM,Media & Publishing,2025-06-30,-0.54351926,158,85.3,False,No classification on record,0,lseg
+HeveaBoard Bhd,HEVEA,Paper & Forest Products,2026-12-31,-0.5577457,159,85.2,False,No classification on record,0,lseg
+Lebtech Bhd,LEBTECH,Construction & Engineering,2025-12-31,-0.57557106,160,85.1,False,No classification on record,0,lseg
+Maybulk Bhd,MAYBULK,Freight & Logistics Services,2025-12-31,-0.60986733,161,85.0,False,No classification on record,0,lseg
+PJBumi Bhd,PJBUMI,Construction & Engineering,2025-06-30,-0.6107488,162,84.9,False,No classification on record,0,lseg
+Evergreen Max Cash Capital Bhd,EMCC,Banking Services,2025-12-31,-0.62813604,163,84.8,False,No classification on record,0,lseg
+Malaysian Resources Corporation Bhd,MRCB,Construction & Engineering,2026-12-31,-0.6420655,164,84.7,False,No classification on record,0,lseg
+Hextar Retail Bhd,HEXRTL,Paper & Forest Products,2025-12-31,-0.64752626,165,84.6,False,No classification on record,0,lseg
+Cuscapi Bhd,CUSCAPI,Software & IT Services,2025-12-31,-0.6619948,166,84.5,False,No classification on record,0,lseg
+Concrete Engineering Products Bhd,CEPCO,Construction Materials,2025-08-31,-0.66833425,167,84.4,False,No classification on record,0,lseg
+SBS Nexus Bhd,SBS,Media & Publishing,2025-12-31,-0.7072121,168,84.3,False,No classification on record,0,lseg
+Hap Seng Plantations Holdings Bhd,HSPLANT,Food & Tobacco,2026-12-31,-0.71001947,169,84.2,False,No classification on record,0,lseg
+Symphony Life Bhd,SYMLIFE,Real Estate Operations,2026-03-31,-0.7187002,170,84.1,False,No classification on record,0,lseg
+Supergenics Bhd,SGBHD,Biotechnology & Medical Research,2025-12-31,-0.71949553,171,84.0,False,No classification on record,0,lseg
+PTT Synergy Group Bhd,PTT,Construction & Engineering,2025-06-30,-0.7214371,172,83.9,False,No classification on record,0,lseg
+Tenaga Nasional Bhd,TENAGA,Electric Utilities & IPPs,2026-12-31,-0.726683,173,83.8,False,No classification on record,0,lseg
+T7 Global Bhd,T7GLOBAL,Oil & Gas Related Equipment and Services,2026-12-31,-0.7316314,174,83.8,False,No classification on record,0,lseg
+Onetech Solutions Holdings Bhd,1TECH,Software & IT Services,2025-12-31,-0.7372472,175,83.7,False,No classification on record,0,lseg
+Cheeding Holdings Bhd,CHEEDING,Construction & Engineering,2027-03-31,-0.7509366,176,83.6,False,No classification on record,0,lseg
+BEDI Bhd,BEDI,Real Estate Operations,2026-03-31,-0.75232124,177,83.5,False,No classification on record,0,lseg
+Ornapaper Bhd,ORNA,Containers & Packaging,2025-12-31,-0.76136994,178,83.4,False,No classification on record,0,lseg
+Magnum Bhd,MAGNUM,Hotels & Entertainment Services,2026-12-31,-0.7635335,179,83.3,False,No classification on record,0,lseg
+Sime Darby Property Bhd,SIMEPROP,Real Estate Operations,2026-12-31,-0.79590094,180,83.2,False,No classification on record,0,lseg
+PLB Engineering Bhd,PLB,Construction & Engineering,2025-08-31,-0.809271,181,83.1,False,No classification on record,0,lseg
+Jati Tinggi Group Bhd,JTGROUP,Construction & Engineering,2026-11-30,-0.87661886,182,83.0,False,No classification on record,0,lseg
+Sasbadi Holdings Bhd,SASBADI,Media & Publishing,2026-08-31,-0.8868358,183,82.9,False,No classification on record,0,lseg
+Auro Holdings Bhd,AURO,Hotels & Entertainment Services,2026-02-28,-0.8926872,184,82.8,False,No classification on record,0,lseg
+Perak Transit Bhd,PTRANS,Passenger Transportation Services,2026-12-31,-0.9137603,185,82.7,False,No classification on record,0,lseg
+Xin Hwa Holdings Bhd,XINHWA,Freight & Logistics Services,2026-03-31,-0.9411166,186,82.6,False,No classification on record,0,lseg
+PMB Technology Bhd,PMBTECH,Metals & Mining,2026-12-31,-0.9453602,187,82.5,False,No classification on record,0,lseg
+KTI Landmark Berhad,KTI,Real Estate Operations,2025-12-31,-0.95471585,188,82.4,False,No classification on record,0,lseg
+IRIS Group Bhd,IRIS,Software & IT Services,2027-03-31,-0.97697604,189,82.3,False,No classification on record,0,lseg
+Eonmetall Group Bhd,EMETALL,Metals & Mining,2025-12-31,-0.97938824,190,82.3,False,No classification on record,0,lseg
+Kim Hin Industry Bhd,KIMHIN,Homebuilding & Construction Supplies,2025-12-31,-0.9797926,191,82.2,False,No classification on record,0,lseg
+G3 Global Bhd,G3,Software & IT Services,2025-12-31,-1.0056522,192,82.1,False,No classification on record,0,lseg
+SEG International Bhd,SEG,Miscellaneous Educational Service Providers,2025-12-31,-1.0085523,193,82.0,False,No classification on record,0,lseg
+Radium Development Bhd,RADIUM,Real Estate Operations,2026-12-31,-1.0137306,194,81.9,False,No classification on record,0,lseg
+Theta Edge Bhd,THETA,Telecommunications Services,2025-12-31,-1.0194983,195,81.8,False,No classification on record,0,lseg
+Ancom Logistics Bhd,ANCOMLB,Freight & Logistics Services,2026-05-31,-1.0228659,196,81.7,False,No classification on record,0,lseg
+EquitiesTracker Holdings Bhd,ETH,Investment Banking & Investment Services,2025-12-31,-1.0353458,197,81.6,False,No classification on record,0,lseg
+Eastern & Oriental Bhd,E&O,Real Estate Operations,2027-03-31,-1.0355445,198,81.5,False,No classification on record,0,lseg
+NationGate Holdings Bhd,NATGATE,Electronic Equipment & Parts,2026-12-31,-1.0395184,199,81.4,False,No classification on record,0,lseg
+Muhibbah Engineering (M) Bhd,MUHIBAH,Construction & Engineering,2026-12-31,-1.047828,200,81.3,False,No classification on record,0,lseg
+Muar Ban Lee Group Bhd,MBL,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-1.0605359,201,81.2,False,No classification on record,0,lseg
+Ammb Holdings Bhd,AMBANK,Banking Services,2027-03-31,-1.065549,202,81.1,False,No classification on record,0,lseg
+Watta Holding Bhd,WATTA,Professional & Commercial Services,2025-12-31,-1.0669992,203,81.0,False,No classification on record,0,lseg
+Astral Asia Bhd,AASIA,Food & Tobacco,2025-12-31,-1.0932633,204,80.9,False,No classification on record,0,lseg
+Smile-link Healthcare Global Bhd,SMILE,Healthcare Providers & Services,2025-06-30,-1.1136951,205,80.8,False,No classification on record,0,lseg
+Bina Puri Holdings Bhd,BPURI,Real Estate Operations,2026-12-31,-1.1196969,206,80.8,False,No classification on record,0,lseg
+AME Real Estate Investment Trust,AMEREIT,Real Estate Operations,2027-03-31,-1.1200308,207,80.7,False,No classification on record,0,lseg
+Geohan Corp Bhd,GEOHAN,Construction & Engineering,2025-12-31,-1.1292654,208,80.6,False,No classification on record,0,lseg
+VETECE Holdings Bhd,VTC,Software & IT Services,2025-08-31,-1.1454254,209,80.5,False,No classification on record,0,lseg
+Focus Dynamics Group Bhd,FOCUS,Hotels & Entertainment Services,2026-03-31,-1.1662855,210,80.4,False,No classification on record,0,lseg
+Kronologi Asia Bhd,KRONO,Software & IT Services,2027-01-31,-1.1701716,211,80.3,False,No classification on record,0,lseg
+CUCKOO International (MAL) Bhd,CKI,Household Goods,2025-12-31,-1.1785758,212,80.2,False,No classification on record,0,lseg
+KEN Holdings Bhd,KEN,Real Estate Operations,2025-12-31,-1.1922529,213,80.1,False,No classification on record,0,lseg
+MMIS Bhd,MMIS,Metals & Mining,2025-06-30,-1.1973002,214,80.0,False,No classification on record,0,lseg
+Catcha Digital Bhd,CATCHA,Media & Publishing,2025-12-31,-1.2088083,215,79.9,False,No classification on record,0,lseg
+Nexg Bina Bhd,NEXGBINA,Textiles & Apparel,2025-06-30,-1.2206509,216,79.8,False,No classification on record,0,lseg
+Aldrich Resources Bhd,ALRICH,Software & IT Services,2026-06-30,-1.2237517,217,79.7,False,No classification on record,0,lseg
+Uzma Bhd,UZMA,Oil & Gas Related Equipment and Services,2026-06-30,-1.2325759,218,79.6,False,No classification on record,0,lseg
+Eckem Holdings Bhd,ECKEM,Chemicals,2025-12-31,-1.2342365,219,79.5,False,No classification on record,0,lseg
+WAVEFRONT Bhd,WAVEFRNT,Containers & Packaging,2027-03-31,-1.2396216,220,79.4,False,No classification on record,0,lseg
+Heineken Malaysia Bhd,HEIM,Beverages,2026-12-31,-1.2423478,221,79.3,False,No classification on record,0,lseg
+British American Tobacco (Malaysia) Bhd,BAT,Food & Tobacco,2026-12-31,-1.2728654,222,79.2,False,No classification on record,0,lseg
+YX Precious Metals Bhd,YXPM,Textiles & Apparel,2026-12-31,-1.2791817,223,79.2,False,No classification on record,0,lseg
+Varia Bhd,VARIA,Construction & Engineering,2025-06-30,-1.2800909,224,79.1,False,No classification on record,0,lseg
+Astro Malaysia Holdings Bhd,ASTRO,Media & Publishing,2027-01-31,-1.2831898,225,79.0,False,No classification on record,0,lseg
+China Ouhua Winery Holdings Ltd,CNOUHUA,Beverages,2025-12-31,-1.2877631,226,78.9,False,No classification on record,0,lseg
+MIECO Bhd,MIECO,Paper & Forest Products,2025-12-31,-1.2928137,227,78.8,False,No classification on record,0,lseg
+TFP Solutions Bhd,TFP,Software & IT Services,2025-06-30,-1.2937669,228,78.7,False,No classification on record,0,lseg
+Marine & General Bhd,M&G,Transport Infrastructure,2026-04-30,-1.2939097,229,78.6,False,No classification on record,0,lseg
+CIMB Group Holdings Bhd,CIMB,Banking Services,2026-12-31,-1.3041388,230,78.5,False,No classification on record,0,lseg
+ARB Bhd,ARBB,Software & IT Services,2025-12-31,-1.3096855,231,78.4,False,No classification on record,0,lseg
+FM Global Logistics Holdings Bhd,FM,Freight & Logistics Services,2026-06-30,-1.3330429,232,78.3,False,No classification on record,0,lseg
+APB Resources Bhd,APB,Construction & Engineering,2026-09-30,-1.3529093,233,78.2,False,No classification on record,0,lseg
+Gopeng Bhd,GOPENG,Food & Tobacco,2025-12-31,-1.3650892,234,78.1,False,No classification on record,0,lseg
+Ecomate Holdings Bhd,ECOMATE,Household Goods,2026-02-28,-1.365742,235,78.0,False,No classification on record,0,lseg
+MAA Group Bhd,MAA,Insurance,2025-06-30,-1.3754902,236,77.9,False,Previously classified,0,lseg
+Lien Hoe Corporation Bhd,LIENHOE,Real Estate Operations,2025-12-31,-1.3782493,237,77.8,False,No classification on record,0,lseg
+Sin Heng Chan (Malaya) Bhd,SHCHAN,Food & Tobacco,2025-12-31,-1.3813643,238,77.7,False,No classification on record,0,lseg
+Arka Bhd,ARKA,Freight & Logistics Services,2025-12-31,-1.3874736,239,77.7,False,No classification on record,0,lseg
+Capital A Berhad,CAPITALA,Passenger Transportation Services,2026-12-31,-1.3964968,240,77.6,False,Previously classified,0,lseg
+Tien Wah Press Holdings Bhd,TIENWAH,Professional & Commercial Services,2025-12-31,-1.4088086,241,77.5,False,No classification on record,0,lseg
+SFP Tech Holdings Bhd,SFPTECH,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-1.419264,242,77.4,False,No classification on record,0,lseg
+Petra Energy Bhd,PENERGY,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-1.4210017,243,77.3,False,No classification on record,0,lseg
+HB Global Ltd,HBGLOB,Food & Tobacco,2025-12-31,-1.4221551,244,77.2,False,No classification on record,0,lseg
+Comfort Gloves Bhd,COMFORT,Healthcare Equipment & Supplies,2025-12-31,-1.4553735,245,77.1,False,No classification on record,0,lseg
+TWL Holdings Bhd,TWL,Real Estate Operations,2025-06-30,-1.474844,246,77.0,False,No classification on record,0,lseg
+Al-Aqar Healthcare REIT,ALAQAR,Residential & Commercial REITs,2026-12-31,-1.4896773,247,76.9,False,No classification on record,0,lseg
+HLT Global Bhd,HLT,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-1.52534,248,76.8,False,No classification on record,0,lseg
+Woodlandor Holdings Bhd,WOODLAN,Homebuilding & Construction Supplies,2025-06-30,-1.5288161,249,76.7,False,No classification on record,0,lseg
+Iconic Worldwide Bhd,ICONIC,Healthcare Equipment & Supplies,2025-06-30,-1.5438546,250,76.6,False,No classification on record,0,lseg
+One Glove Group Bhd,ONEGLOVE,Healthcare Equipment & Supplies,2026-03-31,-1.5524899,251,76.5,False,No classification on record,0,lseg
+Cloudpoint Technology Bhd,CLOUDPT,Software & IT Services,2026-12-31,-1.5534983,252,76.4,False,No classification on record,0,lseg
+Betamek Bhd,BETA,Specialty Retailers,2026-03-31,-1.5587207,253,76.3,False,No classification on record,0,lseg
+Trive Property Group Bhd,TRIVE,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-01-31,-1.5598166,254,76.2,False,No classification on record,0,lseg
+AwanBiru Technology Bhd,AWANTEC,Software & IT Services,2025-06-30,-1.5632467,255,76.2,False,No classification on record,0,lseg
+TDM Bhd,TDM,Healthcare Providers & Services,2025-12-31,-1.572123,256,76.1,False,No classification on record,0,lseg
+Mr DIY Group (M) Bhd,MRDIY,Specialty Retailers,2026-12-31,-1.580177,257,76.0,False,No classification on record,0,lseg
+Zelan Bhd,ZELAN,Construction & Engineering,2025-12-31,-1.581804,258,75.9,False,Currently PN17/GN3,1,lseg
+PETRONAS Chemicals Group Bhd,PCHEM,Chemicals,2026-12-31,-1.5839993,259,75.8,False,No classification on record,0,lseg
+Eco World Development Group Bhd,ECOWLD,Real Estate Operations,2026-10-31,-1.587518,260,75.7,False,No classification on record,0,lseg
+Focus Point Holdings Bhd,FOCUSP,Specialty Retailers,2026-12-31,-1.5944564,261,75.6,False,No classification on record,0,lseg
+CJ Century Logistics Holdings Bhd,CJCEN,Freight & Logistics Services,2026-12-31,-1.6137121,262,75.5,False,No classification on record,0,lseg
+AEON CO (M) Bhd,AEON,Diversified Retail,2026-12-31,-1.6277223,263,75.4,False,No classification on record,0,lseg
+XL Holdings Bhd,XL,Food & Tobacco,2026-04-30,-1.6295073,264,75.3,False,No classification on record,0,lseg
+D & O Green Technologies Bhd,D&O,Semiconductors & Semiconductor Equipment,2026-12-31,-1.6465025,265,75.2,False,No classification on record,0,lseg
+Sinaran Advance Group Bhd,SINARAN,Textiles & Apparel,2025-12-31,-1.6613945,266,75.1,False,No classification on record,0,lseg
+Osk Ventures International Bhd,OSKVI,Investment Banking & Investment Services,2025-12-31,-1.6698649,267,75.0,False,No classification on record,0,lseg
+Hong Leong Capital Bhd,HLCAP,Investment Banking & Investment Services,2025-06-30,-1.6767735,268,74.9,False,No classification on record,0,lseg
+Waja Konsortium Bhd,WAJA,Construction & Engineering,2025-06-30,-1.6911138,269,74.8,False,Currently PN17/GN3,1,lseg
+OCR Group Bhd,OCR,Real Estate Operations,2025-12-31,-1.6928957,270,74.7,False,No classification on record,0,lseg
+Binastra Corporation Bhd,BNASTRA,Construction & Engineering,2027-01-31,-1.6964192,271,74.6,False,No classification on record,0,lseg
+Lim Seong Hai Capital Bhd,LSH,Construction & Engineering,2026-09-30,-1.7011579,272,74.6,False,No classification on record,0,lseg
+Microlink Solutions Bhd,MICROLN,Software & IT Services,2025-03-31,-1.7040557,273,74.5,False,No classification on record,0,lseg
+W T K Holdings Bhd,WTK,Paper & Forest Products,2025-12-31,-1.7096044,274,74.4,False,No classification on record,0,lseg
+Nova Technology Services Bhd,NOVATECH,Software & IT Services,2025-06-30,-1.7096144,275,74.3,False,No classification on record,0,lseg
+Yenher Holdings Bhd,YENHER,Food & Tobacco,2026-12-31,-1.7097044,276,74.2,False,No classification on record,0,lseg
+TT Vision Holdings Bhd,TTVHB,Semiconductors & Semiconductor Equipment,2026-12-31,-1.731306,277,74.1,False,No classification on record,0,lseg
+CYL Corp Bhd,CYL,Containers & Packaging,2026-01-31,-1.7426759,278,74.0,False,No classification on record,0,lseg
+EITA Resources Bhd,EITA,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-09-30,-1.7828532,279,73.9,False,No classification on record,0,lseg
+Pasdec Holdings Bhd,PASDEC,Real Estate Operations,2025-12-31,-1.7844265,280,73.8,False,No classification on record,0,lseg
+Citra Nusa Holdings Bhd,CNH,Pharmaceuticals,2025-12-31,-1.7926139,281,73.7,False,No classification on record,0,lseg
+ES Ceramics Technology Bhd,ESCERAM,Textiles & Apparel,2026-05-31,-1.8049096,282,73.6,False,No classification on record,0,lseg
+Sunway Bhd,SUNWAY,Consumer Goods Conglomerates,2026-12-31,-1.805768,283,73.5,False,No classification on record,0,lseg
+Grand Central Enterprises Bhd,GCE,Hotels & Entertainment Services,2025-12-31,-1.8074179,284,73.4,False,No classification on record,0,lseg
+Kumpulan Perangsang Selangor Bhd,KPS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-1.8118026,285,73.3,False,No classification on record,0,lseg
+Autoris Group Holdings Bhd,AUTORIS,Insurance,2025-12-31,-1.822133,286,73.2,False,No classification on record,0,lseg
+Imaspro Corporation Bhd,IMASPRO,Chemicals,2026-06-30,-1.8298413,287,73.1,False,No classification on record,0,lseg
+Eksons Corporation Bhd,EKSONS,Paper & Forest Products,2027-03-31,-1.8307294,288,73.1,False,No classification on record,0,lseg
+Orgabio Holdings Bhd,ORGABIO,Food & Tobacco,2026-06-30,-1.8322033,289,73.0,False,No classification on record,0,lseg
+Saudigold Group Berhad,SG,Food & Tobacco,2025-07-31,-1.8339934,290,72.9,False,No classification on record,0,lseg
+Unique Fire Holdings Bhd,UNIQUE,Professional & Commercial Services,2027-03-31,-1.8378148,291,72.8,False,No classification on record,0,lseg
+Farm Fresh Bhd,FFB,Food & Tobacco,2027-03-31,-1.842953,292,72.7,False,No classification on record,0,lseg
+DutaLand Bhd,DUTALND,Real Estate Operations,2025-06-30,-1.8435051,293,72.6,False,No classification on record,0,lseg
+Muda Holdings Bhd,MUDA,Containers & Packaging,2025-12-31,-1.8573447,294,72.5,False,No classification on record,0,lseg
+Press Metal Aluminium Holdings Bhd,PMETAL,Metals & Mining,2026-12-31,-1.8599696,295,72.4,False,No classification on record,0,lseg
+RT Pastry Holdings Bhd,RT,Food & Tobacco,2025-12-31,-1.8687874,296,72.3,False,No classification on record,0,lseg
+DPI Holdings Bhd,DPIH,Chemicals,2026-05-31,-1.8689675,297,72.2,False,No classification on record,0,lseg
+Spritzer Bhd,SPRITZER,Beverages,2026-12-31,-1.8745965,298,72.1,False,No classification on record,0,lseg
+Samaiden Group Bhd,SAMAIDEN,Construction & Engineering,2026-06-30,-1.8788843,299,72.0,False,No classification on record,0,lseg
+BV Land Holdings Bhd,BVLH,Real Estate Operations,2026-04-30,-1.8845924,300,71.9,False,No classification on record,0,lseg
+Gamuda Bhd,GAMUDA,Construction & Engineering,2026-07-31,-1.8914863,301,71.8,False,No classification on record,0,lseg
+Cengild Medical Bhd,CENGILD,Healthcare Providers & Services,2026-06-30,-1.9049429,302,71.7,False,No classification on record,0,lseg
+Econframe Bhd,EFRAME,Homebuilding & Construction Supplies,2025-08-31,-1.909888,303,71.6,False,No classification on record,0,lseg
+Hock Soon Capital Bhd,HOCKSOON,Personal & Household Products & Services,2025-09-30,-1.9104557,304,71.5,False,No classification on record,0,lseg
+CB Industrial Product Holding Bhd,CBIP,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-1.9118646,305,71.5,False,No classification on record,0,lseg
+Hong Leong Financial Group Bhd,HLFG,Banking Services,2026-06-30,-1.913748,306,71.4,False,No classification on record,0,lseg
+Manulife Holdings Bhd,MANULFE,Insurance,2025-12-31,-1.9190515,307,71.3,False,No classification on record,0,lseg
+Teo Guan Lee Corporation Bhd,TGL,Specialty Retailers,2025-06-30,-1.922886,308,71.2,False,No classification on record,0,lseg
+PESTEC International Bhd,PESTEC,Construction & Engineering,2026-06-30,-1.9286906,309,71.1,False,No classification on record,0,lseg
+Inch Kenneth Kajang Rubber PLC,INCKEN,Hotels & Entertainment Services,2025-12-31,-1.9349667,310,71.0,False,No classification on record,0,lseg
+Atlan Holdings Bhd,ATLAN,Automobiles & Auto Parts,2027-02-28,-1.9402649,311,70.9,False,No classification on record,0,lseg
+SEDANIA Innovator Bhd,SEDANIA,Specialty Retailers,2025-06-30,-1.9426447,312,70.8,False,No classification on record,0,lseg
+Gabungan AQRS Bhd,GBGAQRS,Construction & Engineering,2026-06-30,-1.9497545,313,70.7,False,No classification on record,0,lseg
+Greentronics Technology Bhd,GREENTEC,Construction & Engineering,2025-12-31,-1.9499563,314,70.6,False,No classification on record,0,lseg
+Jishan Bhd,JISHAN,Containers & Packaging,2025-12-31,-1.9537057,315,70.5,False,No classification on record,0,lseg
+Alpha Ocean Resources Bhd,AORB,Food & Tobacco,2025-06-30,-1.9614129,316,70.4,False,No classification on record,0,lseg
+M & A Equity Holdings Bhd,M&A,Investment Banking & Investment Services,2025-06-30,-1.9653517,317,70.3,False,No classification on record,0,lseg
+UMS Holdings Bhd,UMS,Diversified Industrial Goods Wholesale,2025-09-30,-1.9688175,318,70.2,False,No classification on record,0,lseg
+Kuala Lumpur Kepong Bhd,KLK,Chemicals,2026-09-30,-1.9782817,319,70.1,False,No classification on record,0,lseg
+ECA Integrated Solution Bhd,ECA,Semiconductors & Semiconductor Equipment,2026-10-31,-1.9820474,320,70.0,False,No classification on record,0,lseg
+Lbs Bina Group Bhd,LBS,Real Estate Operations,2026-12-31,-1.988294,321,70.0,False,No classification on record,0,lseg
+NCT Alliance Bhd,NCT,Real Estate Operations,2025-12-31,-2.0127988,322,69.9,False,No classification on record,0,lseg
+Apollo Food Holdings Bhd,APOLLO,Food & Tobacco,2027-04-30,-2.0132265,323,69.8,False,No classification on record,0,lseg
+Uoa Development Bhd,UOADEV,Real Estate Operations,2026-12-31,-2.0150385,324,69.7,False,No classification on record,0,lseg
+Pertama Digital Bhd,PERTAMA,Financial Technology (Fintech) & Infrastructure,2025-12-31,-2.0164256,325,69.6,False,Previously classified,0,lseg
+Mnrb Holdings Bhd,MNRB,Insurance,2027-03-31,-2.0213087,326,69.5,False,No classification on record,0,lseg
+UPA Corporation Bhd,UPA,Paper & Forest Products,2025-12-31,-2.032888,327,69.4,False,No classification on record,0,lseg
+Hong Leong Bank Bhd,HLBANK,Banking Services,2026-06-30,-2.037592,328,69.3,False,No classification on record,0,lseg
+Magna Prima Bhd,MAGNA,Real Estate Operations,2025-12-31,-2.0468473,329,69.2,False,No classification on record,0,lseg
+Malayan Cement Bhd,MCEMENT,Construction Materials,2026-06-30,-2.053476,330,69.1,False,No classification on record,0,lseg
+SBH Marine Holdings Bhd,SBH,Food & Tobacco,2025-12-31,-2.0568657,331,69.0,False,No classification on record,0,lseg
+EC Excel Holdings Bhd,ECEXCEL,Metals & Mining,2025-12-31,-2.058455,332,68.9,False,No classification on record,0,lseg
+Menang Corporation (M) Bhd,MENANG,Real Estate Operations,2025-06-30,-2.058521,333,68.8,False,No classification on record,0,lseg
+Steel Hawk Bhd,HAWK,Oil & Gas Related Equipment and Services,2026-12-31,-2.063289,334,68.7,False,No classification on record,0,lseg
+Skygate Solutions Bhd,SKYGATE,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-2.065769,335,68.6,False,No classification on record,0,lseg
+Focus Lumber Bhd,FLBHD,Paper & Forest Products,2026-12-31,-2.0681295,336,68.5,False,No classification on record,0,lseg
+Jasa Kita Bhd,JASKITA,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-03-31,-2.0721452,337,68.5,False,No classification on record,0,lseg
+GE-SHEN Corporation Bhd,GESHEN,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-2.0787628,338,68.4,False,No classification on record,0,lseg
+Tune Protect Group Bhd,TUNEPRO,Insurance,2026-12-31,-2.0789893,339,68.3,False,No classification on record,0,lseg
+Pavilion Real Estate Investment Trust,PAVREIT,Residential & Commercial REITs,2026-12-31,-2.0916865,340,68.2,False,No classification on record,0,lseg
+Favelle Favco Bhd,FAVCO,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.1000898,341,68.1,False,No classification on record,0,lseg
+Excel Force MSC Bhd,EFORCE,Software & IT Services,2025-06-30,-2.1012747,342,68.0,False,No classification on record,0,lseg
+Sapura Resources Bhd,SAPRES,Real Estate Operations,2027-01-31,-2.1080375,343,67.9,False,No classification on record,0,lseg
+Pappajack Bhd,PPJACK,Banking Services,2025-12-31,-2.1098087,344,67.8,False,No classification on record,0,lseg
+Toyo Ventures Holdings Bhd,TOYOVEN,Chemicals,2026-03-31,-2.1151774,345,67.7,False,No classification on record,0,lseg
+Crest Builder Holdings Bhd,CRESBLD,Construction & Engineering,2026-12-31,-2.1194665,346,67.6,False,No classification on record,0,lseg
+Asia Poly Holdings Bhd,ASIAPLY,Chemicals,2025-12-31,-2.1202807,347,67.5,False,No classification on record,0,lseg
+Benalec Holdings Bhd,BENALEC,Construction & Engineering,2026-06-30,-2.1242948,348,67.4,False,No classification on record,0,lseg
+Teck Guan Perdana Bhd,TECGUAN,Food & Tobacco,2026-01-31,-2.127978,349,67.3,False,No classification on record,0,lseg
+Go Hub Capital Bhd,GOHUB,Software & IT Services,2025-12-31,-2.1319346,350,67.2,False,No classification on record,0,lseg
+Minho (M) Bhd,MINHO,Paper & Forest Products,2025-12-31,-2.139416,351,67.1,False,No classification on record,0,lseg
+Ajiya Bhd,AJIYA,Homebuilding & Construction Supplies,2025-12-31,-2.1417694,352,67.0,False,No classification on record,0,lseg
+Eng Kah Corporation Bhd,ENGKAH,Personal & Household Products & Services,2025-12-31,-2.1543787,353,66.9,False,No classification on record,0,lseg
+Majuperak Holdings Bhd,MJPERAK,Real Estate Operations,2025-12-31,-2.1611674,354,66.9,False,No classification on record,0,lseg
+Far East Holdings Bhd,FAREAST,Food & Tobacco,2025-12-31,-2.1644425,355,66.8,False,No classification on record,0,lseg
+Turbo-Mech Bhd,TURBO,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.1647124,356,66.7,False,No classification on record,0,lseg
+Wong Engineering Corporation Bhd,WONG,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-10-31,-2.1658652,357,66.6,False,No classification on record,0,lseg
+KIP Real Estate Investment Trust,KIPREIT,Residential & Commercial REITs,2026-06-30,-2.1727397,358,66.5,False,No classification on record,0,lseg
+Zhulian Corporation Bhd,ZHULIAN,Textiles & Apparel,2026-11-30,-2.182119,359,66.4,False,No classification on record,0,lseg
+Ynh Property Bhd,YNHPROP,Real Estate Operations,2025-06-30,-2.183566,360,66.3,False,No classification on record,0,lseg
+Ramssol Group Bhd,RAMSSOL,Professional & Commercial Services,2026-12-31,-2.1846313,361,66.2,False,No classification on record,0,lseg
+JF Technology Bhd,JFTECH,Electronic Equipment & Parts,2025-06-30,-2.1859963,362,66.1,False,No classification on record,0,lseg
+Genting Bhd,GENTING,Hotels & Entertainment Services,2026-12-31,-2.193909,363,66.0,False,No classification on record,0,lseg
+Green Ocean Corporation Bhd,GOCEAN,Food & Drug Retailing,2025-03-31,-2.1960075,364,65.9,False,No classification on record,0,lseg
+AmanahRaya Real Estate Investment Trust,ARREIT,Residential & Commercial REITs,2026-12-31,-2.1995142,365,65.8,False,No classification on record,0,lseg
+Divfex Bhd,DFX,Software & IT Services,2025-06-30,-2.2067215,366,65.7,False,No classification on record,0,lseg
+Chin Teck Plantations Bhd,CHINTEK,Food & Tobacco,2026-08-31,-2.2085872,367,65.6,False,No classification on record,0,lseg
+Lagenda Properties Bhd,LAGENDA,Real Estate Operations,2026-12-31,-2.2180176,368,65.5,False,No classification on record,0,lseg
+Velocity Capital Partner Bhd,VELOCITY,Freight & Logistics Services,2025-06-30,-2.2263381,369,65.4,False,No classification on record,0,lseg
+Advancecon Holdings Bhd,ADVCON,Construction & Engineering,2026-12-31,-2.226939,370,65.4,False,No classification on record,0,lseg
+Cnergenz Bhd,CNERGEN,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.2287986,371,65.3,False,No classification on record,0,lseg
+Topmix Bhd,TOPMIX,Household Goods,2026-12-31,-2.2313452,372,65.2,False,No classification on record,0,lseg
+Star Media Group Bhd,STAR,Media & Publishing,2026-12-31,-2.2339244,373,65.1,False,No classification on record,0,lseg
+Kim Hin Joo (Malaysia) Bhd,KHJB,Specialty Retailers,2025-12-31,-2.2359133,374,65.0,False,No classification on record,0,lseg
+ISF Group Bhd,ISF,Construction & Engineering,2026-12-31,-2.2374651,375,64.9,False,No classification on record,0,lseg
+Westports Holdings Bhd,WPRTS,Transport Infrastructure,2026-12-31,-2.2398949,376,64.8,False,No classification on record,0,lseg
+Only World Group Holdings Bhd,OWG,Hotels & Entertainment Services,2026-06-30,-2.2439017,377,64.7,False,No classification on record,0,lseg
+Multi-Usage Holdings Bhd,MUH,Real Estate Operations,2025-06-30,-2.2516377,378,64.6,False,No classification on record,0,lseg
+JAG Bhd,JAG,Professional & Commercial Services,2025-12-31,-2.2521586,379,64.5,False,No classification on record,0,lseg
+Lii Hen Industries Bhd,LIIHEN,Household Goods,2026-12-31,-2.255035,380,64.4,False,No classification on record,0,lseg
+Matrix Concepts Holdings Bhd,MATRIX,Real Estate Operations,2027-03-31,-2.2563906,381,64.3,False,No classification on record,0,lseg
+Telekom Malaysia Bhd,TM,Telecommunications Services,2026-12-31,-2.2570474,382,64.2,False,No classification on record,0,lseg
+Securemetric Bhd,SMETRIC,Software & IT Services,2025-12-31,-2.2595735,383,64.1,False,No classification on record,0,lseg
+PSP Energy Bhd,PSP,Banking Services,2025-06-30,-2.2625847,384,64.0,False,No classification on record,0,lseg
+Fintec Global Bhd,FINTEC,Investment Holding Companies,2025-06-30,-2.2655494,385,63.9,False,No classification on record,0,lseg
+Express Powerr Solutions (M) Bhd,XPB,Professional & Commercial Services,2025-12-31,-2.2745848,386,63.8,False,No classification on record,0,lseg
+Hubline Bhd,HUBLINE,Freight & Logistics Services,2025-09-30,-2.2798681,387,63.8,False,No classification on record,0,lseg
+Aneka Jaringan Holdings Bhd,ANEKA,Construction & Engineering,2025-08-31,-2.2853417,388,63.7,False,No classification on record,0,lseg
+JAG Capital Bhd,JAGCPTL,Oil & Gas,2025-06-30,-2.2918925,389,63.6,False,No classification on record,0,lseg
+Public Packages Holdings Bhd,PPHB,Containers & Packaging,2025-12-31,-2.2987401,390,63.5,False,No classification on record,0,lseg
+PA Resources Bhd,PA,Metals & Mining,2026-06-30,-2.2994812,391,63.4,False,No classification on record,0,lseg
+HI Mobility Bhd,HI,Passenger Transportation Services,2027-01-31,-2.3000536,392,63.3,False,No classification on record,0,lseg
+SMIS Corporation Bhd,SMISCOR,Automobiles & Auto Parts,2025-12-31,-2.3004885,393,63.2,False,No classification on record,0,lseg
+IOI Properties Group Bhd,IOIPG,Real Estate Operations,2026-06-30,-2.3075566,394,63.1,False,No classification on record,0,lseg
+Cepatwawasan Group Bhd,CEPAT,Food & Tobacco,2025-12-31,-2.3102703,395,63.0,False,No classification on record,0,lseg
+Naim Holdings Bhd,NAIM,Construction & Engineering,2025-12-31,-2.3104262,396,62.9,False,No classification on record,0,lseg
+Lee Swee Kiat Group Bhd,LEESK,Household Goods,2026-12-31,-2.3125973,397,62.8,False,No classification on record,0,lseg
+Skyechip Bhd,SKYECHIP,Software & IT Services,2027-03-31,-2.3234713,398,62.7,False,No classification on record,0,lseg
+Salutica Bhd,SALUTE,Communications & Networking,2026-06-30,-2.3313253,399,62.6,False,No classification on record,0,lseg
+Pentamaster Corporation Bhd,PENTA,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.3325412,400,62.5,False,No classification on record,0,lseg
+Pensonic Holdings Bhd,PENSONI,Household Goods,2025-05-31,-2.3360925,401,62.4,False,No classification on record,0,lseg
+SCC Holdings Bhd,SCC,Food & Tobacco,2025-12-31,-2.3437905,402,62.3,False,No classification on record,0,lseg
+Spring Art Holdings Bhd,SPRING,Household Goods,2025-12-31,-2.3443558,403,62.3,False,No classification on record,0,lseg
+SD Guthrie Bhd,SDG,Food & Tobacco,2026-12-31,-2.3448422,404,62.2,False,No classification on record,0,lseg
+Yew Lee Pacific Group Bhd,YEWLEE,Personal & Household Products & Services,2026-12-31,-2.3460562,405,62.1,False,No classification on record,0,lseg
+ECM Libra Group Bhd,ECM,Hotels & Entertainment Services,2025-12-31,-2.3509185,406,62.0,False,No classification on record,0,lseg
+Niche Capital Emas Holdings Bhd,NICE,Construction & Engineering,2025-06-30,-2.3525755,407,61.9,False,No classification on record,0,lseg
+Prestar Resources Bhd,PRESTAR,Metals & Mining,2025-12-31,-2.3569973,408,61.8,False,No classification on record,0,lseg
+Southern Score Builders Bhd,SSB8,Construction & Engineering,2026-06-30,-2.3603055,409,61.7,False,Previously classified,0,lseg
+Metro Healthcare Bhd,METRO,Healthcare Providers & Services,2026-12-31,-2.3652656,410,61.6,False,No classification on record,0,lseg
+MI Technovation Bhd,MI,Semiconductors & Semiconductor Equipment,2026-12-31,-2.3664014,411,61.5,False,No classification on record,0,lseg
+Oriental Interest Bhd,OIB,Real Estate Operations,2025-08-31,-2.369733,412,61.4,False,No classification on record,0,lseg
+Malaysia Marine and Heavy Engineering Holdings Bhd,MHB,Oil & Gas Related Equipment and Services,2026-12-31,-2.3713505,413,61.3,False,No classification on record,0,lseg
+UCI Resources Bhd,UTAMA,Construction Materials,2025-12-31,-2.3733907,414,61.2,False,No classification on record,0,lseg
+EPB Group Bhd,EPB,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-2.3738928,415,61.1,False,No classification on record,0,lseg
+Greater Bay Holdings Bhd,GBAY,Containers & Packaging,2025-12-31,-2.3747623,416,61.0,False,No classification on record,0,lseg
+Scientex Bhd,SCIENTX,Containers & Packaging,2026-07-31,-2.3775532,417,60.9,False,No classification on record,0,lseg
+Agmo Holdings Bhd,AGMO,Professional & Commercial Services,2027-03-31,-2.378971,418,60.8,False,No classification on record,0,lseg
+Eduspec Holdings Bhd,EDUSPEC,Miscellaneous Educational Service Providers,2026-02-28,-2.385233,419,60.8,False,No classification on record,0,lseg
+Thong Guan Industries Bhd,TGUAN,Containers & Packaging,2026-12-31,-2.3863223,420,60.7,False,No classification on record,0,lseg
+Polydamic Group Bhd,POLYDM,Professional & Commercial Services,2025-06-30,-2.3922608,421,60.6,False,No classification on record,0,lseg
+SSF Home Group Bhd,SSF,Specialty Retailers,2026-04-30,-2.3940048,422,60.5,False,No classification on record,0,lseg
+CTOS Digital Bhd,CTOS,Professional & Commercial Services,2026-12-31,-2.3943336,423,60.4,False,No classification on record,0,lseg
+Wasco Greenergy Bhd,GENERGY,Electric Utilities & IPPs,2026-12-31,-2.407432,424,60.3,False,No classification on record,0,lseg
+Panda Eco System Bhd,PANDA,Software & IT Services,2025-12-31,-2.4089034,425,60.2,False,No classification on record,0,lseg
+Petronas Gas Bhd,PETGAS,Natural Gas Utilities,2026-12-31,-2.4107914,426,60.1,False,No classification on record,0,lseg
+Kotra Industries Bhd,KOTRA,Pharmaceuticals,2026-06-30,-2.411304,427,60.0,False,No classification on record,0,lseg
+Pecca Group Bhd,PECCA,Automobiles & Auto Parts,2026-06-30,-2.413032,428,59.9,False,No classification on record,0,lseg
+Eco-Shop Marketing Bhd,ECOSHOP,Food & Drug Retailing,2027-05-31,-2.4137158,429,59.8,False,No classification on record,0,lseg
+Farm Price Holdings Bhd,FPHB,Food & Tobacco,2026-12-31,-2.4168522,430,59.7,False,No classification on record,0,lseg
+Sunmow Holding Bhd,SUNMOW,Construction & Engineering,2025-12-31,-2.4312184,431,59.6,False,No classification on record,0,lseg
+Jentayu Sustainables Bhd,JSB,Construction Materials,2026-06-30,-2.436553,432,59.5,False,No classification on record,0,lseg
+Harvest Miracle Capital Bhd,HM,Software & IT Services,2026-03-31,-2.449576,433,59.4,False,No classification on record,0,lseg
+Kossan Rubber Industries Bhd,KOSSAN,Healthcare Equipment & Supplies,2026-12-31,-2.464565,434,59.3,False,No classification on record,0,lseg
+Kein Hing International Bhd,KEINHIN,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-04-30,-2.468376,435,59.2,False,No classification on record,0,lseg
+Innoprise Plantations Bhd,INNO,Food & Tobacco,2026-12-31,-2.4702837,436,59.2,False,No classification on record,0,lseg
+Riverview Rubber Estates Bhd,RVIEW,Food & Tobacco,2025-12-31,-2.472016,437,59.1,False,No classification on record,0,lseg
+Kim Teck Cheong Consolidated Bhd,KTC,Food & Drug Retailing,2026-06-30,-2.4728725,438,59.0,False,No classification on record,0,lseg
+Pesona Metro Holdings Bhd,PESONA,Construction & Engineering,2026-12-31,-2.4731872,439,58.9,False,No classification on record,0,lseg
+AirAsia Group Bhd,AAGB,Passenger Transportation Services,2026-12-31,-2.477059,440,58.8,False,Previously classified,0,lseg
+VisDynamics Holdings Bhd,VIS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-10-31,-2.4790897,441,58.7,False,No classification on record,0,lseg
+Pos Malaysia Bhd,POS,Freight & Logistics Services,2026-12-31,-2.479527,442,58.6,False,No classification on record,0,lseg
+Maxim Global Bhd,MAXIM,Real Estate Operations,2025-12-31,-2.480305,443,58.5,False,No classification on record,0,lseg
+United Malacca Bhd,UMCCA,Food & Tobacco,2027-04-30,-2.4879577,444,58.4,False,No classification on record,0,lseg
+Cabnet Holdings Bhd,CABNET,Construction & Engineering,2026-02-28,-2.4881663,445,58.3,False,No classification on record,0,lseg
+Perdana Petroleum Bhd,PERDANA,Oil & Gas Related Equipment and Services,2026-12-31,-2.490066,446,58.2,False,No classification on record,0,lseg
+TechStore Bhd,TECHSTORE,Software & IT Services,2025-12-31,-2.491159,447,58.1,False,No classification on record,0,lseg
+Superlon Holdings Bhd,SUPERLN,Chemicals,2027-04-30,-2.493412,448,58.0,False,No classification on record,0,lseg
+THMY Holdings Bhd,THMY,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2027-03-31,-2.4939547,449,57.9,False,No classification on record,0,lseg
+MHC Plantations Bhd,MHC,Food & Tobacco,2025-12-31,-2.4942229,450,57.8,False,No classification on record,0,lseg
+Notion VTec Bhd,NOTION,"Computers, Phones & Household Electronics",2026-09-30,-2.495806,451,57.7,False,No classification on record,0,lseg
+HPMT Holdings Bhd,HPMT,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.49591,452,57.7,False,No classification on record,0,lseg
+LTKM Bhd,LTKM,Food & Tobacco,2027-03-31,-2.497563,453,57.6,False,No classification on record,0,lseg
+Pekat Group Bhd,PEKAT,Renewable Energy,2026-12-31,-2.4979968,454,57.5,False,No classification on record,0,lseg
+Glostrext Bhd,GLXT,Construction & Engineering,2026-03-31,-2.501865,455,57.4,False,No classification on record,0,lseg
+Seni Jaya Corporation Bhd,SJC,Media & Publishing,2026-06-30,-2.5024924,456,57.3,False,No classification on record,0,lseg
+Rhone Ma Holdings Bhd,RHONEMA,Pharmaceuticals,2026-12-31,-2.5025737,457,57.2,False,No classification on record,0,lseg
+KESM Industries Bhd,KESM,Semiconductors & Semiconductor Equipment,2026-07-31,-2.503066,458,57.1,False,No classification on record,0,lseg
+George Kent (Malaysia) Bhd,GKENT,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-03-31,-2.5071187,459,57.0,False,No classification on record,0,lseg
+Ajinomoto (Malaysia) Bhd,AJI,Food & Tobacco,2027-03-31,-2.5103264,460,56.9,False,No classification on record,0,lseg
+Kimlun Corporation Bhd,KIMLUN,Construction & Engineering,2026-12-31,-2.5111759,461,56.8,False,No classification on record,0,lseg
+Southern Cable Group Bhd,SCGBHD,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.5115325,462,56.7,False,No classification on record,0,lseg
+MISC Bhd,MISC,Transport Infrastructure,2026-12-31,-2.5123537,463,56.6,False,No classification on record,0,lseg
+Parkwood Holdings Bhd,PARKWD,Real Estate Operations,2025-12-31,-2.5146427,464,56.5,False,No classification on record,0,lseg
+Luxchem Corporation Bhd,LUXCHEM,Chemicals,2026-12-31,-2.5170183,465,56.4,False,No classification on record,0,lseg
+LKL International Bhd,LKL,Healthcare Equipment & Supplies,2025-12-31,-2.5193217,466,56.3,False,No classification on record,0,lseg
+Matrix Parking Solution Holdings Bhd,MPSOL,Transport Infrastructure,2025-12-31,-2.520837,467,56.2,False,No classification on record,0,lseg
+Duopharma Biotech Bhd,DPHARMA,Pharmaceuticals,2026-12-31,-2.5243134,468,56.2,False,No classification on record,0,lseg
+Malaysian Genomics Resource Centre Bhd,MGRC,Healthcare Providers & Services,2026-06-30,-2.524449,469,56.1,False,No classification on record,0,lseg
+NTPM Holdings Bhd,NTPM,Personal & Household Products & Services,2027-04-30,-2.5250232,470,56.0,False,No classification on record,0,lseg
+SMRT Holdings Bhd,SMRT,Software & IT Services,2026-06-30,-2.5269146,471,55.9,False,No classification on record,0,lseg
+Uni Wall APS Holdings Bhd,UNIWALL,Construction & Engineering,2025-06-30,-2.5272355,472,55.8,False,No classification on record,0,lseg
+ICT Zone Asia Bhd,ICTZONE,Software & IT Services,2027-01-31,-2.5312521,473,55.7,False,No classification on record,0,lseg
+Progressive Impact Corporation Bhd,PICORP,Professional & Commercial Services,2025-12-31,-2.5350106,474,55.6,False,No classification on record,0,lseg
+Kumpulan H & L High-Tech Bhd,HIGHTEC,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-10-31,-2.5357513,475,55.5,False,No classification on record,0,lseg
+CBH Engineering Holding Bhd,CBHB,Construction & Engineering,2026-12-31,-2.538718,476,55.4,False,No classification on record,0,lseg
+Silver Ridge Holdings Bhd,SRIDGE,Telecommunications Services,2025-06-30,-2.5399797,477,55.3,False,No classification on record,0,lseg
+Crest Group Bhd,CREST,Healthcare Equipment & Supplies,2025-12-31,-2.5415337,478,55.2,False,No classification on record,0,lseg
+3REN Bhd,3REN,Semiconductors & Semiconductor Equipment,2025-12-31,-2.5436983,479,55.1,False,No classification on record,0,lseg
+Ibraco Bhd,IBRACO,Real Estate Operations,2026-12-31,-2.5491254,480,55.0,False,No classification on record,0,lseg
+LBI Capital Bhd,LBICAP,Real Estate Operations,2025-12-31,-2.5502436,481,54.9,False,No classification on record,0,lseg
+Batu Kawan Bhd,BKAWAN,Chemicals,2026-09-30,-2.551091,482,54.8,False,No classification on record,0,lseg
+Lpi Capital Bhd,LPI,Insurance,2026-12-31,-2.5515845,483,54.7,False,No classification on record,0,lseg
+United Plantations Bhd,UTDPLT,Food & Tobacco,2026-12-31,-2.551994,484,54.6,False,No classification on record,0,lseg
+CWG Holdings Bhd,CWG,Professional & Commercial Services,2026-06-30,-2.5553775,485,54.6,False,No classification on record,0,lseg
+Fraser & Neave Holdings Bhd,F&N,Beverages,2026-09-30,-2.5561414,486,54.5,False,No classification on record,0,lseg
+UUE Holdings Bhd,UUE,Construction & Engineering,2027-02-28,-2.557594,487,54.4,False,No classification on record,0,lseg
+TRC Synergy Bhd,TRC,Construction & Engineering,2026-12-31,-2.558332,488,54.3,False,No classification on record,0,lseg
+Beshom Holdings Bhd,BESHOM,Specialty Retailers,2027-04-30,-2.5634391,489,54.2,False,No classification on record,0,lseg
+Tex Cycle Technology (M) Bhd,TEXCYCL,Professional & Commercial Services,2025-12-31,-2.5676105,490,54.1,False,No classification on record,0,lseg
+IJM Corporation Bhd,IJM,Construction & Engineering,2027-03-31,-2.5696068,491,54.0,False,No classification on record,0,lseg
+Aimax Bhd,AIMAX,Healthcare Providers & Services,2025-09-30,-2.5703697,492,53.9,False,No classification on record,0,lseg
+Carlo Rino Group Bhd,CARLORINO,Specialty Retailers,2025-06-30,-2.5706172,493,53.8,False,No classification on record,0,lseg
+5E Resources Holdings Bhd,5ER,Professional & Commercial Services,2025-12-31,-2.5729272,494,53.7,False,No classification on record,0,lseg
+Binasat Communications Bhd,BINACOM,Telecommunications Services,2026-06-30,-2.57497,495,53.6,False,No classification on record,0,lseg
+Karyon Industries Bhd,KARYON,Chemicals,2026-03-31,-2.5764465,496,53.5,False,No classification on record,0,lseg
+Nova Wellness Group Bhd,NOVA,Food & Tobacco,2026-06-30,-2.5787249,497,53.4,False,No classification on record,0,lseg
+Northern Solar Holdings Bhd,NORTHERN,Electric Utilities & IPPs,2026-12-31,-2.5823267,498,53.3,False,No classification on record,0,lseg
+CC International Bhd,CCIB,Personal & Household Products & Services,2025-12-31,-2.5878534,499,53.2,False,No classification on record,0,lseg
+Hil Industries Bhd,HIL,Chemicals,2026-12-31,-2.590696,500,53.1,False,No classification on record,0,lseg
+Plenitude Bhd,PLENITU,Real Estate Operations,2026-06-30,-2.5958023,501,53.1,False,No classification on record,0,lseg
+Poh Kong Holdings Bhd,POHKONG,Textiles & Apparel,2025-07-31,-2.597224,502,53.0,False,No classification on record,0,lseg
+UMS-Neiken Group Bhd,UMSNGB,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-2.5996506,503,52.9,False,No classification on record,0,lseg
+CE Technology Bhd,CETECH,Textiles & Apparel,2025-07-31,-2.6006477,504,52.8,False,No classification on record,0,lseg
+MBM Resources Bhd,MBMR,Automobiles & Auto Parts,2026-12-31,-2.602911,505,52.7,False,No classification on record,0,lseg
+Whitman Holdings Bhd,WHITMAN,Investment Banking & Investment Services,2025-12-31,-2.60404,506,52.6,False,No classification on record,0,lseg
+Edelteq Holdings Bhd,EDELTEQ,Semiconductors & Semiconductor Equipment,2026-12-31,-2.6041384,507,52.5,False,No classification on record,0,lseg
+UWC Bhd,UWC,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-07-31,-2.6058176,508,52.4,False,No classification on record,0,lseg
+Synergy House Bhd,SYNERGY,Household Goods,2026-12-31,-2.6060905,509,52.3,False,No classification on record,0,lseg
+DKSH Holdings (Malaysia) Bhd,DKSH,Diversified Industrial Goods Wholesale,2026-12-31,-2.6067007,510,52.2,False,No classification on record,0,lseg
+CCK Consolidated Holdings Bhd,CCK,Food & Drug Retailing,2026-12-31,-2.6107304,511,52.1,False,No classification on record,0,lseg
+Life Water Bhd,LWSABAH,Beverages,2026-06-30,-2.614702,512,52.0,False,No classification on record,0,lseg
+Wawasan Dengkil Holdings Bhd,DENGKIL,Construction & Engineering,2025-06-30,-2.6151247,513,51.9,False,No classification on record,0,lseg
+NexG Bhd,NEXG,Software & IT Services,2027-03-31,-2.616933,514,51.8,False,No classification on record,0,lseg
+Cheetah Holdings Bhd,CHEETAH,Textiles & Apparel,2025-06-30,-2.6171172,515,51.7,False,No classification on record,0,lseg
+CSC Steel Holdings Bhd,CSCSTEL,Metals & Mining,2026-12-31,-2.6193104,516,51.6,False,No classification on record,0,lseg
+Master-Pack Group Bhd,MASTER,Containers & Packaging,2025-12-31,-2.6199825,517,51.5,False,No classification on record,0,lseg
+He Group Bhd,HEGROUP,Electric Utilities & IPPs,2026-12-31,-2.6227164,518,51.5,False,No classification on record,0,lseg
+OB Holdings Bhd,OBHB,Specialty Retailers,2025-05-31,-2.6229312,519,51.4,False,No classification on record,0,lseg
+LAC Med Bhd,LACMED,Healthcare Equipment & Supplies,2026-12-31,-2.6232355,520,51.3,False,No classification on record,0,lseg
+Daythree Digital Bhd,DAY3,Software & IT Services,2025-12-31,-2.626122,521,51.2,False,No classification on record,0,lseg
+Inspace Creation Bhd,INSPACE,Specialty Retailers,2025-11-30,-2.6262538,522,51.1,False,No classification on record,0,lseg
+Pan Merchant Bhd,PMIBHD,Professional & Commercial Services,2025-12-31,-2.63082,523,51.0,False,No classification on record,0,lseg
+SEAL Incorporated Bhd,SEAL,Real Estate Operations,2026-06-30,-2.630829,524,50.9,False,No classification on record,0,lseg
+MM Computer Systems Bhd,,Software & IT Services,2025-12-31,-2.6351647,525,50.8,False,No classification on record,0,lseg
+Dataprep Holdings Bhd,DATAPRP,Software & IT Services,2025-03-31,-2.6391904,526,50.7,False,No classification on record,0,lseg
+Wentel Engineering Holdings Bhd,WENTEL,Metals & Mining,2026-12-31,-2.6407006,527,50.6,False,No classification on record,0,lseg
+Ray Go Solar Holdings Bhd,RGS,Renewable Energy,2025-10-31,-2.6412096,528,50.5,False,No classification on record,0,lseg
+Compugates Holdings Bhd,COMPUGT,"Computers, Phones & Household Electronics",2025-12-31,-2.6418042,529,50.4,False,No classification on record,0,lseg
+Mega Fortris Bhd,MEGAFB,Professional & Commercial Services,2025-06-30,-2.6450193,530,50.3,False,No classification on record,0,lseg
+Solarvest Holdings Bhd,SLVEST,Electric Utilities & IPPs,2027-03-31,-2.6473596,531,50.2,False,No classification on record,0,lseg
+OpenSys (M) Bhd,OPENSYS,Software & IT Services,2025-12-31,-2.649537,532,50.1,False,No classification on record,0,lseg
+Optimax Holdings Bhd,OPTIMAX,Healthcare Providers & Services,2026-12-31,-2.6522563,533,50.0,False,No classification on record,0,lseg
+Prolintas Infra Business Trust,PLINTAS,Construction & Engineering,2026-12-31,-2.65353,534,50.0,False,No classification on record,0,lseg
+IFCA MSC Bhd,IFCAMSC,Software & IT Services,2025-12-31,-2.6619713,535,49.9,False,No classification on record,0,lseg
+QL Resources Bhd,QL,Food & Tobacco,2027-03-31,-2.669068,536,49.8,False,No classification on record,0,lseg
+Paramount Corporation Bhd,PARAMON,Real Estate Operations,2026-12-31,-2.6705077,537,49.7,False,No classification on record,0,lseg
+PMW International Bhd,PMW,Homebuilding & Construction Supplies,2025-12-31,-2.6710343,538,49.6,False,No classification on record,0,lseg
+Gadang Holdings Bhd,GADANG,Construction & Engineering,2026-05-31,-2.672407,539,49.5,False,No classification on record,0,lseg
+SKP Resources Bhd,SKPRES,Electronic Equipment & Parts,2027-03-31,-2.6738355,540,49.4,False,No classification on record,0,lseg
+Kgw Group Bhd,KGW,Freight & Logistics Services,2025-12-31,-2.6764414,541,49.3,False,No classification on record,0,lseg
+Kretam Holdings Bhd,KRETAM,Food & Tobacco,2025-12-31,-2.6798837,542,49.2,False,No classification on record,0,lseg
+Elridge Energy Holdings Bhd,ELRIDGE,Electric Utilities & IPPs,2026-12-31,-2.6806548,543,49.1,False,No classification on record,0,lseg
+Velesto Energy Bhd,VELESTO,Oil & Gas Related Equipment and Services,2026-12-31,-2.68148,544,49.0,False,No classification on record,0,lseg
+Pantech Global Bhd,PGLOBAL,Homebuilding & Construction Supplies,2026-02-28,-2.6821058,545,48.9,False,No classification on record,0,lseg
+Hextar Technologies Solutions Bhd,HEXTECH,Construction Materials,2026-03-31,-2.6832457,546,48.8,False,No classification on record,0,lseg
+Lotus KFM Bhd,LOTUS,Food & Tobacco,2025-09-30,-2.6870537,547,48.7,False,Previously classified,0,lseg
+Mentiga Corporation Bhd,MENTIGA,Food & Tobacco,2025-12-31,-2.687358,548,48.6,False,No classification on record,0,lseg
+Mega First Corporation Bhd,MFCB,Electric Utilities & IPPs,2026-12-31,-2.6888132,549,48.5,False,No classification on record,0,lseg
+Kobay Technology Bhd,KOBAY,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-06-30,-2.6924376,550,48.5,False,No classification on record,0,lseg
+Careplus Group Bhd,CAREPLS,Healthcare Equipment & Supplies,2025-06-30,-2.6944559,551,48.4,False,No classification on record,0,lseg
+Chin Well Holdings Bhd,CHINWEL,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-06-30,-2.6959763,552,48.3,False,No classification on record,0,lseg
+Teo Seng Capital Bhd,TEOSENG,Food & Tobacco,2026-12-31,-2.6978006,553,48.2,False,No classification on record,0,lseg
+SWS Capital Bhd,SWSCAP,Household Goods,2025-12-31,-2.6980598,554,48.1,False,No classification on record,0,lseg
+Kawan Food Bhd,KAWAN,Food & Tobacco,2026-12-31,-2.698082,555,48.0,False,No classification on record,0,lseg
+Mayu Global Group Bhd,MAYU,Metals & Mining,2025-06-30,-2.6986454,556,47.9,False,No classification on record,0,lseg
+LFE Corporation Bhd,LFECORP,Construction & Engineering,2025-12-31,-2.7056618,557,47.8,False,No classification on record,0,lseg
+Minox International Group Bhd,MINOX,Metals & Mining,2025-12-31,-2.713483,558,47.7,False,No classification on record,0,lseg
+Pantech Group Holdings Bhd,PANTECH,Metals & Mining,2027-02-28,-2.7145498,559,47.6,False,No classification on record,0,lseg
+Mesiniaga Bhd,MSNIAGA,Software & IT Services,2025-12-31,-2.720107,560,47.5,False,No classification on record,0,lseg
+MMS Ventures Bhd,MMSV,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-2.720977,561,47.4,False,No classification on record,0,lseg
+Sarawak Plantation Bhd,SWKPLNT,Food & Tobacco,2026-12-31,-2.721183,562,47.3,False,No classification on record,0,lseg
+Pineapple Resources Bhd,PINEAPP,Integrated Hardware & Software,2025-06-30,-2.7226088,563,47.2,False,No classification on record,0,lseg
+Y&G Corporation Bhd,Y&G,Real Estate Operations,2025-12-31,-2.7238216,564,47.1,False,No classification on record,0,lseg
+Quality Concrete Holdings Bhd,QUALITY,Real Estate Operations,2026-01-31,-2.7261796,565,47.0,False,No classification on record,0,lseg
+Harbour-Link Group Bhd,HARBOUR,Freight & Logistics Services,2026-06-30,-2.7267013,566,46.9,False,No classification on record,0,lseg
+IOI Corporation Bhd,IOICORP,Food & Tobacco,2026-06-30,-2.7277274,567,46.9,False,No classification on record,0,lseg
+AbleGroup Bhd,ABLEGRP,Construction & Engineering,2025-12-31,-2.7284122,568,46.8,False,No classification on record,0,lseg
+Northeast Group Bhd,NE,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-09-30,-2.7289572,569,46.7,False,No classification on record,0,lseg
+Hydropipes Bhd,HPI,Metals & Mining,2025-12-31,-2.7306523,570,46.6,False,No classification on record,0,lseg
+Supercomnet Technologies Bhd,SCOMNET,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.732466,571,46.5,False,No classification on record,0,lseg
+Ta Ann Holdings Bhd,TAANN,Food & Tobacco,2026-12-31,-2.736518,572,46.4,False,No classification on record,0,lseg
+OCB Bhd,OCB,Food & Tobacco,2025-12-31,-2.7378016,573,46.3,False,No classification on record,0,lseg
+MyTech Group Bhd,MYTECH,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-03-31,-2.7378736,574,46.2,False,No classification on record,0,lseg
+LGMS Bhd,LGMS,Software & IT Services,2026-12-31,-2.7430544,575,46.1,False,No classification on record,0,lseg
+Inari Amertron Bhd,INARI,Semiconductors & Semiconductor Equipment,2026-06-30,-2.7452648,576,46.0,False,No classification on record,0,lseg
+Sports Toto Bhd,SPTOTO,Hotels & Entertainment Services,2026-06-30,-2.7454123,577,45.9,False,No classification on record,0,lseg
+Dufu Technology Corp Bhd,DUFU,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-2.7528934,578,45.8,False,No classification on record,0,lseg
+Wasco Bhd,WASCO,Oil & Gas Related Equipment and Services,2026-12-31,-2.7529035,579,45.7,False,No classification on record,0,lseg
+Deleum Bhd,DELEUM,Oil & Gas Related Equipment and Services,2026-12-31,-2.7551448,580,45.6,False,No classification on record,0,lseg
+Teladan Group Bhd,TELADAN,Real Estate Operations,2026-12-31,-2.7571692,581,45.5,False,No classification on record,0,lseg
+Tambun Indah Land Bhd,TAMBUN,Real Estate Operations,2026-12-31,-2.7601488,582,45.4,False,No classification on record,0,lseg
+AWC Bhd,AWC,Professional & Commercial Services,2026-06-30,-2.7604468,583,45.4,False,No classification on record,0,lseg
+HeiTech Padu Bhd,HTPADU,Software & IT Services,2025-12-31,-2.7621157,584,45.3,False,No classification on record,0,lseg
+Axteria Group Bhd,AXTERIA,Real Estate Operations,2025-12-31,-2.7637868,585,45.2,False,No classification on record,0,lseg
+Solution Group Bhd,SOLUTN,Investment Holding Companies,2025-12-31,-2.7706306,586,45.1,False,No classification on record,0,lseg
+Farlim Group (Malaysia) Bhd,FARLIM,Real Estate Operations,2025-12-31,-2.7732508,587,45.0,False,No classification on record,0,lseg
+BIG Industries Bhd,BIG,Chemicals,2025-06-30,-2.7771544,588,44.9,False,No classification on record,0,lseg
+APM Automotive Holdings Bhd,APM,Automobiles & Auto Parts,2025-12-31,-2.778324,589,44.8,False,No classification on record,0,lseg
+Sapura Industrial Bhd,SAPIND,Automobiles & Auto Parts,2026-01-31,-2.7783635,590,44.7,False,No classification on record,0,lseg
+Jaycorp Bhd,JAYCORP,Household Goods,2026-07-31,-2.778811,591,44.6,False,No classification on record,0,lseg
+Mobilia Holdings Bhd,MOBILIA,Household Goods,2026-12-31,-2.780417,592,44.5,False,No classification on record,0,lseg
+Powertechnic Group Bhd,POWER,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-2.7833192,593,44.4,False,No classification on record,0,lseg
+KKB Engineering Berhad,KKB,Construction & Engineering,2026-12-31,-2.7842326,594,44.3,False,No classification on record,0,lseg
+Emico Holdings Bhd,EMICO,Professional & Commercial Services,2026-03-31,-2.7851162,595,44.2,False,No classification on record,0,lseg
+Unisem M Bhd,UNISEM,Semiconductors & Semiconductor Equipment,2026-12-31,-2.7859128,596,44.1,False,No classification on record,0,lseg
+D'nonce Technology Bhd,DNONCE,Containers & Packaging,2026-03-31,-2.7899904,597,44.0,False,No classification on record,0,lseg
+GuocoLand (Malaysia) Bhd,GUOCO,Real Estate Operations,2025-06-30,-2.7911167,598,43.9,False,No classification on record,0,lseg
+Matang Bhd,MATANG,Food & Tobacco,2025-06-30,-2.7926252,599,43.8,False,No classification on record,0,lseg
+UMedic Group Bhd,UMC,Healthcare Equipment & Supplies,2026-07-31,-2.7939253,600,43.8,False,No classification on record,0,lseg
+Poh Huat Resources Holdings Bhd,POHUAT,Household Goods,2026-10-31,-2.794272,601,43.7,False,No classification on record,0,lseg
+Dialog Group Bhd,DIALOG,Oil & Gas Related Equipment and Services,2026-06-30,-2.7943387,602,43.6,False,No classification on record,0,lseg
+Fsbm Holdings Bhd,FSBM,Software & IT Services,2025-12-31,-2.7973998,603,43.5,False,Previously classified,0,lseg
+AGX Group Bhd,AGX,Freight & Logistics Services,2026-12-31,-2.8032682,604,43.4,False,No classification on record,0,lseg
+Elsa Bhd,ELSA,Oil & Gas Related Equipment and Services,2025-12-31,-2.8055725,605,43.3,False,No classification on record,0,lseg
+Success Transformer Corporation Bhd,SUCCESS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-06-30,-2.8094342,606,43.2,False,No classification on record,0,lseg
+REDtone Digital Bhd,REDTONE,Telecommunications Services,2026-06-30,-2.8099155,607,43.1,False,No classification on record,0,lseg
+Tashin Holdings Bhd,TASHIN,Metals & Mining,2025-12-31,-2.8180583,608,43.0,False,No classification on record,0,lseg
+Malayan Flour Mills Bhd,MFLOUR,Food & Tobacco,2026-12-31,-2.8186746,609,42.9,False,No classification on record,0,lseg
+Magma Group Bhd,MAGMA,Hotels & Entertainment Services,2025-12-31,-2.819323,610,42.8,False,No classification on record,0,lseg
+CEKD Bhd,CEKD,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-08-31,-2.819696,611,42.7,False,No classification on record,0,lseg
+BP Plastics Holding Bhd,BPPLAS,Containers & Packaging,2026-12-31,-2.8204186,612,42.6,False,No classification on record,0,lseg
+Mitrajaya Holdings Bhd,MITRA,Construction & Engineering,2026-12-31,-2.8215597,613,42.5,False,No classification on record,0,lseg
+Yoong Onn Corporation Bhd,YOCB,Household Goods,2026-06-30,-2.8250787,614,42.4,False,No classification on record,0,lseg
+Dancomech Holdings Bhd,DANCO,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.827611,615,42.3,False,No classification on record,0,lseg
+Saliran Group Bhd,SALIRAN,Homebuilding & Construction Supplies,2025-12-31,-2.82815,616,42.3,False,No classification on record,0,lseg
+Seremban Engineering Bhd,SEB,Construction & Engineering,2025-06-30,-2.830263,617,42.2,False,No classification on record,0,lseg
+Fiamma Holdings Bhd,FIAMMA,Household Goods,2026-12-31,-2.8306081,618,42.1,False,No classification on record,0,lseg
+ACME Holdings Bhd,ACME,Real Estate Operations,2026-03-31,-2.8310084,619,42.0,False,No classification on record,0,lseg
+LPC Group Bhd,LPCGRP,Construction & Engineering,2026-04-30,-2.8310401,620,41.9,False,No classification on record,0,lseg
+Hibiscus Petroleum Bhd,HIBISCS,Oil & Gas,2026-06-30,-2.8361058,621,41.8,False,No classification on record,0,lseg
+Ancom Nylex Bhd,ANCOMNY,Chemicals,2027-05-31,-2.8426025,622,41.7,False,No classification on record,0,lseg
+Destini Bhd,DESTINI,Professional & Commercial Services,2026-06-30,-2.8478642,623,41.6,False,No classification on record,0,lseg
+Box-Pak (Malaysia) Bhd,BOXPAK,Containers & Packaging,2025-12-31,-2.8499656,624,41.5,False,No classification on record,0,lseg
+CAB Cakaran Corporation Bhd,CAB,Food & Tobacco,2026-09-30,-2.850148,625,41.4,False,No classification on record,0,lseg
+BM Greentech Bhd,BMGREEN,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2027-03-31,-2.8504426,626,41.3,False,No classification on record,0,lseg
+Kinergy Advancement Bhd,KINERGY,Construction & Engineering,2026-12-31,-2.850932,627,41.2,False,No classification on record,0,lseg
+Bright Packaging Industry Bhd,BRIGHT,Containers & Packaging,2026-08-31,-2.854354,628,41.1,False,No classification on record,0,lseg
+BLD Plantation Bhd,BLDPLNT,Food & Tobacco,2026-03-31,-2.8583813,629,41.0,False,No classification on record,0,lseg
+Timberwell Bhd,TIMWELL,Paper & Forest Products,2025-12-31,-2.8606944,630,40.9,False,No classification on record,0,lseg
+Wang-Zheng Bhd,WANGZNG,Paper & Forest Products,2025-12-31,-2.8619246,631,40.8,False,No classification on record,0,lseg
+TAS Offshore Bhd,TAS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-05-31,-2.8633206,632,40.8,False,No classification on record,0,lseg
+Land & General Bhd,L&G,Real Estate Operations,2027-03-31,-2.8643994,633,40.7,False,No classification on record,0,lseg
+Baba Eco Group Bhd,BABA,Household Goods,2025-10-31,-2.8648543,634,40.6,False,No classification on record,0,lseg
+Hwa Tai Industries Bhd,HWATAI,Food & Tobacco,2025-12-31,-2.8660777,635,40.5,False,No classification on record,0,lseg
+Wegmans Holdings Bhd,WEGMANS,Household Goods,2026-12-31,-2.867723,636,40.4,False,No classification on record,0,lseg
+IQ Group Holdings Bhd,IQGROUP,Communications & Networking,2027-03-31,-2.868956,637,40.3,False,No classification on record,0,lseg
+Cosmos Technology International Bhd,COSMOS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-04-30,-2.8715105,638,40.2,False,No classification on record,0,lseg
+Luster Industries Bhd,LUSTER,Chemicals,2025-12-31,-2.8741157,639,40.1,False,No classification on record,0,lseg
+Lotus Circular Bhd,LOTUSCIR,Specialty Retailers,2025-06-30,-2.875938,640,40.0,False,No classification on record,0,lseg
+Pentech Holding Bhd,PENTECH,Software & IT Services,2025-12-31,-2.8784044,641,39.9,False,No classification on record,0,lseg
+SLP Resources Bhd,SLP,Containers & Packaging,2026-12-31,-2.8788104,642,39.8,False,No classification on record,0,lseg
+Sumisaujana Group Bhd,SUMI,Oil & Gas Related Equipment and Services,2026-12-31,-2.87901,643,39.7,False,No classification on record,0,lseg
+Milolo Bhd,MILOLO,Diversified Retail,2025-09-30,-2.879186,644,39.6,False,No classification on record,0,lseg
+Three-A Resources Bhd,3A,Food & Tobacco,2025-12-31,-2.880351,645,39.5,False,No classification on record,0,lseg
+Sunzen Group Bhd,SUNZEN,Food & Tobacco,2025-06-30,-2.880968,646,39.4,False,No classification on record,0,lseg
+Oriental Food Industries Holdings Bhd,OFI,Food & Tobacco,2026-03-31,-2.8822129,647,39.3,False,No classification on record,0,lseg
+Sum Technology Bhd,SUM,Construction & Engineering,2025-12-31,-2.884361,648,39.2,False,No classification on record,0,lseg
+Oceancash Pacific Bhd,OCNCASH,Textiles & Apparel,2026-12-31,-2.8860514,649,39.2,False,No classification on record,0,lseg
+West River Bhd,WESTRVR,Professional & Commercial Services,2025-12-31,-2.8898077,650,39.1,False,No classification on record,0,lseg
+Ideal Capital Bhd,IDEAL,Real Estate Operations,2025-12-31,-2.8926485,651,39.0,False,No classification on record,0,lseg
+Gdex Bhd,GDEX,Freight & Logistics Services,2026-12-31,-2.8958263,652,38.9,False,No classification on record,0,lseg
+Feytech Holdings Bhd,FEYTECH,Automobiles & Auto Parts,2026-12-31,-2.8979738,653,38.8,False,No classification on record,0,lseg
+RTS Technology Holdings Bhd,RTSTECH,Software & IT Services,2025-12-31,-2.90054,654,38.7,False,No classification on record,0,lseg
+RedPlanet Bhd,RPLANET,Software & IT Services,2025-06-30,-2.9074268,655,38.6,False,No classification on record,0,lseg
+Ta Win Holdings Bhd,TAWIN,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-06-30,-2.9085836,656,38.5,False,No classification on record,0,lseg
+A-rank Bhd,ARANK,Metals & Mining,2025-07-31,-2.9092343,657,38.4,False,No classification on record,0,lseg
+UCrest Bhd,UCREST,Software & IT Services,2026-05-31,-2.910214,658,38.3,False,No classification on record,0,lseg
+Sime Darby Bhd,SIME,Consumer Goods Conglomerates,2026-06-30,-2.9102654,659,38.2,False,No classification on record,0,lseg
+JCY International Bhd,JCY,"Computers, Phones & Household Electronics",2026-09-30,-2.9110618,660,38.1,False,No classification on record,0,lseg
+HPP Holdings Bhd,HPPHB,Containers & Packaging,2026-05-31,-2.9115126,661,38.0,False,No classification on record,0,lseg
+Leong Hup International Bhd,LHI,Food & Tobacco,2026-12-31,-2.9118116,662,37.9,False,No classification on record,0,lseg
+Pansar Bhd,PANSAR,Construction & Engineering,2026-03-31,-2.911868,663,37.8,False,No classification on record,0,lseg
+One Gasmaster Holdings Bhd,OGM,Oil & Gas Related Equipment and Services,2025-12-31,-2.9144611,664,37.7,False,No classification on record,0,lseg
+DKLS Industries Bhd,DKLS,Construction Materials,2025-12-31,-2.920626,665,37.7,False,No classification on record,0,lseg
+Jaya Tiasa Holdings Bhd,JTIASA,Food & Tobacco,2026-06-30,-2.9237578,666,37.6,False,No classification on record,0,lseg
+Zetrix AI Bhd,ZETRIX,Software & IT Services,2026-12-31,-2.9238436,667,37.5,False,No classification on record,0,lseg
+Syarikat Takaful Malaysia Keluarga Bhd,TAKAFUL,Insurance,2026-12-31,-2.9241602,668,37.4,False,No classification on record,0,lseg
+Willowglen MSC Bhd,WILLOW,Software & IT Services,2025-12-31,-2.9294367,669,37.3,False,No classification on record,0,lseg
+Chin Hin Group Property Bhd,CHGP,Construction & Engineering,2025-12-31,-2.932486,670,37.2,False,No classification on record,0,lseg
+Censof Holdings Bhd,CENSOF,Financial Technology (Fintech) & Infrastructure,2026-03-31,-2.9371383,671,37.1,False,No classification on record,0,lseg
+Dayang Enterprise Holdings Bhd,DAYANG,Oil & Gas Related Equipment and Services,2026-12-31,-2.9377491,672,37.0,False,No classification on record,0,lseg
+PEOPLElogy Bhd,PEOPLE,Professional & Business Education,2025-12-31,-2.940417,673,36.9,False,No classification on record,0,lseg
+MST Golf Group Bhd,MSTGOLF,Hotels & Entertainment Services,2025-12-31,-2.944535,674,36.8,False,No classification on record,0,lseg
+TSiC Bhd,TSIC,Professional & Commercial Services,2025-06-30,-2.9476495,675,36.7,False,No classification on record,0,lseg
+Crescendo Corp Bhd,CRESNDO,Real Estate Operations,2027-01-31,-2.9548004,676,36.6,False,No classification on record,0,lseg
+Epicon Bhd,EPICON,Construction & Engineering,2025-12-31,-2.955452,677,36.5,False,No classification on record,0,lseg
+Rekatech Capital Bhd,REKATECH,Real Estate Operations,2025-06-30,-2.9580681,678,36.4,False,No classification on record,0,lseg
+Lianson Fleet Group Berhad,LFG,Oil & Gas Related Equipment and Services,2026-12-31,-2.9595876,679,36.3,False,No classification on record,0,lseg
+Keck Seng (Malaysia) Bhd,KSENG,Food & Tobacco,2025-12-31,-2.959787,680,36.2,False,No classification on record,0,lseg
+Sern Kou Resources Bhd,SERNKOU,Household Goods,2025-06-30,-2.9606552,681,36.2,False,No classification on record,0,lseg
+Croesus IT Holdings Bhd,CROESUS,Integrated Hardware & Software,2025-12-31,-2.962328,682,36.1,False,No classification on record,0,lseg
+Malaysian Pacific Industries Bhd,MPI,Semiconductors & Semiconductor Equipment,2026-06-30,-2.9626882,683,36.0,False,No classification on record,0,lseg
+TMK Chemical Bhd,TMK,Chemicals,2026-12-31,-2.9640596,684,35.9,False,No classification on record,0,lseg
+Resintech Bhd,RESINTC,Homebuilding & Construction Supplies,2026-03-31,-2.9668975,685,35.8,False,No classification on record,0,lseg
+Amtel Holdings Bhd,AMTEL,Telecommunications Services,2025-11-30,-2.9684057,686,35.7,False,No classification on record,0,lseg
+Techbond Group Bhd,TECHBND,Chemicals,2026-06-30,-2.9687486,687,35.6,False,No classification on record,0,lseg
+Oasis Home Holding Bhd,OHM,Software & IT Services,2025-06-30,-2.9725919,688,35.5,False,No classification on record,0,lseg
+QES Group Bhd,QES,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.9766085,689,35.4,False,No classification on record,0,lseg
+Asia File Corporation Bhd,ASIAFLE,Professional & Commercial Services,2027-03-31,-2.9786525,690,35.3,False,No classification on record,0,lseg
+eDaran Bhd,EDARAN,Software & IT Services,2025-06-30,-2.9848554,691,35.2,False,No classification on record,0,lseg
+AYER Holdings Bhd,AYER,Real Estate Operations,2025-12-31,-2.9869852,692,35.1,False,No classification on record,0,lseg
+White Horse Bhd,WTHORSE,Homebuilding & Construction Supplies,2025-12-31,-2.9878957,693,35.0,False,No classification on record,0,lseg
+Insas Bhd,INSAS,Investment Banking & Investment Services,2026-06-30,-2.9893749,694,34.9,False,No classification on record,0,lseg
+Master Tec Group Bhd,MTEC,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-2.9902482,695,34.8,False,No classification on record,0,lseg
+Techbase Industries Bhd,TECHBASE,Textiles & Apparel,2026-07-31,-2.9909623,696,34.7,False,No classification on record,0,lseg
+Stratus Global Holdings Bhd,,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-03-31,-2.999199,697,34.6,False,No classification on record,0,lseg
+Tomei Consolidated Bhd,TOMEI,Specialty Retailers,2026-12-31,-3.004119,698,34.6,False,No classification on record,0,lseg
+Chin Hin Group Bhd,CHINHIN,Homebuilding & Construction Supplies,2026-12-31,-3.0042248,699,34.5,False,No classification on record,0,lseg
+Pan Malaysia Corporation Bhd,PMCORP,Hotels & Entertainment Services,2025-06-30,-3.004763,700,34.4,False,No classification on record,0,lseg
+Parlo Bhd,PARLO,Hotels & Entertainment Services,2025-12-31,-3.0067818,701,34.3,False,No classification on record,0,lseg
+Rimbunan Sawit Bhd,RSAWIT,Food & Tobacco,2025-12-31,-3.0070906,702,34.2,False,No classification on record,0,lseg
+Fibromat (M) Bhd,FIBRO,Professional & Commercial Services,2026-12-31,-3.0074437,703,34.1,False,No classification on record,0,lseg
+Shin Yang Group Bhd,SYGROUP,Freight & Logistics Services,2025-06-30,-3.0096235,704,34.0,False,No classification on record,0,lseg
+Hengyuan Refining Company Bhd,HENGYUAN,Oil & Gas,2025-12-31,-3.0126913,705,33.9,False,No classification on record,0,lseg
+Zantat Holdings Bhd,ZANTAT,Chemicals,2025-12-31,-3.0191472,706,33.8,False,No classification on record,0,lseg
+AuMas Resources Bhd,AUMAS,Metals & Mining,2027-03-31,-3.0236807,707,33.7,False,No classification on record,0,lseg
+PMCK Bhd,PMCK,Healthcare Providers & Services,2027-04-30,-3.0237048,708,33.6,False,No classification on record,0,lseg
+AME Elite Consortium Bhd,AME,Construction & Engineering,2027-03-31,-3.030849,709,33.5,False,No classification on record,0,lseg
+Carimin Petroleum Bhd,CARIMIN,Oil & Gas Related Equipment and Services,2025-06-30,-3.0324128,710,33.4,False,No classification on record,0,lseg
+Dagang NeXchange Bhd,DNEX,Semiconductors & Semiconductor Equipment,2026-12-31,-3.041615,711,33.3,False,No classification on record,0,lseg
+OGX Group Bhd,,Software & IT Services,2025-05-31,-3.04214,712,33.2,False,No classification on record,0,lseg
+TP TEC Holding Bhd,TPTEC,Professional & Commercial Services,2025-12-31,-3.0432694,713,33.1,False,No classification on record,0,lseg
+Lb Aluminium Bhd,LBALUM,Metals & Mining,2026-04-30,-3.0434422,714,33.1,False,No classification on record,0,lseg
+7-Eleven Malaysia Holdings Bhd,SEM,Food & Drug Retailing,2026-12-31,-3.0473971,715,33.0,False,No classification on record,0,lseg
+L&P Global Bhd,L&PBHD,Containers & Packaging,2026-12-31,-3.0484884,716,32.9,False,No classification on record,0,lseg
+Signature Alliance Group Bhd,SAG,Professional & Commercial Services,2025-12-31,-3.0491955,717,32.8,False,No classification on record,0,lseg
+ACO Group Bhd,ACO,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2027-02-28,-3.0504527,718,32.7,False,No classification on record,0,lseg
+TSR Capital Bhd,TSRCAP,Construction & Engineering,2025-06-30,-3.051488,719,32.6,False,No classification on record,0,lseg
+Enproserve Group Bhd,ENPRO,Construction & Engineering,2025-12-31,-3.056676,720,32.5,False,No classification on record,0,lseg
+Melati Ehsan Holdings Bhd,MELATI,Construction & Engineering,2025-08-31,-3.0592103,721,32.4,False,No classification on record,0,lseg
+PIE Industrial Bhd,PIE,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-3.0636237,722,32.3,False,No classification on record,0,lseg
+Hextar Global Bhd,HEXTAR,Chemicals,2026-12-31,-3.0668504,723,32.2,False,No classification on record,0,lseg
+VS Industry Bhd,VS,Electronic Equipment & Parts,2026-07-31,-3.0696256,724,32.1,False,No classification on record,0,lseg
+Solid Automotive Bhd,SOLID,Automobiles & Auto Parts,2026-04-30,-3.0738864,725,32.0,False,No classification on record,0,lseg
+Adventa Bhd,ADVENTA,Healthcare Equipment & Supplies,2025-12-31,-3.0745459,726,31.9,False,No classification on record,0,lseg
+Joe Holding Bhd,JOE,Automobiles & Auto Parts,2026-03-31,-3.0768256,727,31.8,False,No classification on record,0,lseg
+Globetronics Technology Bhd,GTRONIC,Semiconductors & Semiconductor Equipment,2025-12-31,-3.0890694,728,31.7,False,No classification on record,0,lseg
+SHH Resources Holdings Bhd,SHH,Household Goods,2025-06-30,-3.0894554,729,31.6,False,No classification on record,0,lseg
+MTAG Group Bhd,MTAG,Professional & Commercial Services,2026-06-30,-3.089956,730,31.5,False,No classification on record,0,lseg
+Fbg Holdings Bhd,FBG,Real Estate Operations,2026-06-30,-3.0910275,731,31.5,False,No classification on record,0,lseg
+Bentley Music Group Bhd,BENTLEY,Specialty Retailers,2025-06-30,-3.091606,732,31.4,False,No classification on record,0,lseg
+Protasco Bhd,PRTASCO,Construction & Engineering,2026-12-31,-3.092153,733,31.3,False,No classification on record,0,lseg
+Tanco Holdings Bhd,TANCO,Construction & Engineering,2026-06-30,-3.0940106,734,31.2,False,No classification on record,0,lseg
+JHM Consolidation Bhd,JHM,Semiconductors & Semiconductor Equipment,2026-12-31,-3.1001074,735,31.1,False,No classification on record,0,lseg
+XOX Bhd,XOX,Telecommunications Services,2025-09-30,-3.1001844,736,31.0,False,No classification on record,0,lseg
+Tsh Resources Bhd,TSH,Food & Tobacco,2026-12-31,-3.1055894,737,30.9,False,No classification on record,0,lseg
+Nextgreen Global Bhd,NGGB,Professional & Commercial Services,2026-12-31,-3.106461,738,30.8,False,No classification on record,0,lseg
+Hup Seng Industries Bhd,HUPSENG,Food & Tobacco,2026-12-31,-3.108949,739,30.7,False,No classification on record,0,lseg
+Coastal Contracts Bhd,COASTAL,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-3.11105,740,30.6,False,No classification on record,0,lseg
+SL Innovation Capital Bhd,SLIC,Software & IT Services,2025-12-31,-3.1115758,741,30.5,False,No classification on record,0,lseg
+Carlsberg Brewery Malaysia Bhd,CARLSBG,Beverages,2026-12-31,-3.112416,742,30.4,False,No classification on record,0,lseg
+Senheng New Retail Bhd,SENHENG,Specialty Retailers,2026-12-31,-3.1137993,743,30.3,False,No classification on record,0,lseg
+TSA Group Bhd,TSA,Metals & Mining,2025-12-31,-3.1178935,744,30.2,False,No classification on record,0,lseg
+Lysaght Galvanized Steel Bhd,LYSAGHT,Metals & Mining,2025-12-31,-3.11811,745,30.1,False,No classification on record,0,lseg
+Hong Leong Industries Bhd,HLIND,Consumer Goods Conglomerates,2026-06-30,-3.1184323,746,30.0,False,No classification on record,0,lseg
+Swift Energy Technology Bhd,SET,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-09-30,-3.1220677,747,30.0,False,No classification on record,0,lseg
+ASTEEL Group Bhd,ASTEEL,Investment Holding Companies,2025-12-31,-3.122554,748,29.9,False,No classification on record,0,lseg
+TMC Life Sciences Bhd,TMCLIFE,Healthcare Providers & Services,2025-06-30,-3.1242158,749,29.8,False,No classification on record,0,lseg
+KPJ Healthcare Bhd,KPJ,Healthcare Providers & Services,2026-12-31,-3.1253755,750,29.7,False,No classification on record,0,lseg
+Agricore CS Holdings Bhd,AGRICOR,Food & Tobacco,2025-12-31,-3.1263776,751,29.6,False,No classification on record,0,lseg
+Able Global Bhd,ABLEGLOB,Food & Tobacco,2026-12-31,-3.138297,752,29.5,False,No classification on record,0,lseg
+Harn Len Corporation Bhd,HARNLEN,Food & Tobacco,2025-05-31,-3.1416433,753,29.4,False,No classification on record,0,lseg
+XiDeLang Holdings Ltd,XDL,Textiles & Apparel,2025-12-31,-3.1420274,754,29.3,False,No classification on record,0,lseg
+Komarkcorp Bhd,KOMARK,Containers & Packaging,2025-06-30,-3.1430671,755,29.2,False,No classification on record,0,lseg
+Teamstar Bhd,TEAMSTR,Specialty Retailers,2025-12-31,-3.1463294,756,29.1,False,No classification on record,0,lseg
+JS Solar Holding Bhd,JSSOLAR,Construction & Engineering,2026-03-31,-3.1492732,757,29.0,False,No classification on record,0,lseg
+Wellspire Holdings Bhd,WELLS,Food & Drug Retailing,2026-12-31,-3.1505852,758,28.9,False,No classification on record,0,lseg
+Asia Brands Bhd,ASIABRN,Textiles & Apparel,2026-03-31,-3.150681,759,28.8,False,No classification on record,0,lseg
+Signature International Bhd,SIGN,Homebuilding & Construction Supplies,2026-06-30,-3.1509218,760,28.7,False,No classification on record,0,lseg
+SAM Engineering & Equipment (M) Bhd,SAM,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2027-03-31,-3.1509423,761,28.6,False,No classification on record,0,lseg
+DS Sigma Holdings Bhd,DSS,Containers & Packaging,2025-06-30,-3.1538157,762,28.5,False,No classification on record,0,lseg
+MUI Properties Bhd,MUIPROP,Real Estate Operations,2025-06-30,-3.1550434,763,28.5,False,No classification on record,0,lseg
+Scgm Bhd,SCGM,Chemicals,2025-12-31,-3.1562576,764,28.4,False,No classification on record,0,lseg
+Mycron Steel Bhd,MYCRON,Metals & Mining,2026-06-30,-3.1574943,765,28.3,False,No classification on record,0,lseg
+Oasis Harvest Corporation Bhd,OASIS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.1578474,766,28.2,False,No classification on record,0,lseg
+Mulpha International Bhd,MULPHA,Real Estate Operations,2025-12-31,-3.157934,767,28.1,False,No classification on record,0,lseg
+Perusahaan Sadur Timah Malaysia (PERSTIMA) Bhd,PERSTIM,Metals & Mining,2027-03-31,-3.1587434,768,28.0,False,No classification on record,0,lseg
+Metrod Holdings Bhd,METROD,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.163211,769,27.9,False,No classification on record,0,lseg
+Tek Seng Holdings Bhd,TEKSENG,Chemicals,2026-12-31,-3.1637497,770,27.8,False,No classification on record,0,lseg
+Semico Capital Bhd,SEMICO,Hotels & Entertainment Services,2025-06-30,-3.1639094,771,27.7,False,No classification on record,0,lseg
+KJTS Group Berhad,KJTS,Professional & Commercial Services,2026-12-31,-3.1645887,772,27.6,False,No classification on record,0,lseg
+United U-LI Corporation Bhd,ULICORP,Metals & Mining,2026-12-31,-3.16534,773,27.5,False,No classification on record,0,lseg
+Farmiera Bhd,FAMIERA,Food & Tobacco,2025-12-31,-3.1674654,774,27.4,False,No classification on record,0,lseg
+Tomypak Holdings Bhd,TOMYPAK,Containers & Packaging,2026-12-31,-3.168018,775,27.3,False,No classification on record,0,lseg
+Econpile Holdings Bhd,ECONBHD,Construction & Engineering,2026-06-30,-3.1700885,776,27.2,False,No classification on record,0,lseg
+Wellcall Holdings Bhd,WELLCAL,Automobiles & Auto Parts,2026-09-30,-3.1720698,777,27.1,False,No classification on record,0,lseg
+Managepay Systems Bhd,MPAY,Software & IT Services,2025-06-30,-3.1730464,778,27.0,False,No classification on record,0,lseg
+Country View Bhd,CVIEW,Real Estate Operations,2025-11-30,-3.173901,779,26.9,False,No classification on record,0,lseg
+I-Bhd,IBHD,Real Estate Operations,2026-12-31,-3.1757812,780,26.9,False,No classification on record,0,lseg
+Vanzo Holdings Bhd,VANZO,Specialty Retailers,2025-09-30,-3.177704,781,26.8,False,No classification on record,0,lseg
+Supreme Consolidated Resources Bhd,SUPREME,Food & Drug Retailing,2025-09-30,-3.1789997,782,26.7,False,No classification on record,0,lseg
+Negri Sembilan Oil Palms Bhd,NSOP,Food & Tobacco,2025-12-31,-3.1803045,783,26.6,False,No classification on record,0,lseg
+Scicom (MSC) Bhd,SCICOM,Professional & Commercial Services,2026-06-30,-3.1852877,784,26.5,False,No classification on record,0,lseg
+Astino Bhd,ASTINO,Homebuilding & Construction Supplies,2025-07-31,-3.1889346,785,26.4,False,No classification on record,0,lseg
+VSTECS Bhd,VSTECS,"Computers, Phones & Household Electronics",2026-12-31,-3.1984076,786,26.3,False,No classification on record,0,lseg
+Cropmate Bhd,CRPMATE,Chemicals,2025-12-31,-3.1990116,787,26.2,False,No classification on record,0,lseg
+Sarawak Oil Palms Bhd,SOP,Food & Tobacco,2026-12-31,-3.200099,788,26.1,False,No classification on record,0,lseg
+KSL Holdings Bhd,KSL,Real Estate Operations,2026-12-31,-3.206972,789,26.0,False,No classification on record,0,lseg
+Ho Wah Genting Bhd,HWGB,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.2096,790,25.9,False,No classification on record,0,lseg
+Exsim Hospitality Bhd,EXSIMHB,Real Estate Operations,2026-06-30,-3.2109594,791,25.8,False,No classification on record,0,lseg
+SRKK AI Berhad,SRKKAI,Software & IT Services,2025-12-31,-3.2137916,792,25.7,False,No classification on record,0,lseg
+Unimech Group Bhd,UNIMECH,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-3.2227812,793,25.6,False,No classification on record,0,lseg
+Harrisons Holdings (Malaysia) Bhd,HARISON,Food & Drug Retailing,2025-12-31,-3.225385,794,25.5,False,No classification on record,0,lseg
+Mynews Holdings Bhd,MYNEWS,Food & Drug Retailing,2026-10-31,-3.2326093,795,25.4,False,No classification on record,0,lseg
+TIME dotCom Bhd,TIMECOM,Telecommunications Services,2026-12-31,-3.2348268,796,25.4,False,No classification on record,0,lseg
+Sungei Bagan Rubber Company Malaya Bhd,SBAGAN,Food & Tobacco,2025-06-30,-3.2388325,797,25.3,False,No classification on record,0,lseg
+Magni-Tech Industries Bhd,MAGNI,Textiles & Apparel,2027-04-30,-3.238943,798,25.2,False,No classification on record,0,lseg
+CAM Resources Bhd,CAMRES,Food & Tobacco,2025-12-31,-3.2407584,799,25.1,False,No classification on record,0,lseg
+Khind Holdings Bhd,KHIND,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.2428443,800,25.0,False,No classification on record,0,lseg
+Kamdar Group M Bhd,KAMDAR,Textiles & Apparel,2025-06-30,-3.2459779,801,24.9,False,No classification on record,0,lseg
+BIMOffice Group Bhd,BIMOFFICE,Construction & Engineering,2025-09-30,-3.2471986,802,24.8,False,No classification on record,0,lseg
+DPS Resources Bhd,DPS,Construction & Engineering,2026-03-31,-3.2522025,803,24.7,False,No classification on record,0,lseg
+Malayan Banking Bhd,MAYBANK,Banking Services,2026-12-31,-3.253197,804,24.6,False,No classification on record,0,lseg
+Amway (Malaysia) Holdings Bhd,AMWAY,Pharmaceuticals,2026-12-31,-3.2556858,805,24.5,False,No classification on record,0,lseg
+Kia Lim Bhd,KIALIM,Construction Materials,2025-12-31,-3.2561176,806,24.4,False,No classification on record,0,lseg
+Mestron Holdings Bhd,MESTRON,Homebuilding & Construction Supplies,2026-12-31,-3.2636871,807,24.3,False,No classification on record,0,lseg
+Samchem Holdings Bhd,SAMCHEM,Chemicals,2025-12-31,-3.2663794,808,24.2,False,No classification on record,0,lseg
+Ambest Group Bhd,AMBEST,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.2672572,809,24.1,False,No classification on record,0,lseg
+Vantris Energy Bhd,VANTNRG,Oil & Gas Related Equipment and Services,2027-01-31,-3.267575,810,24.0,False,Previously classified,0,lseg
+MCE Holdings Bhd,MCEHLDG,Automobiles & Auto Parts,2026-07-31,-3.2679038,811,23.9,False,No classification on record,0,lseg
+Dominant Enterprise Bhd,DOMINAN,Paper & Forest Products,2026-03-31,-3.2721033,812,23.8,False,No classification on record,0,lseg
+Hextar Capital Bhd,HEXCAP,Communications & Networking,2025-12-31,-3.272944,813,23.8,False,No classification on record,0,lseg
+Fibon Bhd,FIBON,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-05-31,-3.2755527,814,23.7,False,No classification on record,0,lseg
+Infomina Bhd,INFOM,Software & IT Services,2027-05-31,-3.275726,815,23.6,False,No classification on record,0,lseg
+Advance Synergy Bhd,ASB,Hotels & Entertainment Services,2025-12-31,-3.2767336,816,23.5,False,No classification on record,0,lseg
+Engtex Group Bhd,ENGTEX,Metals & Mining,2026-12-31,-3.277748,817,23.4,False,No classification on record,0,lseg
+Kluang Rubber Company (Malaya) Bhd,KLUANG,Food & Tobacco,2025-06-30,-3.2794185,818,23.3,False,No classification on record,0,lseg
+Golden Pharos Bhd,GPHAROS,Paper & Forest Products,2025-12-31,-3.2848184,819,23.2,False,No classification on record,0,lseg
+Aurelius Technologies Bhd,ATECH,Electronic Equipment & Parts,2026-12-31,-3.2879314,820,23.1,False,No classification on record,0,lseg
+Rohas Tecnic Bhd,ROHAS,Construction & Engineering,2026-12-31,-3.288517,821,23.0,False,No classification on record,0,lseg
+FACB Industries Incorporated Bhd,FACBIND,Household Goods,2025-06-30,-3.2942076,822,22.9,False,No classification on record,0,lseg
+Insights Analytics Bhd,IAB,Software & IT Services,2027-04-30,-3.2944942,823,22.8,False,No classification on record,0,lseg
+Hextar Industries Bhd,HEXIND,Chemicals,2025-12-31,-3.2972603,824,22.7,False,No classification on record,0,lseg
+Eupe Corporation Bhd,EUPE,Real Estate Operations,2026-02-28,-3.2982445,825,22.6,False,No classification on record,0,lseg
+Warisan TC Holdings Bhd,WARISAN,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.3001096,826,22.5,False,No classification on record,0,lseg
+Meta Bright Group Bhd,MBRIGHT,Hotels & Entertainment Services,2026-12-31,-3.305158,827,22.4,False,No classification on record,0,lseg
+Unitrade Industries Bhd,UNITRAD,Homebuilding & Construction Supplies,2026-03-31,-3.3071609,828,22.3,False,No classification on record,0,lseg
+PT Resources Holdings Bhd,PTRB,Food & Tobacco,2026-04-30,-3.3092172,829,22.3,False,No classification on record,0,lseg
+Y.s.p. Southeast Asia Holding Bhd,YSPSAH,Pharmaceuticals,2025-12-31,-3.3100178,830,22.2,False,No classification on record,0,lseg
+Euro Holdings Bhd,EURO,Professional & Commercial Services,2025-06-30,-3.3146737,831,22.1,False,No classification on record,0,lseg
+Seng Fong Holdings Bhd,SENFONG,Automobiles & Auto Parts,2026-06-30,-3.3155427,832,22.0,False,No classification on record,0,lseg
+Efficient E-Solutions Bhd,EFFICEN,Professional & Commercial Services,2025-12-31,-3.3197274,833,21.9,False,No classification on record,0,lseg
+Esthetics International Group Bhd,EIG,Specialty Retailers,2027-03-31,-3.3204887,834,21.8,False,No classification on record,0,lseg
+Adnex Group Bhd,ADNEX,Specialty Retailers,2025-12-31,-3.3215988,835,21.7,False,No classification on record,0,lseg
+Mag Holdings Bhd,MAG,Food & Tobacco,2025-06-30,-3.336607,836,21.6,False,No classification on record,0,lseg
+AMS Advanced Material Bhd,AMS,Metals & Mining,2025-09-30,-3.3381715,837,21.5,False,No classification on record,0,lseg
+Malaysia Smelting Corporation Bhd,MSC,Metals & Mining,2026-12-31,-3.3406806,838,21.4,False,No classification on record,0,lseg
+Padini Holdings Berhad,PADINI,Specialty Retailers,2026-06-30,-3.3411102,839,21.3,False,No classification on record,0,lseg
+Panasonic Manufacturing Malaysia Bhd,PANAMY,Household Goods,2027-03-31,-3.3417394,840,21.2,False,No classification on record,0,lseg
+Salcon Bhd,SALCON,Construction & Engineering,2026-12-31,-3.343863,841,21.1,False,No classification on record,0,lseg
+Bus Cap Bhd,BUSCAP,Automobiles & Auto Parts,2025-12-31,-3.3472407,842,21.0,False,No classification on record,0,lseg
+Lay Hong Bhd,LAYHONG,Food & Tobacco,2027-03-31,-3.3484495,843,20.9,False,No classification on record,0,lseg
+Tcs Group Holdings Bhd,TCS,Construction & Engineering,2025-12-31,-3.3485777,844,20.8,False,No classification on record,0,lseg
+PPB Group Bhd,PPB,Food & Tobacco,2026-12-31,-3.3565907,845,20.8,False,No classification on record,0,lseg
+KYM Holdings Bhd,KYM,Containers & Packaging,2026-01-31,-3.3678548,846,20.7,False,No classification on record,0,lseg
+Propel Global Bhd,PGB,Construction & Engineering,2025-06-30,-3.3685985,847,20.6,False,No classification on record,0,lseg
+Noesis Exed Bhd,NOESIS,Professional & Business Education,2025-06-30,-3.369798,848,20.5,False,No classification on record,0,lseg
+Federal International Holdings Bhd,FIHB,Specialty Retailers,2025-06-30,-3.3705337,849,20.4,False,No classification on record,0,lseg
+Bioalpha Holdings Bhd,BIOHLDG,Pharmaceuticals,2026-12-31,-3.371231,850,20.3,False,No classification on record,0,lseg
+Pharmaniaga Bhd,PHARMA,Pharmaceuticals,2026-12-31,-3.3755922,851,20.2,False,Previously classified,0,lseg
+Astramina Group Berhad,ASTRA,Food & Tobacco,2026-02-28,-3.383987,852,20.1,False,No classification on record,0,lseg
+AIMFLEX Bhd,AIMFLEX,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.3852768,853,20.0,False,No classification on record,0,lseg
+Petron Malaysia Refining & Marketing Bhd,PETRONM,Oil & Gas,2026-12-31,-3.388024,854,19.9,False,No classification on record,0,lseg
+PCCS Group Bhd,PCCS,Textiles & Apparel,2026-03-31,-3.3912144,855,19.8,False,No classification on record,0,lseg
+Kumpulan Fima Bhd,KFIMA,Oil & Gas Related Equipment and Services,2027-03-31,-3.3957474,856,19.7,False,No classification on record,0,lseg
+Allianz Malaysia Bhd,ALLIANZ,Insurance,2026-12-31,-3.3985336,857,19.6,False,No classification on record,0,lseg
+HSS Engineers Bhd,HSSEB,Construction & Engineering,2026-12-31,-3.4004486,858,19.5,False,No classification on record,0,lseg
+Fima Corporation Bhd,FIMACOR,Food & Tobacco,2027-03-31,-3.4060295,859,19.4,False,No classification on record,0,lseg
+Guan Huat Seng Holdings Bhd,GHS,Food & Drug Retailing,2025-07-31,-3.4100785,860,19.3,False,No classification on record,0,lseg
+Karex Bhd,KAREX,Personal & Household Products & Services,2026-06-30,-3.4123707,861,19.2,False,No classification on record,0,lseg
+Hume Cement Industries Bhd,HUMEIND,Construction Materials,2026-06-30,-3.415061,862,19.2,False,No classification on record,0,lseg
+Flexidynamic Holdings Bhd,FLEXI,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.417118,863,19.1,False,No classification on record,0,lseg
+Marco Holdings Bhd,MARCO,Textiles & Apparel,2025-12-31,-3.4174771,864,19.0,False,No classification on record,0,lseg
+HSS Holdings Bhd,HSSBAKERY,Food & Tobacco,2025-12-31,-3.4193661,865,18.9,False,No classification on record,0,lseg
+Haily Group Bhd,HAILY,Construction & Engineering,2025-12-31,-3.4194086,866,18.8,False,No classification on record,0,lseg
+Hiap Teck Venture Bhd,HIAPTEK,Metals & Mining,2026-07-31,-3.4210763,867,18.7,False,No classification on record,0,lseg
+Amlex Holdings Bhd,AMLEX,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-03-31,-3.4260418,868,18.6,False,No classification on record,0,lseg
+Coraza Integrated Technology Bhd,CORAZA,Metals & Mining,2026-12-31,-3.4382956,869,18.5,False,No classification on record,0,lseg
+iCents Group Holdings Bhd,ICENTS,Construction & Engineering,2025-06-30,-3.439015,870,18.4,False,No classification on record,0,lseg
+PWF Corporation Bhd,PWF,Food & Tobacco,2025-12-31,-3.4449227,871,18.3,False,No classification on record,0,lseg
+Tong Herr Resources Bhd,TONGHER,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.4468586,872,18.2,False,No classification on record,0,lseg
+Homeritz Corporation Bhd,HOMERIZ,Household Goods,2026-08-31,-3.4541519,873,18.1,False,No classification on record,0,lseg
+WCT Holdings Bhd,WCT,Construction & Engineering,2026-12-31,-3.45601,874,18.0,False,No classification on record,0,lseg
+JKG Land Bhd,JKGLAND,Real Estate Operations,2027-01-31,-3.4588668,875,17.9,False,No classification on record,0,lseg
+Avangaad Bhd,AVANGAAD,Freight & Logistics Services,2026-12-31,-3.4668124,876,17.8,False,No classification on record,0,lseg
+Formosa Prosonic Industries Bhd,FPI,"Computers, Phones & Household Electronics",2025-12-31,-3.467326,877,17.7,False,No classification on record,0,lseg
+FoundPac Group Bhd,FPGROUP,Electronic Equipment & Parts,2026-06-30,-3.4823303,878,17.7,False,No classification on record,0,lseg
+Public Bank Bhd,PBBANK,Banking Services,2026-12-31,-3.489971,879,17.6,False,No classification on record,0,lseg
+Borneo Oil Bhd,BORNOIL,Hotels & Entertainment Services,2025-06-30,-3.4953918,880,17.5,False,No classification on record,0,lseg
+SKB Shutters Corporation Bhd,SKBSHUT,Homebuilding & Construction Supplies,2025-06-30,-3.496715,881,17.4,False,No classification on record,0,lseg
+Suria Capital Holdings Bhd,SURIA,Transport Infrastructure,2026-12-31,-3.4983382,882,17.3,False,No classification on record,0,lseg
+Critical Holdings Bhd,CHB,Construction & Engineering,2026-06-30,-3.501994,883,17.2,False,No classification on record,0,lseg
+BMS Holdings Bhd,BMS,Construction Materials,2025-06-30,-3.5026863,884,17.1,False,No classification on record,0,lseg
+99 Speed Mart Retail Holdings Bhd,99SMART,Food & Drug Retailing,2026-12-31,-3.5085893,885,17.0,False,No classification on record,0,lseg
+ES Sunlogy Bhd,SUNLOGY,Electric Utilities & IPPs,2026-07-31,-3.5108082,886,16.9,False,No classification on record,0,lseg
+Eversafe Rubber Bhd,ESAFE,Automobiles & Auto Parts,2025-12-31,-3.513223,887,16.8,False,No classification on record,0,lseg
+AYS Ventures Bhd,AYS,Diversified Industrial Goods Wholesale,2026-03-31,-3.513277,888,16.7,False,No classification on record,0,lseg
+EcoFirst Consolidated Bhd,ECOFIRS,Real Estate Operations,2025-05-31,-3.5141976,889,16.6,False,No classification on record,0,lseg
+IcapitalBiz Bhd,ICAP,Collective Investments,2026-05-31,-3.515311,890,16.5,False,No classification on record,0,lseg
+SHL Consolidated Bhd,SHL,Real Estate Operations,2027-03-31,-3.5210226,891,16.4,False,No classification on record,0,lseg
+IDB Technologies Bhd,IDBTECH,Software & IT Services,2025-06-30,-3.5230072,892,16.3,False,No classification on record,0,lseg
+Johan Holdings Bhd,JOHAN,Diversified Industrial Goods Wholesale,2025-07-31,-3.523639,893,16.2,False,No classification on record,0,lseg
+Radiant Globaltech Bhd,RGTECH,Specialty Retailers,2025-12-31,-3.5255945,894,16.2,False,No classification on record,0,lseg
+Kerjaya Prospek Property Bhd,KPPROP,Real Estate Operations,2027-03-31,-3.540916,895,16.1,False,No classification on record,0,lseg
+PLYTEC Holding Bhd,PLYTEC,Construction & Engineering,2025-12-31,-3.543683,896,16.0,False,No classification on record,0,lseg
+DSR Taiko Bhd,DSR,Food & Tobacco,2025-06-30,-3.5477288,897,15.9,False,No classification on record,0,lseg
+Frontken Corporation Bhd,FRONTKN,Professional & Commercial Services,2026-12-31,-3.5551333,898,15.8,False,No classification on record,0,lseg
+Hextar Healthcare Bhd,HEXCARE,Healthcare Equipment & Supplies,2026-12-31,-3.559438,899,15.7,False,No classification on record,0,lseg
+Alcom Group Bhd,ALCOM,Metals & Mining,2025-12-31,-3.569545,900,15.6,False,No classification on record,0,lseg
+Ocean Fresh Bhd,OFB,Food & Tobacco,2025-12-31,-3.5716712,901,15.5,False,No classification on record,0,lseg
+HCK Capital Group Bhd,HCK,Real Estate Operations,2025-12-31,-3.5800054,902,15.4,False,No classification on record,0,lseg
+YB Ventures Bhd,YB,Homebuilding & Construction Supplies,2025-06-30,-3.5811863,903,15.3,False,No classification on record,0,lseg
+MSM Malaysia Holdings Bhd,MSM,Food & Tobacco,2026-12-31,-3.582521,904,15.2,False,No classification on record,0,lseg
+Paragon Globe Bhd,PGLOBE,Construction & Engineering,2026-03-31,-3.5886235,905,15.1,False,No classification on record,0,lseg
+Sealink International Bhd,SEALINK,Freight & Logistics Services,2026-12-31,-3.5931294,906,15.0,False,No classification on record,0,lseg
+Kucingko Bhd,KUCINGKO,Media & Publishing,2025-12-31,-3.5939958,907,14.9,False,No classification on record,0,lseg
+IGB Real Estate Investment Trust,IGBREIT,Residential & Commercial REITs,2026-12-31,-3.595617,908,14.8,False,No classification on record,0,lseg
+Kee Ming Group Bhd,KEEMING,Professional & Commercial Services,2027-03-31,-3.5967572,909,14.7,False,No classification on record,0,lseg
+AppAsia Bhd,APPASIA,Software & IT Services,2025-12-31,-3.6017463,910,14.6,False,No classification on record,0,lseg
+Inta Bina Group Bhd,INTA,Homebuilding & Construction Supplies,2026-12-31,-3.6018717,911,14.6,False,No classification on record,0,lseg
+Orkim Bhd,ORKIM,Freight & Logistics Services,2026-12-31,-3.6090074,912,14.5,False,No classification on record,0,lseg
+Artroniq Bhd,ARTRONIQ,Integrated Hardware & Software,2025-12-31,-3.609286,913,14.4,False,No classification on record,0,lseg
+Greatech Technology Bhd,GREATEC,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-3.6152775,914,14.3,False,No classification on record,0,lseg
+Golden Land Bhd,GLBHD,Real Estate Operations,2025-06-30,-3.617817,915,14.2,False,No classification on record,0,lseg
+S & F Capital Bhd,S&FCAP,Real Estate Operations,2025-06-30,-3.6250505,916,14.1,False,No classification on record,0,lseg
+MTT Shipping and Logistics Bhd,MTTSL,Freight & Logistics Services,2025-12-31,-3.6335816,917,14.0,False,No classification on record,0,lseg
+Leader Steel Holdings Bhd,LSTEEL,Metals & Mining,2025-12-31,-3.640986,918,13.9,False,No classification on record,0,lseg
+SNS Network Technology Bhd,SNS,Software & IT Services,2026-01-31,-3.645805,919,13.8,False,No classification on record,0,lseg
+InNature Bhd,INNATURE,Specialty Retailers,2026-12-31,-3.6583595,920,13.7,False,No classification on record,0,lseg
+Leform Bhd,LEFORM,Metals & Mining,2026-12-31,-3.6597247,921,13.6,False,No classification on record,0,lseg
+ITMAX System Bhd,ITMAX,Professional & Commercial Services,2026-12-31,-3.667485,922,13.5,False,No classification on record,0,lseg
+MClean Technologies Bhd,MCLEAN,Professional & Commercial Services,2026-12-31,-3.6726527,923,13.4,False,No classification on record,0,lseg
+ViTrox Corporation Bhd,VITROX,Semiconductors & Semiconductor Equipment,2026-12-31,-3.6732519,924,13.3,False,No classification on record,0,lseg
+Bonia Corporation Bhd,BONIA,Specialty Retailers,2026-06-30,-3.6771166,925,13.2,False,No classification on record,0,lseg
+Nova MSC Bhd,NOVAMSC,Software & IT Services,2026-03-31,-3.680488,926,13.1,False,No classification on record,0,lseg
+Malaysia Steel Works (KL) Bhd,MASTEEL,Metals & Mining,2025-12-31,-3.6819887,927,13.1,False,No classification on record,0,lseg
+Mercury Securities Group Bhd,MERSEC,Investment Banking & Investment Services,2026-10-31,-3.690125,928,13.0,False,No classification on record,0,lseg
+Associated Air-Pak Industries Bhd,AAI,Containers & Packaging,2025-12-31,-3.6913803,929,12.9,False,No classification on record,0,lseg
+EG Industries Bhd,EG,Electronic Equipment & Parts,2026-06-30,-3.698904,930,12.8,False,No classification on record,0,lseg
+Gromutual Bhd,GMUTUAL,Real Estate Operations,2025-12-31,-3.7060633,931,12.7,False,No classification on record,0,lseg
+CPE Technology Bhd,CPETECH,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-06-30,-3.7106514,932,12.6,False,No classification on record,0,lseg
+Globaltec Formation Bhd,GLOTEC,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-06-30,-3.7114437,933,12.5,False,No classification on record,0,lseg
+Top Glove Corporation Bhd,TOPGLOV,Healthcare Equipment & Supplies,2026-08-31,-3.7172906,934,12.4,False,No classification on record,0,lseg
+Colform Group Bhd,COLFORM,Metals & Mining,2025-12-31,-3.7200027,935,12.3,False,No classification on record,0,lseg
+MYMBN Bhd,MBN,Food & Tobacco,2025-12-31,-3.7246451,936,12.2,False,No classification on record,0,lseg
+Well Chip Group Bhd,WELLCHIP,Banking Services,2026-12-31,-3.7251236,937,12.1,False,No classification on record,0,lseg
+Supermax Corporation Bhd,SUPERMX,Healthcare Equipment & Supplies,2026-06-30,-3.7286391,938,12.0,False,No classification on record,0,lseg
+Choo Bee Metal Industries Bhd,CHOOBEE,Metals & Mining,2026-12-31,-3.7401927,939,11.9,False,No classification on record,0,lseg
+Guan Chong Bhd,GCB,Food & Tobacco,2026-12-31,-3.741086,940,11.8,False,No classification on record,0,lseg
+Tri-Mode System (M) Bhd,TRIMODE,Freight & Logistics Services,2026-12-31,-3.7420423,941,11.7,False,No classification on record,0,lseg
+Power Root Bhd,PWROOT,Beverages,2027-03-31,-3.7430978,942,11.6,False,No classification on record,0,lseg
+Nestcon Bhd,NESTCON,Real Estate Operations,2025-12-31,-3.7506948,943,11.5,False,No classification on record,0,lseg
+TPC Plus Bhd,TPC,Food & Tobacco,2025-12-31,-3.7527092,944,11.5,False,No classification on record,0,lseg
+DXN Holdings Bhd,DXN,Food & Tobacco,2027-02-28,-3.7539947,945,11.4,False,No classification on record,0,lseg
+Leon Fuat Bhd,LEONFB,Metals & Mining,2025-12-31,-3.7540522,946,11.3,False,No classification on record,0,lseg
+PRIVASIA Technology Bhd,PRIVA,Software & IT Services,2025-12-31,-3.7669272,947,11.2,False,No classification on record,0,lseg
+Alliance Bank Malaysia Bhd,ABMB,Banking Services,2027-03-31,-3.7707038,948,11.1,False,No classification on record,0,lseg
+Kumpulan Kitacon Bhd,KITACON,Real Estate Operations,2026-12-31,-3.7721646,949,11.0,False,No classification on record,0,lseg
+Smart Asia Chemical Bhd,SMART,Chemicals,2025-12-31,-3.7723956,950,10.9,False,No classification on record,0,lseg
+Texchem Resources Bhd,TEXCHEM,Consumer Goods Conglomerates,2026-12-31,-3.7731173,951,10.8,False,No classification on record,0,lseg
+TOPVISION Eye Specialist Bhd,TOPVISN,Healthcare Providers & Services,2025-12-31,-3.7731516,952,10.7,False,No classification on record,0,lseg
+FCW Holdings Bhd,FCW,Personal & Household Products & Services,2026-03-31,-3.7732873,953,10.6,False,No classification on record,0,lseg
+Liftech Group Bhd,LIFTECH,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.780347,954,10.5,False,No classification on record,0,lseg
+PGF Capital Bhd,PGF,Construction Materials,2027-02-28,-3.7829225,955,10.4,False,No classification on record,0,lseg
+Chuan Huat Resources Bhd,CHUAN,Investment Holding Companies,2025-06-30,-3.7851803,956,10.3,False,No classification on record,0,lseg
+Oxford Innotech Bhd,OXB,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-12-31,-3.8080826,957,10.2,False,No classification on record,0,lseg
+ENRA Group Bhd,ENRA,Oil & Gas Related Equipment and Services,2027-03-31,-3.8106365,958,10.1,False,No classification on record,0,lseg
+SkyWorld Development Bhd,SKYWLD,Construction & Engineering,2027-03-31,-3.811364,959,10.0,False,No classification on record,0,lseg
+Sunway Healthcare Holdings Bhd,SUNMED,Healthcare Providers & Services,2026-12-31,-3.8289812,960,10.0,False,No classification on record,0,lseg
+Enest Group Bhd,ENEST,Food & Tobacco,2025-12-31,-3.8305123,961,9.9,False,No classification on record,0,lseg
+Versatile Creative Bhd,VERSATL,Food & Drug Retailing,2026-03-31,-3.8335338,962,9.8,False,No classification on record,0,lseg
+Powerwell Holdings Bhd,PWRWELL,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2027-03-31,-3.8336623,963,9.7,False,No classification on record,0,lseg
+TechnoDex Bhd,TDEX,Software & IT Services,2025-06-30,-3.8501132,964,9.6,False,No classification on record,0,lseg
+Reach Ten Holdings Bhd,REACHTEN,Telecommunications Services,2026-12-31,-3.85254,965,9.5,False,No classification on record,0,lseg
+EI Power Bhd,EIPOWER,Construction & Engineering,2026-12-31,-3.8609006,966,9.4,False,No classification on record,0,lseg
+Dutch Lady Milk Industries Bhd,DLADY,Food & Tobacco,2026-12-31,-3.873132,967,9.3,False,No classification on record,0,lseg
+Aquawalk Group Bhd,AQUAWALK,Hotels & Entertainment Services,2026-12-31,-3.883394,968,9.2,False,No classification on record,0,lseg
+Alpha IVF Group Bhd,ALPHA,Healthcare Equipment & Supplies,2027-05-31,-3.8840334,969,9.1,False,No classification on record,0,lseg
+WTEC Group Bhd,WTEC,Containers & Packaging,2025-12-31,-3.8858705,970,9.0,False,No classification on record,0,lseg
+MSB Global Group Bhd,MSB,Specialty Retailers,2025-12-31,-3.893562,971,8.9,False,No classification on record,0,lseg
+Camaroe Bhd,CAMAROE,Food & Tobacco,2025-12-31,-3.8988104,972,8.8,False,No classification on record,0,lseg
+Scanwolf Corporation Bhd,SCNWOLF,Chemicals,2025-06-30,-3.9175298,973,8.7,False,No classification on record,0,lseg
+Ecoscience International Bhd,EIB,Construction & Engineering,2025-12-31,-3.9279096,974,8.6,False,No classification on record,0,lseg
+Aurora Italia International Bhd,AURORA,Specialty Retailers,2026-03-31,-3.9378057,975,8.5,False,No classification on record,0,lseg
+Bintai Kinden Corporation Bhd,BINTAI,Construction & Engineering,2026-03-31,-3.9383345,976,8.5,False,Previously classified,0,lseg
+AutoCount Dotcom Bhd,ADB,Software & IT Services,2025-12-31,-3.9389548,977,8.4,False,No classification on record,0,lseg
+BWYS Group Bhd,BWYS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2025-12-31,-3.943728,978,8.3,False,No classification on record,0,lseg
+EP Manufacturing Bhd,EPMB,Automobiles & Auto Parts,2025-12-31,-3.9467704,979,8.2,False,No classification on record,0,lseg
+Gagasan Nadi Cergas Bhd,NADIBHD,Real Estate Operations,2025-12-31,-3.949026,980,8.1,False,No classification on record,0,lseg
+MGB Bhd,MGB,Construction & Engineering,2026-12-31,-3.953189,981,8.0,False,No classification on record,0,lseg
+Tower Real Estate Investment Trust,TWRREIT,Residential & Commercial REITs,2025-06-30,-3.962377,982,7.9,False,No classification on record,0,lseg
+Safetyware Group Bhd,SAFETY,Professional & Commercial Services,2025-12-31,-3.9648638,983,7.8,False,No classification on record,0,lseg
+YLI Holdings Bhd,YLI,Metals & Mining,2026-03-31,-3.9663818,984,7.7,False,No classification on record,0,lseg
+ASM Automation Group Bhd,ASM,Containers & Packaging,2026-03-31,-3.9860651,985,7.6,False,No classification on record,0,lseg
+Alam Maritim Resources Bhd,ALAM,Oil & Gas Related Equipment and Services,2025-06-30,-3.988636,986,7.5,False,Currently PN17/GN3,1,lseg
+MMM Group Bhd,MMM,Media & Publishing,2026-03-31,-3.9953427,987,7.4,False,Currently PN17/GN3,1,lseg
+Bermaz Auto Bhd,BAUTO,Specialty Retailers,2027-04-30,-4.0071154,988,7.3,False,No classification on record,0,lseg
+Revenue Group Bhd,REVENUE,Professional & Commercial Services,2026-06-30,-4.0149574,989,7.2,False,No classification on record,0,lseg
+SDS Group Bhd,SDS,Food & Tobacco,2027-03-31,-4.0154853,990,7.1,False,No classification on record,0,lseg
+Sunview Group Bhd,SUNVIEW,Electric Utilities & IPPs,2026-03-31,-4.030451,991,7.0,False,No classification on record,0,lseg
+RNG Tech Bhd,RESTNGO,Personal & Household Products & Services,2025-12-31,-4.033912,992,6.9,False,No classification on record,0,lseg
+Igb Bhd,IGBB,Real Estate Operations,2026-12-31,-4.0475707,993,6.9,False,No classification on record,0,lseg
+Xin Synergy Group Bhd,XIN,Construction Materials,2026-03-31,-4.064653,994,6.8,False,No classification on record,0,lseg
+DC Healthcare Holdings Bhd,DCHCARE,Personal & Household Products & Services,2026-12-31,-4.079775,995,6.7,False,No classification on record,0,lseg
+KHPT Holdings Bhd,KHB,Specialty Retailers,2025-12-31,-4.0839677,996,6.6,False,No classification on record,0,lseg
+Winstar Capital Bhd,WINSTAR,Metals & Mining,2025-12-31,-4.0982623,997,6.5,False,No classification on record,0,lseg
+Genting Malaysia Bhd,GENM,Hotels & Entertainment Services,2026-12-31,-4.1004276,998,6.4,False,No classification on record,0,lseg
+Eversendai Corporation Bhd,SENDAI,Construction & Engineering,2025-12-31,-4.1198034,999,6.3,False,No classification on record,0,lseg
+Ocean Vantage Holdings Bhd,OVH,Oil & Gas Related Equipment and Services,2025-12-31,-4.1254473,1000,6.2,False,No classification on record,0,lseg
+A1 A.K. Koh Group Bhd,A1AKK,Food & Tobacco,2025-06-30,-4.1261406,1001,6.1,False,No classification on record,0,lseg
+Kerjaya Prospek Group Bhd,KERJAYA,Construction & Engineering,2026-12-31,-4.133748,1002,6.0,False,No classification on record,0,lseg
+Kawan Renergy Bhd,KENERGY,Professional & Commercial Services,2026-10-31,-4.136071,1003,5.9,False,No classification on record,0,lseg
+Sanichi Technology Bhd,SANICHI,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-03-31,-4.147797,1004,5.8,False,No classification on record,0,lseg
+DynaFront Holdings Bhd,DYNAFNT,Software & IT Services,2025-06-30,-4.15094,1005,5.7,False,No classification on record,0,lseg
+MyAxis Group Bhd,MYAXIS,Food & Drug Retailing,2025-07-31,-4.154487,1006,5.6,False,No classification on record,0,lseg
+New Hoong Fatt Holdings Bhd,NHFATT,Automobiles & Auto Parts,2025-12-31,-4.1695137,1007,5.5,False,No classification on record,0,lseg
+GFM Services Bhd,GFM,Consumer Goods Conglomerates,2025-12-31,-4.1721926,1008,5.4,False,No classification on record,0,lseg
+Johor Plantations Group Bhd,JPG,Food & Tobacco,2026-12-31,-4.175105,1009,5.4,False,No classification on record,0,lseg
+Vestland Bhd,VLB,Homebuilding & Construction Supplies,2026-12-31,-4.1979866,1010,5.3,False,No classification on record,0,lseg
+Manforce Group Bhd,MFGROUP,Professional & Commercial Services,2026-02-28,-4.211426,1011,5.2,False,No classification on record,0,lseg
+Kim Loong Resources Bhd,KMLOONG,Food & Tobacco,2027-01-31,-4.215038,1012,5.1,False,No classification on record,0,lseg
+Widad Group Bhd,WIDAD,Construction & Engineering,2025-12-31,-4.219138,1013,5.0,False,No classification on record,0,lseg
+RGT Bhd,RGTBHD,Chemicals,2025-06-30,-4.251173,1014,4.9,False,No classification on record,0,lseg
+Genetec Technology Bhd,GENETEC,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2026-06-30,-4.265062,1015,4.8,False,No classification on record,0,lseg
+Avaland Bhd,AVALAND,Real Estate Operations,2026-12-31,-4.271976,1016,4.7,False,No classification on record,0,lseg
+Rhong Khen International Bhd,RKI,Household Goods,2026-06-30,-4.2784514,1017,4.6,False,No classification on record,0,lseg
+Chemlite Innovation Bhd,CLITE,Metals & Mining,2025-12-31,-4.285062,1018,4.5,False,No classification on record,0,lseg
+Aemulus Holdings Bhd,AEMULUS,Semiconductors & Semiconductor Equipment,2026-09-30,-4.2901692,1019,4.4,False,No classification on record,0,lseg
+MKH Oil Palm (East Kalimantan) Bhd,MKHOP,Food & Tobacco,2025-09-30,-4.3123965,1020,4.3,False,No classification on record,0,lseg
+Kelington Group Bhd,KGB,Construction & Engineering,2026-12-31,-4.318601,1021,4.2,False,No classification on record,0,lseg
+Total Dynamic Holdings Bhd,DYNAMIC,Software & IT Services,2025-12-31,-4.343485,1022,4.1,False,No classification on record,0,lseg
+Golden Destinations Group Bhd,GDGROUP,Hotels & Entertainment Services,2025-12-31,-4.3438506,1023,4.0,False,No classification on record,0,lseg
+Scope Industries Bhd,SCOPE,Semiconductors & Semiconductor Equipment,2025-06-30,-4.3545246,1024,3.9,False,No classification on record,0,lseg
+Ralco Corporation Bhd,RALCO,Containers & Packaging,2025-12-31,-4.361024,1025,3.8,False,No classification on record,0,lseg
+Foodie Media Bhd,FOODIE,Media & Publishing,2026-08-31,-4.3624887,1026,3.8,False,No classification on record,0,lseg
+Infoline Tec Group Bhd,INFOTEC,Software & IT Services,2026-03-31,-4.3753242,1027,3.7,False,No classification on record,0,lseg
+Gas Malaysia Bhd,GASMSIA,Natural Gas Utilities,2026-12-31,-4.3880877,1028,3.6,False,No classification on record,0,lseg
+Oppstar Bhd,OPPSTAR,Integrated Hardware & Software,2027-03-31,-4.3914256,1029,3.5,False,No classification on record,0,lseg
+Pegasus Heights Bhd,PHB,Real Estate Operations,2025-12-31,-4.392523,1030,3.4,False,No classification on record,0,lseg
+Tuju Setia Bhd,TJSETIA,Construction & Engineering,2026-12-31,-4.4319973,1031,3.3,False,No classification on record,0,lseg
+Azam Jaya Bhd,AZAMJAYA,Construction & Engineering,2025-12-31,-4.4327307,1032,3.2,False,No classification on record,0,lseg
+Southern Acids (M) Bhd,SAB,Food & Tobacco,2027-03-31,-4.4700556,1033,3.1,False,No classification on record,0,lseg
+Sorento Capital Bhd,SORENTO,Household Goods,2027-06-30,-4.4855285,1034,3.0,False,No classification on record,0,lseg
+Pba Holdings Bhd,PBA,Water & Related Utilities,2025-12-31,-4.4918385,1035,2.9,False,No classification on record,0,lseg
+Yinson Holdings Berhad,YINSON,Oil & Gas Related Equipment and Services,2027-01-31,-4.493995,1036,2.8,False,No classification on record,0,lseg
+RGB International Bhd,RGB,Hotels & Entertainment Services,2026-12-31,-4.52759,1037,2.7,False,No classification on record,0,lseg
+GUH Holdings Bhd,GUH,Semiconductors & Semiconductor Equipment,2025-12-31,-4.581824,1038,2.6,False,No classification on record,0,lseg
+Ping Edge Technology Bhd,PING,Household Goods,2025-10-31,-4.6334786,1039,2.5,False,No classification on record,0,lseg
+Elsoft Research Bhd,ELSOFT,"Computers, Phones & Household Electronics",2026-12-31,-4.6411085,1040,2.4,False,No classification on record,0,lseg
+JcbNext Bhd,JCBNEXT,Software & IT Services,2025-12-31,-4.7143874,1041,2.3,False,No classification on record,0,lseg
+Pimpinan Ehsan Bhd,PEB,Investment Holding Companies,2025-12-31,-4.721208,1042,2.3,False,No classification on record,0,lseg
+Key ASIC Bhd,KEYASIC,Semiconductors & Semiconductor Equipment,2025-05-31,-4.736978,1043,2.2,False,No classification on record,0,lseg
+Paradigm Real Estate Investment Trust,PARADIGM,Residential & Commercial REITs,2026-12-31,-4.7637935,1044,2.1,False,No classification on record,0,lseg
+Hartalega Holdings Bhd,HARTA,Healthcare Equipment & Supplies,2027-03-31,-4.800488,1045,2.0,False,No classification on record,0,lseg
+Milux Corporation Bhd,MILUX,Household Goods,2025-12-31,-4.8385487,1046,1.9,False,No classification on record,0,lseg
+Genting Plantations Bhd,GENP,Food & Tobacco,2026-12-31,-4.8417487,1047,1.8,False,No classification on record,0,lseg
+Oriental Kopi Holdings Bhd,KOPI,Hotels & Entertainment Services,2026-09-30,-4.842365,1048,1.7,False,No classification on record,0,lseg
+Systech Bhd,SYSTECH,Software & IT Services,2026-03-31,-4.857791,1049,1.6,False,No classification on record,0,lseg
+Uchi Technologies Bhd,UCHITEC,Electronic Equipment & Parts,2026-12-31,-4.8832154,1050,1.5,False,No classification on record,0,lseg
+Solar District Cooling Group Bhd,SDCG,Construction & Engineering,2026-12-31,-4.8941197,1051,1.4,False,No classification on record,0,lseg
+SIK Cheong Bhd,SCB,Food & Tobacco,2026-03-31,-4.914691,1052,1.3,False,No classification on record,0,lseg
+Verdant Solar Holdings Bhd,VERDANT,Electric Utilities & IPPs,2025-06-30,-4.9862213,1053,1.2,False,No classification on record,0,lseg
+Paos Holdings Bhd,PAOS,Food & Tobacco,2025-05-31,-5.169848,1054,1.1,False,No classification on record,0,lseg
+YBS International Bhd,YBS,"Machinery, Tools, Heavy Vehicles, Trains & Ships",2027-03-31,-5.171321,1055,1.0,False,No classification on record,0,lseg
+Sancy Bhd,SANCY,Healthcare Equipment & Supplies,2026-03-31,-5.2420382,1056,0.9,False,No classification on record,0,lseg
+ARK Resources Holdings Bhd,ARK,Construction & Engineering,2026-03-31,-5.2937346,1057,0.8,False,No classification on record,0,lseg
+Keyfield International Bhd,KEYFIELD,Freight & Logistics Services,2026-12-31,-5.434587,1058,0.8,False,No classification on record,0,lseg
+Petronas Dagangan Bhd,PETDAG,Oil & Gas,2026-12-31,-5.7764745,1059,0.7,False,No classification on record,0,lseg
+PBS Bhd,PBSB,Professional & Commercial Services,2025-12-31,-5.983751,1060,0.6,False,No classification on record,0,lseg
+Jagasolution Bhd,JAGAAPP,Software & IT Services,2025-06-30,-6.193249,1061,0.5,False,No classification on record,0,lseg
+MN Holdings Bhd,MNHLDG,Construction & Engineering,2026-06-30,-6.252248,1062,0.4,False,No classification on record,0,lseg
+Jadi Imaging Holdings Bhd,JADI,"Computers, Phones & Household Electronics",2026-03-31,-6.270695,1063,0.3,False,No classification on record,0,lseg
+GDB Holdings Bhd,GDB,Construction & Engineering,2026-12-31,-6.7845325,1064,0.2,False,No classification on record,0,lseg
+Sunway Construction Group Bhd,SUNCON,Construction & Engineering,2026-12-31,-7.8071003,1065,0.1,False,No classification on record,0,lseg

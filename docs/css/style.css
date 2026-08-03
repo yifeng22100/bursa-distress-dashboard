@@ -1,0 +1,207 @@
+/* Bursa Distress Monitor — static site design system.
+   Modelled directly on hospital-intelligence-my (measured live via getComputedStyle, not
+   approximated): #0071E3 accent blue, nav links at 16px/400 weight/no letter-spacing, hero H1
+   at 56px/700/-1.4px tracking, eyebrow at 12px/600/+1.44px tracking uppercase, search/card
+   radius 16px, stat-band bg #F5F5F7, filter pills fully round with a #D2D2D7 border. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+  --bg:#FFFFFF; --card:#FFFFFF; --ink:#1D1D1F; --ink-soft:#6E6E73;
+  --line:rgba(0,0,0,.08); --line-solid:#D2D2D7;
+  --fill-1:rgba(0,0,0,.1); --fill-3:rgba(0,0,0,.05); --fill-5:rgba(0,0,0,.02);
+  --stat-bg:#F5F5F7;
+  --blue:#0071E3; --red:#FF3B30; --orange:#FF9500; --green:#34C759; --gold:#C28800;
+}
+
+*{ box-sizing:border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"system-ui","SF Pro Display","SF Pro Text",Inter,
+              "Helvetica Neue",Arial,sans-serif;
+  color:var(--ink); background:var(--bg);
+}
+h1,h2,h3,h4{ letter-spacing:-0.01em; margin:0 0 .5rem 0; }
+a{ color:var(--blue); }
+img{ max-width:100%; }
+
+/* ---------------------------------------------------------------- top nav (not a sidebar) */
+.dm-header{
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+  padding:1rem 2.4rem; border-bottom:1px solid var(--line); background:var(--bg);
+}
+.dm-brand{ display:flex; align-items:center; gap:.4rem; font-size:1.2rem; font-weight:700; letter-spacing:-0.01em; white-space:nowrap; }
+.dm-brand .accent{ color:var(--blue); }
+
+.dm-nav{ display:flex; align-items:center; gap:1.7rem; flex-wrap:wrap; }
+.dm-nav button{
+  all:unset; cursor:pointer; color:var(--ink); font-size:1rem; font-weight:400;
+  padding:.3rem 0; border-bottom:2px solid transparent; white-space:nowrap;
+}
+.dm-nav button:hover{ color:var(--blue); }
+.dm-nav button.active{ color:var(--blue); font-weight:600; border-bottom-color:var(--blue); }
+
+.dm-header-right{ display:flex; align-items:center; gap:.6rem; flex:0 0 auto; }
+
+.dm-main{ padding:2rem 2.4rem 3rem 2.4rem; max-width:1100px; margin:0 auto; }
+
+/* ---------------------------------------------------------------- hero (Welcome page only) */
+.dm-hero{ text-align:center; padding:3rem 1rem 2.5rem 1rem; }
+.dm-hero .dm-eyebrow{ justify-content:center; }
+.dm-hero h1{
+  font-size:3.5rem; font-weight:700; letter-spacing:-0.025em; line-height:1.07;
+  margin:0 auto .9rem auto; max-width:820px;
+}
+.dm-hero p{ color:var(--ink-soft); font-size:1.15rem; max-width:640px; margin:0 auto; line-height:1.5; }
+
+/* Bleeds to the edges of .dm-main's own content box (cancels its padding), not the true viewport
+   edge. An earlier version used the 100vw/-50vw "break out of a centered container" trick for a
+   true edge-to-edge bleed, but that measurably broke under this environment's viewport/DPR
+   handling (100vw resolved against a different width than window.innerWidth on a narrow/mobile
+   viewport, leaving the band non-full-width and off-center) -- confirmed via
+   getBoundingClientRect, not assumed. This version gives up bleeding past .dm-main's own
+   max-width on very wide monitors in exchange for being reliably correct everywhere. */
+.dm-statband{
+  background:var(--stat-bg); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  margin:2rem -2.4rem 0 -2.4rem; padding:2.2rem 2.4rem; display:flex; justify-content:center;
+  gap:3.5rem; flex-wrap:wrap; text-align:center;
+}
+.dm-stat-big b{ font-size:2.25rem; font-weight:700; display:block; line-height:1.05; }
+.dm-stat-big .lbl{ font-weight:700; font-size:.95rem; margin-top:.2rem; }
+.dm-stat-big .cap{ color:var(--ink-soft); font-size:.85rem; margin-top:.1rem; }
+
+/* pill filter chips, e.g. under the hero */
+.dm-pillrow{ display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap; margin-top:1.3rem; }
+.dm-pill-btn{
+  all:unset; cursor:pointer; border:1px solid var(--line-solid); border-radius:9999px;
+  padding:4px 12px; font-size:.75rem; color:var(--ink-soft);
+}
+.dm-pill-btn:hover{ border-color:var(--blue); color:var(--blue); }
+
+/* ---------------------------------------------------------------- eyebrow + page title (data pages) */
+.dm-eyebrow{
+  font-size:.75rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--blue); margin-bottom:.3rem; display:flex; align-items:center;
+}
+.dm-pagetitle{ font-size:2.05rem; font-weight:700; letter-spacing:-0.02em; margin:0 0 .3rem 0; line-height:1.15; }
+.dm-page-caption{ color:var(--ink-soft); font-size:.95rem; margin-bottom:1.2rem; }
+
+/* ---------------------------------------------------------------- cards / callouts */
+/* Thin border only, no shadow -- matches hospital-intelligence-my's actual card treatment. */
+.dm-card{
+  background:var(--card); border-radius:16px; border:1px solid var(--line-solid);
+  padding:1.1rem 1.3rem; margin-bottom:1rem;
+}
+.dm-card-grid{ display:grid; gap:1rem; }
+.dm-card-grid.cols-2{ grid-template-columns:1fr 1fr; }
+.dm-card-grid.cols-3{ grid-template-columns:repeat(3,1fr); }
+.dm-card-grid.cols-4{ grid-template-columns:repeat(4,1fr); }
+@media (max-width:900px){
+  .dm-card-grid.cols-2, .dm-card-grid.cols-3, .dm-card-grid.cols-4{ grid-template-columns:1fr; }
+}
+
+.dm-banner{ border-radius:14px; padding:.75rem 1.1rem; font-size:.9rem; line-height:1.45; margin-bottom:1.1rem; border:1px solid; }
+.dm-banner-disclaimer{ background:#FFF7ED; border-color:#FFE0B2; color:#7A4A00; }
+.dm-banner-info{ background:#EAF2FE; border-color:#C7DFFB; color:#0058C6; }
+.dm-banner-warning{ background:#FFF9E6; border-color:#FFE58A; color:#8A6D00; }
+.dm-banner-error{ background:#FDEBEA; border-color:#F8C9C6; color:#B02318; }
+
+/* ---------------------------------------------------------------- colour-tag pills */
+.dm-tag{
+  display:inline-flex; align-items:center; gap:.32rem; padding:.2rem .62rem; border-radius:999px;
+  font-size:.72rem; font-weight:700; letter-spacing:.02em; border:1px solid; margin-right:.4rem;
+  white-space:nowrap;
+}
+.dm-tag-dot{ width:6px; height:6px; border-radius:50%; background:currentColor; display:inline-block; }
+.dm-tag-green{ background:#E8F8ED; color:#1E7B34; border-color:#BEEACB; }
+.dm-tag-red{ background:#FDEBEA; color:#C41E1E; border-color:#F8C9C6; }
+.dm-tag-orange{ background:#FFF3E0; color:#B25E00; border-color:#FFDDA8; }
+.dm-tag-gray{ background:#F0F0F2; color:#6E6E73; border-color:#E5E5EA; }
+.dm-tag-blue{ background:#EAF2FE; color:#0058C6; border-color:#C7DFFB; }
+
+/* ---------------------------------------------------------------- metrics */
+.dm-metric{
+  background:var(--card); border:1px solid var(--line-solid); border-radius:14px;
+  padding:.7rem .9rem;
+}
+.dm-metric-label{ font-size:.8rem; color:var(--ink-soft); margin-bottom:.2rem; }
+.dm-metric-value{ font-size:1.65rem; font-weight:700; line-height:1.2; }
+.dm-metric-delta{ font-size:.78rem; color:var(--ink-soft); margin-top:.15rem; }
+
+/* ---------------------------------------------------------------- form controls */
+label.dm-label{ display:block; font-size:.85rem; color:var(--ink); margin-bottom:.35rem; font-weight:500; }
+select.dm-select, input.dm-text, input[type=range].dm-range{
+  font-family:inherit; font-size:.92rem; padding:.5rem .65rem; border-radius:10px;
+  border:1px solid var(--line); background:var(--fill-5); color:var(--ink); width:100%;
+}
+select.dm-select:focus, input.dm-text:focus{ outline:2px solid var(--blue); outline-offset:1px; }
+input[type=range].dm-range{ padding:0; accent-color:var(--blue); }
+input[type=checkbox]{ accent-color:var(--blue); width:16px; height:16px; }
+.dm-field{ margin-bottom:1rem; }
+.dm-field-row{ display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end; margin-bottom:1rem; }
+.dm-field-row > .dm-field{ flex:1; min-width:180px; margin-bottom:0; }
+.dm-range-labels{ display:flex; justify-content:space-between; font-size:.78rem; color:var(--ink-soft); margin-top:.2rem; }
+
+button.dm-btn{
+  font-family:inherit; font-size:.88rem; font-weight:500; cursor:pointer;
+  border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--ink);
+  padding:.5rem .9rem;
+}
+button.dm-btn:hover{ border-color:var(--blue); color:var(--blue); }
+
+/* chip multiselect */
+.dm-chipselect{ position:relative; }
+.dm-chipbox{
+  display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; padding:.4rem .5rem;
+  border:1px solid var(--line); border-radius:10px; background:var(--fill-5); min-height:2.6rem;
+  cursor:text;
+}
+.dm-chip{
+  display:inline-flex; align-items:center; gap:.35rem; background:var(--red); color:#fff;
+  border-radius:8px; padding:.2rem .5rem; font-size:.82rem; font-weight:500;
+}
+.dm-chip button{ all:unset; cursor:pointer; font-size:.9rem; line-height:1; opacity:.85; }
+.dm-chip button:hover{ opacity:1; }
+.dm-chipbox input{ border:none; outline:none; background:none; font-size:.88rem; flex:1; min-width:80px; font-family:inherit; }
+.dm-chip-dropdown{
+  position:absolute; z-index:20; top:100%; left:0; right:0; background:#fff; border:1px solid var(--line);
+  border-radius:10px; margin-top:.25rem; max-height:220px; overflow-y:auto; box-shadow:0 4px 16px rgba(0,0,0,.12);
+  display:none;
+}
+.dm-chip-dropdown.open{ display:block; }
+.dm-chip-option{ padding:.45rem .7rem; cursor:pointer; font-size:.88rem; }
+.dm-chip-option:hover, .dm-chip-option.hl{ background:var(--fill-3); }
+
+/* ---------------------------------------------------------------- tables */
+table.dm-table{ width:100%; border-collapse:collapse; font-size:.88rem; }
+table.dm-table th{
+  text-align:left; padding:.55rem .7rem; background:var(--fill-5); color:var(--ink-soft);
+  font-weight:600; border-bottom:1px solid var(--line); position:sticky; top:0;
+}
+table.dm-table td{ padding:.5rem .7rem; border-bottom:1px solid var(--line); }
+table.dm-table tr:hover td{ background:var(--fill-5); }
+.dm-table-scroll{ max-height:520px; overflow-y:auto; border:1px solid var(--line); border-radius:14px; }
+.dm-table-scroll table.dm-table th{ top:0; }
+
+/* ---------------------------------------------------------------- misc */
+.dm-caption{ color:var(--ink-soft); font-size:.85rem; }
+.dm-section-gap{ margin-top:1.6rem; }
+.dm-chart{ width:100%; }
+.dm-loading{ padding:3rem; text-align:center; color:var(--ink-soft); }
+
+.dm-footer{
+  margin-top:2.5rem; padding-top:1.4rem; border-top:1px solid var(--line);
+  color:var(--ink-soft); font-size:.82rem; line-height:1.6;
+}
+.dm-footer b{ color:var(--ink); }
+
+.dm-view{ display:none; }
+.dm-view.active{ display:block; }
+
+@media (max-width:800px){
+  .dm-header{ padding:1rem 1.2rem; flex-wrap:wrap; }
+  .dm-nav{ gap:.9rem; order:3; width:100%; }
+  .dm-main{ padding:1.2rem; }
+  .dm-statband{ margin-left:-1.2rem; margin-right:-1.2rem; padding:1.6rem 1.2rem; gap:1.8rem; }
+  .dm-hero h1{ font-size:2.2rem; }
+}

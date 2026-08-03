@@ -1,0 +1,123 @@
+DM.renderers.about = function (el) {
+  const { card, gshap } = DM.data;
+  const PROJECT_TITLE = "A Reinforcement Learning Approach to Corporate Financial Distress Prediction — Feature Importance Analysis of Bursa Malaysia Listed Companies";
+  const PROJECT_CODE = "PRJ5158 · MsBA Capstone II · Sunway Business School";
+  const TEAM = ["Jeremy Choong Ming", "Tan Yan Sheng", "Tan Yi Feng"];
+  const beats = card.recall_matched_beats_benchmark;
+
+  el.innerHTML = `
+    <div class="dm-eyebrow">Project overview</div>
+    <div class="dm-pagetitle">About & methodology</div>
+
+    <div class="dm-card">
+      <h4 style="margin-top:0;">${PROJECT_TITLE}</h4>
+      <p style="color:var(--ink-soft);margin-bottom:.3rem;">${PROJECT_CODE}</p>
+      <p style="margin-bottom:0;">Team: ${TEAM.join(' · ')}</p>
+    </div>
+
+    <p>This dashboard is the artefact deliverable for <b>RQ4</b> of the capstone. It presents the output of
+    reinforcement learning agents trained to flag Bursa Malaysia companies at risk of PN17/GN3
+    classification, benchmarked against the classical Altman Z''-Score model.</p>
+
+    <h3>What this dashboard does</h3>
+    <div class="dm-card">🔎 <b>Monitor.</b> Every listed company is scored on its most recent reported
+    financials and ranked by model risk score, sector-by-sector or company-by-company.</div>
+    <div class="dm-card">🧠 <b>Explain.</b> Each flag is backed by a per-company SHAP breakdown showing
+    exactly which indicators — and which year-on-year changes — pushed the score up or down.</div>
+    <div class="dm-card">📊 <b>Evaluate.</b> The Model Performance page reports ROC-AUC, PR-AUC, F1,
+    confusion matrix, and a like-for-like comparison against every RL variant trained in this project and
+    the Altman benchmark.</div>
+
+    <h3 class="dm-section-gap">Methodology, briefly</h3>
+    <ul>
+      <li><b>Data</b>: quarterly/annual financial ratios for Bursa Malaysia listed companies, plus a
+        historical record of PN17/GN3 classification dates (Chapter 3).</li>
+      <li><b>State</b>: 16 features — 8 financial ratios (current ratio, quick ratio, cash ratio, ROA, ROE,
+        net debt/total capital, asset turnover, Altman Z''-Score) plus their year-on-year deltas, robust
+        median/IQR-scaled on the training split.</li>
+      <li><b>Agents</b>: a one-step Deep Q-Network and a policy-gradient agent, each also trained as a
+        multi-step MDP variant, using a reward function that front-loads credit for early, ahead-of-time
+        detection of distress.</li>
+      <li><b>Calibration</b>: decision thresholds are chosen on a held-out <b>validation</b> split to
+        minimise misclassification cost, then evaluated once on a separate <b>test</b> split — never the
+        reverse.</li>
+      <li><b>Benchmark</b>: the classical Altman Z''-Score (threshold 1.1), computed directly from the same
+        panel, with no RL involved — the yardstick the RL agents are measured against.</li>
+    </ul>
+
+    <h3 class="dm-section-gap">Performance on held-out test data</h3>
+    <div class="dm-table-scroll"><table class="dm-table">
+      <thead><tr><th>Method</th><th>Cost</th><th>Recall</th><th>Precision</th></tr></thead>
+      <tbody>
+        <tr><td>This model (calibrated DQN)</td><td>${card.test_cost}</td><td>${DM.fmtPct(card.test_recall, 1)}</td><td>${DM.fmtPct(card.test_precision, 1)}</td></tr>
+        <tr><td>This model, at the Z-Score's recall</td><td>${card.recall_matched_cost}</td><td>${DM.fmtPct(card.recall_matched_recall, 1)}</td><td>${DM.fmtPct(card.recall_matched_precision, 1)}</td></tr>
+        <tr><td>Altman Z''-Score (classical benchmark)</td><td>${card.benchmark_altman_cost}</td><td>${DM.fmtPct(card.benchmark_altman_recall, 1)}</td><td>${DM.fmtPct(card.benchmark_altman_precision, 1)}</td></tr>
+      </tbody>
+    </table></div>
+    <p class="dm-caption">Cost = 10×(missed distress) + 3×(false alarm), on ${card.test_rows.toLocaleString()}
+    held-out company-periods containing ${card.test_positives} genuine distress cases. Lower is better. The
+    model beats the classical benchmark on cost at its own operating point${beats
+      ? ', and at the Z-Score\'s own detection rate too.'
+      : `, but NOT at the Z-Score's own detection rate (${card.recall_matched_cost} vs ${card.benchmark_altman_cost})
+         — pushed to match that recall, this model currently raises more false alarms than the classical rule
+         does. This is disclosed rather than hidden: which operating point to trust is a real, current
+         limitation, not settled.`}</p>
+    <p class="dm-caption">See the <b>Performance</b> page in the nav above for the full ROC/PR curves,
+    confusion matrix, and cross-agent comparison.</p>
+
+    <h3 class="dm-section-gap">What this model cannot do</h3>
+    <div class="dm-banner dm-banner-error">
+      <b>It misses most distressed companies.</b> At its default threshold it catches only
+      ${DM.fmtPct(card.test_recall, 0)} of them. It is a triage aid for deciding where to look first, not a
+      substitute for credit analysis.<br><br>
+      <b>Its early-warning ability is unproven, not just largely unproven.</b> Every early flag measured in
+      the current version of this project fell on data the model had trained on. One version briefly
+      recorded a genuinely out-of-sample early warning — it did not reproduce after the next retrain, and is
+      not repeated here.<br><br>
+      <b>It is trained on very few examples.</b> 46 distressed company-periods in training. Results have
+      shifted materially across five versions of the data pipeline so far, mostly from data corrections
+      rather than model changes — most recently, a single company's 3 training rows changed which of the two
+      agents beats the benchmark at matched recall.<br><br>
+      <b>It is a backtest, not a live system.</b> Never validated on live forward data.
+    </div>
+
+    <h3 class="dm-section-gap">What drives the model overall</h3>
+    <div id="about-gshap" class="dm-chart" style="height:380px;"></div>
+    <p class="dm-caption">Year-on-year <b>changes</b> in liquidity outrank absolute levels — how fast a
+    company is deteriorating carries more signal than where it currently stands.</p>
+
+    <h3 class="dm-section-gap">Ideas for future value-added features</h3>
+    <ul>
+      <li><b>Side-by-side company comparison</b> — pick two or more companies and overlay their indicator
+        trajectories and SHAP breakdowns on one screen. <i>(Shipped — see the Compare page.)</i></li>
+      <li><b>Alert subscriptions</b> — email or webhook notification when a company newly crosses the flag
+        threshold.</li>
+      <li><b>Scenario/what-if slider</b> — let a user nudge one ratio and see the risk score recompute live.
+        <i>(Shipped — see the Drill-down page.)</i></li>
+      <li><b>PDF one-pager export</b> — a printable company risk brief combining the drill-down panel and
+        SHAP chart, for inclusion in a credit file.</li>
+      <li><b>Live data refresh</b> — connect to a quarterly filings feed so the watchlist updates
+        automatically instead of via manual pipeline reruns.</li>
+    </ul>
+
+    <details class="dm-section-gap">
+      <summary style="cursor:pointer;font-weight:600;">Full disclaimer</summary>
+      <p>This dashboard is a research prototype produced for an academic capstone project and is <b>not</b>
+      financial, investment, credit, or legal advice. It has not been validated on live, forward-looking
+      data, is trained on a small number of historical distress examples, and both its recall and precision
+      are limited (see Model Performance). Model outputs should be treated as a prompt for further human
+      investigation, never as a standalone basis for any investment, lending, trading, or business decision.
+      The authors and Sunway Business School accept no liability for decisions made using this tool.</p>
+    </details>
+
+    <details>
+      <summary style="cursor:pointer;font-weight:600;">Technical specification (model_card.json)</summary>
+      <pre style="background:var(--fill-5);padding:1rem;border-radius:10px;overflow-x:auto;font-size:.8rem;">${JSON.stringify(card, null, 2)}</pre>
+    </details>
+  `;
+
+  const g = gshap.slice(0, 10).reverse();
+  DM.plot(document.getElementById('about-gshap'), [{
+    type: 'bar', orientation: 'h', x: g.map(r => r[1]), y: g.map(r => DM.pretty(r[0])),
+  }], { margin: { l: 220, r: 20, t: 10, b: 40 }, xaxis: { title: 'Mean |SHAP| across test companies' } });
+};

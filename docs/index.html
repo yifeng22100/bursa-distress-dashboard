@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bursa Distress Monitor</title>
+<meta name="description" content="RL early-warning prototype for PN17/GN3 classification — Bursa Malaysia companies.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚠️</text></svg>">
+<!-- ?v=N is a manual cache-buster: bump it whenever css/style.css or any js/ file changes, so a
+     returning visitor's browser doesn't keep serving a stale cached copy after an update. -->
+<link rel="stylesheet" href="css/style.css?v=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+</head>
+<body>
+
+<header class="dm-header">
+  <div class="dm-brand">⚠️ Bursa <span class="accent">Distress</span> Monitor</div>
+  <nav class="dm-nav"></nav>
+  <div class="dm-header-right" id="header-right"></div>
+</header>
+
+<main class="dm-main">
+  <div id="loading" class="dm-loading">Loading…</div>
+  <div id="banners" style="display:none;"></div>
+</main>
+
+<script src="js/data.js?v=1"></script>
+<script src="js/whatif.js?v=1"></script>
+<script src="js/charts.js?v=1"></script>
+<script src="js/components.js?v=1"></script>
+<script src="js/nav.js?v=1"></script>
+<script src="js/views/welcome.js?v=1"></script>
+<script src="js/views/sector.js?v=1"></script>
+<script src="js/views/ranking.js?v=1"></script>
+<script src="js/views/drilldown.js?v=1"></script>
+<script src="js/views/comparison.js?v=1"></script>
+<script src="js/views/trends.js?v=1"></script>
+<script src="js/views/performance.js?v=1"></script>
+<script src="js/views/about.js?v=1"></script>
+<script>
+const PROJECT_TITLE = "A Reinforcement Learning Approach to Corporate Financial Distress Prediction — Feature Importance Analysis of Bursa Malaysia Listed Companies";
+const PROJECT_CODE = "PRJ5158 · MsBA Capstone II · Sunway Business School";
+const TEAM = ["Jeremy Choong Ming", "Tan Yan Sheng", "Tan Yi Feng"];
+
+async function boot() {
+  const data = await DM.loadAll();
+  const { wl, card, changes } = data;
+
+  document.getElementById('header-right').innerHTML =
+    DM.tag(`${card.watchlist_flagged} flagged`, 'orange');
+
+  let bannerHTML = `
+    <div class="dm-banner dm-banner-disclaimer">
+      ⚠️ <b>Disclaimer.</b> This is a student research prototype, not financial or investment advice.
+      It flags companies for further human review and misses most distressed companies at its default
+      threshold (recall ${DM.fmtPct(card.test_recall, 0)} on held-out test data). Do not use it, alone
+      or in combination with other information, to make investment, lending, or credit decisions.
+    </div>`;
+  if (changes.had_previous_run && (changes.newly_flagged.length || changes.newly_cleared.length)) {
+    const bits = [];
+    if (changes.newly_flagged.length) bits.push(`<b>${changes.newly_flagged.length} newly flagged</b>: ${changes.newly_flagged.join(', ')}`);
+    if (changes.newly_cleared.length) bits.push(`<b>${changes.newly_cleared.length} cleared</b>: ${changes.newly_cleared.join(', ')}`);
+    bannerHTML += `<div class="dm-banner dm-banner-info">🔔 <b>Since the last rebuild:</b> ${bits.join(' · ')}.</div>`;
+  }
+  document.getElementById('banners').innerHTML = bannerHTML;
+  document.getElementById('banners').style.display = 'block';
+  document.getElementById('loading').style.display = 'none';
+
+  DM.initNav();
+  DM.whatifSelfTest();
+
+  // footer, appended after nav builds the view sections
+  const footer = document.createElement('div');
+  footer.className = 'dm-footer';
+  footer.innerHTML = `
+    <b>${PROJECT_TITLE}</b><br>
+    ${PROJECT_CODE}<br>
+    Team: ${TEAM.join(' · ')}<br><br>
+    <b>Data sources:</b> Bursa Malaysia listed-company financials (LSEG/Refinitiv), PN17/GN3 historical
+    classification records, Altman Z''-Score computed from the same panel.<br>
+    <b>Disclaimer:</b> research prototype only — not financial, investment, or credit advice. See the
+    About &amp; methodology page for the full text.`;
+  document.querySelector('.dm-main').appendChild(footer);
+}
+
+boot().catch(err => {
+  document.getElementById('loading').innerHTML =
+    `<div class="dm-banner dm-banner-error">Failed to load dashboard data: ${err.message}</div>`;
+  console.error(err);
+});
+</script>
+</body>
+</html>

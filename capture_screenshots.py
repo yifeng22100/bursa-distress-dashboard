@@ -1,7 +1,14 @@
-import time, os, sys
+"""
+Captures the report screenshots (Figures 4.8a-h) from the static site in dashboard/docs/.
+
+Serve it first: python3 -m http.server 8123, run from inside dashboard/docs/. This replaced the
+old Streamlit-based capture script when the dashboard migrated from Streamlit to a plain
+HTML/CSS/JS static site (deployed via GitHub Pages) -- Streamlit's iframe/theme/layout
+limitations kept fighting the intended Apple-HIG / hospital-intelligence-my-style design.
+"""
+import time, os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
 
 OUT = "/Users/yifeng.tan/Downloads/CAPSTONE II/dashboard/screenshots"
 os.makedirs(OUT, exist_ok=True)
@@ -10,14 +17,15 @@ o.add_argument("--headless=new"); o.add_argument("--window-size=1500,1150")
 o.add_argument("--force-device-scale-factor=2"); o.add_argument("--hide-scrollbars")
 d = webdriver.Chrome(options=o)
 try:
-    d.get("http://localhost:8501"); time.sleep(9)
-    views = [(0,"4_8a_welcome"),(1,"4_8b_sector"),(2,"4_8c_ranking"),(3,"4_8d_drilldown"),
-              (4,"4_8e_comparison"),(5,"4_8f_trends"),(6,"4_8g_performance"),(7,"4_8h_about")]
-    for idx,name in views:
-        d.execute_script(f"document.querySelectorAll('input[type=radio]')[{idx}].click();")
-        time.sleep(6)
-        d.execute_script("window.scrollTo(0,0);"); time.sleep(1)
-        p=f"{OUT}/{name}.png"; d.save_screenshot(p)
+    d.get("http://localhost:8123/"); time.sleep(3)
+    views = [("welcome", "4_8a_welcome"), ("sector", "4_8b_sectors"), ("ranking", "4_8c_watchlist"),
+             ("drilldown", "4_8d_drilldown"), ("comparison", "4_8e_comparison"), ("trends", "4_8f_trends"),
+             ("performance", "4_8g_performance"), ("about", "4_8h_about")]
+    for view_id, name in views:
+        d.execute_script(f"DM.goto('{view_id}')")
+        time.sleep(2)
+        d.execute_script("window.scrollTo(0,0);"); time.sleep(0.5)
+        p = f"{OUT}/{name}.png"; d.save_screenshot(p)
         print(name, os.path.getsize(p))
 finally:
     d.quit()
