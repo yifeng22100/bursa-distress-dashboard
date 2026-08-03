@@ -278,25 +278,34 @@ else:
         {"Method": "This model (calibrated DQN)", "Cost": card['test_cost'],
          "Recall": f"{card['test_recall']:.1%}", "Precision": f"{card['test_precision']:.1%}"},
         {"Method": "This model, at the Z-Score's recall", "Cost": card['recall_matched_cost'],
-         "Recall": f"{card['benchmark_altman_recall']:.1%}", "Precision": "9.8%"},
+         "Recall": f"{card.get('recall_matched_recall', card['benchmark_altman_recall']):.1%}",
+         "Precision": f"{card.get('recall_matched_precision', 0):.1%}"},
         {"Method": "Altman Z''-Score (classical benchmark)", "Cost": card['benchmark_altman_cost'],
          "Recall": f"{card['benchmark_altman_recall']:.1%}", "Precision": f"{card['benchmark_altman_precision']:.1%}"},
     ])
     st.dataframe(perf, hide_index=True, use_container_width=True)
+    beats = card.get('recall_matched_beats_benchmark', True)
     st.caption(
-        "Cost = 10×(missed distress) + 3×(false alarm), on 1,740 held-out company-periods containing 19 genuine "
-        "distress cases. Lower is better. The model beats the classical benchmark on cost at both operating points, "
-        "mainly by raising far fewer false alarms at the same detection rate."
+        f"Cost = 10×(missed distress) + 3×(false alarm), on {card['test_rows']:,} held-out company-periods "
+        f"containing {card['test_positives']} genuine distress cases. Lower is better. The model beats the classical "
+        f"benchmark on cost at its own operating point" +
+        (", and at the Z-Score's own detection rate too." if beats else
+         f", but NOT at the Z-Score's own detection rate ({card['recall_matched_cost']} vs {card['benchmark_altman_cost']}) "
+         "— pushed to match that recall, this model currently raises more false alarms than the classical rule does. "
+         "This is disclosed rather than hidden: which operating point to trust is a real, current limitation, not settled.")
     )
 
     st.subheader("What this model cannot do")
     st.error(
-        "**It misses most distressed companies.** At its default threshold it catches roughly a quarter of them. "
-        "It is a triage aid for deciding where to look first, not a substitute for credit analysis.\n\n"
-        "**Its early-warning ability is largely unproven.** Nearly every early flag measured in this project fell on "
-        "data the model had trained on. Exactly one genuine out-of-sample early warning was recorded.\n\n"
-        "**It is trained on very few examples.** 46 distressed company-periods in training. Results shifted "
-        "materially across four versions of the data pipeline, mostly from data corrections rather than model changes.\n\n"
+        f"**It misses most distressed companies.** At its default threshold it catches only {card['test_recall']:.0%} "
+        "of them. It is a triage aid for deciding where to look first, not a substitute for credit analysis.\n\n"
+        "**Its early-warning ability is unproven, not just largely unproven.** Every early flag measured in the "
+        "current version of this project fell on data the model had trained on. One version briefly recorded a "
+        "genuinely out-of-sample early warning — it did not reproduce after the next retrain, and is not repeated here.\n\n"
+        "**It is trained on very few examples.** 46 distressed company-periods in training. Results have shifted "
+        "materially across five versions of the data pipeline so far, mostly from data corrections rather than model "
+        "changes — most recently, a single company's 3 training rows changed which of the two agents beats the "
+        "benchmark at matched recall.\n\n"
         "**It is a backtest, not a live system.** Never validated on live forward data."
     )
 

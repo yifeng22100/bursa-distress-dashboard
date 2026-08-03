@@ -54,17 +54,21 @@ That writes:
 
 Three choices follow directly from this project's measured results rather than from UI convention:
 
-- **Risk is always expressed twice** — raw score *and* plain-language band. A Q-value of 11.01 means
+- **Risk is always expressed twice** — raw score *and* plain-language band. A raw Q-value means
   nothing to the intended audience; "highest-risk of 1,065" does.
 - **Every flag is explainable per company**, not just in aggregate — required for a flag to be
   defensible in a credit file.
-- **The false-alarm rate is on the same screen as the results.** Of the 10 companies currently
-  flagged, 4 are genuine and 6 are not; the sidebar says so on every view. A clean interface can
-  make an uncertain model look authoritative, and this project's evaluation does not support that.
+- **The false-alarm rate is on the same screen as the results.** The sidebar and the "About this
+  model" table state, live, how many of the currently-flagged companies are genuine vs false alarms,
+  and whether the model's recall-matched operating point beats or loses to the Altman benchmark —
+  neither of these is hardcoded, both are computed fresh by `RL_Model_v1/10_build_dashboard_data.py`
+  each time it runs, after an earlier version's hardcoded copies were found to have silently drifted
+  out of sync with the model across two retrains.
 
 Deliberately **not** provided: any composite "risk grade", ranked recommendation, or lending/investment
-implication. The model is a triage aid for directing attention — the strongest claim its measured
-precision (29.4% at its default threshold) supports.
+implication. The model is a triage aid for directing attention, and its measured precision at its
+default threshold (currently 57.1%, but recall only 21.1% — see `dashboard/data/model_card.json` for
+the live figure) is the strongest claim it supports.
 
 ## Regenerating the report screenshots
 

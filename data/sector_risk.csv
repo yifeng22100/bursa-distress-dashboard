@@ -1,55 +1,55 @@
 sector,companies,mean_risk,median_risk,max_risk,flagged,currently_distressed,flagged_pct
-(not classified — delisted-firm supplement),4,10.033835,10.380169,11.012748,4,3,100.0
-Residential & Commercial REITs,19,-0.12399597,-0.88962805,5.643929,0,0,0.0
-Passenger Transportation Services,5,-0.7794672,-0.843639,0.36367348,0,0,0.0
-Biotechnology & Medical Research,1,-1.1642913,-1.1642913,-1.1642913,0,0,0.0
-Investment Banking & Investment Services,9,-1.3538941,-2.433168,3.4061608,0,0,0.0
-Miscellaneous Educational Service Providers,3,-1.3863167,-0.92437196,-0.25265166,0,0,0.0
-Electric Utilities & IPPs,15,-1.4097981,-2.3433375,4.3813066,0,0,0.0
-Multiline Utilities,2,-1.5654602,-1.5654602,-1.3896865,0,0,0.0
-Automobiles & Auto Parts,20,-1.5706192,-2.3462102,9.381982,1,0,5.0
-Collective Investments,1,-1.5991844,-1.5991844,-1.5991844,0,0,0.0
-Media & Publishing,11,-1.6115203,-2.555367,4.36418,0,1,0.0
-Telecommunications Services,13,-1.6721593,-2.3751361,2.102611,0,0,0.0
-Diversified Retail,3,-1.7117244,-1.3702558,-1.199285,0,0,0.0
-Hotels & Entertainment Services,32,-1.8303231,-2.2490826,5.8441954,0,0,0.0
-Transport Infrastructure,8,-1.8562624,-2.5254765,0.46742377,0,1,0.0
-Chemicals,32,-1.8613026,-2.6622934,9.397347,1,0,3.1
-Communications & Networking,4,-1.863153,-2.0203884,0.4257181,0,0,0.0
-Textiles & Apparel,18,-1.9537387,-2.335456,2.2414613,0,1,0.0
-Real Estate Operations,98,-2.008597,-2.324016,4.1099286,0,0,0.0
-Freight & Logistics Services,25,-2.052962,-2.6489475,1.40861,0,0,0.0
-Oil & Gas Related Equipment and Services,23,-2.0815666,-2.308265,3.076446,0,1,0.0
-Professional & Business Education,2,-2.0827355,-2.0827355,-1.841718,0,0,0.0
-Containers & Packaging,26,-2.089241,-2.5932384,9.634267,1,0,3.8
-Construction Materials,13,-2.2171974,-2.5479758,0.39614454,0,0,0.0
-Banking Services,18,-2.217389,-2.4656892,0.19092718,0,0,0.0
-Water & Related Utilities,3,-2.3179994,-2.383725,-1.869332,0,0,0.0
-Construction & Engineering,102,-2.325656,-2.6089602,6.8593855,1,3,1.0
-Software & IT Services,66,-2.3455737,-2.5633411,7.1487846,1,0,1.5
-Insurance,9,-2.424069,-2.6395557,-1.0480496,0,0,0.0
-Consumer Goods Conglomerates,7,-2.4331062,-2.645454,-0.6722803,0,0,0.0
-Healthcare Equipment & Supplies,16,-2.4370704,-2.519083,0.38039836,0,0,0.0
-Pharmaceuticals,8,-2.4397674,-2.4058938,-2.0460203,0,0,0.0
-Healthcare Providers & Services,14,-2.4405606,-2.5489593,0.18166292,0,1,0.0
-Homebuilding & Construction Supplies,19,-2.445118,-2.599153,-1.0299715,0,0,0.0
-Professional & Commercial Services,43,-2.460502,-2.5367947,6.9483523,1,0,2.3
-"Machinery, Tools, Heavy Vehicles, Trains & Ships",75,-2.473489,-2.587444,5.9421473,0,0,0.0
-Paper & Forest Products,14,-2.4826033,-2.686197,-1.067624,0,0,0.0
-Food & Drug Retailing,13,-2.5040207,-2.7187507,0.1852966,0,0,0.0
-Beverages,7,-2.5067897,-2.4231012,-2.3187559,0,0,0.0
-Food & Tobacco,96,-2.5369463,-2.5409658,1.2802734,0,1,0.0
-Electronic Equipment & Parts,9,-2.6291904,-2.6302469,0.5316479,0,0,0.0
-Metals & Mining,42,-2.6416974,-2.6261184,0.16645646,0,0,0.0
-Natural Gas Utilities,2,-2.656668,-2.656668,-2.109307,0,0,0.0
-Renewable Energy,2,-2.6705647,-2.6705647,-2.4108725,0,0,0.0
-Integrated Hardware & Software,4,-2.6735458,-2.70631,-1.7682941,0,0,0.0
-Semiconductors & Semiconductor Equipment,19,-2.6952713,-2.5829968,-1.8811042,0,0,0.0
-Personal & Household Products & Services,9,-2.776517,-2.3757432,-2.0647814,0,0,0.0
-Household Goods,27,-2.783913,-2.6963735,-1.1898341,0,0,0.0
-Specialty Retailers,29,-2.8545072,-2.8905547,-1.639346,0,0,0.0
-Investment Holding Companies,5,-2.870604,-2.8449492,-2.4793403,0,0,0.0
-Diversified Industrial Goods Wholesale,4,-3.140251,-3.194004,-2.6548183,0,0,0.0
-Oil & Gas,7,-3.2413921,-3.4285338,-2.0788994,0,0,0.0
-Financial Technology (Fintech) & Infrastructure,2,-3.2477396,-3.2477396,-2.7531898,0,0,0.0
-"Computers, Phones & Household Electronics",7,-3.3097224,-2.602582,-2.0810812,0,0,0.0
+(not classified — delisted-firm supplement),4,10.827651,11.110016,11.857327,4,3,100.0
+Residential & Commercial REITs,19,0.92983997,1.7473464,7.3766055,0,0,0.0
+Multiline Utilities,2,0.21965003,0.21965003,0.7114148,0,0,0.0
+Electric Utilities & IPPs,15,-0.12075755,-2.5823267,8.793347,0,0,0.0
+Communications & Networking,4,-0.52249473,-2.6001406,6.3832464,0,0,0.0
+Miscellaneous Educational Service Providers,3,-0.6417817,-1.0085523,1.4684402,0,0,0.0
+Biotechnology & Medical Research,1,-0.71949553,-0.71949553,-0.71949553,0,0,0.0
+Transport Infrastructure,8,-0.78360325,-1.7669022,2.6914842,0,1,0.0
+Passenger Transportation Services,5,-0.85011446,-1.3964968,2.8367972,0,0,0.0
+Banking Services,18,-1.034838,-1.1848439,1.5093387,0,0,0.0
+Hotels & Entertainment Services,32,-1.1325412,-2.2189054,7.965108,0,0,0.0
+Investment Banking & Investment Services,9,-1.1476254,-1.6767735,4.3034043,0,0,0.0
+Water & Related Utilities,3,-1.17636,-0.3274677,1.2902261,0,0,0.0
+Telecommunications Services,13,-1.412327,-2.5399797,3.5788183,0,0,0.0
+Real Estate Operations,98,-1.4811447,-2.1346025,4.7613397,0,0,0.0
+Media & Publishing,11,-1.5031712,-1.2831898,4.782926,0,1,0.0
+Diversified Retail,3,-1.6815745,-1.6277223,-0.5378156,0,0,0.0
+Paper & Forest Products,14,-1.7099403,-1.9318087,0.5836344,0,0,0.0
+Chemicals,32,-1.7667654,-2.5835714,6.946815,0,0,0.0
+Automobiles & Auto Parts,20,-1.8403237,-2.8381686,7.2831345,0,0,0.0
+Freight & Logistics Services,25,-1.9455497,-2.2798681,2.514107,0,0,0.0
+Insurance,9,-2.0325851,-2.0213087,-0.20201445,0,0,0.0
+Consumer Goods Conglomerates,7,-2.0854611,-2.9102654,1.5074335,0,0,0.0
+Containers & Packaging,26,-2.169922,-2.8351922,12.104739,1,0,3.8
+Textiles & Apparel,18,-2.199856,-2.6088824,2.2564747,0,1,0.0
+Healthcare Providers & Services,14,-2.2143517,-2.5474095,0.5651926,0,1,0.0
+Oil & Gas,7,-2.2626517,-2.8361058,1.5769572,0,0,0.0
+Construction & Engineering,102,-2.2975914,-2.5923657,3.3566704,0,3,0.0
+Software & IT Services,66,-2.3047788,-2.6443639,8.53023,0,0,0.0
+Beverages,7,-2.347295,-2.5561414,-1.2423478,0,0,0.0
+Construction Materials,13,-2.358291,-2.6832457,0.8417994,0,0,0.0
+Metals & Mining,42,-2.4172661,-3.0335615,4.497048,0,0,0.0
+Financial Technology (Fintech) & Infrastructure,2,-2.4767818,-2.4767818,-2.0164256,0,0,0.0
+Electronic Equipment & Parts,9,-2.5473623,-3.0696256,1.3950939,0,0,0.0
+"Machinery, Tools, Heavy Vehicles, Trains & Ships",75,-2.556686,-2.7833192,4.8511086,0,0,0.0
+Food & Tobacco,96,-2.5617216,-2.8344111,6.3483686,0,1,0.0
+Renewable Energy,2,-2.5696032,-2.5696032,-2.4979968,0,0,0.0
+Household Goods,27,-2.5708067,-2.794272,2.5041082,0,0,0.0
+Oil & Gas Related Equipment and Services,23,-2.6053457,-2.8055725,0.75674915,0,1,0.0
+Professional & Commercial Services,43,-2.6110718,-2.8478642,2.4528246,0,0,0.0
+Homebuilding & Construction Supplies,19,-2.614537,-2.9878957,1.8128343,0,0,0.0
+Semiconductors & Semiconductor Equipment,19,-2.7934868,-2.7859128,1.6623162,0,0,0.0
+Specialty Retailers,29,-2.8001616,-3.091606,0.95410156,0,0,0.0
+Pharmaceuticals,8,-2.8179164,-2.8899996,-1.7926139,0,0,0.0
+Diversified Industrial Goods Wholesale,4,-2.9031086,-3.059989,-1.9688175,0,0,0.0
+Personal & Household Products & Services,9,-2.9803457,-2.5878534,-1.9104557,0,0,0.0
+Healthcare Equipment & Supplies,16,-3.0122018,-2.7441907,-1.4553735,0,0,0.0
+Food & Drug Retailing,13,-3.1103837,-3.1789997,-2.1960075,0,0,0.0
+Professional & Business Education,2,-3.1551075,-3.1551075,-2.940417,0,0,0.0
+Investment Holding Companies,5,-3.3330245,-3.122554,-2.2655494,0,0,0.0
+Natural Gas Utilities,2,-3.3994396,-3.3994396,-2.4107914,0,0,0.0
+Integrated Hardware & Software,4,-3.421412,-3.2858071,-2.7226088,0,0,0.0
+Collective Investments,1,-3.515311,-3.515311,-3.515311,0,0,0.0
+"Computers, Phones & Household Electronics",7,-3.660887,-3.1984076,-2.495806,0,0,0.0
