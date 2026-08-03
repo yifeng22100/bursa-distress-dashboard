@@ -20,9 +20,10 @@ DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 PROJECT_TITLE = ("A Reinforcement Learning Approach to Corporate Financial Distress Prediction — "
                   "Feature Importance Analysis of Bursa Malaysia Listed Companies")
 PROJECT_CODE = "PRJ5158 · MsBA Capstone II · Sunway Business School"
-TEAM = ["Tan Yi Feng", "Jeremy Choong Ming", "Tan Yan Sheng"]
+TEAM = sorted(["Tan Yi Feng", "Jeremy Choong Ming", "Tan Yan Sheng"])
 
-st.set_page_config(page_title="Bursa Distress Monitor", page_icon="⚠️", layout="wide")
+st.set_page_config(page_title="Bursa Distress Monitor", page_icon="⚠️", layout="wide",
+                    initial_sidebar_state="collapsed")
 
 # ---------------------------------------------------------------- Apple-style design system
 st.markdown("""
@@ -31,6 +32,7 @@ st.markdown("""
   --bg:#F5F5F7; --card:#FFFFFF; --ink:#1D1D1F; --ink-soft:#6E6E73;
   --line:#E5E5EA; --blue:#0071E3; --red:#FF3B30; --orange:#FF9500;
   --green:#34C759; --gold:#B8860B;
+  --primary-color:#0071E3;
 }
 html, body, [class*="css"]{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",
@@ -38,19 +40,53 @@ html, body, [class*="css"]{
   color:var(--ink);
 }
 .stApp{ background:var(--bg); }
-[data-testid="stAppViewContainer"] > .main{ padding-top:0 !important; }
-.block-container{ padding-top:1rem !important; max-width:1200px; }
+.block-container{ max-width:1200px; }
 
-/* ---- header ---- */
-.dm-header{
-  background:rgba(255,255,255,0.82); backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid var(--line); margin:-1rem -1rem 1.4rem -1rem; padding:.85rem 1.6rem;
-  position:sticky; top:0; z-index:999;
+/* ---- masthead + stat band ---- */
+/* Deliberately NOT sticky / no negative top margin: an earlier version fought Streamlit's own
+   header/toolbar chrome for the same vertical slot and got hidden underneath it. Only bleeds
+   left/right (safe), never up, so it can never slide under host chrome again. */
+.dm-masthead{
+  background:var(--card); border:1px solid var(--line); border-radius:16px 16px 0 0;
+  border-bottom:none; margin:0 0 0 0; padding:1rem 1.5rem .85rem 1.5rem;
 }
-.dm-header-row{ display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.4rem 1.2rem;}
-.dm-brand{ font-size:1.28rem; font-weight:700; letter-spacing:-0.01em; color:var(--ink); }
-.dm-brand span{ color:var(--red); }
-.dm-tagline{ font-size:.82rem; color:var(--ink-soft); margin-top:.1rem; }
+.dm-header-row{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.9rem 1.6rem;}
+.dm-brand{ font-size:1.32rem; font-weight:700; letter-spacing:-0.01em; color:var(--ink); }
+.dm-brand span{ color:var(--blue); }
+.dm-tagline{ font-size:.82rem; color:var(--ink-soft); margin-top:.15rem; }
+.dm-statband{
+  background:#F0F0F2; border:1px solid var(--line); border-top:none; border-radius:0 0 16px 16px;
+  margin:0 0 1.2rem 0; padding:.9rem 1.5rem; display:flex; align-items:center;
+  justify-content:space-between; flex-wrap:wrap; gap:.7rem 1.6rem;
+}
+.dm-header-stats{ display:flex; align-items:center; gap:1.4rem; }
+.dm-stat{ text-align:right; line-height:1.15; }
+.dm-stat b{ font-size:1.5rem; font-weight:700; color:var(--ink); display:block; }
+.dm-stat span{ font-size:.72rem; color:var(--ink-soft); }
+.dm-stat-note{ max-width:260px; font-size:.72rem; color:var(--ink-soft); line-height:1.35; text-align:left; }
+
+/* ---- eyebrow + hero page title, mirroring the author's other dashboards ---- */
+.dm-eyebrow{
+  font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--blue); margin-bottom:.25rem;
+}
+.dm-pagetitle{
+  font-size:2.05rem; font-weight:800; letter-spacing:-0.02em; margin:0 0 .3rem 0; color:var(--ink);
+  line-height:1.15;
+}
+
+/* ---- colour-tag pills (status/category), same idiom as the author's other projects ---- */
+.dm-tag{
+  display:inline-flex; align-items:center; gap:.32rem; padding:.2rem .62rem; border-radius:999px;
+  font-size:.72rem; font-weight:700; letter-spacing:.02em; border:1px solid; margin-right:.4rem;
+  white-space:nowrap;
+}
+.dm-tag-dot{ width:6px; height:6px; border-radius:50%; background:currentColor; display:inline-block; }
+.dm-tag-green{ background:#E8F8ED; color:#1E7B34; border-color:#BEEACB; }
+.dm-tag-red{ background:#FDEBEA; color:#C41E1E; border-color:#F8C9C6; }
+.dm-tag-orange{ background:#FFF3E0; color:#B25E00; border-color:#FFDDA8; }
+.dm-tag-gray{ background:#F0F0F2; color:#6E6E73; border-color:#E5E5EA; }
+.dm-tag-blue{ background:#EAF2FE; color:#0058C6; border-color:#C7DFFB; }
 
 /* ---- cards / callouts ---- */
 .dm-card{
@@ -135,17 +171,36 @@ def band(pct):
     if pct >= 80.0: return "Moderate", "#B8860B"
     return "Low", "#34C759"
 
-# ---------------------------------------------------------------- header
+def tag(text, color="gray"):
+    return f'<span class="dm-tag dm-tag-{color}"><span class="dm-tag-dot"></span>{text}</span>'
+
+def page_header(eyebrow, title, caption=None):
+    st.markdown(f'<div class="dm-eyebrow">{eyebrow}</div><div class="dm-pagetitle">{title}</div>',
+                unsafe_allow_html=True)
+    if caption:
+        st.caption(caption)
+
+# ---------------------------------------------------------------- masthead + stat band
+# Everything lives in one in-flow block (no sidebar, nothing sticky) so it never fights
+# Streamlit's own toolbar/header chrome for the same space. Only bleeds left/right, never up.
 st.markdown(f"""
-<div class="dm-header">
+<div class="dm-masthead">
   <div class="dm-header-row">
     <div>
       <div class="dm-brand">⚠️ Bursa <span>Distress</span> Monitor</div>
-      <div class="dm-tagline">RL early-warning prototype for PN17/GN3 classification · Chapter 4.8 artefact (RQ4)</div>
+      <div class="dm-tagline">RL early-warning prototype for PN17/GN3 classification · Chapter 4.8 artefact (RQ4)
+      · {PROJECT_CODE}</div>
     </div>
-    <div style="text-align:right;font-size:.78rem;color:var(--ink-soft);">
-      {PROJECT_CODE}<br>{len(wl):,} companies monitored · {card['watchlist_flagged']} currently flagged
-    </div>
+  </div>
+</div>
+<div class="dm-statband">
+  <div class="dm-header-stats">
+    <div class="dm-stat"><b>{len(wl):,}</b><span>companies monitored</span></div>
+    <div class="dm-stat"><b>{card['watchlist_flagged']}</b><span>currently flagged</span></div>
+  </div>
+  <div class="dm-stat-note">
+    {tag(f"{card['watchlist_flagged_true']} genuine", "green")}{tag(f"{card['watchlist_flagged_false']} false alarms", "orange")}
+    flags are a prompt to look, not a conclusion.
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -163,28 +218,11 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# sidebar kept for quick stats only — nav now lives in the header above
-st.sidebar.title("⚠️ Distress Monitor")
-st.sidebar.caption("Bursa Malaysia · PN17/GN3 early-warning prototype")
-st.sidebar.metric("Companies monitored", f"{card['watchlist_companies']:,}")
-st.sidebar.metric("Currently flagged", card['watchlist_flagged'])
-st.sidebar.caption(
-    f"Of the {card['watchlist_flagged']} companies flagged, {card['watchlist_flagged_true']} are genuinely "
-    f"PN17/GN3-classified and {card['watchlist_flagged_false']} are not. **This model produces false alarms — "
-    "flags are a prompt to look, not a conclusion.**"
-)
-st.sidebar.markdown("---")
-st.sidebar.caption(f"**{PROJECT_TITLE}**")
-st.sidebar.caption(PROJECT_CODE)
-st.sidebar.caption(" · ".join(TEAM))
-
 # ================================================================ 1. SECTOR
 if view == "Sector risk overview":
-    st.title("Sector risk overview")
-    st.caption(
+    page_header("Risk monitoring", "Sector risk overview",
         "Model risk score aggregated by sector, across each company's most recent reported period. "
-        "Use this to decide where to look first — not as a verdict on any sector."
-    )
+        "Use this to decide where to look first — not as a verdict on any sector.")
 
     o1, o2 = st.columns([2, 3])
     with o1:
@@ -243,8 +281,8 @@ if view == "Sector risk overview":
 
 # ================================================================ 2. RANKING
 elif view == "At-risk company ranking":
-    st.title("At-risk company ranking")
-    st.caption("Every monitored company, ranked by model risk score on its most recent reported period.")
+    page_header("Company watchlist", "At-risk company ranking",
+        "Every monitored company, ranked by model risk score on its most recent reported period.")
 
     c1, c2, c3, c4 = st.columns([2, 2, 1.4, 1])
     with c1:
@@ -290,7 +328,7 @@ elif view == "At-risk company ranking":
 
 # ================================================================ 3. DRILL-DOWN
 elif view == "Company drill-down":
-    st.title("Company drill-down")
+    page_header("Explainability", "Company drill-down")
     default = int(np.where(wl['rank'].values == wl['rank'].min())[0][0])
     name = st.selectbox("Select a company", wl.sort_values('rank')['company_name'].tolist(), index=default)
     row = wl[wl['company_name'] == name].iloc[0]
@@ -301,11 +339,15 @@ elif view == "Company drill-down":
     b.metric("Risk score", f"{row['risk_score']:.2f}", f"flag threshold {card['threshold']:.2f}", delta_color="off")
     c.metric("Percentile", f"{row['risk_percentile']:.1f}")
     d.metric("Model action", "FLAG" if row['flagged'] else "No flag")
+    band_color = {"Elevated": "red", "Watch": "orange", "Moderate": "gray", "Low": "green"}[lab]
+    status_color = {"Currently PN17/GN3": "red", "Previously classified": "orange",
+                     "No classification on record": "gray"}.get(row['known_status'], "gray")
     st.markdown(
         f"<div class='dm-card' style='border-left:5px solid {colr};'>"
         f"<b>{name}</b> ({row['ticker'] if pd.notna(row['ticker']) else '—'}) · {row['sector']} · "
-        f"period ending {row['period_end']}<br><b style='color:{colr}'>{lab} risk</b> · "
-        f"Known status: {row['known_status']}</div>", unsafe_allow_html=True)
+        f"period ending {row['period_end']}<br><br>"
+        f"{tag(lab + ' risk', band_color)}{tag(row['known_status'], status_color)}</div>",
+        unsafe_allow_html=True)
     st.write("")
 
     left, right = st.columns([3, 2])
@@ -359,8 +401,8 @@ elif view == "Company drill-down":
 
 # ================================================================ 4. TRENDS
 elif view == "Indicator trends":
-    st.title("Indicator trends")
-    st.caption("Compare a financial indicator over time across companies.")
+    page_header("Trend analysis", "Indicator trends",
+        "Compare a financial indicator over time across companies.")
     c1, c2 = st.columns([2, 3])
     with c1:
         ind = st.selectbox("Indicator", list(PRETTY.keys()), format_func=lambda x: PRETTY[x])
@@ -389,11 +431,9 @@ elif view == "Indicator trends":
 
 # ================================================================ 5. MODEL PERFORMANCE
 elif view == "Model performance":
-    st.title("Model performance")
-    st.caption(
+    page_header("Model evaluation", "Model performance",
         "Full evaluation of the calibrated one-step DQN on held-out 2025+ test data — the same numbers "
-        "reported in Chapter 4 of the write-up, computed live by the same script that builds this dashboard."
-    )
+        "reported in Chapter 4 of the write-up, computed live by the same script that builds this dashboard.")
 
     m1, m2, m3 = st.columns(3)
     m1.metric("ROC-AUC", f"{metrics['roc_auc']:.3f}")
@@ -484,7 +524,7 @@ elif view == "Model performance":
 
 # ================================================================ 6. ABOUT & METHODOLOGY
 else:
-    st.title("About & methodology")
+    page_header("Project overview", "About & methodology")
 
     st.markdown(f"""
 <div class="dm-card">
