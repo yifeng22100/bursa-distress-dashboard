@@ -109,7 +109,7 @@ DM.renderers.comparison = function (el) {
 
       <div class="dm-panel">
         <div class="dm-panel-title">What's driving each score</div>
-        <div class="dm-card-grid" style="grid-template-columns:repeat(${names.length},1fr);" id="cmp-shap"></div>
+        <div class="dm-card-grid" style="grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));" id="cmp-shap"></div>
       </div>
     `;
 
