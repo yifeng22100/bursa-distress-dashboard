@@ -11,8 +11,8 @@ o.add_argument("--force-device-scale-factor=2"); o.add_argument("--hide-scrollba
 d = webdriver.Chrome(options=o)
 try:
     d.get("http://localhost:8501"); time.sleep(9)
-    views = [(0,"4_8a_sector"),(1,"4_8b_ranking"),(2,"4_8c_drilldown"),(3,"4_8d_trends"),
-              (4,"4_8e_performance"),(5,"4_8f_about")]
+    views = [(0,"4_8a_sector"),(1,"4_8b_ranking"),(2,"4_8c_drilldown"),(3,"4_8d_comparison"),
+              (4,"4_8e_trends"),(5,"4_8f_performance"),(6,"4_8g_about")]
     for idx,name in views:
         d.execute_script(f"document.querySelectorAll('input[type=radio]')[{idx}].click();")
         time.sleep(6)

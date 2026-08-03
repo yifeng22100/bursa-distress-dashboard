@@ -163,9 +163,33 @@ def load():
     card = json.load(open(f"{DATA}/model_card.json"))
     gshap = json.load(open(f"{DATA}/global_shap.json"))
     metrics = json.load(open(f"{DATA}/model_metrics.json"))
-    return wl, sec, hist, rh, shap_df, card, gshap, metrics
+    weights = json.load(open(f"{DATA}/model_weights.json"))
+    try:
+        changes = json.load(open(f"{DATA}/watchlist_changes.json"))
+    except FileNotFoundError:
+        changes = dict(newly_flagged=[], newly_cleared=[], had_previous_run=False)
+    return wl, sec, hist, rh, shap_df, card, gshap, metrics, weights, changes
 
-wl, sec, hist, rh, shap_df, card, gshap, metrics = load()
+wl, sec, hist, rh, shap_df, card, gshap, metrics, weights, changes = load()
+
+def mlp_forward(x):
+    """Pure-numpy replay of the frozen DQN's forward pass (weights exported to JSON so the
+    deployed app doesn't need a torch install just to run 3 matrix multiplies). Returns the
+    'flag' Q-value, the same quantity risk_score is throughout the rest of the app."""
+    h1 = np.maximum(0, x @ np.array(weights['w0']).T + np.array(weights['b0']))
+    h2 = np.maximum(0, h1 @ np.array(weights['w2']).T + np.array(weights['b2']))
+    out = h2 @ np.array(weights['w4']).T + np.array(weights['b4'])
+    return out[..., 2]
+
+def score_scenario(raw_values):
+    """raw_values: dict of the 8 base ratios (unscaled) plus their 8 year-on-year deltas,
+    in weights['feature_cols'] order. Applies the same robust median/IQR scaling used in
+    training before scoring."""
+    x = np.array([raw_values[c] for c in weights['feature_cols']], dtype=float)
+    med = np.array([weights['medians'][c] for c in weights['feature_cols']])
+    iqr = np.array([weights['iqr'][c] for c in weights['feature_cols']])
+    x = np.clip((x - med) / iqr, -weights['clip'], weights['clip'])
+    return float(mlp_forward(x))
 
 PRETTY = {
     'current_ratio': 'Current Ratio', 'quick_ratio': 'Quick Ratio', 'cash_ratio': 'Cash Ratio',
@@ -219,7 +243,7 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-NAV = ["Sector risk overview", "At-risk company ranking", "Company drill-down",
+NAV = ["Sector risk overview", "At-risk company ranking", "Company drill-down", "Company comparison",
        "Indicator trends", "Model performance", "About & methodology"]
 view = st.radio("Navigate", NAV, horizontal=True, label_visibility="collapsed")
 
@@ -229,6 +253,18 @@ st.markdown(f"""
   It flags companies for further human review and misses most distressed companies at its default
   threshold (recall {card['test_recall']:.0%} on held-out test data). Do not use it, alone or in
   combination with other information, to make investment, lending, or credit decisions.
+</div>
+""", unsafe_allow_html=True)
+
+if changes['had_previous_run'] and (changes['newly_flagged'] or changes['newly_cleared']):
+    bits = []
+    if changes['newly_flagged']:
+        bits.append(f"<b>{len(changes['newly_flagged'])} newly flagged</b>: " + ", ".join(changes['newly_flagged']))
+    if changes['newly_cleared']:
+        bits.append(f"<b>{len(changes['newly_cleared'])} cleared</b>: " + ", ".join(changes['newly_cleared']))
+    st.markdown(f"""
+<div class="dm-banner" style="background:#EAF2FE;border-color:#C7DFFB;color:#0058C6;">
+  🔔 <b>Since the last rebuild:</b> {" · ".join(bits)}.
 </div>
 """, unsafe_allow_html=True)
 
@@ -412,6 +448,118 @@ elif view == "Company drill-down":
                  hide_index=True, use_container_width=True)
     st.caption("Blank cells are genuinely missing in the source data, not zero. The model imputes these with the "
                "training-set median, which is itself a limitation (Chapter 5.4).")
+
+    ih_sorted = ih.reset_index(drop=True)
+    if len(ih_sorted):
+        with st.expander("What-if: explore this company's risk score"):
+            st.caption(
+                "Nudge this company's most recent indicators and see how the model's risk score reacts. "
+                "Runs the same frozen network used everywhere else in this dashboard, entirely in your "
+                "browser session — nothing is retrained, and nothing you enter here is saved."
+            )
+            latest_row = ih_sorted.iloc[-1]
+            prev_row = ih_sorted.iloc[-2] if len(ih_sorted) >= 2 else None
+            new_vals = {}
+            cols = st.columns(4)
+            for i, f in enumerate(base):
+                default = latest_row[f]
+                default = float(default) if pd.notna(default) else float(weights['medians'][f])
+                colvals = hist[f].dropna()
+                lo, hi = float(colvals.quantile(0.02)), float(colvals.quantile(0.98))
+                if lo >= hi:
+                    lo, hi = default - 1, default + 1
+                with cols[i % 4]:
+                    new_vals[f] = st.slider(PRETTY[f], min_value=lo, max_value=hi,
+                                             value=min(max(default, lo), hi), key=f"whatif_{f}")
+
+            scenario = {}
+            for f in base:
+                scenario[f] = new_vals[f]
+                prev_val = prev_row[f] if prev_row is not None else np.nan
+                scenario[f + '_delta'] = (new_vals[f] - prev_val) if pd.notna(prev_val) else np.nan
+            for c in weights['feature_cols']:
+                if c not in scenario or pd.isna(scenario.get(c, np.nan)):
+                    scenario[c] = weights['medians'][c]
+
+            new_score = score_scenario(scenario)
+            orig_score = float(row['risk_score'])
+            wc1, wc2, wc3 = st.columns(3)
+            wc1.metric("Original risk score", f"{orig_score:.2f}")
+            wc2.metric("What-if risk score", f"{new_score:.2f}", f"{new_score - orig_score:+.2f}")
+            new_flag = new_score > card['threshold']
+            wc3.metric("What-if model action", "FLAG" if new_flag else "No flag")
+            if new_flag != bool(row['flagged']):
+                st.warning("This scenario **flips the flag decision** relative to the company's actual latest data.")
+
+# ================================================================ COMPARISON
+elif view == "Company comparison":
+    page_header("Side-by-side view", "Company comparison",
+        "Put two to four companies next to each other — risk trajectory, current standing, and "
+        "what's driving each score.")
+
+    default_picks = wl.sort_values('rank')['company_name'].head(3).tolist()
+    picks = st.multiselect("Companies to compare (2–4)", wl.sort_values('rank')['company_name'].tolist(),
+                            default=default_picks, max_selections=4)
+
+    if len(picks) < 2:
+        st.info("Pick at least two companies to compare.")
+    else:
+        colors = ['#0071E3', '#FF3B30', '#34C759', '#FF9500']
+        cmp_cols = st.columns(len(picks))
+        for i, name in enumerate(picks):
+            r = wl[wl['company_name'] == name].iloc[0]
+            lab, colr = band(r['risk_percentile'])
+            band_color = {"Elevated": "red", "Watch": "orange", "Moderate": "gray", "Low": "green"}[lab]
+            with cmp_cols[i]:
+                st.markdown(f"""
+<div class="dm-card" style="border-top:4px solid {colors[i]};">
+<b>{name}</b><br><span style="color:var(--ink-soft);font-size:.82rem;">{r['sector']}</span><br><br>
+Rank <b>#{int(r['rank'])}</b> of {len(wl):,}<br>
+Score <b>{r['risk_score']:.2f}</b><br><br>
+{tag(lab + ' risk', band_color)}
+</div>""", unsafe_allow_html=True)
+
+        st.subheader("Risk score over time")
+        f = go.Figure()
+        for i, name in enumerate(picks):
+            h = rh[rh['company_name'] == name].sort_values('period_end')
+            f.add_trace(go.Scatter(x=h['period_end'], y=h['risk_score'], mode='lines+markers',
+                                    name=name, line=dict(color=colors[i], width=2)))
+        f.add_hline(y=card['threshold'], line_dash='dash', line_color='#6E6E73',
+                    annotation_text='Flag threshold', annotation_position='top left')
+        f.update_layout(height=420, margin=dict(l=0, r=0, t=10, b=0), yaxis_title="Risk score",
+                         legend=dict(orientation='h', y=1.12),
+                         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+        st.plotly_chart(f, use_container_width=True)
+
+        st.subheader("Indicator comparison")
+        ind = st.selectbox("Indicator", list(PRETTY.keys()), format_func=lambda x: PRETTY[x], key="cmp_ind")
+        f2 = px.line(hist[hist['company_name'].isin(picks)].sort_values('period_end'),
+                     x='period_end', y=ind, color='company_name', markers=True,
+                     color_discrete_sequence=colors, labels={'period_end': '', ind: PRETTY[ind], 'company_name': ''})
+        f2.update_layout(height=380, margin=dict(l=0, r=0, t=10, b=0), legend=dict(orientation='h', y=-0.2),
+                          plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+        st.plotly_chart(f2, use_container_width=True)
+
+        st.subheader("What's driving each score")
+        shap_cols = st.columns(len(picks))
+        for i, name in enumerate(picks):
+            srow = shap_df[shap_df['company_name'] == name]
+            with shap_cols[i]:
+                st.markdown(f"**{name}**")
+                if len(srow):
+                    s = srow.iloc[0].drop('company_name').astype(float)
+                    s.index = [j[5:] for j in s.index]
+                    s = s[s.abs() > 1e-9].sort_values(key=abs, ascending=False).head(5).sort_values()
+                    if len(s):
+                        f3 = go.Figure(go.Bar(
+                            x=s.values, y=[pretty(j) for j in s.index], orientation='h',
+                            marker_color=['#FF3B30' if v > 0 else '#34C759' for v in s.values]))
+                        f3.update_layout(height=220, margin=dict(l=0, r=0, t=10, b=0),
+                                          plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+                        st.plotly_chart(f3, use_container_width=True)
+                    else:
+                        st.caption("No feature moved this score materially.")
 
 # ================================================================ 4. TRENDS
 elif view == "Indicator trends":
