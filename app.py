@@ -26,22 +26,26 @@ st.set_page_config(page_title="Bursa Distress Monitor", page_icon="⚠️", layo
                     initial_sidebar_state="expanded")
 
 # ---------------------------------------------------------------- design system
-# Font: National (HBR's sans-serif) is a paid Commercial Type / Klim Type Foundry font, not
-# distributable as a web font without a licence this project doesn't hold -- same constraint as
-# Google Sans. It's listed first in case a viewer happens to have it installed locally, then
-# falls back to Inter, a free grotesque with very similar proportions and neutrality, loaded from
-# Google Fonts -- that's what almost every viewer will actually see.
+# Apple Human Interface Guidelines, light appearance (developer.apple.com/design/resources/):
+# -apple-system / BlinkMacSystemFont is Apple's own sanctioned mechanism for this -- on any
+# Apple device it resolves to the real San Francisco system font, no licence or download needed.
+# Inter is the fallback for non-Apple browsers: a free grotesque with similar neutral proportions.
+# Colours below are Apple's actual documented light-mode system colours (systemBlue, systemRed,
+# systemGreen, systemOrange, systemYellow, systemGray6...), not an approximation of them.
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 :root{
   --bg:#FFFFFF; --card:#FFFFFF; --ink:#1D1D1F; --ink-soft:#6E6E73;
-  --line:#E5E5EA; --blue:#0071E3; --red:#FF3B30; --orange:#FF9500;
-  --green:#34C759; --gold:#B8860B;
-  --primary-color:#0071E3;
+  /* --line and the fill-N tokens are Apple's own documented Light "Fill" overlay values (black at
+     10/8/5/3/2% opacity), taken from Apple's macOS UI Kit colour-variables file, not approximated. */
+  --line:rgba(0,0,0,.08); --fill-1:rgba(0,0,0,.1); --fill-3:rgba(0,0,0,.05); --fill-5:rgba(0,0,0,.02);
+  --blue:#007AFF; --red:#FF3B30; --orange:#FF9500;
+  --green:#34C759; --gold:#C28800;
+  --primary-color:#007AFF;
 }
 html, body, [class*="css"]{
-  font-family:"National","National 2",Inter,-apple-system,BlinkMacSystemFont,
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,
               "Helvetica Neue",Arial,sans-serif !important;
   color:var(--ink);
 }
@@ -58,7 +62,7 @@ html, body, [class*="css"]{
    masthead/stat-band strip is gone — this is now the single place branding and navigation live,
    closer to how Bloomberg/PitchBook-style analyst tools are actually laid out. ---- */
 section[data-testid="stSidebar"]{
-  background:#FAFAFB; border-right:1px solid var(--line);
+  background:#F2F2F7; border-right:1px solid var(--line);
 }
 /* Same Cloud-toolbar-overlay clearance issue as the main content area (see block-container
    above) applies to the sidebar's top edge too, since the overlay spans the full viewport width. */
@@ -80,9 +84,9 @@ section[data-testid="stSidebar"] div[role="radiogroup"] label{
   border-left:3px solid transparent; color:var(--ink-soft); font-weight:500; font-size:.92rem;
   transition:background .15s ease, color .15s ease;
 }
-section[data-testid="stSidebar"] div[role="radiogroup"] label:hover{ background:#EFEFF2; color:var(--ink); }
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover{ background:var(--fill-1); color:var(--ink); }
 section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked){
-  background:#EAF2FE; color:var(--blue); font-weight:700; border-left-color:var(--blue);
+  background:rgba(0,122,255,.12); color:var(--blue); font-weight:700; border-left-color:var(--blue);
 }
 section[data-testid="stSidebar"] div[role="radiogroup"] label > div:first-child{ display:none; }
 
@@ -214,7 +218,7 @@ def band(pct):
     """Translate a percentile into words. The raw Q-value means nothing to a non-technical user."""
     if pct >= 99.0: return "Elevated", "#FF3B30"
     if pct >= 95.0: return "Watch", "#FF9500"
-    if pct >= 80.0: return "Moderate", "#B8860B"
+    if pct >= 80.0: return "Moderate", "#C28800"
     return "Low", "#34C759"
 
 def tag(text, color="gray"):
@@ -368,7 +372,7 @@ elif view == "Sector risk overview":
            'flagged_pct': '% of companies flagged'}[metric]
     fig = px.bar(
         top, x=metric, y='sector', orientation='h',
-        color=metric, color_continuous_scale=['#34C759', '#B8860B', '#FF9500', '#FF3B30'],
+        color=metric, color_continuous_scale=['#34C759', '#C28800', '#FF9500', '#FF3B30'],
         labels={metric: lbl, 'sector': ''},
         hover_data={'companies': True, 'flagged': True, 'currently_distressed': True, metric: ':.2f'},
     )
@@ -498,7 +502,7 @@ elif view == "Company drill-down":
         if len(h):
             f = go.Figure()
             f.add_trace(go.Scatter(x=h['period_end'], y=h['risk_score'], mode='lines+markers', name='Risk score',
-                                   line=dict(color='#0071E3', width=2)))
+                                   line=dict(color='#007AFF', width=2)))
             f.add_hline(y=card['threshold'], line_dash='dash', line_color='#FF3B30',
                         annotation_text='Flag threshold', annotation_position='top left')
             dd = h[h['pn17_gn3_label'] == 1]
@@ -577,7 +581,7 @@ elif view == "Company comparison":
     if len(picks) < 2:
         st.info("Pick at least two companies to compare.")
     else:
-        colors = ['#0071E3', '#FF3B30', '#34C759', '#FF9500']
+        colors = ['#007AFF', '#FF3B30', '#34C759', '#FF9500']
         cmp_cols = st.columns(len(picks))
         for i, name in enumerate(picks):
             r = wl[wl['company_name'] == name].iloc[0]
@@ -693,7 +697,7 @@ elif view == "Model performance":
         st.subheader("ROC curve")
         f = go.Figure()
         f.add_trace(go.Scatter(x=metrics['roc_fpr'], y=metrics['roc_tpr'], mode='lines',
-                                name=f"DQN (AUC={metrics['roc_auc']:.3f})", line=dict(color='#0071E3', width=2.5)))
+                                name=f"DQN (AUC={metrics['roc_auc']:.3f})", line=dict(color='#007AFF', width=2.5)))
         f.add_trace(go.Scatter(x=[0, 1], y=[0, 1], mode='lines', name='Chance',
                                 line=dict(color='#C7C7CC', dash='dash')))
         f.add_trace(go.Scatter(x=[metrics['altman_point']['fpr']], y=[metrics['altman_point']['tpr']],
@@ -710,7 +714,7 @@ elif view == "Model performance":
         st.subheader("Precision–recall curve")
         f = go.Figure()
         f.add_trace(go.Scatter(x=metrics['pr_recall'], y=metrics['pr_precision'], mode='lines',
-                                name=f"DQN (AP={metrics['pr_auc']:.3f})", line=dict(color='#0071E3', width=2.5)))
+                                name=f"DQN (AP={metrics['pr_auc']:.3f})", line=dict(color='#007AFF', width=2.5)))
         f.add_trace(go.Scatter(x=[metrics['altman_point']['recall']], y=[metrics['altman_point']['precision']],
                                 mode='markers', name="Altman Z''-Score",
                                 marker=dict(color='#FF9500', size=12, symbol='diamond')))
@@ -726,7 +730,7 @@ elif view == "Model performance":
         z = [[cm['TN'], cm['FP']], [cm['FN'], cm['TP']]]
         f = go.Figure(go.Heatmap(
             z=z, x=['Pred: Healthy', 'Pred: Distressed'], y=['Actual: Healthy', 'Actual: Distressed'],
-            colorscale=[[0, '#F5F5F7'], [1, '#0071E3']], showscale=False,
+            colorscale=[[0, '#F5F5F7'], [1, '#007AFF']], showscale=False,
             text=z, texttemplate="%{text:,}", textfont=dict(size=18)))
         f.update_layout(height=320, margin=dict(l=0, r=0, t=10, b=0),
                          plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
