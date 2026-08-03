@@ -1,0 +1,28 @@
+{
+  "model": "Calibrated one-step DQN (RL_Model_v1/dqn_weights_v2_calibrated.pt)",
+  "config": {
+    "hidden": 16,
+    "lr": 0.001,
+    "factor": 10
+  },
+  "threshold": 6.256377577781677,
+  "feature_count": 16,
+  "excluded_feature": "net_income_margin (0.6% coverage in training splits vs 22.0% in test)",
+  "scaling": "robust median/IQR",
+  "labels": "PN17_GN3_Historical_Labels_v3.csv (reconciled against systematic 2020-2025 sweep)",
+  "test_rows": 1740,
+  "test_positives": 19,
+  "test_cost": 176,
+  "test_recall": 0.263,
+  "test_precision": 0.294,
+  "benchmark_altman_cost": 648,
+  "benchmark_altman_recall": 0.526,
+  "benchmark_altman_precision": 0.051,
+  "recall_matched_cost": 366,
+  "watchlist_companies": 1065,
+  "watchlist_flagged": 10,
+  "watchlist_flagged_true": 4,
+  "watchlist_flagged_false": 6,
+  "sectors": 54,
+  "generated_from": "RL_Model_v1/10_build_dashboard_data.py"
+}
