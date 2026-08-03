@@ -23,7 +23,7 @@ PROJECT_CODE = "PRJ5158 · MsBA Capstone II · Sunway Business School"
 TEAM = sorted(["Tan Yi Feng", "Jeremy Choong Ming", "Tan Yan Sheng"])
 
 st.set_page_config(page_title="Bursa Distress Monitor", page_icon="⚠️", layout="wide",
-                    initial_sidebar_state="collapsed")
+                    initial_sidebar_state="expanded")
 
 # ---------------------------------------------------------------- design system
 # Font: National (HBR's sans-serif) is a paid Commercial Type / Klim Type Foundry font, not
@@ -54,27 +54,37 @@ html, body, [class*="css"]{
    margin for safety, not a measurement -- there is no way to do better from inside the iframe. */
 .block-container{ max-width:1200px; padding-top:4.5rem !important; }
 
-/* ---- masthead + nav: one continuous flat bar, plain-text underline nav — matches the
-   author's other dashboards (hospital-intelligence-my, malaysia-election-sentiment) rather
-   than the boxed-pill segmented control used in the first draft ---- */
-.dm-masthead{
-  background:var(--card); border-bottom:1px solid var(--line);
-  margin:0 -1rem 0 -1rem; padding:1.1rem 1.6rem .7rem 1.6rem;
+/* ---- sidebar: brand + vertical nav + quick stats, replacing the old top nav bar. The top
+   masthead/stat-band strip is gone — this is now the single place branding and navigation live,
+   closer to how Bloomberg/PitchBook-style analyst tools are actually laid out. ---- */
+section[data-testid="stSidebar"]{
+  background:#FAFAFB; border-right:1px solid var(--line);
 }
-.dm-header-row{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.9rem 1.6rem;}
-.dm-brand{ font-size:1.4rem; font-weight:900; letter-spacing:-0.01em; color:var(--ink); }
-.dm-brand span{ color:var(--blue); }
-.dm-tagline{ font-size:.8rem; color:var(--ink-soft); margin-top:.1rem; }
-.dm-statband{
-  background:#F7F7F8; border-bottom:1px solid var(--line);
-  margin:0 -1rem 1.4rem -1rem; padding:.85rem 1.6rem; display:flex; align-items:center;
-  justify-content:space-between; flex-wrap:wrap; gap:.7rem 1.6rem;
+/* Same Cloud-toolbar-overlay clearance issue as the main content area (see block-container
+   above) applies to the sidebar's top edge too, since the overlay spans the full viewport width. */
+section[data-testid="stSidebar"] div[data-testid="stSidebarContent"],
+section[data-testid="stSidebar"] > div:first-child{ padding-top:2rem; }
+.dm-sb-brand{ font-size:1.15rem; font-weight:900; letter-spacing:-0.01em; color:var(--ink); margin-bottom:.15rem; }
+.dm-sb-brand span{ color:var(--blue); }
+.dm-sb-tagline{ font-size:.74rem; color:var(--ink-soft); line-height:1.4; margin-bottom:1.1rem; }
+.dm-sb-stats{ display:flex; gap:1rem; margin:.9rem 0 .6rem 0; }
+.dm-sb-stat b{ font-size:1.3rem; font-weight:700; color:var(--ink); display:block; line-height:1.1; }
+.dm-sb-stat span{ font-size:.68rem; color:var(--ink-soft); }
+.dm-sb-note{ font-size:.7rem; color:var(--ink-soft); line-height:1.4; margin-top:.4rem; }
+
+/* Sidebar nav: a clean vertical list, not a radio group — no dot, full-width rows, a left
+   accent bar and tinted background on the active item. */
+section[data-testid="stSidebar"] div[role="radiogroup"]{ gap:.1rem; flex-direction:column; }
+section[data-testid="stSidebar"] div[role="radiogroup"] label{
+  background:none; border-radius:8px; padding:.5rem .6rem; margin:0; width:100%;
+  border-left:3px solid transparent; color:var(--ink-soft); font-weight:500; font-size:.92rem;
+  transition:background .15s ease, color .15s ease;
 }
-.dm-header-stats{ display:flex; align-items:center; gap:1.4rem; }
-.dm-stat{ text-align:right; line-height:1.15; }
-.dm-stat b{ font-size:1.5rem; font-weight:700; color:var(--ink); display:block; }
-.dm-stat span{ font-size:.72rem; color:var(--ink-soft); }
-.dm-stat-note{ max-width:260px; font-size:.72rem; color:var(--ink-soft); line-height:1.35; text-align:left; }
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover{ background:#EFEFF2; color:var(--ink); }
+section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked){
+  background:#EAF2FE; color:var(--blue); font-weight:700; border-left-color:var(--blue);
+}
+section[data-testid="stSidebar"] div[role="radiogroup"] label > div:first-child{ display:none; }
 
 /* ---- eyebrow + hero page title, mirroring the author's other dashboards ---- */
 .dm-eyebrow{
@@ -123,31 +133,22 @@ html, body, [class*="css"]{
 .dm-footer b{ color:var(--ink); }
 
 /* ---- metrics polish ---- */
+/* stMetricValue's default font-size is large enough that 3+ metric columns in the main content
+   area (now narrower, since the sidebar takes ~300px) clip to an ellipsis -- e.g. "99.0%" showing
+   as "99...". Capping the font-size and letting it wrap instead of truncate fixes this everywhere
+   metrics are used, rather than patching each page's column count individually. */
 [data-testid="stMetric"]{
   background:var(--card); border:1px solid var(--line); border-radius:14px;
   padding:.7rem .9rem; box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
 [data-testid="stMetricLabel"]{ color:var(--ink-soft); }
+[data-testid="stMetricValue"]{
+  font-size:1.65rem !important; white-space:normal !important; overflow:visible !important;
+  text-overflow:clip !important;
+}
 
 /* ---- dataframe / table corners ---- */
 [data-testid="stDataFrame"]{ border-radius:14px; overflow:hidden; border:1px solid var(--line); }
-
-/* ---- top nav: plain-text underline links, not boxed pills — matches the author's other
-   dashboards, whose nav bars are flat text menus with an underline on the active item ---- */
-div[data-testid="stRadio"]{
-  margin:0 -1rem 0 -1rem; padding:0 1.6rem; border-bottom:1px solid var(--line); background:var(--card);
-}
-div[role="radiogroup"]{ gap:0; flex-wrap:wrap; }
-div[role="radiogroup"] label{
-  background:none; border-radius:0; padding:.75rem .1rem; margin:0 1.3rem 0 0;
-  border-bottom:2px solid transparent; transition:color .15s ease, border-color .15s ease;
-  color:var(--ink-soft); font-weight:500;
-}
-div[role="radiogroup"] label:hover{ background:none; color:var(--ink); }
-div[role="radiogroup"] label:has(input:checked){
-  color:var(--blue); font-weight:700; border-bottom-color:var(--blue);
-}
-div[role="radiogroup"] label > div:first-child{ display:none; }
 
 /* ---- buttons ---- */
 .stButton>button, .stDownloadButton>button{
@@ -225,31 +226,7 @@ def page_header(eyebrow, title, caption=None):
     if caption:
         st.caption(caption)
 
-# ---------------------------------------------------------------- masthead + stat band
-# Everything lives in one in-flow block (no sidebar, nothing sticky) so it never fights
-# Streamlit's own toolbar/header chrome for the same space. Only bleeds left/right, never up.
-st.markdown(f"""
-<div class="dm-masthead">
-  <div class="dm-header-row">
-    <div>
-      <div class="dm-brand">⚠️ Bursa <span>Distress</span> Monitor</div>
-      <div class="dm-tagline">RL early-warning prototype for PN17/GN3 classification · Chapter 4.8 artefact (RQ4)
-      · {PROJECT_CODE}</div>
-    </div>
-  </div>
-</div>
-<div class="dm-statband">
-  <div class="dm-header-stats">
-    <div class="dm-stat"><b>{len(wl):,}</b><span>companies monitored</span></div>
-    <div class="dm-stat"><b>{card['watchlist_flagged']}</b><span>currently flagged</span></div>
-  </div>
-  <div class="dm-stat-note">
-    {tag(f"{card['watchlist_flagged_true']} genuine", "green")}{tag(f"{card['watchlist_flagged_false']} false alarms", "orange")}
-    flags are a prompt to look, not a conclusion.
-  </div>
-</div>
-""", unsafe_allow_html=True)
-
+# ---------------------------------------------------------------- sidebar: brand + nav + stats
 NAV = ["Welcome", "Sector risk overview", "At-risk company ranking", "Company drill-down",
        "Company comparison", "Indicator trends", "Model performance", "About & methodology"]
 # A widget's session_state key can't be reassigned after that widget has run this script pass,
@@ -259,7 +236,22 @@ if "nav_request" in st.session_state:
     st.session_state["nav"] = st.session_state.pop("nav_request")
 if "nav" not in st.session_state:
     st.session_state["nav"] = "Welcome"
-view = st.radio("Navigate", NAV, horizontal=True, label_visibility="collapsed", key="nav")
+
+with st.sidebar:
+    st.markdown(f"""
+<div class="dm-sb-brand">⚠️ Bursa <span>Distress</span> Monitor</div>
+<div class="dm-sb-tagline">RL early-warning prototype for PN17/GN3 classification · Chapter 4.8
+artefact (RQ4)<br>{PROJECT_CODE}</div>
+""", unsafe_allow_html=True)
+    view = st.radio("Navigate", NAV, label_visibility="collapsed", key="nav")
+    st.markdown(f"""
+<div class="dm-sb-stats">
+  <div class="dm-sb-stat"><b>{len(wl):,}</b><span>companies monitored</span></div>
+  <div class="dm-sb-stat"><b>{card['watchlist_flagged']}</b><span>currently flagged</span></div>
+</div>
+{tag(f"{card['watchlist_flagged_true']} genuine", "green")}{tag(f"{card['watchlist_flagged_false']} false alarms", "orange")}
+<div class="dm-sb-note">Flags are a prompt to look, not a conclusion.</div>
+""", unsafe_allow_html=True)
 
 def goto(tab_name, key):
     if st.button(f"Open {tab_name} →", key=key):
@@ -295,19 +287,17 @@ if view == "Welcome":
         "artefact, not a trading or lending tool.")
 
     st.subheader("Who this is for")
-    w1, w2, w3 = st.columns(3)
-    with w1:
-        st.markdown("""**📈 Investors & analysts**
-A triage aid for deciding which of 1,065 companies to look at first — not a buy/sell signal, and
-not a substitute for reading the actual financials.""")
-    with w2:
-        st.markdown("""**🏦 Credit & risk teams**
-A second opinion alongside the Altman Z''-Score, with every flag traceable to the specific
-indicators that drove it (SHAP), so it can be argued for or against in a credit file.""")
-    with w3:
-        st.markdown("""**🎓 Students & RL enthusiasts**
-A worked, honestly-reported example of applying reinforcement learning to a real, small,
-severely imbalanced dataset — including what didn't work and why.""")
+    st.markdown("""
+<div class="dm-card">📈 <b>Investors & analysts.</b> A triage aid for deciding which of 1,065
+companies to look at first — not a buy/sell signal, and not a substitute for reading the actual
+financials.</div>
+<div class="dm-card">🏦 <b>Credit & risk teams.</b> A second opinion alongside the Altman
+Z''-Score, with every flag traceable to the specific indicators that drove it (SHAP), so it can
+be argued for or against in a credit file.</div>
+<div class="dm-card">🎓 <b>Students & RL enthusiasts.</b> A worked, honestly-reported example of
+applying reinforcement learning to a real, small, severely imbalanced dataset — including what
+didn't work and why.</div>
+""", unsafe_allow_html=True)
 
     st.markdown("""
 <div class="dm-banner" style="background:#FFF7ED;border-color:#FFE0B2;color:#7A4A00;">
@@ -370,27 +360,28 @@ elif view == "Sector risk overview":
     view_sec = sec[sec['companies'] >= min_n].copy()
     hidden = sec[sec['companies'] < min_n]
 
-    c1, c2 = st.columns([3, 2])
-    with c1:
-        top = view_sec.nlargest(15, metric).sort_values(metric)
-        lbl = {'median_risk': 'Median risk score', 'mean_risk': 'Mean risk score',
-               'flagged_pct': '% of companies flagged'}[metric]
-        fig = px.bar(
-            top, x=metric, y='sector', orientation='h',
-            color=metric, color_continuous_scale=['#34C759', '#B8860B', '#FF9500', '#FF3B30'],
-            labels={metric: lbl, 'sector': ''},
-            hover_data={'companies': True, 'flagged': True, 'currently_distressed': True, metric: ':.2f'},
-        )
-        fig.update_layout(height=520, coloraxis_showscale=False, margin=dict(l=0, r=0, t=10, b=0),
-                           plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
-        st.plotly_chart(fig, use_container_width=True)
-    with c2:
-        st.subheader("Highest-risk sectors")
-        short = {'median_risk': 'Median', 'mean_risk': 'Mean', 'flagged_pct': '% flagged'}[metric]
-        show = view_sec.nlargest(15, metric)[['sector', 'companies', metric, 'currently_distressed']]
-        show.columns = ['Sector', 'Cos.', short, 'PN17']
-        st.dataframe(show.style.format({short: '{:.2f}'}), hide_index=True,
-                     use_container_width=True, height=520)
+    # Stacked, not side-by-side: this horizontal bar chart's long sector-name labels blow past
+    # Plotly's auto-margin at the narrower widths this main content area now has (since the
+    # sidebar takes ~300px) and overlapped whatever sat in the column beside it.
+    top = view_sec.nlargest(15, metric).sort_values(metric)
+    lbl = {'median_risk': 'Median risk score', 'mean_risk': 'Mean risk score',
+           'flagged_pct': '% of companies flagged'}[metric]
+    fig = px.bar(
+        top, x=metric, y='sector', orientation='h',
+        color=metric, color_continuous_scale=['#34C759', '#B8860B', '#FF9500', '#FF3B30'],
+        labels={metric: lbl, 'sector': ''},
+        hover_data={'companies': True, 'flagged': True, 'currently_distressed': True, metric: ':.2f'},
+    )
+    fig.update_layout(height=520, coloraxis_showscale=False, margin=dict(l=10, r=10, t=10, b=10),
+                       plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.subheader("Highest-risk sectors")
+    short = {'median_risk': 'Median', 'mean_risk': 'Mean', 'flagged_pct': '% flagged'}[metric]
+    show = view_sec.nlargest(15, metric)[['sector', 'companies', metric, 'currently_distressed']]
+    show.columns = ['Sector', 'Cos.', short, 'PN17']
+    st.dataframe(show.style.format({short: '{:.2f}'}), hide_index=True,
+                 use_container_width=True, height=520)
 
     st.info(
         f"**Why median, and why a minimum size.** A sector's *mean* risk is easily dominated by one or two extreme "
@@ -413,14 +404,16 @@ elif view == "At-risk company ranking":
     page_header("Company watchlist", "At-risk company ranking",
         "Every monitored company, ranked by model risk score on its most recent reported period.")
 
-    c1, c2, c3, c4 = st.columns([2, 2, 1.4, 1])
+    c1, c2 = st.columns(2)
     with c1:
         secs = st.multiselect("Filter by sector", sorted(wl['sector'].unique()))
     with c2:
         stat = st.multiselect("Filter by known status", sorted(wl['known_status'].unique()))
+    c3, c4 = st.columns([3, 1])
     with c3:
         search = st.text_input("Search company name", placeholder="e.g. Sentoria")
     with c4:
+        st.write("")
         only_flagged = st.checkbox("Flagged only", value=False)
 
     v = wl.copy()
@@ -463,9 +456,10 @@ elif view == "Company drill-down":
     row = wl[wl['company_name'] == name].iloc[0]
     lab, colr = band(row['risk_percentile'])
 
-    a, b, c, d = st.columns(4)
+    a, b = st.columns(2)
     a.metric("Risk rank", f"#{int(row['rank'])}", f"of {len(wl):,}", delta_color="off")
     b.metric("Risk score", f"{row['risk_score']:.2f}", f"flag threshold {card['threshold']:.2f}", delta_color="off")
+    c, d = st.columns(2)
     c.metric("Percentile", f"{row['risk_percentile']:.1f}")
     d.metric("Model action", "FLAG" if row['flagged'] else "No flag")
     band_color = {"Elevated": "red", "Watch": "orange", "Moderate": "gray", "Low": "green"}[lab]
@@ -782,19 +776,15 @@ else:
     )
 
     st.subheader("What this dashboard does")
-    f1, f2, f3 = st.columns(3)
-    with f1:
-        st.markdown("""**🔎 Monitor**
-Every listed company is scored on its most recent reported financials and ranked by model risk score,
-sector-by-sector or company-by-company.""")
-    with f2:
-        st.markdown("""**🧠 Explain**
-Each flag is backed by a per-company SHAP breakdown showing exactly which indicators — and which
-year-on-year changes — pushed the score up or down.""")
-    with f3:
-        st.markdown("""**📊 Evaluate**
-The Model Performance page reports ROC-AUC, PR-AUC, F1, confusion matrix, and a like-for-like comparison
-against every RL variant trained in this project and the Altman benchmark.""")
+    st.markdown("""
+<div class="dm-card">🔎 <b>Monitor.</b> Every listed company is scored on its most recent reported
+financials and ranked by model risk score, sector-by-sector or company-by-company.</div>
+<div class="dm-card">🧠 <b>Explain.</b> Each flag is backed by a per-company SHAP breakdown showing
+exactly which indicators — and which year-on-year changes — pushed the score up or down.</div>
+<div class="dm-card">📊 <b>Evaluate.</b> The Model Performance page reports ROC-AUC, PR-AUC, F1,
+confusion matrix, and a like-for-like comparison against every RL variant trained in this project
+and the Altman benchmark.</div>
+""", unsafe_allow_html=True)
 
     st.subheader("Methodology, briefly")
     st.markdown(

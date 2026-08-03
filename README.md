@@ -1,11 +1,12 @@
 # Bursa Distress Monitor — Chapter 4.8 artefact (RQ4)
 
-Interactive, Apple-styled monitoring dashboard presenting the calibrated DQN's distress risk
-scores for 1,065 Bursa Malaysia companies. This is the artefact deliverable answering RQ4.
+Interactive monitoring dashboard presenting the calibrated DQN's distress risk scores for 1,065
+Bursa Malaysia companies, with a left-sidebar-nav layout and a landing page that orients a
+first-time visitor. This is the artefact deliverable answering RQ4.
 
 **A Reinforcement Learning Approach to Corporate Financial Distress Prediction — Feature
 Importance Analysis of Bursa Malaysia Listed Companies** (PRJ5158, MsBA Capstone II, Sunway
-Business School). Team: Tan Yi Feng, Jeremy Choong Ming, Tan Yan Sheng.
+Business School). Team: Jeremy Choong Ming, Tan Yan Sheng, Tan Yi Feng.
 
 ## Run it
 
@@ -78,22 +79,37 @@ silent otherwise (first run, or no change).
 
 ## Design
 
-Modelled on the author's other two dashboards (hospital-intelligence-my, malaysia-election-sentiment):
-a flat white masthead + light-gray stat band (both full-bleed, bottom-border only, no card shadow),
-a plain-text nav with a blue underline on the active item, small uppercase blue "eyebrow" labels
-above each page's bold hero title, and colour-tag pills (green/orange/red/gray, dot + caps text) for
-status/category instead of plain text. Font stack tries `"National"` first (HBR's sans-serif — a
-paid Klim Type Foundry / Commercial Type font this project holds no licence for, so almost no
-viewer will actually have it) then falls back to Inter, a free grotesque with similar proportions,
-loaded via Google Fonts. A persistent disclaimer banner sits under the nav on every page, and a
-footer on every page cites the project title, team, data sources, and disclaimer.
+Navigation is a persistent **left sidebar** (brand, vertical nav list with a tinted/left-accent
+active state, quick stats) rather than a top tab row — closer to how analyst tools like Bloomberg
+Terminal or PitchBook are actually laid out, and it scales better now that there are 8 views (the
+original top-tab row wrapped to two lines). The visual language inside the main content area keeps
+the "consumer app" direction from the author's other two dashboards (hospital-intelligence-my,
+malaysia-election-sentiment): bold hero titles with a small uppercase blue "eyebrow" label above
+each, colour-tag pills (green/orange/red/gray, dot + caps text) for status/category instead of
+plain text, and thin-border cards. Multi-column prose sections (e.g. "Who this is for") are
+stacked full-width cards rather than `st.columns`, since 3-wide text columns cramp badly once the
+sidebar takes ~300px off the main content width. Font stack tries `"National"` first (HBR's
+sans-serif — a paid Klim Type Foundry / Commercial Type font this project holds no licence for, so
+almost no viewer will actually have it) then falls back to Inter, a free grotesque with similar
+proportions, loaded via Google Fonts. A persistent disclaimer banner sits above the page content on
+every view, and a footer cites the project title, team, data sources, and disclaimer.
 
 **Known platform limitation.** Streamlit Community Cloud renders the deployed app inside a
 cross-origin iframe and draws its own "Fork / GitHub / menu" toolbar *over* that iframe from the
 parent page. The app's CSS/JS has no access to that parent frame — it cannot detect the toolbar's
-height, hide it, or move it. `.block-container`'s `padding-top` is set to a fixed, generously-sized
-clearance (`4.5rem`) as a guess with margin for safety, not a measurement; if the masthead ever
-looks covered again after a Streamlit Cloud UI change, this is the value to increase.
+height, hide it, or move it. Both `.block-container`'s and the sidebar's `padding-top` are set to a
+fixed, generously-sized clearance as a guess with margin for safety, not a measurement; if the
+masthead or sidebar brand ever looks covered again after a Streamlit Cloud UI change, these are the
+values to increase.
+
+**A note on narrow-width bugs.** Moving to a sidebar shrank the main content area by ~300px, which
+surfaced several genuine rendering bugs that a wider layout had been masking: `st.metric` values
+clipping to an ellipsis (fixed with a capped font-size), a checkbox label wrapping one letter per
+line (fixed by rebalancing the filter row's columns), and — the most serious — a horizontal bar
+chart's long y-axis labels overflowing Plotly's auto-margin past its column boundary and visually
+overlapping the table next to it (fixed by stacking the chart and table vertically instead of
+side-by-side). All three were found by actually clicking through every view at the new width, not
+assumed fixed from one screenshot.
 
 ## Design principles
 
