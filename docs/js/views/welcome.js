@@ -55,12 +55,18 @@ DM.renderers.welcome = function (el) {
       `).join('')}
     </div>
 
-    <div style="max-width:820px;margin:0 auto;">
-      <h3 class="dm-section-gap">Who this is for</h3>
-      ${who.map(([icon, title, desc]) => `
-        <div class="dm-card">${icon} <b>${title}</b> ${desc}</div>
-      `).join('')}
+    <h3 class="dm-section-gap">Who this is for</h3>
+    <div class="dm-carousel">
+      <button class="dm-carousel-arrow left" id="who-prev" aria-label="Previous">‹</button>
+      <div class="dm-carousel-track" id="who-track">
+        ${who.map(([icon, title, desc]) => `
+          <div class="dm-card">${icon} <b>${title}</b> ${desc}</div>
+        `).join('')}
+      </div>
+      <button class="dm-carousel-arrow right" id="who-next" aria-label="Next">›</button>
+    </div>
 
+    <div style="max-width:820px;margin:0 auto;">
       <div class="dm-banner dm-banner-disclaimer">
         ⚠️ Read this before anything else: this model catches only about ${DM.fmtPct(card.test_recall, 0)}
         of genuinely distressed companies at its default setting, and every flag needs human judgement.
@@ -105,4 +111,9 @@ DM.renderers.welcome = function (el) {
   });
 
   el.querySelector('.dm-cta-btn').addEventListener('click', (e) => DM.goto(e.currentTarget.dataset.goto));
+
+  const whoTrack = el.querySelector('#who-track');
+  const cardWidth = () => whoTrack.firstElementChild.getBoundingClientRect().width + 20;
+  el.querySelector('#who-prev').addEventListener('click', () => whoTrack.scrollBy({ left: -cardWidth(), behavior: 'smooth' }));
+  el.querySelector('#who-next').addEventListener('click', () => whoTrack.scrollBy({ left: cardWidth(), behavior: 'smooth' }));
 };

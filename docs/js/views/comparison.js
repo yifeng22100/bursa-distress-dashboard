@@ -1,8 +1,9 @@
 DM.renderers.comparison = function (el) {
   const { wl, rh, hist, shap, card } = DM.data;
   const COLORS = ['#0071E3', '#FF3B30', '#34C759', '#FF9500'];
+  const SLOTS = 4;
   const sortedNames = [...wl].sort((a, b) => a.rank - b.rank).map(r => r.company_name);
-  let picks = sortedNames.slice(0, 3);
+  let picks = [sortedNames[0], sortedNames[1], sortedNames[2], undefined];
   let indicator = 'current_ratio';
 
   el.innerHTML = `
@@ -11,31 +12,86 @@ DM.renderers.comparison = function (el) {
     <p class="dm-page-caption">Put two to four companies next to each other — risk trajectory, current
     standing, and what's driving each score.</p>
 
-    <div class="dm-toolbar">
-      <div class="dm-field" style="margin-bottom:0;">
-        <label class="dm-label">Companies to compare (2–4)</label>
-        <div id="cmp-picker"></div>
-      </div>
+    <div class="dm-panel">
+      <div class="dm-panel-title">Compare companies</div>
+      <p class="dm-caption" style="margin:-.6rem 0 1.3rem 0;">Add 2 to 4 companies below, or start from any
+      company's <b>Drill-down</b> page.</p>
+      <div class="dm-slotrow" id="cmp-slots"></div>
     </div>
 
     <div id="cmp-body"></div>
   `;
 
-  const picker = DM.createChipSelect(document.getElementById('cmp-picker'), {
-    options: sortedNames, selected: picks, max: 4, placeholder: 'Add a company…',
-    onChange: (v) => { picks = v; render(); },
-  });
+  function active() { return picks.filter(Boolean); }
+
+  function renderSlots() {
+    const row = document.getElementById('cmp-slots');
+    row.innerHTML = '';
+    for (let i = 0; i < SLOTS; i++) {
+      const name = picks[i];
+      const slot = document.createElement('div');
+      if (name) {
+        const r = wl.find(x => x.company_name === name);
+        const [lab, , bandColor] = DM.band(r.risk_percentile);
+        slot.className = 'dm-slot filled';
+        slot.style.borderTopColor = COLORS[i];
+        slot.innerHTML = `
+          <button class="dm-slot-remove" aria-label="Remove ${name}">×</button>
+          <div class="dm-slot-name">${name}</div>
+          <div class="dm-slot-sector">${r.sector}</div>
+          <div class="dm-slot-meta">Rank <b>#${r.rank}</b> · Score <b>${DM.fmtNum(r.risk_score)}</b></div>
+          ${DM.tag(lab + ' risk', bandColor)}
+        `;
+        slot.querySelector('.dm-slot-remove').addEventListener('click', () => {
+          picks[i] = undefined; renderSlots(); render();
+        });
+      } else {
+        slot.className = 'dm-slot';
+        slot.innerHTML = `<span class="dm-slot-plus">+</span><span>Slot ${i + 1}</span>`;
+        slot.addEventListener('click', () => openSlotSearch(i));
+      }
+      row.appendChild(slot);
+    }
+  }
+
+  function openSlotSearch(i) {
+    const row = document.getElementById('cmp-slots');
+    const slot = row.children[i];
+    slot.className = 'dm-slot searching';
+    slot.innerHTML = `<input type="text" class="dm-slot-input" placeholder="Search company…" autocomplete="off">
+      <div class="dm-slot-dropdown"></div>`;
+    const input = slot.querySelector('input');
+    const drop = slot.querySelector('.dm-slot-dropdown');
+    const chosen = new Set(picks.filter(Boolean));
+
+    function renderOpts(q) {
+      const query = (q || '').toLowerCase();
+      const matches = sortedNames.filter(n => !chosen.has(n) && n.toLowerCase().includes(query)).slice(0, 30);
+      drop.innerHTML = matches.map(n => `<div class="dm-slot-option">${n}</div>`).join('');
+      drop.querySelectorAll('.dm-slot-option').forEach(opt => {
+        opt.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          picks[i] = opt.textContent;
+          renderSlots(); render();
+        });
+      });
+    }
+    renderOpts('');
+    input.addEventListener('input', () => renderOpts(input.value));
+    input.addEventListener('blur', () => setTimeout(() => { if (!picks[i]) renderSlots(); }, 150));
+    input.focus();
+  }
 
   function render() {
+    const names = active();
+    renderSlots();
     const body = document.getElementById('cmp-body');
-    if (picks.length < 2) {
-      body.innerHTML = '<div class="dm-banner dm-banner-info">Pick at least two companies to compare.</div>';
+    if (names.length < 2) {
+      body.innerHTML = '<div class="dm-banner dm-banner-info">Pick at least two companies above to compare.</div>';
       return;
     }
 
     body.innerHTML = `
-      <div class="dm-card-grid" style="grid-template-columns:repeat(${picks.length},1fr);" id="cmp-cards"></div>
-
       <div class="dm-panel">
         <div class="dm-panel-title">Risk score over time</div>
         <div id="cmp-history" class="dm-chart" style="height:420px;"></div>
@@ -53,23 +109,12 @@ DM.renderers.comparison = function (el) {
 
       <div class="dm-panel">
         <div class="dm-panel-title">What's driving each score</div>
-        <div class="dm-card-grid" style="grid-template-columns:repeat(${picks.length},1fr);" id="cmp-shap"></div>
+        <div class="dm-card-grid" style="grid-template-columns:repeat(${names.length},1fr);" id="cmp-shap"></div>
       </div>
     `;
 
-    document.getElementById('cmp-cards').innerHTML = picks.map((name, i) => {
-      const r = wl.find(x => x.company_name === name);
-      const [lab, , bandColor] = DM.band(r.risk_percentile);
-      return `<div class="dm-card" style="border-top:4px solid ${COLORS[i]};">
-        <b>${name}</b><br><span style="color:var(--ink-soft);font-size:.82rem;">${r.sector}</span><br><br>
-        Rank <b>#${r.rank}</b> of ${wl.length.toLocaleString()}<br>
-        Score <b>${DM.fmtNum(r.risk_score)}</b><br><br>
-        ${DM.tag(lab + ' risk', bandColor)}
-      </div>`;
-    }).join('');
-
     DM.plot(document.getElementById('cmp-history'),
-      picks.map((name, i) => {
+      names.map((name, i) => {
         const h = rh.filter(r => r.company_name === name).sort((a, b) => a.period_end < b.period_end ? -1 : 1);
         return { type: 'scatter', mode: 'lines+markers', name, x: h.map(r => r.period_end), y: h.map(r => r.risk_score),
                  line: { color: COLORS[i], width: 2 } };
@@ -79,12 +124,12 @@ DM.renderers.comparison = function (el) {
                    line: { color: '#6E6E73', dash: 'dash' } }],
       });
 
-    renderIndicatorChart();
+    renderIndicatorChart(names);
 
-    document.getElementById('cmp-shap').innerHTML = picks.map(name => `
+    document.getElementById('cmp-shap').innerHTML = names.map(name => `
       <div><b>${name}</b><div id="cmp-shap-${sanitize(name)}" class="dm-chart" style="height:220px;"></div></div>
     `).join('');
-    picks.forEach(name => {
+    names.forEach(name => {
       const srow = shap.find(r => r.company_name === name);
       const target = document.getElementById(`cmp-shap-${sanitize(name)}`);
       if (!srow) return;
@@ -103,15 +148,15 @@ DM.renderers.comparison = function (el) {
     });
 
     document.getElementById('cmp-indicator').addEventListener('change', (e) => {
-      indicator = e.target.value; renderIndicatorChart();
+      indicator = e.target.value; renderIndicatorChart(active());
     });
   }
 
   function sanitize(name) { return name.replace(/[^a-z0-9]/gi, '_'); }
 
-  function renderIndicatorChart() {
+  function renderIndicatorChart(names) {
     DM.plot(document.getElementById('cmp-indchart'),
-      picks.map((name, i) => {
+      names.map((name, i) => {
         const h = hist.filter(r => r.company_name === name).sort((a, b) => a.period_end < b.period_end ? -1 : 1);
         return { type: 'scatter', mode: 'lines+markers', name, x: h.map(r => r.period_end), y: h.map(r => r[indicator]),
                  line: { color: COLORS[i] } };
