@@ -24,7 +24,7 @@ DM.renderers.welcome = function (el) {
       <div class="dm-eyebrow">Bursa Distress Monitor</div>
       <h1>Know which Bursa Malaysia companies deserve a second look.</h1>
       <p>A reinforcement-learning early-warning system for corporate financial distress (PN17/GN3
-      classification), benchmarked against the classical Altman Z''-Score — built as a research
+      classification), benchmarked against the classical Altman&nbsp;Z''-Score — built as a research
       artefact, not a trading or lending tool.</p>
       <div class="dm-pillrow" id="hero-pills"></div>
     </div>
