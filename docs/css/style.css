@@ -45,7 +45,10 @@ button.dm-brand{
 
 .dm-header-right{ display:flex; align-items:center; gap:.6rem; flex:0 0 auto; }
 
-.dm-main{ padding:2rem 2.4rem 3rem 2.4rem; max-width:1360px; margin:0 auto; }
+/* No bottom padding: the footer is always the last thing on every page (appended once, after
+   every view section), and it already carries its own internal padding -- a bottom padding here
+   would just add a redundant strip of white page background below the footer's grey. */
+.dm-main{ padding:2rem 2.4rem 0 2.4rem; max-width:1360px; margin:0 auto; }
 
 /* ---------------------------------------------------------------- hero (Welcome page only) */
 .dm-hero{ text-align:center; padding:3rem 1rem 2.5rem 1rem; }
@@ -84,13 +87,13 @@ button.dm-brand{
   color:var(--blue); margin-bottom:.5rem; display:flex; align-items:center;
 }
 .dm-pagetitle{ font-size:2.05rem; font-weight:700; letter-spacing:-0.02em; margin:0 0 .6rem 0; line-height:1.15; }
-.dm-page-caption{ color:var(--ink-soft); font-size:1rem; line-height:1.6; max-width:760px; margin:0 0 2.5rem 0; }
+.dm-page-caption{ color:var(--ink-soft); font-size:1rem; line-height:1.6; max-width:920px; margin:0 0 2.5rem 0; }
 
 /* Every top-level paragraph in a view is a direct child of <section class="dm-view"> (each view's
    template is assigned straight to its innerHTML) -- capping width and line-height here, once,
    keeps prose readable everywhere instead of letting text stretch the full 1360px main column. */
-.dm-view > p{ max-width:760px; line-height:1.6; margin:0 0 1.75rem 0; }
-.dm-view ul, .dm-view ol{ max-width:800px; line-height:1.6; padding-left:1.3rem; }
+.dm-view > p{ max-width:920px; line-height:1.6; margin:0 0 1.75rem 0; }
+.dm-view ul, .dm-view ol{ max-width:920px; line-height:1.6; padding-left:1.3rem; }
 .dm-view ul li, .dm-view ol li{ margin-bottom:.75rem; }
 .dm-view h3{ margin-bottom:1rem; }
 
@@ -369,9 +372,6 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
   width:100vw; margin:3rem calc(50% - 50vw) 0 calc(50% - 50vw); padding-top:2.6rem;
   background:var(--stat-bg); border-top:1px solid var(--line-solid);
 }
-/* On the Home page the footer follows the dark CTA band directly -- no white gap between the two
-   full-bleed sections, so the grey runs straight on from the black instead of a stray white strip. */
-#view-welcome.active ~ .dm-footer{ margin-top:0; border-top:none; }
 .dm-footer-inner{ max-width:1360px; margin:0 auto; padding:0 2.4rem; }
 .dm-footer-top{
   display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:3rem; padding-bottom:2rem;
@@ -391,7 +391,7 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
 .dm-footer-col p{ font-size:.82rem; color:var(--ink-soft); line-height:1.5; margin:0 0 .55rem 0; }
 .dm-footer-bottom{
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem 1rem;
-  border-top:1px solid var(--line-solid); padding:1.1rem 0; font-size:.75rem; color:#AEAEB2;
+  border-top:1px solid var(--line-solid); padding:1.1rem 0 1.8rem 0; font-size:.75rem; color:#AEAEB2;
 }
 @media (max-width:800px){
   .dm-footer{ padding-top:2rem; }
