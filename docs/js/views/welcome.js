@@ -8,13 +8,13 @@ DM.renderers.welcome = function (el) {
   ];
 
   const guide = [
-    ['sector', '🏭', 'Sectors', 'Where should I start looking?', 'Aggregates risk to the sector level so you can decide which industries warrant attention first.'],
-    ['ranking', '📋', 'Watchlist', 'Show me the working watchlist.', 'Every monitored company ranked by risk score, filterable by sector and status, with a CSV export.'],
-    ['drilldown', '🔍', 'Drill-down', 'Why is this one company flagged?', "Rank, score, a SHAP explanation of what drove it, risk history, and a live what-if slider."],
-    ['comparison', '⚖️', 'Compare', 'How does A stack up against B and C?', 'Put 2–4 companies side by side — trajectory, current standing, and what\'s driving each score.'],
-    ['trends', '📉', 'Trends', 'How has one ratio moved over time?', 'Compare any single financial indicator across companies, with actual distress periods marked.'],
-    ['performance', '📊', 'Performance', 'Can I trust this model? Show me the numbers.', 'ROC/PR curves, confusion matrix, and a like-for-like comparison against every agent trained.'],
-    ['about', '📖', 'About', 'What is this, exactly, and how was it built?', 'Project background, methodology, limitations, and the full disclaimer.'],
+    ['sector', '🏭', 'blue', 'Sectors', 'Where should I start looking?', 'Aggregates risk to the sector level so you can decide which industries warrant attention first.'],
+    ['ranking', '📋', 'green', 'Watchlist', 'Show me the working watchlist.', 'Every monitored company ranked by risk score, filterable by sector and status, with a CSV export.'],
+    ['drilldown', '🔍', 'orange', 'Drill-down', 'Why is this one company flagged?', "Rank, score, a SHAP explanation of what drove it, risk history, and a live what-if slider."],
+    ['comparison', '⚖️', 'purple', 'Compare', 'How does A stack up against B and C?', 'Put 2–4 companies side by side — trajectory, current standing, and what\'s driving each score.'],
+    ['trends', '📉', 'teal', 'Trends', 'How has one ratio moved over time?', 'Compare any single financial indicator across companies, with actual distress periods marked.'],
+    ['performance', '📊', 'pink', 'Performance', 'Can I trust this model? Show me the numbers.', 'ROC/PR curves, confusion matrix, and a like-for-like comparison against every agent trained.'],
+    ['about', '📖', 'red', 'About', 'What is this, exactly, and how was it built?', 'Project background, methodology, limitations, and the full disclaimer.'],
   ];
 
   const sectors = new Set(wl.map(r => r.sector)).size;
@@ -51,27 +51,31 @@ DM.renderers.welcome = function (el) {
 
     <h3 class="dm-section-gap">How to use this dashboard</h3>
     <p class="dm-caption">Seven views, each answering a different question. Click through, or use the nav above.</p>
-    <div class="dm-card-grid cols-2" id="guide-grid"></div>
+    <div class="dm-guide-grid" id="guide-grid"></div>
   `;
 
-  el.querySelector('#hero-pills').innerHTML = guide.map(([id, , name]) =>
+  el.querySelector('#hero-pills').innerHTML = guide.map(([id, , , name]) =>
     `<button class="dm-pill-btn" data-goto="${id}">${name}</button>`).join('');
   el.querySelectorAll('#hero-pills button').forEach(btn => {
     btn.addEventListener('click', () => DM.goto(btn.dataset.goto));
   });
 
   const grid = el.querySelector('#guide-grid');
-  grid.innerHTML = guide.map(([id, icon, name, question, desc]) => `
-    <div>
-      <div class="dm-card">
-        <span style="font-size:1.3rem;">${icon}</span> <b>${name}</b><br>
-        <span style="color:var(--ink-soft);font-style:italic;">"${question}"</span><br><br>
-        ${desc}
+  grid.innerHTML = guide.map(([id, icon, hue, name, question, desc]) => `
+    <div class="dm-guide-card dm-guide-${hue}" data-goto="${id}" role="button" tabindex="0">
+      <div class="dm-guide-icon">${icon}</div>
+      <div class="dm-guide-body">
+        <div class="dm-guide-title">${name}</div>
+        <p class="dm-guide-question">"${question}"</p>
+        <p class="dm-guide-desc">${desc}</p>
+        <span class="dm-guide-link">Open ${name} <span class="arrow">→</span></span>
       </div>
-      <button class="dm-btn" data-goto="${id}">Open ${name} →</button>
     </div>
   `).join('');
-  grid.querySelectorAll('button[data-goto]').forEach(btn => {
-    btn.addEventListener('click', () => DM.goto(btn.dataset.goto));
+  grid.querySelectorAll('.dm-guide-card').forEach(c => {
+    c.addEventListener('click', () => DM.goto(c.dataset.goto));
+    c.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); DM.goto(c.dataset.goto); }
+    });
   });
 };

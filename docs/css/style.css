@@ -42,7 +42,7 @@ img{ max-width:100%; }
 
 .dm-header-right{ display:flex; align-items:center; gap:.6rem; flex:0 0 auto; }
 
-.dm-main{ padding:2rem 2.4rem 3rem 2.4rem; max-width:1100px; margin:0 auto; }
+.dm-main{ padding:2rem 2.4rem 3rem 2.4rem; max-width:1360px; margin:0 auto; }
 
 /* ---------------------------------------------------------------- hero (Welcome page only) */
 .dm-hero{ text-align:center; padding:3rem 1rem 2.5rem 1rem; }
@@ -62,7 +62,7 @@ img{ max-width:100%; }
    max-width on very wide monitors in exchange for being reliably correct everywhere. */
 .dm-statband{
   background:var(--stat-bg); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  margin:3.5rem -2.4rem 0 -2.4rem; padding:2.2rem 2.4rem; display:flex; justify-content:center;
+  margin:5.5rem -2.4rem 0 -2.4rem; padding:2.2rem 2.4rem; display:flex; justify-content:center;
   gap:3.5rem; flex-wrap:wrap; text-align:center;
 }
 .dm-stat-big b{ font-size:2.25rem; font-weight:700; display:block; line-height:1.05; }
@@ -98,6 +98,39 @@ img{ max-width:100%; }
 @media (max-width:900px){
   .dm-card-grid.cols-2, .dm-card-grid.cols-3, .dm-card-grid.cols-4{ grid-template-columns:1fr; }
 }
+
+/* "How to use this dashboard" cards -- whole card is clickable, icon gets a soft colour badge
+   per view so the grid reads as friendlier/more scannable than a plain bordered list. */
+.dm-guide-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+@media (min-width:1300px){ .dm-guide-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:900px){ .dm-guide-grid{ grid-template-columns:1fr; } }
+.dm-guide-card{
+  display:flex; gap:1rem; align-items:flex-start; cursor:pointer; text-align:left;
+  background:var(--card); border:1px solid var(--line-solid); border-radius:20px;
+  padding:1.4rem 1.5rem; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.dm-guide-card:hover, .dm-guide-card:focus-visible{
+  transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,.08); border-color:transparent;
+}
+.dm-guide-icon{
+  flex:none; width:48px; height:48px; border-radius:14px; display:flex; align-items:center;
+  justify-content:center; font-size:1.4rem;
+}
+.dm-guide-body{ min-width:0; }
+.dm-guide-title{ font-weight:700; font-size:1.05rem; margin-bottom:.2rem; }
+.dm-guide-question{ font-style:italic; color:var(--ink-soft); font-size:.87rem; margin:0 0 .55rem 0; }
+.dm-guide-desc{ margin:0 0 .9rem 0; font-size:.9rem; line-height:1.45; color:var(--ink); }
+.dm-guide-link{ font-weight:600; color:var(--blue); font-size:.87rem; display:inline-flex; align-items:center; gap:.3rem; }
+.dm-guide-link .arrow{ transition:transform .15s ease; display:inline-block; }
+.dm-guide-card:hover .dm-guide-link .arrow{ transform:translateX(3px); }
+
+.dm-guide-blue .dm-guide-icon{ background:#EAF2FE; }
+.dm-guide-green .dm-guide-icon{ background:#E8F8ED; }
+.dm-guide-orange .dm-guide-icon{ background:#FFF3E0; }
+.dm-guide-purple .dm-guide-icon{ background:#F3E9FE; }
+.dm-guide-pink .dm-guide-icon{ background:#FDEAF2; }
+.dm-guide-teal .dm-guide-icon{ background:#E3F7F5; }
+.dm-guide-red .dm-guide-icon{ background:#FDEBEA; }
 
 .dm-banner{ border-radius:14px; padding:.75rem 1.1rem; font-size:.9rem; line-height:1.45; margin-bottom:1.1rem; border:1px solid; }
 .dm-banner-disclaimer{ background:#FFF7ED; border-color:#FFE0B2; color:#7A4A00; }
@@ -195,7 +228,7 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
   background:var(--stat-bg); border-top:1px solid var(--line-solid);
 }
 .dm-footer-top{
-  display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem; padding-bottom:2rem;
+  display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:3rem; padding-bottom:2rem;
 }
 .dm-footer-brand > div{ font-weight:800; font-size:1.05rem; margin-bottom:.4rem; }
 .dm-footer-brand span{ color:var(--blue); }
