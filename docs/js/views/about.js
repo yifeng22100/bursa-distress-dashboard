@@ -111,37 +111,20 @@ DM.renderers.about = function (el) {
       stands.</p>
     </div>
 
-    <h3 class="dm-section-gap">Ideas for future value-added features</h3>
-    <ul>
-      <li><b>Side-by-side company comparison</b> — pick two or more companies and overlay their indicator
-        trajectories and SHAP breakdowns on one screen. <i>(Shipped — see the Compare page.)</i></li>
-      <li><b>Alert subscriptions</b> — email or webhook notification when a company newly crosses the flag
-        threshold.</li>
-      <li><b>Scenario/what-if slider</b> — let a user nudge one ratio and see the risk score recompute live.
-        <i>(Shipped — see the Drill-down page.)</i></li>
-      <li><b>PDF one-pager export</b> — a printable company risk brief combining the drill-down panel and
-        SHAP chart, for inclusion in a credit file.</li>
-      <li style="margin-bottom:0;"><b>Live data refresh</b> — connect to a quarterly filings feed so the
-        watchlist updates automatically instead of via manual pipeline reruns.</li>
-    </ul>
-
-    <div class="dm-card-grid cols-2 dm-section-gap">
-      <details class="dm-card" style="margin-bottom:0;">
-        <summary style="cursor:pointer;font-weight:600;">Full disclaimer</summary>
-        <p style="margin:1rem 0 0 0;">This dashboard is a research prototype produced for an academic
-        capstone project and is <b>not</b> financial, investment, credit, or legal advice. It has not been
-        validated on live, forward-looking data, is trained on a small number of historical distress
-        examples, and both its recall and precision are limited (see Model Performance). Model outputs
-        should be treated as a prompt for further human investigation, never as a standalone basis for any
-        investment, lending, trading, or business decision. The authors and Sunway Business School accept no
-        liability for decisions made using this tool.</p>
-      </details>
-
-      <details class="dm-card" style="margin-bottom:0;">
-        <summary style="cursor:pointer;font-weight:600;">Technical specification (model_card.json)</summary>
-        <pre style="background:var(--fill-5);padding:1rem;border-radius:10px;overflow-x:auto;font-size:.8rem;margin:1rem 0 0 0;">${JSON.stringify(card, null, 2)}</pre>
-      </details>
+    <h3 class="dm-section-gap">Full disclaimer</h3>
+    <div class="dm-banner dm-banner-disclaimer" id="about-disclaimer">
+      ⚠️ This dashboard is a research prototype produced for an academic capstone project and is <b>not</b>
+      financial, investment, credit, or legal advice. It has not been validated on live, forward-looking
+      data, is trained on a small number of historical distress examples, and both its recall and precision
+      are limited (see Model Performance). Model outputs should be treated as a prompt for further human
+      investigation, never as a standalone basis for any investment, lending, trading, or business decision.
+      The authors and Sunway Business School accept no liability for decisions made using this tool.
     </div>
+
+    <details class="dm-card dm-section-gap">
+      <summary style="cursor:pointer;font-weight:600;">Technical specification (model_card.json)</summary>
+      <pre style="background:var(--fill-5);padding:1rem;border-radius:10px;overflow-x:auto;font-size:.8rem;margin:1rem 0 0 0;">${JSON.stringify(card, null, 2)}</pre>
+    </details>
   `;
 
   const g = gshap.slice(0, 10).reverse();
