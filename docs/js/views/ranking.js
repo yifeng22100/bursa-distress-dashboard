@@ -40,14 +40,14 @@ DM.renderers.ranking = function (el) {
       <div class="dm-table-scroll" style="max-height:620px;"><table class="dm-table" id="rk-table"></table></div>
     </div>
 
-    <p>
+    <div class="dm-card">
       <b>How to read the 'Flagged' column.</b> A company is flagged when its risk score exceeds the model's
       calibrated decision threshold (${DM.fmtNum(card.threshold)}), chosen on validation data to minimise the
       cost of mistakes — never on the test data used to measure performance. On the held-out test set this
       threshold caught ${DM.fmtPct(card.test_recall, 0)} of genuinely distressed companies at
       ${DM.fmtPct(card.test_precision, 0)} precision. Both numbers matter: most flags are worth investigating,
       and <b>most distressed companies are still missed</b>.
-    </p>
+    </div>
   `;
 
   DM.createChipSelect(document.getElementById('rk-sector-filter'), {
@@ -76,7 +76,7 @@ DM.renderers.ranking = function (el) {
       <th>Risk band</th><th>Flagged</th><th>Known status</th></tr></thead>
       <tbody>${v.map(r => {
         const [band] = DM.band(r.risk_percentile);
-        return `<tr><td>${r.rank}</td><td>${r.company_name}</td><td>${r.ticker || '—'}</td><td>${r.sector}</td><td>${r.period_end}</td>
+        return `<tr><td>${r.rank}</td><td>${r.company_name}</td><td>${r.ticker || '—'}</td><td>${r.sector}</td><td class="nowrap">${r.period_end}</td>
           <td>${DM.fmtNum(r.risk_score)}</td><td>${band}</td><td>${r.flagged ? 'True' : 'False'}</td>
           <td>${r.known_status}</td></tr>`;
       }).join('')}</tbody>`;

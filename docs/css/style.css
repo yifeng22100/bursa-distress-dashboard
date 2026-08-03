@@ -29,7 +29,10 @@ img{ max-width:100%; }
   display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
   padding:1rem 2.4rem; border-bottom:1px solid var(--line); background:var(--bg);
 }
-.dm-brand{ display:flex; align-items:center; gap:.4rem; font-size:1.2rem; font-weight:700; letter-spacing:-0.01em; white-space:nowrap; }
+button.dm-brand{
+  all:unset; display:flex; align-items:center; gap:.4rem; font-size:1.2rem; font-weight:700;
+  letter-spacing:-0.01em; white-space:nowrap; cursor:pointer; color:var(--ink);
+}
 .accent{ color:var(--blue); }
 
 .dm-nav{ display:flex; align-items:center; gap:1.7rem; flex-wrap:wrap; }
@@ -269,6 +272,36 @@ button.dm-btn:hover{ border-color:var(--blue); color:var(--blue); }
 .dm-slot-option{ padding:.55rem .8rem; cursor:pointer; font-size:.88rem; }
 .dm-slot-option:hover{ background:var(--fill-3); }
 
+/* Searchable single-value combobox (Drill-down's company picker) -- reuses the slot-dropdown/
+   option styling above so a 1,000+ row list doesn't have to be scrolled through as a native
+   <select>; typing filters it instead. */
+.dm-combobox{ position:relative; max-width:420px; }
+.dm-combobox .dm-slot-dropdown{ border-radius:12px; border-top:1px solid var(--line); margin-top:.3rem; }
+
+/* ---------------------------------------------------------------- confusion-matrix stat cards */
+.dm-cm-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.75rem; align-items:center; }
+@media (max-width:800px){ .dm-cm-grid{ grid-template-columns:1fr; } }
+.dm-cm-stats{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.dm-cm-stat{
+  border:1px solid var(--line-solid); border-left:4px solid; border-radius:14px; padding:.9rem 1.1rem;
+}
+.dm-cm-stat-label{ font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:.3rem; }
+.dm-cm-stat-value{ font-size:1.5rem; font-weight:700; line-height:1.1; margin-bottom:.3rem; }
+.dm-cm-stat-desc{ font-size:.8rem; color:var(--ink-soft); line-height:1.4; }
+.dm-cm-stat.tp{ border-left-color:var(--green); } .dm-cm-stat.tp .dm-cm-stat-label{ color:var(--green); }
+.dm-cm-stat.fp{ border-left-color:var(--orange); } .dm-cm-stat.fp .dm-cm-stat-label{ color:var(--orange); }
+.dm-cm-stat.fn{ border-left-color:var(--red); } .dm-cm-stat.fn .dm-cm-stat-label{ color:var(--red); }
+.dm-cm-stat.tn{ border-left-color:var(--blue); } .dm-cm-stat.tn .dm-cm-stat-label{ color:var(--blue); }
+
+/* ---------------------------------------------------------------- About: "cannot do" warning cards */
+.dm-warn-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; }
+@media (max-width:800px){ .dm-warn-grid{ grid-template-columns:1fr; } }
+.dm-warn-card{
+  background:#FDEBEA; border:1px solid #F8C9C6; border-radius:16px; padding:1.2rem 1.4rem; color:#B02318;
+}
+.dm-warn-card b{ display:block; margin-bottom:.4rem; }
+.dm-warn-card span{ font-size:.9rem; line-height:1.55; color:#7A241D; }
+
 /* Simple horizontal carousel: arrows scroll a snap-aligned track. Falls back to a plain row when
    everything fits without overflow. */
 .dm-carousel{ position:relative; }
@@ -292,13 +325,13 @@ button.dm-btn:hover{ border-color:var(--blue); color:var(--blue); }
 /* chip multiselect */
 .dm-chipselect{ position:relative; }
 .dm-chipbox{
-  display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; padding:.4rem .5rem;
+  display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; padding:.6rem .7rem;
   border:1px solid var(--line); border-radius:10px; background:var(--fill-5); min-height:2.6rem;
   cursor:text;
 }
 .dm-chip{
-  display:inline-flex; align-items:center; gap:.35rem; background:var(--red); color:#fff;
-  border-radius:8px; padding:.2rem .5rem; font-size:.82rem; font-weight:500;
+  display:inline-flex; align-items:center; gap:.45rem; background:var(--blue); color:#fff;
+  border-radius:8px; padding:.35rem .7rem; font-size:.82rem; font-weight:500;
 }
 .dm-chip button{ all:unset; cursor:pointer; font-size:.9rem; line-height:1; opacity:.85; }
 .dm-chip button:hover{ opacity:1; }
@@ -313,12 +346,13 @@ button.dm-btn:hover{ border-color:var(--blue); color:var(--blue); }
 .dm-chip-option:hover, .dm-chip-option.hl{ background:var(--fill-3); }
 
 /* ---------------------------------------------------------------- tables */
-table.dm-table{ width:100%; border-collapse:collapse; font-size:.9rem; }
+table.dm-table{ width:100%; border-collapse:separate; border-spacing:0; font-size:.9rem; }
 table.dm-table th{
-  text-align:left; padding:.85rem 1rem; background:var(--fill-5); color:var(--ink-soft);
-  font-weight:600; border-bottom:1px solid var(--line); position:sticky; top:0;
+  text-align:left; padding:.85rem 1rem; background:#F5F5F7; color:var(--ink-soft);
+  font-weight:600; border-bottom:1px solid var(--line-solid); position:sticky; top:0; z-index:1;
 }
 table.dm-table td{ padding:.8rem 1rem; border-bottom:1px solid var(--line); line-height:1.5; }
+table.dm-table td.nowrap{ white-space:nowrap; }
 table.dm-table tr:hover td{ background:var(--fill-5); }
 .dm-table-scroll{ max-height:520px; overflow-y:auto; border:1px solid var(--line-solid); border-radius:16px; }
 .dm-table-scroll table.dm-table th{ top:0; }
@@ -335,6 +369,9 @@ table.dm-table tr:hover td{ background:var(--fill-5); }
   width:100vw; margin:3rem calc(50% - 50vw) 0 calc(50% - 50vw); padding-top:2.6rem;
   background:var(--stat-bg); border-top:1px solid var(--line-solid);
 }
+/* On the Home page the footer follows the dark CTA band directly -- no white gap between the two
+   full-bleed sections, so the grey runs straight on from the black instead of a stray white strip. */
+#view-welcome.active ~ .dm-footer{ margin-top:0; border-top:none; }
 .dm-footer-inner{ max-width:1360px; margin:0 auto; padding:0 2.4rem; }
 .dm-footer-top{
   display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:3rem; padding-bottom:2rem;

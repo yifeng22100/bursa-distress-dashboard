@@ -141,7 +141,7 @@ DM.renderers.comparison = function (el) {
       if (entries.length) {
         DM.plot(target, [{ type: 'bar', orientation: 'h', x: entries.map(e => e[1]), y: entries.map(e => DM.pretty(e[0])),
           marker: { color: entries.map(e => e[1] > 0 ? '#FF3B30' : '#34C759') } }],
-          { margin: { l: 140, r: 10, t: 10, b: 30 } });
+          { margin: { l: 140, r: 10, t: 10, b: 30 }, yaxis: { automargin: true } });
       } else {
         target.innerHTML = '<p class="dm-caption">No feature moved this score materially.</p>';
       }

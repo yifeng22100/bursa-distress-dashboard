@@ -63,7 +63,8 @@ DM.renderers.sector = function (el) {
       x: vals, y: topAsc.map(r => r.sector),
       marker: { color: vals.map(colorAt) },
       hovertemplate: '%{y}<br>' + SHORT[metric] + ': %{x:.2f}<extra></extra>',
-    }], { margin: { l: 260, r: 20, t: 10, b: 40 }, xaxis: { title: METRIC_LABELS[metric].replace(' (recommended)', '') } });
+    }], { margin: { l: 260, r: 20, t: 10, b: 40 }, yaxis: { automargin: true },
+          xaxis: { title: METRIC_LABELS[metric].replace(' (recommended)', '') } });
 
     const tbl = document.getElementById('sec-table');
     tbl.innerHTML = `

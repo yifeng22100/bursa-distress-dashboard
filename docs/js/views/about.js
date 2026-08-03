@@ -76,19 +76,29 @@ DM.renderers.about = function (el) {
     </div>
 
     <h3 class="dm-section-gap">What this model cannot do</h3>
-    <div class="dm-banner dm-banner-error">
-      <p style="margin:0 0 1rem 0;"><b>It misses most distressed companies.</b> At its default threshold it
-      catches only ${DM.fmtPct(card.test_recall, 0)} of them. It is a triage aid for deciding where to look
-      first, not a substitute for credit analysis.</p>
-      <p style="margin:0 0 1rem 0;"><b>Its early-warning ability is unproven, not just largely unproven.</b>
-      Every early flag measured in the current version of this project fell on data the model had trained on.
-      One version briefly recorded a genuinely out-of-sample early warning — it did not reproduce after the
-      next retrain, and is not repeated here.</p>
-      <p style="margin:0 0 1rem 0;"><b>It is trained on very few examples.</b> 46 distressed company-periods
-      in training. Results have shifted materially across five versions of the data pipeline so far, mostly
-      from data corrections rather than model changes — most recently, a single company's 3 training rows
-      changed which of the two agents beats the benchmark at matched recall.</p>
-      <p style="margin:0;"><b>It is a backtest, not a live system.</b> Never validated on live forward data.</p>
+    <div class="dm-warn-grid">
+      <div class="dm-warn-card">
+        <b>⚠️ It misses most distressed companies.</b>
+        <span>At its default threshold it catches only ${DM.fmtPct(card.test_recall, 0)} of them. It is a
+        triage aid for deciding where to look first, not a substitute for credit analysis.</span>
+      </div>
+      <div class="dm-warn-card">
+        <b>⚠️ Its early-warning ability is unproven.</b>
+        <span>Every early flag measured in the current version of this project fell on data the model had
+        trained on. One version briefly recorded a genuinely out-of-sample early warning — it did not
+        reproduce after the next retrain, and is not repeated here.</span>
+      </div>
+      <div class="dm-warn-card">
+        <b>⚠️ It is trained on very few examples.</b>
+        <span>46 distressed company-periods in training. Results have shifted materially across five versions
+        of the data pipeline so far, mostly from data corrections rather than model changes — most recently, a
+        single company's 3 training rows changed which of the two agents beats the benchmark at matched
+        recall.</span>
+      </div>
+      <div class="dm-warn-card">
+        <b>⚠️ It is a backtest, not a live system.</b>
+        <span>Never validated on live forward data.</span>
+      </div>
     </div>
 
     <h3 class="dm-section-gap">What drives the model overall</h3>
@@ -135,5 +145,6 @@ DM.renderers.about = function (el) {
   const g = gshap.slice(0, 10).reverse();
   DM.plot(document.getElementById('about-gshap'), [{
     type: 'bar', orientation: 'h', x: g.map(r => r[1]), y: g.map(r => DM.pretty(r[0])),
-  }], { margin: { l: 220, r: 20, t: 10, b: 40 }, xaxis: { title: 'Mean |SHAP| across test companies' } });
+  }], { margin: { l: 220, r: 20, t: 10, b: 40 }, yaxis: { automargin: true },
+        xaxis: { title: 'Mean |SHAP| across test companies' } });
 };

@@ -12,17 +12,41 @@ DM.renderers.drilldown = function (el) {
     it did, how that score has moved over time, and what happens if its ratios change.</p>
 
     <div class="dm-toolbar">
-      <div class="dm-field" style="max-width:420px;">
+      <div class="dm-field" style="margin-bottom:0;">
         <label class="dm-label">Select a company</label>
-        <select class="dm-select" id="dd-company">
-          ${sorted.map(r => `<option value="${r.company_name}">${r.company_name}</option>`).join('')}
-        </select>
+        <div class="dm-combobox">
+          <input type="text" class="dm-text" id="dd-company-input" placeholder="Search company…" autocomplete="off">
+          <div class="dm-slot-dropdown" id="dd-company-drop"></div>
+        </div>
       </div>
     </div>
     <div id="dd-body"></div>
   `;
 
-  document.getElementById('dd-company').addEventListener('change', (e) => { current = e.target.value; renderBody(); });
+  const ddInput = document.getElementById('dd-company-input');
+  const ddDrop = document.getElementById('dd-company-drop');
+  ddInput.value = current;
+
+  function renderDdOpts(q) {
+    const query = (q || '').toLowerCase();
+    const matches = sorted.filter(r => r.company_name.toLowerCase().includes(query)).slice(0, 40);
+    ddDrop.innerHTML = matches.map(r =>
+      `<div class="dm-slot-option" data-name="${r.company_name}">${r.company_name}${r.ticker ? ` (${r.ticker})` : ''}</div>`).join('');
+    ddDrop.querySelectorAll('.dm-slot-option').forEach(opt => {
+      opt.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        current = opt.dataset.name;
+        ddInput.value = current;
+        ddDrop.innerHTML = '';
+        renderBody();
+      });
+    });
+  }
+  ddInput.addEventListener('focus', () => { ddInput.select(); renderDdOpts(''); });
+  ddInput.addEventListener('input', () => renderDdOpts(ddInput.value));
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dm-combobox')) ddDrop.innerHTML = '';
+  });
 
   function renderBody() {
     const row = wl.find(r => r.company_name === current);
@@ -90,7 +114,8 @@ DM.renderers.drilldown = function (el) {
           type: 'bar', orientation: 'h',
           x: entries.map(e => e[1]), y: entries.map(e => DM.pretty(e[0])),
           marker: { color: entries.map(e => e[1] > 0 ? '#FF3B30' : '#34C759') },
-        }], { margin: { l: 220, r: 20, t: 10, b: 40 }, xaxis: { title: "Contribution to this company's risk score" } });
+        }], { margin: { l: 220, r: 20, t: 10, b: 40 }, yaxis: { automargin: true },
+              xaxis: { title: "Contribution to this company's risk score" } });
       } else {
         document.getElementById('dd-shap').innerHTML =
           '<p class="dm-caption">No individual feature moved this company\'s score materially away from the baseline.</p>';
@@ -123,7 +148,7 @@ DM.renderers.drilldown = function (el) {
     const tbl = document.getElementById('dd-indicators');
     tbl.innerHTML = `
       <thead><tr><th>Period end</th>${FEATURES.map(f => `<th>${DM.PRETTY[f]}</th>`).join('')}</tr></thead>
-      <tbody>${ih.map(r => `<tr><td>${r.period_end}</td>${FEATURES.map(f =>
+      <tbody>${ih.map(r => `<tr><td class="nowrap">${r.period_end}</td>${FEATURES.map(f =>
         `<td>${r[f] != null ? DM.fmtNum(r[f], 3) : '—'}</td>`).join('')}</tr>`).join('')}</tbody>`;
 
     // What-if sliders

@@ -37,20 +37,34 @@ DM.renderers.performance = function (el) {
 
     <div class="dm-panel">
       <div class="dm-panel-title">Confusion matrix — DQN at calibrated threshold</div>
-      <div class="dm-card-grid" style="grid-template-columns:1fr 2fr;">
-        <div id="perf-cm" class="dm-chart" style="height:320px;"></div>
-        <div>
-          <div class="dm-card">
-            <b>True positives:</b> ${cm.TP} — genuinely distressed companies correctly flagged<br>
-            <b>False positives:</b> ${cm.FP} — healthy companies incorrectly flagged<br>
-            <b>False negatives:</b> ${cm.FN} — genuinely distressed companies missed<br>
-            <b>True negatives:</b> ${cm.TN.toLocaleString()} — healthy companies correctly left unflagged
+      <div class="dm-cm-grid">
+        <div id="perf-cm" class="dm-chart" style="height:340px;"></div>
+        <div class="dm-cm-stats">
+          <div class="dm-cm-stat tp">
+            <div class="dm-cm-stat-label">True positives</div>
+            <div class="dm-cm-stat-value">${cm.TP}</div>
+            <div class="dm-cm-stat-desc">Genuinely distressed, correctly flagged</div>
           </div>
-          <p class="dm-caption">The class imbalance is visible directly in these counts: even a well-ranking
-          model produces few true positives in absolute terms, because so few company-periods are genuinely
-          distressed.</p>
+          <div class="dm-cm-stat fp">
+            <div class="dm-cm-stat-label">False positives</div>
+            <div class="dm-cm-stat-value">${cm.FP}</div>
+            <div class="dm-cm-stat-desc">Healthy companies incorrectly flagged</div>
+          </div>
+          <div class="dm-cm-stat fn">
+            <div class="dm-cm-stat-label">False negatives</div>
+            <div class="dm-cm-stat-value">${cm.FN}</div>
+            <div class="dm-cm-stat-desc">Genuinely distressed, missed</div>
+          </div>
+          <div class="dm-cm-stat tn">
+            <div class="dm-cm-stat-label">True negatives</div>
+            <div class="dm-cm-stat-value">${cm.TN.toLocaleString()}</div>
+            <div class="dm-cm-stat-desc">Healthy, correctly left unflagged</div>
+          </div>
         </div>
       </div>
+      <p class="dm-caption" style="margin-top:1.3rem;">The class imbalance is visible directly in these
+      counts: even a well-ranking model produces few true positives in absolute terms, because so few
+      company-periods are genuinely distressed.</p>
     </div>
 
     <div class="dm-panel">
@@ -84,7 +98,7 @@ DM.renderers.performance = function (el) {
     x: ['Pred: Healthy', 'Pred: Distressed'], y: ['Actual: Healthy', 'Actual: Distressed'],
     colorscale: [[0, '#F5F5F7'], [1, '#0071E3']], showscale: false,
     text: [[cm.TN, cm.FP], [cm.FN, cm.TP]], texttemplate: '%{text:,}', textfont: { size: 18 },
-  }], { margin: { l: 110, r: 10, t: 10, b: 60 } });
+  }], { margin: { l: 110, r: 10, t: 10, b: 60 }, yaxis: { automargin: true } });
 
   const tbl = document.getElementById('perf-agents');
   tbl.innerHTML = `
