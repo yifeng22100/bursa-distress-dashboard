@@ -72,11 +72,11 @@ DM.renderers.ranking = function (el) {
 
     const tbl = document.getElementById('rk-table');
     tbl.innerHTML = `
-      <thead><tr><th>#</th><th>Company</th><th>Sector</th><th>Period end</th><th>Risk score</th>
+      <thead><tr><th>#</th><th>Company</th><th>Ticker</th><th>Sector</th><th>Period end</th><th>Risk score</th>
       <th>Risk band</th><th>Flagged</th><th>Known status</th></tr></thead>
       <tbody>${v.map(r => {
         const [band] = DM.band(r.risk_percentile);
-        return `<tr><td>${r.rank}</td><td>${r.company_name}</td><td>${r.sector}</td><td>${r.period_end}</td>
+        return `<tr><td>${r.rank}</td><td>${r.company_name}</td><td>${r.ticker || '—'}</td><td>${r.sector}</td><td>${r.period_end}</td>
           <td>${DM.fmtNum(r.risk_score)}</td><td>${band}</td><td>${r.flagged ? 'True' : 'False'}</td>
           <td>${r.known_status}</td></tr>`;
       }).join('')}</tbody>`;
@@ -90,8 +90,8 @@ DM.renderers.ranking = function (el) {
     render();
   });
   document.getElementById('rk-download').addEventListener('click', () => {
-    const header = ['#', 'Company', 'Sector', 'Period end', 'Risk score', 'Risk band', 'Flagged', 'Known status'];
-    const rows = currentDisp.map(r => [r.rank, r.company_name, r.sector, r.period_end,
+    const header = ['#', 'Company', 'Ticker', 'Sector', 'Period end', 'Risk score', 'Risk band', 'Flagged', 'Known status'];
+    const rows = currentDisp.map(r => [r.rank, r.company_name, r.ticker || '', r.sector, r.period_end,
       DM.fmtNum(r.risk_score), DM.band(r.risk_percentile)[0], r.flagged, r.known_status]);
     const csv = [header, ...rows].map(row =>
       row.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');

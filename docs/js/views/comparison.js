@@ -37,7 +37,7 @@ DM.renderers.comparison = function (el) {
         slot.style.borderTopColor = COLORS[i];
         slot.innerHTML = `
           <button class="dm-slot-remove" aria-label="Remove ${name}">×</button>
-          <div class="dm-slot-name">${name}</div>
+          <div class="dm-slot-name">${name}${r.ticker ? ` <span style="font-weight:400;color:var(--ink-soft);">(${r.ticker})</span>` : ''}</div>
           <div class="dm-slot-sector">${r.sector}</div>
           <div class="dm-slot-meta">Rank <b>#${r.rank}</b> · Score <b>${DM.fmtNum(r.risk_score)}</b></div>
           ${DM.tag(lab + ' risk', bandColor)}
