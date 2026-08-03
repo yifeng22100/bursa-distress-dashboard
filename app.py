@@ -26,13 +26,14 @@ st.set_page_config(page_title="Bursa Distress Monitor", page_icon="⚠️", layo
                     initial_sidebar_state="collapsed")
 
 # ---------------------------------------------------------------- design system
-# Font: Google Sans isn't distributable as a web font (proprietary to Google products), so it's
-# listed first for the rare viewer who has it installed system-wide (ChromeOS/Android), then
-# falls back to Roboto — Google's actual open-source sister typeface, loaded from Google Fonts,
-# which is what almost every viewer will actually see.
+# Font: National (HBR's sans-serif) is a paid Commercial Type / Klim Type Foundry font, not
+# distributable as a web font without a licence this project doesn't hold -- same constraint as
+# Google Sans. It's listed first in case a viewer happens to have it installed locally, then
+# falls back to Inter, a free grotesque with very similar proportions and neutrality, loaded from
+# Google Fonts -- that's what almost every viewer will actually see.
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 :root{
   --bg:#FFFFFF; --card:#FFFFFF; --ink:#1D1D1F; --ink-soft:#6E6E73;
   --line:#E5E5EA; --blue:#0071E3; --red:#FF3B30; --orange:#FF9500;
@@ -40,12 +41,18 @@ st.markdown("""
   --primary-color:#0071E3;
 }
 html, body, [class*="css"]{
-  font-family:"Google Sans","Google Sans Text",Roboto,-apple-system,BlinkMacSystemFont,
+  font-family:"National","National 2",Inter,-apple-system,BlinkMacSystemFont,
               "Helvetica Neue",Arial,sans-serif !important;
   color:var(--ink);
 }
 .stApp{ background:var(--bg); }
-.block-container{ max-width:1200px; padding-top:0 !important; }
+/* Streamlit Community Cloud renders this app inside a cross-origin iframe and draws its own
+   "Fork / GitHub / menu" toolbar OVER that iframe from the parent page -- our CSS/JS has zero
+   access to that parent frame, cannot measure its real height, and cannot hide it. padding-top:0
+   here previously pushed our masthead flush to the top of the iframe, i.e. directly under that
+   toolbar, which is what was covering the brand title. This fixed clearance is a guess with
+   margin for safety, not a measurement -- there is no way to do better from inside the iframe. */
+.block-container{ max-width:1200px; padding-top:4.5rem !important; }
 
 /* ---- masthead + nav: one continuous flat bar, plain-text underline nav — matches the
    author's other dashboards (hospital-intelligence-my, malaysia-election-sentiment) rather
@@ -243,9 +250,21 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-NAV = ["Sector risk overview", "At-risk company ranking", "Company drill-down", "Company comparison",
-       "Indicator trends", "Model performance", "About & methodology"]
-view = st.radio("Navigate", NAV, horizontal=True, label_visibility="collapsed")
+NAV = ["Welcome", "Sector risk overview", "At-risk company ranking", "Company drill-down",
+       "Company comparison", "Indicator trends", "Model performance", "About & methodology"]
+# A widget's session_state key can't be reassigned after that widget has run this script pass,
+# so a landing-page button can't set st.session_state["nav"] directly -- it stashes the request
+# in a separate key instead, applied here, BEFORE the radio widget below is instantiated.
+if "nav_request" in st.session_state:
+    st.session_state["nav"] = st.session_state.pop("nav_request")
+if "nav" not in st.session_state:
+    st.session_state["nav"] = "Welcome"
+view = st.radio("Navigate", NAV, horizontal=True, label_visibility="collapsed", key="nav")
+
+def goto(tab_name, key):
+    if st.button(f"Open {tab_name} →", key=key):
+        st.session_state["nav_request"] = tab_name
+        st.rerun()
 
 st.markdown(f"""
 <div class="dm-banner dm-banner-disclaimer">
@@ -268,8 +287,68 @@ if changes['had_previous_run'] and (changes['newly_flagged'] or changes['newly_c
 </div>
 """, unsafe_allow_html=True)
 
+# ================================================================ 0. WELCOME
+if view == "Welcome":
+    page_header("Welcome", "Know which Bursa Malaysia companies deserve a second look.",
+        "A reinforcement-learning early-warning system for corporate financial distress (PN17/GN3 "
+        "classification), benchmarked against the classical Altman Z''-Score — built as a research "
+        "artefact, not a trading or lending tool.")
+
+    st.subheader("Who this is for")
+    w1, w2, w3 = st.columns(3)
+    with w1:
+        st.markdown("""**📈 Investors & analysts**
+A triage aid for deciding which of 1,065 companies to look at first — not a buy/sell signal, and
+not a substitute for reading the actual financials.""")
+    with w2:
+        st.markdown("""**🏦 Credit & risk teams**
+A second opinion alongside the Altman Z''-Score, with every flag traceable to the specific
+indicators that drove it (SHAP), so it can be argued for or against in a credit file.""")
+    with w3:
+        st.markdown("""**🎓 Students & RL enthusiasts**
+A worked, honestly-reported example of applying reinforcement learning to a real, small,
+severely imbalanced dataset — including what didn't work and why.""")
+
+    st.markdown("""
+<div class="dm-banner" style="background:#FFF7ED;border-color:#FFE0B2;color:#7A4A00;">
+⚠️ Read this before anything else: this model catches only about 1 in 5 genuinely distressed
+companies at its default setting, and every flag needs human judgement. See the disclaimer below
+and the full text on the About & methodology page.
+</div>""", unsafe_allow_html=True)
+
+    st.subheader("How to use this dashboard")
+    st.caption("Seven views, each answering a different question. Click through, or use the tabs above.")
+
+    guide = [
+        ("Sector risk overview", "🏭", "Where should I start looking?",
+         "Aggregates risk to the sector level so you can decide which industries warrant attention first."),
+        ("At-risk company ranking", "📋", "Show me the working watchlist.",
+         "Every monitored company ranked by risk score, filterable by sector and status, with a CSV export."),
+        ("Company drill-down", "🔍", "Why is this one company flagged?",
+         "Rank, score, a SHAP explanation of what drove it, risk history, and a live what-if slider."),
+        ("Company comparison", "⚖️", "How does A stack up against B and C?",
+         "Put 2–4 companies side by side — trajectory, current standing, and what's driving each score."),
+        ("Indicator trends", "📉", "How has one ratio moved over time?",
+         "Compare any single financial indicator across companies, with actual distress periods marked."),
+        ("Model performance", "📊", "Can I trust this model? Show me the numbers.",
+         "ROC/PR curves, confusion matrix, and a like-for-like comparison against every agent trained."),
+        ("About & methodology", "📖", "What is this, exactly, and how was it built?",
+         "Project background, methodology, limitations, and the full disclaimer."),
+    ]
+    for i in range(0, len(guide), 2):
+        cols = st.columns(2)
+        for col, (name, icon, question, desc) in zip(cols, guide[i:i + 2]):
+            with col:
+                st.markdown(f"""
+<div class="dm-card">
+<span style="font-size:1.3rem;">{icon}</span> <b>{name}</b><br>
+<span style="color:var(--ink-soft);font-style:italic;">"{question}"</span><br><br>
+{desc}
+</div>""", unsafe_allow_html=True)
+                goto(name, f"goto_{name}")
+
 # ================================================================ 1. SECTOR
-if view == "Sector risk overview":
+elif view == "Sector risk overview":
     page_header("Risk monitoring", "Sector risk overview",
         "Model risk score aggregated by sector, across each company's most recent reported period. "
         "Use this to decide where to look first — not as a verdict on any sector.")

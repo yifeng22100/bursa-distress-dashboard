@@ -41,8 +41,12 @@ That writes:
 | `model_metrics.json` | ROC/PR curves, ROC-AUC, PR-AUC, F1, confusion matrix, cross-agent comparison table |
 | `model_weights.json` | The calibrated DQN's frozen weights + scaling params, exported as plain JSON arrays — powers the drill-down page's "what-if" slider with a pure-numpy forward pass, so the deployed app never needs a torch install |
 
-## The seven views
+## The eight views
 
+0. **Welcome** — the default landing page. Explains what the dashboard is, who it's for
+   (investors/analysts, credit & risk teams, students/RL enthusiasts), the single most important
+   caveat up front, and a card per remaining view with a one-line question it answers and a button
+   that jumps straight there.
 1. **Sector risk overview** — aggregates risk to sector level. Defaults to **median** and applies a
    minimum sector size (default 5), because an early version ranked by mean and was dominated by a
    four-company bucket. Companies with no sector (the delisted-firm supplement, 3 of 4 genuinely
@@ -78,11 +82,18 @@ Modelled on the author's other two dashboards (hospital-intelligence-my, malaysi
 a flat white masthead + light-gray stat band (both full-bleed, bottom-border only, no card shadow),
 a plain-text nav with a blue underline on the active item, small uppercase blue "eyebrow" labels
 above each page's bold hero title, and colour-tag pills (green/orange/red/gray, dot + caps text) for
-status/category instead of plain text. Font stack tries `"Google Sans"` first (some viewers have it
-system-wide on ChromeOS/Android) then falls back to Roboto, Google's open-source sister typeface,
-loaded via Google Fonts — true Google Sans can't be redistributed as a web font. A persistent
-disclaimer banner sits under the nav on every page, and a footer on every page cites the project
-title, team, data sources, and disclaimer.
+status/category instead of plain text. Font stack tries `"National"` first (HBR's sans-serif — a
+paid Klim Type Foundry / Commercial Type font this project holds no licence for, so almost no
+viewer will actually have it) then falls back to Inter, a free grotesque with similar proportions,
+loaded via Google Fonts. A persistent disclaimer banner sits under the nav on every page, and a
+footer on every page cites the project title, team, data sources, and disclaimer.
+
+**Known platform limitation.** Streamlit Community Cloud renders the deployed app inside a
+cross-origin iframe and draws its own "Fork / GitHub / menu" toolbar *over* that iframe from the
+parent page. The app's CSS/JS has no access to that parent frame — it cannot detect the toolbar's
+height, hide it, or move it. `.block-container`'s `padding-top` is set to a fixed, generously-sized
+clearance (`4.5rem`) as a guess with margin for safety, not a measurement; if the masthead ever
+looks covered again after a Streamlit Cloud UI change, this is the value to increase.
 
 ## Design principles
 
@@ -106,7 +117,7 @@ the live figure) is the strongest claim it supports.
 
 ## Regenerating the report screenshots
 
-`dashboard/screenshots/` holds the seven view captures (4_8a–4_8g). Captured headless at 2× scale:
+`dashboard/screenshots/` holds the eight view captures (4_8a–4_8h). Captured headless at 2× scale:
 
 ```bash
 python3 dashboard/capture_screenshots.py   # selenium + headless Chrome, 1500x1150 @ 2x
