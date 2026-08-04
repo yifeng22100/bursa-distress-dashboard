@@ -24,6 +24,11 @@ DM.renderers.performance = function (el) {
         table, comes from a conservative threshold that flags only
         ${cm.TP + cm.FP} companies in the whole test split. The reinforcement-learning framing is
         <b>not</b> demonstrated to beat conventional supervised classification on this dataset.
+        <br><br>
+        This was re-tested by rolling the train/test boundary forward across three independent
+        origins, re-running the entire pipeline at each one. The ranking deficit reproduced at
+        <b>every</b> origin; the cost ranking did not, swinging between 2nd and 5th. That is why
+        the ranking measures, not cost, carry the conclusion here.
       </div>
     </div>`;
 

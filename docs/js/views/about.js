@@ -106,10 +106,13 @@ DM.renderers.about = function (el) {
         <span>Benchmarked against five standard supervised models on identical data, features,
         splits and cost function, this dashboard's DQN places third of six on misclassification
         cost and <b>last of every tree-based method on both threshold-free ranking measures</b> —
-        which is what a triage tool is actually judged on. See the <b>Performance</b> page for the
-        full table. The contribution of this project is better read as the end-to-end monitoring
-        and explanation system than as evidence that reinforcement learning is the preferable
-        method for distress prediction.</span>
+        which is what a triage tool is actually judged on. Rolling-origin validation across three
+        independent train/test boundaries confirms this is not an artefact of one arbitrary split:
+        the ranking deficit reproduces at <b>every</b> origin tested, even though the cost ranking
+        swings between 2nd and 5th. See the <b>Performance</b> page for the full table. The
+        contribution of this project is better read as the end-to-end monitoring and explanation
+        system than as evidence that reinforcement learning is the preferable method for distress
+        prediction.</span>
       </div>
     </div>
 
