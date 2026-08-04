@@ -101,6 +101,16 @@ DM.renderers.about = function (el) {
         <b>⚠️ It is a backtest, not a live system.</b>
         <span>Never validated on live forward data.</span>
       </div>
+      <div class="dm-warn-card" style="grid-column:1/-1;">
+        <b>⚠️ Reinforcement learning is not shown to beat conventional classifiers here.</b>
+        <span>Benchmarked against five standard supervised models on identical data, features,
+        splits and cost function, this dashboard's DQN places third of six on misclassification
+        cost and <b>last of every tree-based method on both threshold-free ranking measures</b> —
+        which is what a triage tool is actually judged on. See the <b>Performance</b> page for the
+        full table. The contribution of this project is better read as the end-to-end monitoring
+        and explanation system than as evidence that reinforcement learning is the preferable
+        method for distress prediction.</span>
+      </div>
     </div>
 
     <h3 class="dm-section-gap">What drives the model overall</h3>

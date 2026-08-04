@@ -1,7 +1,31 @@
 DM.renderers.performance = function (el) {
-  const { metrics, card } = DM.data;
+  const { metrics, card, baselines } = DM.data;
   const cm = metrics.confusion;
   const positiveRate = card.test_positives / card.test_rows;
+
+  // Supervised-classifier benchmark. This panel is deliberately unflattering: it is the
+  // like-for-like test of whether the RL framing earns its complexity on a one-step problem,
+  // and the answer here is "not clearly". Leaving it out of the artefact while it sits in the
+  // write-up would contradict this dashboard's own stated principle of putting the model's
+  // weaknesses on the same screen as its results.
+  const baselinePanel = !baselines ? '' : `
+    <div class="dm-panel">
+      <div class="dm-panel-title">Benchmarked against conventional classifiers</div>
+      <p class="dm-caption" style="margin:-.6rem 0 1.3rem 0;">${baselines.regime}</p>
+      <div class="dm-table-scroll"><table class="dm-table" id="perf-baselines"></table></div>
+      <div class="dm-banner dm-banner-warning" style="margin:1.4rem 0 0 0;">
+        <b>Read this before treating the RL model as the best available option.</b>
+        On misclassification cost this dashboard's DQN places
+        <b>${baselines.rows.filter(r => !r.model.startsWith('Altman')).findIndex(r => r.is_this_model) + 1}
+        of ${baselines.rows.filter(r => !r.model.startsWith('Altman')).length}</b>. More importantly,
+        on the two threshold-free ranking measures — which is what a triage tool is actually judged
+        on, and which cannot be explained away by where the decision threshold sits — it ranks below
+        every tree-based method tested. Its one apparent advantage, the highest precision in the
+        table, comes from a conservative threshold that flags only
+        ${cm.TP + cm.FP} companies in the whole test split. The reinforcement-learning framing is
+        <b>not</b> demonstrated to beat conventional supervised classification on this dataset.
+      </div>
+    </div>`;
 
   el.innerHTML = `
     <div class="dm-eyebrow">Model evaluation</div>
@@ -76,6 +100,8 @@ DM.renderers.performance = function (el) {
       same held-out test rows for every agent. Lower is better. Figures are read directly from each agent's
       own results file, never recomputed here.</p>
     </div>
+
+    ${baselinePanel}
   `;
 
   DM.plot(document.getElementById('perf-roc'), [
@@ -109,4 +135,26 @@ DM.renderers.performance = function (el) {
       <tr><td>${a.agent}</td><td>${a.TP}</td><td>${a.FP}</td><td>${a.FN}</td>
       <td>${DM.fmtPct(a.recall, 1)}</td><td>${DM.fmtPct(a.precision, 1)}</td><td>${a.cost}</td></tr>
     `).join('')}</tbody>`;
+
+  if (baselines) {
+    const bt = document.getElementById('perf-baselines');
+    bt.innerHTML = `
+      <thead><tr><th>Model</th><th>Cost</th><th>Recall</th><th>Precision</th>
+      <th>ROC-AUC</th><th>95% CI</th><th>PR-AUC</th></tr></thead>
+      <tbody>${baselines.rows.map(r => {
+        const em = r.is_this_model
+          ? ' style="background:#EAF2FE;font-weight:600;"' : '';
+        const dash = '<span style="color:var(--ink-soft);">—</span>';
+        return `<tr${em}>
+          <td>${r.model}${r.is_this_model ? ' <span class="dm-tag dm-tag-blue">this dashboard</span>' : ''}</td>
+          <td>${r.cost}</td>
+          <td>${DM.fmtPct(r.recall, 1)}</td>
+          <td>${DM.fmtPct(r.precision, 1)}</td>
+          <td>${r.roc_auc == null ? dash : DM.fmtNum(r.roc_auc, 3)}</td>
+          <td class="nowrap">${r.roc_auc_ci95 == null ? dash
+            : `${DM.fmtNum(r.roc_auc_ci95[0], 3)}–${DM.fmtNum(r.roc_auc_ci95[1], 3)}`}</td>
+          <td>${r.pr_auc == null ? dash : DM.fmtNum(r.pr_auc, 3)}</td>
+        </tr>`;
+      }).join('')}</tbody>`;
+  }
 };

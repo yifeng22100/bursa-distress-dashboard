@@ -26,7 +26,8 @@ async function fetchJSON(path) {
 function asBool(v) { return v === true || v === 'True' || v === 'TRUE'; }
 
 DM.loadAll = async function () {
-  const [wlText, secText, histText, rhText, shapText, card, gshap, metrics, weights, changes] =
+  const [wlText, secText, histText, rhText, shapText, card, gshap, metrics, weights, changes,
+         baselines] =
     await Promise.all([
       fetchText('data/watchlist.csv'),
       fetchText('data/sector_risk.csv'),
@@ -38,6 +39,8 @@ DM.loadAll = async function () {
       fetchJSON('data/model_metrics.json'),
       fetchJSON('data/model_weights.json'),
       fetchJSON('data/watchlist_changes.json').catch(() => ({ newly_flagged: [], newly_cleared: [], had_previous_run: false })),
+      // written by 11_baseline_benchmarks.py; the Performance page hides its panel if absent
+      fetchJSON('data/baseline_comparison.json').catch(() => null),
     ]);
 
   const wl = parseCSV(wlText).map(r => ({ ...r, flagged: asBool(r.flagged) }));
@@ -48,7 +51,7 @@ DM.loadAll = async function () {
 
   wl.sort((a, b) => a.rank - b.rank);
 
-  DM.data = { wl, sec, hist, rh, shap, card, gshap, metrics, weights, changes };
+  DM.data = { wl, sec, hist, rh, shap, card, gshap, metrics, weights, changes, baselines };
   return DM.data;
 };
 

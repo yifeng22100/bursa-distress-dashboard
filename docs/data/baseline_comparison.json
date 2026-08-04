@@ -1,0 +1,96 @@
+{
+  "generated_from": "RL_Model_v1/11_baseline_benchmarks.py",
+  "regime": "All models trained on the fit split only (29 distressed company-periods) \u2014 exactly the data this dashboard's DQN learned from \u2014 with thresholds calibrated on the validation split and evaluated once on the 1,740-row test split.",
+  "test_rows": 1740,
+  "test_positives": 19,
+  "rows": [
+    {
+      "model": "LightGBM",
+      "cost": 143,
+      "recall": 0.4211,
+      "precision": 0.4211,
+      "roc_auc": 0.8579,
+      "roc_auc_ci95": [
+        0.751,
+        0.948
+      ],
+      "pr_auc": 0.3942,
+      "is_this_model": false
+    },
+    {
+      "model": "Random Forest (balanced)",
+      "cost": 157,
+      "recall": 0.3158,
+      "precision": 0.4,
+      "roc_auc": 0.8573,
+      "roc_auc_ci95": [
+        0.7456,
+        0.9492
+      ],
+      "pr_auc": 0.3853,
+      "is_this_model": false
+    },
+    {
+      "model": "DQN (one-step, calibrated)",
+      "cost": 159,
+      "recall": 0.2105,
+      "precision": 0.5714,
+      "roc_auc": 0.7396,
+      "roc_auc_ci95": [
+        0.5862,
+        0.8718
+      ],
+      "pr_auc": 0.1508,
+      "is_this_model": true
+    },
+    {
+      "model": "XGBoost",
+      "cost": 175,
+      "recall": 0.3158,
+      "precision": 0.2857,
+      "roc_auc": 0.8627,
+      "roc_auc_ci95": [
+        0.7627,
+        0.9354
+      ],
+      "pr_auc": 0.3235,
+      "is_this_model": false
+    },
+    {
+      "model": "Gradient Boosting",
+      "cost": 186,
+      "recall": 0.3684,
+      "precision": 0.2414,
+      "roc_auc": 0.9199,
+      "roc_auc_ci95": [
+        0.8711,
+        0.9617
+      ],
+      "pr_auc": 0.2066,
+      "is_this_model": false
+    },
+    {
+      "model": "Logistic Regression (balanced)",
+      "cost": 190,
+      "recall": 0.0,
+      "precision": 0.0,
+      "roc_auc": 0.674,
+      "roc_auc_ci95": [
+        0.5231,
+        0.8102
+      ],
+      "pr_auc": 0.0449,
+      "is_this_model": false
+    },
+    {
+      "model": "Altman Z''-Score (rule, threshold 1.1)",
+      "cost": 648,
+      "recall": 0.5263,
+      "precision": 0.051,
+      "roc_auc": null,
+      "roc_auc_ci95": null,
+      "pr_auc": null,
+      "is_this_model": false
+    }
+  ]
+}
