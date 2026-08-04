@@ -168,6 +168,13 @@ button.dm-cta-btn:hover{ background:#F0F0F2; }
 .dm-guide-card:hover, .dm-guide-card:focus-visible{
   transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,.08); border-color:transparent;
 }
+/* Non-clickable reuse of the same card look (e.g. "Who this is for") -- no hover lift/shadow,
+   since there's nothing to click and the lift only ever produced a misleading affordance plus a
+   shadow that visually collided with whatever sits directly below the grid. */
+.dm-guide-card.dm-guide-static{ cursor:default; }
+.dm-guide-card.dm-guide-static:hover, .dm-guide-card.dm-guide-static:focus-visible{
+  transform:none; box-shadow:none; border-color:var(--line-solid);
+}
 .dm-guide-icon{
   flex:none; width:48px; height:48px; border-radius:14px; display:flex; align-items:center;
   justify-content:center; font-size:1.4rem;

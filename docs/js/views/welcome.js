@@ -58,7 +58,7 @@ DM.renderers.welcome = function (el) {
     <h3 class="dm-section-gap">Who this is for</h3>
     <div class="dm-card-grid cols-3">
       ${who.map(([icon, hue, title, desc]) => `
-        <div class="dm-guide-card dm-guide-${hue}" style="cursor:default;">
+        <div class="dm-guide-card dm-guide-static dm-guide-${hue}">
           <div class="dm-guide-icon">${icon}</div>
           <div class="dm-guide-body">
             <div class="dm-guide-title">${title}</div>
@@ -68,7 +68,7 @@ DM.renderers.welcome = function (el) {
       `).join('')}
     </div>
 
-    <div style="max-width:820px;margin:0 auto;">
+    <div style="max-width:820px;margin:2rem auto 0 auto;">
       <div class="dm-banner dm-banner-disclaimer">
         ⚠️ Read this before anything else: this model catches only about ${DM.fmtPct(card.test_recall, 0)}
         of genuinely distressed companies at its default setting, and every flag needs human judgement.
