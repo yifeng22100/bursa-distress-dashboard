@@ -17,7 +17,7 @@ DM.renderers.about = function (el) {
       </div>
     </div>
 
-    <p>This dashboard is the artefact deliverable for <b>RQ4</b> of the capstone. It presents the output of
+    <p>This dashboard is the artefact deliverable of the capstone project. It presents the output of
     reinforcement learning agents trained to flag Bursa Malaysia companies at risk of PN17/GN3
     classification, benchmarked against the classical Altman Z''-Score model.</p>
 
@@ -38,7 +38,7 @@ DM.renderers.about = function (el) {
     <div class="dm-panel" style="margin-top:0;">
       <ul style="margin:0; max-width:none;">
         <li><b>Data</b>: quarterly/annual financial ratios for Bursa Malaysia listed companies, plus a
-          historical record of PN17/GN3 classification dates (Chapter 3).</li>
+          historical record of PN17/GN3 classification dates.</li>
         <li><b>State</b>: 16 features — 8 financial ratios (current ratio, quick ratio, cash ratio, ROA, ROE,
           net debt/total capital, asset turnover, Altman Z''-Score) plus their year-on-year deltas, robust
           median/IQR-scaled on the training split.</li>

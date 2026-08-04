@@ -85,7 +85,7 @@ DM.renderers.sector = function (el) {
     if (uncl && uncl.companies) {
       warnEl.style.display = 'block';
       warnEl.innerHTML = `<b>${uncl.companies} companies carry no sector classification</b> and appear as
-        their own bucket. These are the delisted-firm supplement records (Chapter 3), and
+        their own bucket. These are the delisted-firm supplement records, and
         ${uncl.currently_distressed} of them are genuinely distressed — so excluding them, which earlier
         drafts of this analysis did, would make the sector picture look better than it is.`;
     }

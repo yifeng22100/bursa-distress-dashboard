@@ -27,8 +27,8 @@ DM.renderers.trends = function (el) {
       <p class="dm-caption" id="tr-caption" style="margin-top:1.1rem;"></p>
     </div>
     <div class="dm-banner dm-banner-info" id="tr-zscore-note" style="display:none;">
-      The Altman Z''-Score distress threshold is 1.1. This project's own benchmark analysis (Chapter 4.3)
-      found it flags 13% of all Bursa company-periods — high recall, low precision.
+      The Altman Z''-Score distress threshold is 1.1. This project's own benchmark analysis found it
+      flags 13% of all Bursa company-periods — high recall, low precision.
     </div>
   `;
 

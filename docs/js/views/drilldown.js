@@ -87,8 +87,8 @@ DM.renderers.drilldown = function (el) {
         <div class="dm-panel-title">Financial indicators</div>
         <div class="dm-table-scroll"><table class="dm-table" id="dd-indicators"></table></div>
         <p class="dm-caption" style="margin-top:1.1rem;">Blank cells are genuinely missing in the source data,
-        not zero. The model imputes these with the training-set median, which is itself a limitation
-        (Chapter 5.4).</p>
+        not zero. The model imputes these with the training-set median, which is itself a
+        limitation.</p>
       </div>
 
       <div class="dm-panel" style="background:#EAF2FE; border-color:#C7DFFB;">

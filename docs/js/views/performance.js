@@ -36,8 +36,7 @@ DM.renderers.performance = function (el) {
     <div class="dm-eyebrow">Model evaluation</div>
     <div class="dm-pagetitle">Model performance</div>
     <p class="dm-page-caption">Full evaluation of the calibrated one-step DQN on held-out 2025+ test data —
-    the same numbers reported in Chapter 4 of the write-up, computed live by the same script that builds
-    this dashboard.</p>
+    computed live by the same script that builds this dashboard.</p>
 
     <div class="dm-panel">
       <div class="dm-panel-title">Headline metrics</div>
