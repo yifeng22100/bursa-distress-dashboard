@@ -10,17 +10,15 @@ DM.renderers.trends = function (el) {
     <p class="dm-page-caption">Compare a financial indicator over time across companies.</p>
 
     <div class="dm-toolbar">
-      <div class="dm-field-row" style="margin-bottom:0;">
-        <div class="dm-field" style="margin-bottom:0;">
-          <label class="dm-label">Indicator</label>
-          <select class="dm-select" id="tr-indicator">
-            ${Object.keys(DM.PRETTY).map(k => `<option value="${k}">${DM.PRETTY[k]}</option>`).join('')}
-          </select>
-        </div>
-        <div class="dm-field" style="flex:2; margin-bottom:0;">
-          <label class="dm-label">Companies (default: current top 5 by risk)</label>
-          <div id="tr-picker"></div>
-        </div>
+      <div class="dm-field" style="max-width:420px;">
+        <label class="dm-label">Indicator</label>
+        <select class="dm-select" id="tr-indicator">
+          ${Object.keys(DM.PRETTY).map(k => `<option value="${k}">${DM.PRETTY[k]}</option>`).join('')}
+        </select>
+      </div>
+      <div class="dm-field" style="margin-bottom:0;">
+        <label class="dm-label">Companies (default: current top 5 by risk)</label>
+        <div id="tr-picker"></div>
       </div>
     </div>
 

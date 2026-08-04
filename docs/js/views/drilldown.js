@@ -29,7 +29,7 @@ DM.renderers.drilldown = function (el) {
 
   function renderDdOpts(q) {
     const query = (q || '').toLowerCase();
-    const matches = sorted.filter(r => r.company_name.toLowerCase().includes(query)).slice(0, 40);
+    const matches = sorted.filter(r => r.company_name.toLowerCase().includes(query));
     ddDrop.innerHTML = matches.map(r =>
       `<div class="dm-slot-option" data-name="${r.company_name}">${r.company_name}${r.ticker ? ` (${r.ticker})` : ''}</div>`).join('');
     ddDrop.querySelectorAll('.dm-slot-option').forEach(opt => {

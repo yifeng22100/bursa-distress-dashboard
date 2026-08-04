@@ -311,7 +311,7 @@ button.dm-btn:hover{ border-color:var(--blue); color:var(--blue); }
 /* chip multiselect */
 .dm-chipselect{ position:relative; }
 .dm-chipbox{
-  display:flex; flex-wrap:wrap; gap:.9rem; align-items:center; padding:.8rem .9rem;
+  display:flex; flex-wrap:wrap; gap:.75rem 1.1rem; align-items:center; padding:1rem 1.1rem;
   border:1px solid var(--line); border-radius:10px; background:var(--fill-5); min-height:2.6rem;
   cursor:text;
 }

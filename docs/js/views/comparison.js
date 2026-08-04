@@ -66,7 +66,7 @@ DM.renderers.comparison = function (el) {
 
     function renderOpts(q) {
       const query = (q || '').toLowerCase();
-      const matches = sortedNames.filter(n => !chosen.has(n) && n.toLowerCase().includes(query)).slice(0, 30);
+      const matches = sortedNames.filter(n => !chosen.has(n) && n.toLowerCase().includes(query));
       drop.innerHTML = matches.map(n => `<div class="dm-slot-option">${n}</div>`).join('');
       drop.querySelectorAll('.dm-slot-option').forEach(opt => {
         opt.addEventListener('mousedown', (e) => {
@@ -109,7 +109,7 @@ DM.renderers.comparison = function (el) {
 
       <div class="dm-panel">
         <div class="dm-panel-title">What's driving each score</div>
-        <div class="dm-card-grid" style="grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));" id="cmp-shap"></div>
+        <div class="dm-card-grid cols-2" id="cmp-shap"></div>
       </div>
     `;
 
@@ -127,7 +127,7 @@ DM.renderers.comparison = function (el) {
     renderIndicatorChart(names);
 
     document.getElementById('cmp-shap').innerHTML = names.map(name => `
-      <div><b>${name}</b><div id="cmp-shap-${sanitize(name)}" class="dm-chart" style="height:220px;"></div></div>
+      <div><b>${name}</b><div id="cmp-shap-${sanitize(name)}" class="dm-chart" style="height:260px;"></div></div>
     `).join('');
     names.forEach(name => {
       const srow = shap.find(r => r.company_name === name);

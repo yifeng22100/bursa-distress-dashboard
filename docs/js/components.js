@@ -35,7 +35,7 @@ DM.createChipSelect = function (container, opts) {
 
   function renderDropdown(query) {
     const q = (query || '').toLowerCase();
-    const matches = options.filter(o => !sel.includes(o) && o.toLowerCase().includes(q)).slice(0, 50);
+    const matches = options.filter(o => !sel.includes(o) && o.toLowerCase().includes(q));
     if (!matches.length) { dropEl.classList.remove('open'); dropEl.innerHTML = ''; return; }
     dropEl.innerHTML = matches.map(o => `<div class="dm-chip-option">${o}</div>`).join('');
     dropEl.classList.add('open');
