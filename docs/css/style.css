@@ -57,7 +57,7 @@ button.dm-brand{
   font-size:3.5rem; font-weight:700; letter-spacing:-0.025em; line-height:1.07;
   margin:0 auto .9rem auto; max-width:820px;
 }
-.dm-hero p{ color:var(--ink-soft); font-size:1.15rem; max-width:820px; margin:0 auto; line-height:1.5; }
+.dm-hero p{ color:var(--ink-soft); font-size:1.15rem; margin:0 auto; line-height:1.5; }
 
 /* True edge-to-edge bleed to the actual browser viewport (not just .dm-main's own content box) --
    width:100vw + margin:calc(50%-50vw) breaks the element out of the centered/max-width column.
@@ -87,13 +87,13 @@ button.dm-brand{
   color:var(--blue); margin-bottom:.5rem; display:flex; align-items:center;
 }
 .dm-pagetitle{ font-size:2.05rem; font-weight:700; letter-spacing:-0.02em; margin:0 0 .6rem 0; line-height:1.15; }
-.dm-page-caption{ color:var(--ink-soft); font-size:1rem; line-height:1.6; max-width:920px; margin:0 0 2.5rem 0; }
+.dm-page-caption{ color:var(--ink-soft); font-size:1rem; line-height:1.6; margin:0 0 2.5rem 0; }
 
 /* Every top-level paragraph in a view is a direct child of <section class="dm-view"> (each view's
-   template is assigned straight to its innerHTML) -- capping width and line-height here, once,
-   keeps prose readable everywhere instead of letting text stretch the full 1360px main column. */
-.dm-view > p{ max-width:920px; line-height:1.6; margin:0 0 1.75rem 0; }
-.dm-view ul, .dm-view ol{ max-width:920px; line-height:1.6; padding-left:1.3rem; }
+   template is assigned straight to its innerHTML) -- no width cap, so it uses the same full
+   column width as the cards/panels around it instead of leaving a gap beside shorter text. */
+.dm-view > p{ line-height:1.6; margin:0 0 1.75rem 0; }
+.dm-view ul, .dm-view ol{ line-height:1.6; padding-left:1.3rem; }
 .dm-view ul li, .dm-view ol li{ margin-bottom:.75rem; }
 .dm-view h3{ margin-bottom:1rem; }
 
